@@ -143,7 +143,17 @@
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <script type="text/javascript">
     Paddle.Initialize({
-      token: "live_3d23a490eb6f34c96ae919a7b4c"
+      token: "live_3d23a490eb6f34c96ae919a7b4c",
+      eventCallback: function (event) {
+        try {
+          if (event && event.name === "checkout.completed" && event.data && event.data.transaction_id) {
+            var tid = event.data.transaction_id;
+            window.location.href = "payment-success.html?transaction_id=" + encodeURIComponent(tid);
+          }
+        } catch (e) {
+          // no-op
+        }
+      }
     });
   </script>
 </body>

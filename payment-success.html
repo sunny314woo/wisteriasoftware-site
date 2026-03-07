@@ -182,9 +182,9 @@ Your license is being securely generated.
 // 本地开发（ngrok）：
 // const API_BASE = "https://xxxxx.ngrok-free.dev";
 // VPS 生产：
-const API_BASE = "https://overbrilliant-unphilanthropically-viki.ngrok-free.dev";
+const API_BASE = "https://api.wisteriasoftware.uk";
 
-const FETCH_OPTS={headers:{"ngrok-skip-browser-warning":"1"}};
+const FETCH_OPTS={};
 
 const POLL_INTERVAL=200;
 const MAX_ATTEMPTS=150;
@@ -213,7 +213,7 @@ showSimpleSuccess();
 
 async function exchangeToken(transactionId){
 try{
-const url=`${API_BASE}/api/public/exchange-token?transaction_id=${encodeURIComponent(transactionId)}`;
+const url=`${API_BASE}/api/public/exchange_shortcode?transaction_id=${encodeURIComponent(transactionId)}`;
 const resp=await fetch(url,{method:"POST",...FETCH_OPTS});
 const data=await resp.json();
 
@@ -231,7 +231,7 @@ showError("⚠️ Network error.");
 
 function pollLicense(){
 attempts++;
-const url=`${API_BASE}/api/public/license?token=${encodeURIComponent(currentToken)}`;
+const url=`${API_BASE}/api/public/query_license?token=${encodeURIComponent(currentToken)}`;
 
 fetch(url,FETCH_OPTS)
 .then(r=>r.json())
