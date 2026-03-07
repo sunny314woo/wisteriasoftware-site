@@ -41,10 +41,15 @@
         so you can jump to the exact part you need in seconds.
       </p>
       <div class="hero-actions">
-        <!-- 占位按钮：未来接入支付时，请在这里替换为真实结账链接或脚本 -->
-        <!-- 示例：href="https://buy.paddle.com/checkout/XXXXXX" 或 data-paddle-buy 属性 -->
-        <a class="btn-link primary" href="#" aria-disabled="true">
-          Buy Now (Coming soon)
+        <a
+          class="btn-link primary paddle_button"
+          href="#"
+          data-theme="light"
+          data-locale="en"
+          data-items='[{"priceId":"pri_01khqxts0v5x9z1vv2tz4zxpbg","quantity":1}]'
+          data-success-url="https://wisteriasoftware.uk/payment-success.html"
+        >
+          Buy Now
         </a>
       </div>
       <p class="small-note">14-day refund policy. <a href="refund.html">Read refund details</a>.</p>
@@ -114,9 +119,15 @@
             <li>Works offline after activation</li>
           </ul>
           <div class="hero-actions">
-            <!-- 同上：此处也是支付入口占位 -->
-            <a class="btn-link primary" href="#" aria-disabled="true">
-              Buy Now (Coming soon)
+            <a
+              class="btn-link primary paddle_button"
+              href="#"
+              data-theme="light"
+              data-locale="en"
+              data-items='[{"priceId":"pri_01khqxts0v5x9z1vv2tz4zxpbg","quantity":1}]'
+              data-success-url="https://wisteriasoftware.uk/payment-success.html"
+            >
+              Buy Now
             </a>
           </div>
         </article>
@@ -177,5 +188,11 @@
       <a href="mailto:support@wisteriasoftware.uk">support@wisteriasoftware.uk</a>
     </p>
   </footer>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <script type="text/javascript">
+    Paddle.Initialize({
+      token: "live_3d23a490eb6f34c96ae919a7b4c"
+    });
+  </script>
 </body>
 </html>

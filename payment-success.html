@@ -207,7 +207,7 @@ pollLicense();
 }else if(urlTransactionId){
 await exchangeToken(urlTransactionId);
 }else{
-showError("⚠️ No valid session found.");
+showSimpleSuccess();
 }
 })();
 
@@ -291,6 +291,13 @@ document.getElementById("resend-btn").disabled=true;
 function showError(msg){
 document.getElementById("license-status").innerHTML=
 `<p style="color:orange;">${msg}</p>`;
+}
+
+function showSimpleSuccess(){
+const statusEl=document.getElementById("license-status");
+statusEl.innerHTML=
+`<p style="color:#555;">Your payment is complete. Please check your email for your license and receipt from Paddle.</p>`;
+document.getElementById("resend-btn").disabled=true;
 }
 
 function copyLicense(){

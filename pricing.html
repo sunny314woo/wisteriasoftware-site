@@ -74,7 +74,16 @@
       </p>
       <div class="hero-actions">
         <a class="btn-link primary" href="outline-pro.html">Open Product Page</a>
-        <a class="btn-link secondary" href="#" data-paddle-buy="outline-pro">Buy Now</a>
+        <a
+          class="btn-link secondary paddle_button"
+          href="#"
+          data-theme="light"
+          data-locale="en"
+          data-items='[{"priceId":"pri_01khqxts0v5x9z1vv2tz4zxpbg","quantity":1}]'
+          data-success-url="https://wisteriasoftware.uk/payment-success.html"
+        >
+          Buy Now
+        </a>
       </div>
       <p class="small-note" data-checkout-error style="display:none;color:#b91c1c;"></p>
     </section>
@@ -131,5 +140,11 @@
       </a>
     </p>
   </footer>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <script type="text/javascript">
+    Paddle.Initialize({
+      token: "live_3d23a490eb6f34c96ae919a7b4c"
+    });
+  </script>
 </body>
 </html>
