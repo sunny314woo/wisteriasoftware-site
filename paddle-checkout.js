@@ -77,6 +77,11 @@
       eventCallback: function (event) {
         if (!event || !event.name) return;
 
+        // 统一在控制台打印完整事件，便于排查 Paddle 返回的真实错误结构
+        try {
+          console.log("[Paddle raw event]", event);
+        } catch (e) {}
+
         // 1️⃣ 支付成功事件
         if (event.name === "checkout.completed") {
           try {
@@ -127,6 +132,14 @@
           if (pieces.length) setError(pieces.join(" | "));
 
           console.warn("[Paddle event]", event);
+
+          // 额外调试：直接弹出完整错误对象，防止控制台被过滤看不到日志
+          try {
+            alert(
+              "Paddle checkout error payload:\\n\\n" +
+                JSON.stringify(event, null, 2)
+            );
+          } catch (e) {}
         }
       },
     };
@@ -152,12 +165,11 @@
     }
 
     try {
+      // 为尽量减少触发 Paddle 端校验错误，这里先使用最小配置：
+      // 只传 items，不再通过 settings 传 successUrl/cancelUrl。
+      // 支付成功后的跳转交给 checkout.completed 事件里的手动 window.location.href 处理。
       window.Paddle.Checkout.open({
         items: [{ priceId, quantity: 1 }],
-        settings: {
-          successUrl: SUCCESS_URL,
-          cancelUrl: CANCEL_URL,
-        },
       });
     } catch (e) {
       setError("Unable to open checkout.");

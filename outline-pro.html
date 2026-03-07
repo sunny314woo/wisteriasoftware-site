@@ -41,7 +41,12 @@
         so you can jump to the exact part you need in seconds.
       </p>
       <div class="hero-actions">
-        <a class="btn-link primary" href="#" data-paddle-buy="outline-pro">Buy Now</a>
+        <a
+          class="btn-link primary"
+          href="https://buy.paddle.com/checkout/YOUR_CHECKOUT_ID"
+        >
+          Buy Now
+        </a>
       </div>
       <p class="small-note">14-day refund policy. <a href="refund.html">Read refund details</a>.</p>
       <p class="small-note" data-checkout-error style="display:none;color:#b91c1c;"></p>
@@ -110,7 +115,12 @@
             <li>Works offline after activation</li>
           </ul>
           <div class="hero-actions">
-            <a class="btn-link primary" href="#" data-paddle-buy="outline-pro">Buy Now</a>
+            <a
+              class="btn-link primary"
+              href="https://buy.paddle.com/checkout/live_d34e7d8bc33519a2cb27f563270"
+            >
+              Buy Now
+            </a>
           </div>
         </article>
       </div>
@@ -171,7 +181,9 @@
     </p>
   </footer>
 
-  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
-  <script src="/paddle-checkout.js"></script>
+  <!-- Paddle 托管结账链接，直接使用上面的 href 打开。
+       请到 Paddle 控制台对应价格（Price）的 Payment link 页面，
+       复制正式的 https://buy.paddle.com/checkout/XXXXX 链接，
+       将上面的 YOUR_CHECKOUT_ID 替换为真实 ID。 -->
 </body>
 </html>
