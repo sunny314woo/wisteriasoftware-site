@@ -85,6 +85,7 @@ main {
   max-width: var(--max);
   margin: 0 auto;
   padding: 36px 18px 48px;
+  overflow-x: clip;
 }
 
 .hero {
@@ -486,7 +487,8 @@ footer p {
 .video-shell,
 .preview-grid {
   margin-top: 14px;
-  max-width: 960px;
+  width: 100%;
+  max-width: min(100%, var(--max));
   margin-left: auto;
   margin-right: auto;
 }
@@ -500,7 +502,8 @@ footer p {
 
 .demo-player-shell {
   margin-top: 14px;
-  max-width: 960px;
+  width: 100%;
+  max-width: min(100%, var(--max));
   margin-left: auto;
   margin-right: auto;
 }
@@ -519,6 +522,8 @@ footer p {
 
 .video-poster img {
   width: 100%;
+  max-width: 100%;
+  height: auto;
   display: block;
   aspect-ratio: 16 / 9;
   object-fit: cover;
@@ -568,6 +573,7 @@ footer p {
 .preview-card {
   display: flex;
   flex-direction: column;
+  min-width: 0;
   padding: 16px;
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -577,9 +583,11 @@ footer p {
 
 .preview-card img {
   width: 100%;
+  max-width: 100%;
+  height: auto;
   display: block;
   aspect-ratio: 16 / 10;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 14px;
   border: 1px solid #dbe5f3;
   background: #f8fafc;
@@ -646,7 +654,7 @@ footer p {
 
 .video-inline-note {
   margin: 12px auto 0;
-  max-width: 960px;
+  max-width: min(100%, var(--max));
   color: var(--muted);
   font-size: 13px;
   text-align: center;

@@ -92,13 +92,7 @@
         </figure>
       </div>
       <div class="hero-actions hero-actions-centered">
-        <a
-          class="btn-link primary"
-          href="https://www.youtube.com/watch?v=7ILJyt-og48"
-          target="_blank"
-          rel="noopener noreferrer">
-          Watch 34-second Video
-        </a>
+        <a class="btn-link primary" href="#demo">Play 34-second Demo</a>
         <a class="btn-link secondary" href="#features">Browse Features</a>
       </div>
     </section>
@@ -295,10 +289,8 @@
       var fallback = document.getElementById("outline-demo-fallback");
       var note = document.getElementById("outline-demo-note");
       var demoShell = document.getElementById("outline-demo-shell");
-      var playerReady = false;
       var playerTimeout = null;
-      var playerInstance = null;
-      var apiPromise = null;
+      var VIDEO_ID = "7ILJyt-og48";
 
       if (!poster || !playerRoot || !fallback || !note || !demoShell) return;
 
@@ -307,17 +299,8 @@
           window.clearTimeout(playerTimeout);
           playerTimeout = null;
         }
-
-        if (playerInstance && typeof playerInstance.destroy === "function") {
-          try {
-            playerInstance.destroy();
-          } catch (error) {
-            // ignore teardown errors
-          }
-        }
-
-        playerInstance = null;
-        playerReady = false;
+        playerRoot.innerHTML = "";
+        playerRoot.hidden = true;
         demoShell.hidden = true;
         fallback.hidden = false;
         note.hidden = false;
@@ -326,83 +309,51 @@
         }
       }
 
-      function ensureYoutubeApi() {
-        if (window.YT && typeof window.YT.Player === "function") {
-          return Promise.resolve(window.YT);
-        }
-
-        if (apiPromise) return apiPromise;
-
-        apiPromise = new Promise(function (resolve) {
-          var previousReady = window.onYouTubeIframeAPIReady;
-          window.onYouTubeIframeAPIReady = function () {
-            if (typeof previousReady === "function") {
-              previousReady();
-            }
-            resolve(window.YT);
-          };
-
-          var existing = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
-          if (!existing) {
-            var script = document.createElement("script");
-            script.src = "https://www.youtube.com/iframe_api";
-            document.head.appendChild(script);
-          }
-        });
-
-        return apiPromise;
-      }
-
       function buildPlayer() {
         playerRoot.hidden = false;
         poster.hidden = true;
-        playerRoot.innerHTML = '<div id="outline-demo-player-frame"></div>';
+        playerRoot.innerHTML = "";
 
-        ensureYoutubeApi().then(function () {
-          var playerVars = {
-            autoplay: 1,
-            rel: 0,
-            playsinline: 1
-          };
+        var iframe = document.createElement("iframe");
+        iframe.setAttribute(
+          "src",
+          "https://www.youtube-nocookie.com/embed/" +
+            VIDEO_ID +
+            "?autoplay=1&rel=0&playsinline=1&modestbranding=1"
+        );
+        iframe.setAttribute(
+          "allow",
+          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        );
+        iframe.setAttribute("allowfullscreen", "");
+        iframe.setAttribute("title", "ChatGPT Outline 34-second demo");
+        iframe.setAttribute("loading", "eager");
+        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
+        iframe.style.cssText =
+          "position:absolute;inset:0;width:100%;height:100%;border:0";
+        playerRoot.appendChild(iframe);
 
-          if (window.location.protocol === "http:" || window.location.protocol === "https:") {
-            playerVars.origin = window.location.origin;
+        iframe.addEventListener("load", function () {
+          if (playerTimeout) {
+            window.clearTimeout(playerTimeout);
+            playerTimeout = null;
           }
-
-          playerTimeout = window.setTimeout(function () {
-            if (!playerReady) {
-              showFallback("Video playback could not be started here, so the page is showing real product screenshots instead.");
-            }
-          }, 5000);
-
-          playerInstance = new window.YT.Player("outline-demo-player-frame", {
-            videoId: "7ILJyt-og48",
-            host: "https://www.youtube-nocookie.com",
-            playerVars: playerVars,
-            events: {
-              onReady: function () {
-                playerReady = true;
-                if (playerTimeout) {
-                  window.clearTimeout(playerTimeout);
-                  playerTimeout = null;
-                }
-              },
-              onError: function () {
-                showFallback("Video playback is unavailable on this network, so the page is showing real product screenshots instead.");
-              }
-            }
-          });
-        }).catch(function () {
-          showFallback("The video player could not be loaded, so the page is showing real product screenshots instead.");
         });
+
+        playerTimeout = window.setTimeout(function () {
+          showFallback(
+            "Video playback could not be started here, so the page is showing real product screenshots instead."
+          );
+        }, 15000);
       }
 
       poster.addEventListener("click", function () {
         if (window.location.protocol === "file:") {
-          showFallback("Local file previews do not provide the web origin YouTube expects, so the page is showing real product screenshots instead.");
+          showFallback(
+            "Local file previews do not load the embedded player reliably, so the page is showing real product screenshots instead."
+          );
           return;
         }
-
         buildPlayer();
       });
     })();
