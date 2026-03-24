@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pricing – ChatGPT Conversation Outline Pro</title>
-  <meta name="description" content="Free and Pro pricing for ChatGPT Conversation Outline, with 14-day refund policy." />
+  <title>Pricing – ChatGPT Outline Pro</title>
+  <meta name="description" content="Free and Pro pricing for ChatGPT Outline, with 14-day refund policy." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -21,9 +21,9 @@
       <div class="brand">Wisteria Software</div>
       <nav>
         <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="product.html">Product</a>
+        <a class="nav-link" href="product.html">Products</a>
         <a class="nav-link active" href="pricing.html">Pricing</a>
-        <a class="nav-link" href="outline-pro.html">Outline Pro</a>
+        <a class="nav-link" href="outline-pro.html">ChatGPT Outline</a>
         <a class="nav-link" href="support.html">Support</a>
         <a class="nav-link" href="privacy.html">Privacy</a>
         <a class="nav-link" href="terms.html">Terms</a>
@@ -33,32 +33,35 @@
   </header>
 
   <main>
-    <div class="hero">
+    <div class="hero compact-hero">
       <h1>Pricing</h1>
       <p class="subtitle">
-        Transparent pricing for <strong>ChatGPT Conversation Outline</strong>.
-        Inbox is currently in testing and not yet publicly priced.
+        Transparent pricing for <strong>ChatGPT Outline Pro</strong>. This checkout currently applies to
+        ChatGPT Outline Pro. Other Wisteria Suite products have separate release and availability status.
       </p>
     </div>
 
     <section>
-      <h2>Free Version</h2>
+      <h2>Free</h2>
       <ul>
-        <li>When conversation entries ≤ 15: all items are clickable</li>
-        <li>When conversation entries &gt; 15: first 7 + last 8 items are clickable</li>
-        <li>Local processing only</li>
+        <li>Clickable outline for the first 15 items in each conversation</li>
+        <li>Export up to 3 conversations as Markdown per month</li>
+        <li>A simple way to stay oriented in shorter or lighter ChatGPT sessions</li>
       </ul>
       <p><strong>Price:</strong> Free</p>
     </section>
 
     <section>
-      <h2>Pro Version</h2>
+      <h2>Pro (Yearly)</h2>
       <ul>
         <li>Unlimited clickable outline items</li>
+        <li>Unlimited Markdown exports</li>
+        <li>Works even better with Wisteria Inbox for clearer conversation preview and review</li>
         <li>Up to 3 devices per license</li>
-        <li>1-year access</li>
-        <li>Priority updates</li>
-        <li>Offline use after activation</li>
+        <li>Priority updates and support</li>
+        <li>Activation code delivered by email after purchase</li>
+        <li>Re-activation is allowed during the license validity period</li>
+        <li>Works offline after activation</li>
       </ul>
 
       <p>
@@ -72,15 +75,15 @@
         to the email address provided at checkout. During the license validity period,
         the code can be used again for re-activation.
       </p>
+      <p>
+        <strong>Checkout note:</strong> this checkout is for ChatGPT Outline Pro.
+      </p>
       <div class="hero-actions">
-        <a class="btn-link primary" href="outline-pro.html">Open Product Page</a>
+        <a class="btn-link secondary" href="outline-pro.html">Open Product Page</a>
         <a
-          class="btn-link secondary paddle_button"
+          class="btn-link primary"
           href="#"
-          data-theme="light"
-          data-locale="en"
-          data-items='[{"priceId":"pri_01khqxts0v5x9z1vv2tz4zxpbg","quantity":1}]'
-          data-success-url="https://wisteriasoftware.uk/payment-success.html"
+          data-paddle-price-id="pri_01khqxts0v5x9z1vv2tz4zxpbg"
         >
           Buy Now
         </a>
@@ -121,9 +124,9 @@
  <!-- Footer (static) -->
   <footer>
     <div class="footer-links">
-      <a href="product.html">Product</a> |
+      <a href="product.html">Products</a> |
       <a href="pricing.html">Pricing</a> |
-      <a href="outline-pro.html">Outline Pro</a> |
+      <a href="outline-pro.html">ChatGPT Outline</a> |
       <a href="support.html">Support</a> |
       <a href="privacy.html">Privacy Policy</a> |
       <a href="terms.html">Terms of Service</a> |
@@ -155,6 +158,39 @@
         }
       }
     });
+  </script>
+  <script>
+    (function () {
+      var checkoutSettings = {
+        items: [{ priceId: "pri_01khqxts0v5x9z1vv2tz4zxpbg", quantity: 1 }],
+        settings: {
+          theme: "light",
+          locale: "en",
+          successUrl: "https://wisteriasoftware.uk/payment-success.html"
+        }
+      };
+
+      document.querySelectorAll("[data-paddle-price-id]").forEach(function (button) {
+        button.addEventListener("click", function (event) {
+          event.preventDefault();
+
+          var errorTarget = document.querySelector("[data-checkout-error]");
+          if (errorTarget) {
+            errorTarget.style.display = "none";
+            errorTarget.textContent = "";
+          }
+
+          try {
+            Paddle.Checkout.open(checkoutSettings);
+          } catch (error) {
+            if (errorTarget) {
+              errorTarget.textContent = "Checkout is temporarily unavailable. Please try again.";
+              errorTarget.style.display = "block";
+            }
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
