@@ -117,50 +117,23 @@
     <section>
       <h2>Watch ChatGPT Outline in Action</h2>
       <p>
-        See how ChatGPT Outline turns a long chat into a clean, clickable outline in under a minute.
+        See the real product interface first, then open the product page or the 34-second video if you want the walkthrough.
       </p>
-      <div class="video-shell">
-        <div class="video-frame video-launch" data-video-open="homepage-demo">
-          <span class="eyebrow">Demo video</span>
-          <h3>ChatGPT Outline on a real conversation</h3>
-          <p>
-            Open the short demo here to see how the outline appears, updates, and helps you jump through long chats.
-          </p>
-          <div class="hero-actions">
-            <button class="btn-link secondary" type="button" data-video-open="homepage-demo">Play Demo</button>
-          </div>
-        </div>
+      <div class="preview-grid">
+        <figure class="preview-card">
+          <img src="outline-demo-jump.png" alt="ChatGPT Outline preview showing image navigation and jump-to-item behavior." />
+          <figcaption>Jump straight to the exact part of a long conversation.</figcaption>
+        </figure>
+        <figure class="preview-card">
+          <img src="outline-demo-find.png" alt="ChatGPT Outline preview showing a clean sidebar outline for a long chat." />
+          <figcaption>Scan a clean outline instead of endlessly scrolling.</figcaption>
+        </figure>
+      </div>
+      <div class="hero-actions hero-actions-centered">
+        <a class="btn-link primary" href="outline-pro.html#demo">Open Product Preview</a>
+        <a class="btn-link secondary" href="https://www.youtube.com/watch?v=7ILJyt-og48" target="_blank" rel="noopener noreferrer">Watch 34-second Video</a>
       </div>
     </section>
-
-    <div class="video-modal" id="homepage-demo" hidden>
-      <div class="video-modal-backdrop" data-video-close></div>
-      <div class="video-modal-shell">
-        <div class="video-modal-head">
-          <h3>ChatGPT Outline Demo</h3>
-          <button class="video-close" type="button" data-video-close>Close</button>
-        </div>
-        <div class="video-modal-frame">
-          <iframe
-            title="ChatGPT Outline demo"
-            data-video-src="https://www.youtube-nocookie.com/embed/7ILJyt-og48?rel=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-        <p class="video-modal-note">
-          The video opens inside this page. If YouTube asks visitors to sign in or verify access, they can also open it directly.
-        </p>
-        <div class="hero-actions video-modal-actions">
-          <a
-            class="btn-link secondary"
-            href="https://www.youtube.com/watch?v=7ILJyt-og48"
-            target="_blank"
-            rel="noopener noreferrer">
-            Open on YouTube
-          </a>
-        </div>
-      </div>
-    </div>
 
     <section>
       <h2>Why This Structure Works</h2>
@@ -209,53 +182,6 @@
     </p>
   </footer>
 
-  <script>
-    (function () {
-      function openModal(id) {
-        var modal = document.getElementById(id);
-        if (!modal) return;
-        modal.hidden = false;
-        var iframe = modal.querySelector("iframe[data-video-src]");
-        if (iframe && !iframe.src) {
-          iframe.src = iframe.getAttribute("data-video-src");
-        }
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeModal(modal) {
-        if (!modal) return;
-        modal.hidden = true;
-        var iframe = modal.querySelector("iframe[data-video-src]");
-        if (iframe) {
-          iframe.src = "";
-        }
-        document.body.style.overflow = "";
-      }
-
-      document.querySelectorAll("[data-video-open]").forEach(function (trigger) {
-        trigger.addEventListener("click", function () {
-          openModal(trigger.getAttribute("data-video-open"));
-        });
-      });
-
-      document.querySelectorAll(".video-modal").forEach(function (modal) {
-        modal.querySelectorAll("[data-video-close]").forEach(function (closer) {
-          closer.addEventListener("click", function () {
-            closeModal(modal);
-          });
-        });
-      });
-
-      document.addEventListener("keydown", function (event) {
-        if (event.key !== "Escape") return;
-        document.querySelectorAll(".video-modal").forEach(function (modal) {
-          if (!modal.hidden) {
-            closeModal(modal);
-          }
-        });
-      });
-    })();
-  </script>
 </body>
 
 </html>

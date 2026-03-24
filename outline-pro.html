@@ -61,53 +61,47 @@
       </div>
     </div>
 
-    <section>
-      <h2>See It in Action</h2>
+    <section class="demo-section" id="demo">
+      <h2>Watch the 34-second Demo</h2>
       <p>
-        Watch a short demo of ChatGPT Outline on a real conversation.
+        Watch ChatGPT Outline on a real conversation. If the embedded player cannot load, the page falls back to real product screenshots automatically.
       </p>
-      <div class="video-shell">
-        <div class="video-frame video-launch" data-video-open="outline-demo">
-          <span class="eyebrow">Demo video</span>
-          <h3>ChatGPT Outline in under a minute</h3>
-          <p>
-            Open the demo here to watch ChatGPT Outline turn a long conversation into a clean, clickable outline.
-          </p>
-          <div class="hero-actions">
-            <button class="btn-link secondary" type="button" data-video-open="outline-demo">Play Demo</button>
-          </div>
-        </div>
+      <div class="demo-player-shell" id="outline-demo-shell">
+        <button class="video-poster" id="outline-demo-poster" type="button">
+          <img src="outline-demo-find.png" alt="ChatGPT Outline demo poster preview." />
+          <span class="video-poster-overlay">
+            <span class="eyebrow">34-second demo</span>
+            <strong>See ChatGPT Outline in action</strong>
+            <span>Play the product walkthrough directly on this page.</span>
+            <span class="video-poster-cta">Play Demo</span>
+          </span>
+        </button>
+        <div class="inline-video-player" id="outline-demo-player" hidden></div>
+      </div>
+      <p class="video-inline-note" id="outline-demo-note" hidden>
+        Video playback is unavailable in this environment, so the page is showing real product screenshots instead.
+      </p>
+      <div class="preview-grid" id="outline-demo-fallback" hidden>
+        <figure class="preview-card">
+          <img src="outline-demo-jump.png" alt="ChatGPT Outline preview showing image navigation and jump-to-item behavior." />
+          <figcaption>Click any item to jump instantly to the right part of a long conversation.</figcaption>
+        </figure>
+        <figure class="preview-card">
+          <img src="outline-demo-find.png" alt="ChatGPT Outline preview showing a clean sidebar outline for a long chat." />
+          <figcaption>Turn long ChatGPT conversations into a clean, scannable outline.</figcaption>
+        </figure>
+      </div>
+      <div class="hero-actions hero-actions-centered">
+        <a
+          class="btn-link primary"
+          href="https://www.youtube.com/watch?v=7ILJyt-og48"
+          target="_blank"
+          rel="noopener noreferrer">
+          Watch 34-second Video
+        </a>
+        <a class="btn-link secondary" href="#features">Browse Features</a>
       </div>
     </section>
-
-    <div class="video-modal" id="outline-demo" hidden>
-      <div class="video-modal-backdrop" data-video-close></div>
-      <div class="video-modal-shell">
-        <div class="video-modal-head">
-          <h3>ChatGPT Outline Demo</h3>
-          <button class="video-close" type="button" data-video-close>Close</button>
-        </div>
-        <div class="video-modal-frame">
-          <iframe
-            title="ChatGPT Outline demo"
-            data-video-src="https://www.youtube-nocookie.com/embed/7ILJyt-og48?rel=0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-        </div>
-        <p class="video-modal-note">
-          The video opens inside this page. If YouTube asks visitors to sign in or verify access, they can also open it directly.
-        </p>
-        <div class="hero-actions video-modal-actions">
-          <a
-            class="btn-link secondary"
-            href="https://www.youtube.com/watch?v=7ILJyt-og48"
-            target="_blank"
-            rel="noopener noreferrer">
-            Open on YouTube
-          </a>
-        </div>
-      </div>
-    </div>
 
     <section>
       <h2>What It Does</h2>
@@ -119,36 +113,6 @@
       <p>
         ChatGPT page content is processed locally in your browser and is not uploaded to our servers.
       </p>
-    </section>
-
-    <section>
-      <h2>Feature Demo</h2>
-      <div class="feature-grid">
-        <article class="feature-item">
-          <h3>1. One-click Outline</h3>
-          <p>Click <strong>Outline</strong> in ChatGPT to auto-extract the current conversation question list.</p>
-        </article>
-        <article class="feature-item">
-          <h3>2. Click to Jump</h3>
-          <p>Click any item to smoothly scroll to the target message and highlight it.</p>
-        </article>
-        <article class="feature-item">
-          <h3>3. Auto Refresh</h3>
-          <p>When new messages appear or you switch conversations, the outline updates automatically.</p>
-        </article>
-        <article class="feature-item">
-          <h3>4. Image-aware Marking</h3>
-          <p>Image-only or mixed text-image prompts are labeled for faster review.</p>
-        </article>
-        <article class="feature-item">
-          <h3>5. Flexible Sidebar</h3>
-          <p>Switch left/right, resize by dragging, and toggle with <strong>Alt/Option + ←/→</strong>.</p>
-        </article>
-        <article class="feature-item">
-          <h3>6. Markdown Export &amp; Inbox Import</h3>
-          <p>Download the current conversation as Markdown, or import it into Inbox for local review with preserved navigation.</p>
-        </article>
-      </div>
     </section>
 
     <section>
@@ -192,6 +156,36 @@
       <div class="notice-box" style="margin-top: 16px;">
         <strong>Refund policy:</strong> All purchases are covered by a 14-day refund policy.
         <a href="refund.html">View Refund Policy</a>
+      </div>
+    </section>
+
+    <section id="features">
+      <h2>Features</h2>
+      <div class="feature-grid">
+        <article class="feature-item">
+          <h3>1. One-click Outline</h3>
+          <p>Click <strong>Outline</strong> in ChatGPT to auto-extract the current conversation question list.</p>
+        </article>
+        <article class="feature-item">
+          <h3>2. Click to Jump</h3>
+          <p>Click any item to smoothly scroll to the target message and highlight it.</p>
+        </article>
+        <article class="feature-item">
+          <h3>3. Auto Refresh</h3>
+          <p>When new messages appear or you switch conversations, the outline updates automatically.</p>
+        </article>
+        <article class="feature-item">
+          <h3>4. Image-aware Marking</h3>
+          <p>Image-only or mixed text-image prompts are labeled for faster review.</p>
+        </article>
+        <article class="feature-item">
+          <h3>5. Flexible Sidebar</h3>
+          <p>Switch left/right, resize by dragging, and toggle with <strong>Alt/Option + ←/→</strong>.</p>
+        </article>
+        <article class="feature-item">
+          <h3>6. Markdown Export &amp; Inbox Import</h3>
+          <p>Download the current conversation as Markdown, or import it into Inbox for local review with preserved navigation.</p>
+        </article>
       </div>
     </section>
 
@@ -296,48 +290,120 @@
   </script>
   <script>
     (function () {
-      function openModal(id) {
-        var modal = document.getElementById(id);
-        if (!modal) return;
-        modal.hidden = false;
-        var iframe = modal.querySelector("iframe[data-video-src]");
-        if (iframe && !iframe.src) {
-          iframe.src = iframe.getAttribute("data-video-src");
+      var poster = document.getElementById("outline-demo-poster");
+      var playerRoot = document.getElementById("outline-demo-player");
+      var fallback = document.getElementById("outline-demo-fallback");
+      var note = document.getElementById("outline-demo-note");
+      var demoShell = document.getElementById("outline-demo-shell");
+      var playerReady = false;
+      var playerTimeout = null;
+      var playerInstance = null;
+      var apiPromise = null;
+
+      if (!poster || !playerRoot || !fallback || !note || !demoShell) return;
+
+      function showFallback(message) {
+        if (playerTimeout) {
+          window.clearTimeout(playerTimeout);
+          playerTimeout = null;
         }
-        document.body.style.overflow = "hidden";
+
+        if (playerInstance && typeof playerInstance.destroy === "function") {
+          try {
+            playerInstance.destroy();
+          } catch (error) {
+            // ignore teardown errors
+          }
+        }
+
+        playerInstance = null;
+        playerReady = false;
+        demoShell.hidden = true;
+        fallback.hidden = false;
+        note.hidden = false;
+        if (message) {
+          note.textContent = message;
+        }
       }
 
-      function closeModal(modal) {
-        if (!modal) return;
-        modal.hidden = true;
-        var iframe = modal.querySelector("iframe[data-video-src]");
-        if (iframe) {
-          iframe.src = "";
+      function ensureYoutubeApi() {
+        if (window.YT && typeof window.YT.Player === "function") {
+          return Promise.resolve(window.YT);
         }
-        document.body.style.overflow = "";
-      }
 
-      document.querySelectorAll("[data-video-open]").forEach(function (trigger) {
-        trigger.addEventListener("click", function () {
-          openModal(trigger.getAttribute("data-video-open"));
-        });
-      });
+        if (apiPromise) return apiPromise;
 
-      document.querySelectorAll(".video-modal").forEach(function (modal) {
-        modal.querySelectorAll("[data-video-close]").forEach(function (closer) {
-          closer.addEventListener("click", function () {
-            closeModal(modal);
-          });
-        });
-      });
+        apiPromise = new Promise(function (resolve) {
+          var previousReady = window.onYouTubeIframeAPIReady;
+          window.onYouTubeIframeAPIReady = function () {
+            if (typeof previousReady === "function") {
+              previousReady();
+            }
+            resolve(window.YT);
+          };
 
-      document.addEventListener("keydown", function (event) {
-        if (event.key !== "Escape") return;
-        document.querySelectorAll(".video-modal").forEach(function (modal) {
-          if (!modal.hidden) {
-            closeModal(modal);
+          var existing = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+          if (!existing) {
+            var script = document.createElement("script");
+            script.src = "https://www.youtube.com/iframe_api";
+            document.head.appendChild(script);
           }
         });
+
+        return apiPromise;
+      }
+
+      function buildPlayer() {
+        playerRoot.hidden = false;
+        poster.hidden = true;
+        playerRoot.innerHTML = '<div id="outline-demo-player-frame"></div>';
+
+        ensureYoutubeApi().then(function () {
+          var playerVars = {
+            autoplay: 1,
+            rel: 0,
+            playsinline: 1
+          };
+
+          if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+            playerVars.origin = window.location.origin;
+          }
+
+          playerTimeout = window.setTimeout(function () {
+            if (!playerReady) {
+              showFallback("Video playback could not be started here, so the page is showing real product screenshots instead.");
+            }
+          }, 5000);
+
+          playerInstance = new window.YT.Player("outline-demo-player-frame", {
+            videoId: "7ILJyt-og48",
+            host: "https://www.youtube-nocookie.com",
+            playerVars: playerVars,
+            events: {
+              onReady: function () {
+                playerReady = true;
+                if (playerTimeout) {
+                  window.clearTimeout(playerTimeout);
+                  playerTimeout = null;
+                }
+              },
+              onError: function () {
+                showFallback("Video playback is unavailable on this network, so the page is showing real product screenshots instead.");
+              }
+            }
+          });
+        }).catch(function () {
+          showFallback("The video player could not be loaded, so the page is showing real product screenshots instead.");
+        });
+      }
+
+      poster.addEventListener("click", function () {
+        if (window.location.protocol === "file:") {
+          showFallback("Local file previews do not provide the web origin YouTube expects, so the page is showing real product screenshots instead.");
+          return;
+        }
+
+        buildPlayer();
       });
     })();
   </script>
