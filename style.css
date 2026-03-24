@@ -599,6 +599,10 @@ footer p {
   font-size: 13px;
 }
 
+.video-modal-actions {
+  margin-top: 12px;
+}
+
 .meta-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
