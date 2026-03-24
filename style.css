@@ -6,7 +6,12 @@
   --card: #f9fafb;
   --primary: #2563eb;
   --primary-soft: #e0e7ff;
-  --max: 920px;
+  /* Max content width (fluid: never exceeds viewport; see main/nav/footer). */
+  --max: 1100px;
+  /* Horizontal page padding scales with viewport; not a single fixed px. */
+  --page-gutter-x: clamp(16px, 4vw, 28px);
+  /* Long-form text line length: stays readable, scales down on narrow screens. */
+  --prose-width: min(72ch, 100%);
 }
 
 /* Reset & base */
@@ -42,9 +47,10 @@ header {
 }
 
 .nav-wrap {
+  width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 14px 18px;
+  padding: 14px var(--page-gutter-x);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -82,14 +88,15 @@ nav {
 
 /* Layout */
 main {
+  width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 36px 18px 48px;
+  padding: 36px var(--page-gutter-x) 48px;
   overflow-x: clip;
 }
 
 .hero {
-  padding: 24px 22px;
+  padding: 24px clamp(16px, 3vw, 22px);
   border: 1px solid var(--line);
   background: var(--card);
   border-radius: 18px;
@@ -109,7 +116,7 @@ main {
 
 .compact-hero .subtitle {
   font-size: 14px;
-  max-width: 760px;
+  max-width: var(--prose-width);
 }
 
 .split-hero {
@@ -165,7 +172,7 @@ h2 {
   margin: 0;
   color: var(--muted);
   font-size: 15px;
-  max-width: 720px;
+  max-width: var(--prose-width);
 }
 
 section {
@@ -212,9 +219,10 @@ li {
 
 /* Footer */
 footer {
+  width: 100%;
   max-width: var(--max);
   margin: 0 auto;
-  padding: 28px 18px 36px;
+  padding: 28px var(--page-gutter-x) 36px;
   border-top: 1px solid var(--line);
   font-size: 13px;
   color: var(--muted);
@@ -255,7 +263,7 @@ footer p {
   }
 
   .hero {
-    padding: 22px 18px;
+    padding: 22px var(--page-gutter-x);
   }
 
   .compact-hero {
@@ -552,7 +560,7 @@ footer p {
 }
 
 .video-poster-overlay span:last-child {
-  max-width: 700px;
+  max-width: min(52ch, 100%);
   font-size: 18px;
   line-height: 1.45;
 }
@@ -617,7 +625,7 @@ footer p {
 }
 
 .video-frame p {
-  max-width: 620px;
+  max-width: var(--prose-width);
   color: rgba(255, 255, 255, 0.86);
 }
 
