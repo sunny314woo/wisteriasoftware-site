@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ChatGPT Outline Pro</title>
-  <meta name="description" content="Get ChatGPT Outline Pro. View the demo, features, pricing, FAQ, and buy now via Paddle checkout." />
+  <meta name="description" content="Get ChatGPT Outline Pro. Browse long chats with an outline, highlight key Q&As, and export full or highlighted conversations to local Markdown or Inbox." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -37,7 +37,7 @@
       <span class="eyebrow">Current paid product</span>
       <h1>ChatGPT Outline</h1>
       <p class="subtitle">
-        Turn long ChatGPT conversations into a clickable outline so you can jump to the exact part you need in seconds.
+        Turn long ChatGPT conversations into a clickable outline, highlight the Q&amp;As that matter, and export exactly what you marked to local Markdown or Inbox.
       </p>
       <div class="hero-actions">
         <a
@@ -105,6 +105,9 @@
         you can jump to any key point instantly instead of endless scrolling.
       </p>
       <p>
+        You can also highlight the specific Q&amp;A turns worth keeping, then export either the full conversation or only the highlighted parts to local Markdown or Inbox.
+      </p>
+      <p>
         ChatGPT page content is processed locally in your browser and is not uploaded to our servers.
       </p>
     </section>
@@ -117,7 +120,8 @@
           <h3>Free</h3>
           <ul>
             <li>Clickable outline for the first 15 items in each conversation</li>
-            <li>Export up to 3 conversations as Markdown per month</li>
+            <li>Highlight important Q&amp;A turns in up to 3 conversations</li>
+            <li>Export up to 3 conversations per month to local Markdown or Inbox</li>
             <li>A simple way to stay oriented in shorter or lighter ChatGPT sessions</li>
           </ul>
         </article>
@@ -128,8 +132,9 @@
           <p class="price-line">$9.99 / year <span class="price-old">$19</span></p>
           <ul>
             <li>Unlimited clickable outline items</li>
-            <li>Unlimited Markdown exports</li>
-            <li>Works even better with Wisteria Inbox for clearer conversation preview and review</li>
+            <li>Unlimited exports to local Markdown or Inbox</li>
+            <li>Highlight important Q&amp;A turns across unlimited conversations</li>
+            <li>Export only highlighted Q&amp;As when you do not need the full conversation</li>
             <li>Up to 3 devices per license</li>
             <li>Priority updates and support</li>
             <li>Activation code delivered by email after purchase</li>
@@ -151,6 +156,7 @@
         <strong>Refund policy:</strong> All purchases are covered by a 14-day refund policy.
         <a href="refund.html">View Refund Policy</a>
       </div>
+      <p class="small-note">An active Pro trial follows Pro limits for highlights and exports, including unlimited highlighted conversations.</p>
     </section>
 
     <section id="features">
@@ -165,20 +171,24 @@
           <p>Click any item to smoothly scroll to the target message and highlight it.</p>
         </article>
         <article class="feature-item">
-          <h3>3. Auto Refresh</h3>
+          <h3>3. Highlight Important Q&amp;As</h3>
+          <p>Mark the exact user-and-reply turns you want to keep. Free supports highlights in up to 3 conversations, while Pro and active trial unlock unlimited highlighted conversations.</p>
+        </article>
+        <article class="feature-item">
+          <h3>4. Auto Refresh</h3>
           <p>When new messages appear or you switch conversations, the outline updates automatically.</p>
         </article>
         <article class="feature-item">
-          <h3>4. Image-aware Marking</h3>
+          <h3>5. Image-aware Marking</h3>
           <p>Image-only or mixed text-image prompts are labeled for faster review.</p>
         </article>
         <article class="feature-item">
-          <h3>5. Flexible Sidebar</h3>
+          <h3>6. Flexible Sidebar</h3>
           <p>Switch left/right, resize by dragging, and toggle with <strong>Alt/Option + ←/→</strong>.</p>
         </article>
         <article class="feature-item">
-          <h3>6. Markdown Export &amp; Inbox Import</h3>
-          <p>Download the current conversation as Markdown, or import it into Inbox for local review with preserved navigation.</p>
+          <h3>7. Highlight Export &amp; Inbox Send</h3>
+          <p>Export the full conversation, or export only your highlighted Q&amp;As, to local Markdown or Inbox for focused review later.</p>
         </article>
       </div>
     </section>
@@ -200,7 +210,11 @@
         </article>
         <article class="faq-item">
           <h3>What is the difference between Free and Pro?</h3>
-          <p>Free lets you click the first 15 outline items in each conversation and export up to 3 conversations as Markdown per month. Pro unlocks unlimited clickable outline items and unlimited Markdown exports.</p>
+          <p>Free lets you click the first 15 outline items in each conversation, highlight Q&amp;As in up to 3 conversations, and export up to 3 conversations per month. Pro removes those limits, and an active Pro trial follows the same highlight and export limits as Pro.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Can I export only the highlighted parts?</h3>
+          <p>Yes. If you mark important Q&amp;As first, you can export only those highlighted sections to local Markdown or Inbox instead of exporting the whole conversation.</p>
         </article>
         <article class="faq-item">
           <h3>Which environment is supported?</h3>
@@ -239,9 +253,18 @@
       token: "live_3d23a490eb6f34c96ae919a7b4c",
       eventCallback: function (event) {
         try {
-          if (event && event.name === "checkout.completed" && event.data && event.data.transaction_id) {
-            var tid = event.data.transaction_id;
-            window.location.href = "payment-success.html?transaction_id=" + encodeURIComponent(tid);
+          if (event && event.name === "checkout.completed" && event.data) {
+            var tid =
+              event.data.transaction_id ||
+              (event.data.transaction && event.data.transaction.id) ||
+              "";
+            if (tid) {
+              try {
+                sessionStorage.setItem("paddle_checkout_txn", tid);
+              } catch (e) {}
+              window.location.href =
+                "payment-success.html?transaction_id=" + encodeURIComponent(tid);
+            }
           }
         } catch (e) {
           // no-op: avoid breaking checkout if something goes wrong

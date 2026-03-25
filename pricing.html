@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pricing – ChatGPT Outline Pro</title>
-  <meta name="description" content="Free and Pro pricing for ChatGPT Outline, with 14-day refund policy." />
+  <meta name="description" content="Free and Pro pricing for ChatGPT Outline, including highlight limits, exports to local Markdown or Inbox, and a 14-day refund policy." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -45,7 +45,8 @@
       <h2>Free</h2>
       <ul>
         <li>Clickable outline for the first 15 items in each conversation</li>
-        <li>Export up to 3 conversations as Markdown per month</li>
+        <li>Highlight important Q&amp;A turns in up to 3 conversations</li>
+        <li>Export up to 3 conversations per month to local Markdown or Inbox</li>
         <li>A simple way to stay oriented in shorter or lighter ChatGPT sessions</li>
       </ul>
       <p><strong>Price:</strong> Free</p>
@@ -55,8 +56,9 @@
       <h2>Pro (Yearly)</h2>
       <ul>
         <li>Unlimited clickable outline items</li>
-        <li>Unlimited Markdown exports</li>
-        <li>Works even better with Wisteria Inbox for clearer conversation preview and review</li>
+        <li>Unlimited exports to local Markdown or Inbox</li>
+        <li>Highlight important Q&amp;A turns across unlimited conversations</li>
+        <li>Export only highlighted Q&amp;As when you do not need the full conversation</li>
         <li>Up to 3 devices per license</li>
         <li>Priority updates and support</li>
         <li>Activation code delivered by email after purchase</li>
@@ -74,6 +76,9 @@
         The Pro version is delivered digitally. After purchase, an activation code is sent
         to the email address provided at checkout. During the license validity period,
         the code can be used again for re-activation.
+      </p>
+      <p>
+        An active Pro trial follows the same highlight and export limits as Pro, including unlimited highlighted conversations.
       </p>
       <p>
         <strong>Checkout note:</strong> this checkout is for ChatGPT Outline Pro.
@@ -149,9 +154,18 @@
       token: "live_3d23a490eb6f34c96ae919a7b4c",
       eventCallback: function (event) {
         try {
-          if (event && event.name === "checkout.completed" && event.data && event.data.transaction_id) {
-            var tid = event.data.transaction_id;
-            window.location.href = "payment-success.html?transaction_id=" + encodeURIComponent(tid);
+          if (event && event.name === "checkout.completed" && event.data) {
+            var tid =
+              event.data.transaction_id ||
+              (event.data.transaction && event.data.transaction.id) ||
+              "";
+            if (tid) {
+              try {
+                sessionStorage.setItem("paddle_checkout_txn", tid);
+              } catch (e) {}
+              window.location.href =
+                "payment-success.html?transaction_id=" + encodeURIComponent(tid);
+            }
           }
         } catch (e) {
           // no-op
