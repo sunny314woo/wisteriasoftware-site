@@ -112,35 +112,30 @@
       </p>
     </section>
 
-    <section>
+    <section id="pricing">
       <h2>Pricing</h2>
       <div class="price-grid">
         <article class="price-card">
           <span class="status-pill">Free</span>
           <h3>Free</h3>
           <ul>
-            <li>Clickable outline for the first 15 items in each conversation</li>
-            <li>Highlight important Q&amp;A turns in up to 3 conversations</li>
-            <li>Export up to 3 conversations per month to local Markdown or Inbox</li>
-            <li>A simple way to stay oriented in shorter or lighter ChatGPT sessions</li>
+            <li>Up to 15 outline items</li>
+            <li>Limited highlights</li>
+            <li>Limited exports</li>
           </ul>
+          <p>Good for short chats</p>
         </article>
 
         <article class="price-card highlight">
           <span class="status-pill">Pro Annual</span>
-          <h3>ChatGPT Outline Pro</h3>
-          <p class="price-line">$9.99 / year <span class="price-old">$19</span></p>
+          <h3>Pro</h3>
+          <p class="price-line">$9.99/year</p>
           <ul>
-            <li>Unlimited clickable outline items</li>
-            <li>Unlimited exports to local Markdown or Inbox</li>
-            <li>Highlight important Q&amp;A turns across unlimited conversations</li>
-            <li>Export only highlighted Q&amp;As when you do not need the full conversation</li>
-            <li>Up to 3 devices per license</li>
-            <li>Priority updates and support</li>
-            <li>Activation code delivered by email after purchase</li>
-            <li>Re-activation is allowed during the license validity period</li>
-            <li>Works offline after activation</li>
+            <li>Unlimited outline &amp; navigation</li>
+            <li>Unlimited highlights &amp; exports</li>
+            <li>Highlight-only export (save time)</li>
           </ul>
+          <p>Best for long, serious chats</p>
           <div class="hero-actions">
             <a
               class="btn-link primary"
@@ -282,27 +277,59 @@
           successUrl: "https://wisteriasoftware.uk/payment-success.html"
         }
       };
+      var checkoutOpened = false;
+      var shouldAutoCheckout = false;
+
+      try {
+        shouldAutoCheckout = new URLSearchParams(window.location.search).get("autoCheckout") === "1";
+      } catch (error) {
+        shouldAutoCheckout = false;
+      }
+
+      function showCheckoutError() {
+        var errorTarget = document.querySelector("[data-checkout-error]");
+        if (errorTarget) {
+          errorTarget.textContent = "Checkout is temporarily unavailable. Please try again.";
+          errorTarget.style.display = "block";
+        }
+      }
+
+      function clearCheckoutError() {
+        var errorTarget = document.querySelector("[data-checkout-error]");
+        if (errorTarget) {
+          errorTarget.style.display = "none";
+          errorTarget.textContent = "";
+        }
+      }
+
+      function openCheckout() {
+        if (checkoutOpened) return;
+
+        clearCheckoutError();
+
+        try {
+          Paddle.Checkout.open(checkoutSettings);
+          checkoutOpened = true;
+        } catch (error) {
+          showCheckoutError();
+        }
+      }
 
       document.querySelectorAll("[data-paddle-price-id]").forEach(function (button) {
         button.addEventListener("click", function (event) {
           event.preventDefault();
 
-          var errorTarget = document.querySelector("[data-checkout-error]");
-          if (errorTarget) {
-            errorTarget.style.display = "none";
-            errorTarget.textContent = "";
-          }
-
-          try {
-            Paddle.Checkout.open(checkoutSettings);
-          } catch (error) {
-            if (errorTarget) {
-              errorTarget.textContent = "Checkout is temporarily unavailable. Please try again.";
-              errorTarget.style.display = "block";
-            }
-          }
+          openCheckout();
         });
       });
+
+      if (shouldAutoCheckout) {
+        var pricingSection = document.getElementById("pricing");
+        if (pricingSection) {
+          pricingSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        window.setTimeout(openCheckout, 2000);
+      }
     })();
   </script>
   <script>
