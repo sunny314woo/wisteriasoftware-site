@@ -668,6 +668,22 @@ footer p {
   text-align: center;
 }
 
+.workflow-band,
+.companion-section {
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.workflow-line {
+  margin: 8px 0 14px;
+  color: #1e3a8a;
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
 .meta-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -704,6 +720,10 @@ footer p {
   color: #1e3a8a;
   font-size: 12px;
   font-weight: 700;
+}
+
+.inbox-page .hero-card {
+  border-color: #c7d2fe;
 }
 
 @media (max-width: 760px) {

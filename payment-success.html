@@ -196,16 +196,33 @@ let resendCooldown=false;
 let resendCount=0;
 const MAX_RESEND=2;
 
+const PADDLE_TXN_STORAGE_KEY = "paddle_checkout_txn";
+
 const params=new URLSearchParams(window.location.search);
 const urlToken=params.get("token");
-const urlTransactionId=params.get("transaction_id");
+const urlTransactionId=
+  params.get("transaction_id") ||
+  params.get("txn") ||
+  params.get("_ptxn");
+
+function takeStoredTransactionId(){
+try{
+var v=sessionStorage.getItem(PADDLE_TXN_STORAGE_KEY);
+if(v){
+sessionStorage.removeItem(PADDLE_TXN_STORAGE_KEY);
+return v;
+}
+}catch(e){}
+return null;
+}
 
 (async function init(){
+var txnId=urlTransactionId||takeStoredTransactionId();
 if(urlToken){
 currentToken=urlToken;
 pollLicense();
-}else if(urlTransactionId){
-await exchangeToken(urlTransactionId);
+}else if(txnId){
+await exchangeToken(txnId);
 }else{
 showSimpleSuccess();
 }
@@ -213,7 +230,7 @@ showSimpleSuccess();
 
 async function exchangeToken(transactionId){
 try{
-const url=`${API_BASE}/api/public/exchange_shortcode?transaction_id=${encodeURIComponent(transactionId)}`;
+const url=`${API_BASE}/api/public/exchange-token?transaction_id=${encodeURIComponent(transactionId)}`;
 const resp=await fetch(url,{method:"POST",...FETCH_OPTS});
 const data=await resp.json();
 
@@ -231,7 +248,7 @@ showError("⚠️ Network error.");
 
 function pollLicense(){
 attempts++;
-const url=`${API_BASE}/api/public/query_license?token=${encodeURIComponent(currentToken)}`;
+const url=`${API_BASE}/api/public/license?token=${encodeURIComponent(currentToken)}`;
 
 fetch(url,FETCH_OPTS)
 .then(r=>r.json())
