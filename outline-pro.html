@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ChatGPT Outline Pro</title>
-  <meta name="description" content="Get ChatGPT Outline Pro. Browse long chats with an outline, highlight key Q&As, and export full or highlighted conversations to local Markdown or Inbox." />
+  <title>Wisteria Jump - ChatGPT &amp; Gemini Outline Navigator</title>
+  <meta name="description" content="Wisteria Jump is a Chrome extension for ChatGPT and Gemini that turns long AI conversations into a clickable sidebar outline. Jump to messages, highlight key Q&amp;As, and export to Markdown or Inbox. Gemini outline jumping has no directory jump count limit." />
+  <link rel="canonical" href="https://wisteriasoftware.uk/outline-pro.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Wisteria Jump - ChatGPT &amp; Gemini Outline Navigator" />
+  <meta property="og:description" content="Turn long ChatGPT and Gemini conversations into a clickable sidebar outline. Highlight key Q&amp;As and export to Markdown or Inbox." />
+  <meta property="og:url" content="https://wisteriasoftware.uk/outline-pro.html" />
+  <meta property="og:site_name" content="Wisteria Software" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Wisteria Jump - ChatGPT &amp; Gemini Outline Navigator" />
+  <meta name="twitter:description" content="A Chrome extension for navigating, highlighting, and exporting long ChatGPT and Gemini conversations." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -13,6 +22,172 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
   <meta name="theme-color" content="#6d3fcb" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://wisteriasoftware.uk/#organization",
+        "name": "Wisteria Software Ltd",
+        "url": "https://wisteriasoftware.uk/",
+        "email": "support@wisteriasoftware.uk"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://wisteriasoftware.uk/#website",
+        "name": "Wisteria Software",
+        "url": "https://wisteriasoftware.uk/",
+        "publisher": {
+          "@id": "https://wisteriasoftware.uk/#organization"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://wisteriasoftware.uk/outline-pro.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://wisteriasoftware.uk/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Wisteria Jump",
+            "item": "https://wisteriasoftware.uk/outline-pro.html"
+          }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://wisteriasoftware.uk/outline-pro.html#software",
+        "name": "Wisteria Jump",
+        "alternateName": "Wisteria Jump",
+        "url": "https://wisteriasoftware.uk/outline-pro.html",
+        "description": "Wisteria Jump is a Chrome extension for ChatGPT and Gemini that turns long AI conversations into a clickable sidebar outline. It supports message jumping, Q&A highlights, and exports to local Markdown or Inbox. Gemini outline jumping has no directory jump count limit.",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome, Chromium",
+        "browserRequirements": "Chrome or a Chromium-based browser",
+        "softwareHelp": "https://wisteriasoftware.uk/support.html",
+        "publisher": {
+          "@id": "https://wisteriasoftware.uk/#organization"
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Wisteria Jump Annual Pro Plan",
+            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
+            "price": "9.99",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "description": "Early bird annual price for the Pro plan for Wisteria Jump. Original price is USD 19.99 per year."
+          },
+          {
+            "@type": "Offer",
+            "name": "Wisteria Jump Lifetime Early Bird",
+            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
+            "price": "19.90",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/PreOrder",
+            "description": "Early bird lifetime access. Original price is USD 49. Maintenance is promised through at least May 2029."
+          }
+        ]
+      },
+      {
+        "@type": "Product",
+        "@id": "https://wisteriasoftware.uk/outline-pro.html#product",
+        "name": "Wisteria Jump",
+        "alternateName": "Wisteria Jump",
+        "description": "A Chrome extension for navigating, highlighting, and exporting long ChatGPT and Gemini conversations.",
+        "image": [
+          "https://wisteriasoftware.uk/outline-demo-find.png",
+          "https://wisteriasoftware.uk/outline-demo-jump.png"
+        ],
+        "brand": {
+          "@type": "Brand",
+          "name": "Wisteria Software"
+        },
+        "category": "Browser extension",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Wisteria Jump Annual Pro Plan",
+            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
+            "price": "9.99",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "description": "Early bird annual price for the Pro plan for Wisteria Jump. Original price is USD 19.99 per year."
+          },
+          {
+            "@type": "Offer",
+            "name": "Wisteria Jump Lifetime Early Bird",
+            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
+            "price": "19.90",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/PreOrder",
+            "description": "Early bird lifetime access. Original price is USD 49. Maintenance is promised through at least May 2029."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://wisteriasoftware.uk/outline-pro.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is Wisteria Jump?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wisteria Jump is a Chrome extension that converts long ChatGPT and Gemini conversations into a clickable sidebar outline so you can jump to key messages, highlight important Q&As, and export to Markdown or Inbox."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Wisteria Jump support Gemini?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Wisteria Jump supports Gemini conversations in Chrome and Chromium-based browser extension environments."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Gemini outline jumping limited?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Gemini outline jumping has no directory jump count limit."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between Free, Pro, and Lifetime?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Free includes ChatGPT jumping for the first 15 outline items, unlimited Gemini outline jumping, limited highlights, and limited exports. The Pro plan removes the ChatGPT navigation, highlight, and export limits. Lifetime is planned as a one-time payment for Pro access, with maintenance promised through at least May 2029."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Wisteria Jump upload my ChatGPT or Gemini content?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. ChatGPT and Gemini page content is processed locally in your browser and is not uploaded to Wisteria Software servers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I export only highlighted Q&As?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can mark important Q&As and export only those highlighted sections to local Markdown or Inbox."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -23,7 +198,7 @@
         <a class="nav-link" href="index.html">Home</a>
         <a class="nav-link" href="product.html">Products</a>
         <a class="nav-link" href="pricing.html">Pricing</a>
-        <a class="nav-link active" href="outline-pro.html">ChatGPT Outline</a>
+        <a class="nav-link active" href="outline-pro.html">Wisteria Jump</a>
         <a class="nav-link" href="inbox.html">Inbox</a>
         <a class="nav-link" href="support.html">Support</a>
         <a class="nav-link" href="privacy.html">Privacy</a>
@@ -35,10 +210,13 @@
 
   <main>
     <div class="hero sales-hero">
-      <span class="eyebrow">Current paid product</span>
-      <h1>ChatGPT Outline</h1>
+      <span class="eyebrow">ChatGPT &amp; Gemini Outline Navigator: Sidebar</span>
+      <h1>Wisteria Jump</h1>
       <p class="subtitle">
-        Turn long ChatGPT conversations into a clickable outline, highlight the Q&amp;As that matter, and export exactly what you marked to local Markdown or Inbox.
+        Navigate long conversations with a smart sidebar outline for ChatGPT &amp; Gemini. Jump to messages, mark key turns, and export chats effortlessly.
+      </p>
+      <p class="subtitle">
+        Gemini outline jumping has no directory jump count limit. Highlight the Q&amp;As that matter and export exactly what you marked to local Markdown or Inbox.
       </p>
       <div class="hero-actions">
         <a
@@ -46,7 +224,7 @@
           href="#"
           data-paddle-price-id="pri_01khqxts0v5x9z1vv2tz4zxpbg"
         >
-          Buy ChatGPT Outline Pro
+          Upgrade to Pro
         </a>
       </div>
       <p class="small-note">14-day refund policy. <a href="refund.html">Read refund details</a>.</p>
@@ -65,14 +243,14 @@
     <section class="demo-section" id="demo">
       <h2>Watch the 34-second Demo</h2>
       <p>
-        Watch ChatGPT Outline on a real conversation. If the embedded player cannot load, the page falls back to real product screenshots automatically.
+        Watch Wisteria Jump on a real conversation. If the embedded player cannot load, the page falls back to real product screenshots automatically.
       </p>
       <div class="demo-player-shell" id="outline-demo-shell">
         <button class="video-poster" id="outline-demo-poster" type="button">
-          <img src="outline-demo-find.png" alt="ChatGPT Outline demo poster preview." />
+          <img src="outline-demo-find.png" alt="Wisteria Jump demo poster preview." />
           <span class="video-poster-overlay">
             <span class="eyebrow">34-second demo</span>
-            <strong>See ChatGPT Outline in action</strong>
+            <strong>See Wisteria Jump in action</strong>
             <span>Play the product walkthrough directly on this page.</span>
             <span class="video-poster-cta">Play Demo</span>
           </span>
@@ -84,12 +262,12 @@
       </p>
       <div class="preview-grid" id="outline-demo-fallback" hidden>
         <figure class="preview-card">
-          <img src="outline-demo-jump.png" alt="ChatGPT Outline preview showing image navigation and jump-to-item behavior." />
+          <img src="outline-demo-jump.png" alt="Wisteria Jump preview showing image navigation and jump-to-item behavior." />
           <figcaption>Click any item to jump instantly to the right part of a long conversation.</figcaption>
         </figure>
         <figure class="preview-card">
-          <img src="outline-demo-find.png" alt="ChatGPT Outline preview showing a clean sidebar outline for a long chat." />
-          <figcaption>Turn long ChatGPT conversations into a clean, scannable outline.</figcaption>
+          <img src="outline-demo-find.png" alt="Wisteria Jump preview showing a clean sidebar outline for a long chat." />
+          <figcaption>Turn long ChatGPT and Gemini conversations into a clean, scannable outline.</figcaption>
         </figure>
       </div>
       <div class="hero-actions hero-actions-centered">
@@ -101,7 +279,7 @@
     <section>
       <h2>What It Does</h2>
       <p>
-        <strong>ChatGPT Outline Pro</strong> automatically turns long ChatGPT sessions into a clickable table of contents.
+        <strong>Wisteria Jump</strong> automatically turns long ChatGPT and Gemini sessions into a clickable table of contents.
         Whether you are writing, coding, studying, or running multi-round discussions,
         you can jump to any key point instantly instead of endless scrolling.
       </p>
@@ -109,7 +287,7 @@
         You can also highlight the specific Q&amp;A turns worth keeping, then export either the full conversation or only the highlighted parts to local Markdown or Inbox.
       </p>
       <p>
-        ChatGPT page content is processed locally in your browser and is not uploaded to our servers.
+        ChatGPT and Gemini page content is processed locally in your browser and is not uploaded to our servers.
       </p>
     </section>
 
@@ -120,17 +298,18 @@
           <span class="status-pill">Free</span>
           <h3>Free</h3>
           <ul>
-            <li>Up to 15 outline items</li>
+            <li>ChatGPT: jump to the first 15 outline items</li>
+            <li>Gemini: unlimited outline jumping</li>
             <li>Limited highlights</li>
             <li>Limited exports</li>
           </ul>
-          <p>Good for short chats</p>
+          <p>Good for short chats and Gemini navigation</p>
         </article>
 
         <article class="price-card highlight">
           <span class="status-pill">Pro Annual</span>
           <h3>Pro</h3>
-          <p class="price-line">$9.99/year</p>
+          <p class="price-line">$9.99/year <span class="price-old">$19.99/year</span></p>
           <ul>
             <li>Unlimited outline &amp; navigation</li>
             <li>Unlimited highlights &amp; exports</li>
@@ -143,7 +322,24 @@
               href="#"
               data-paddle-price-id="pri_01khqxts0v5x9z1vv2tz4zxpbg"
             >
-              Buy ChatGPT Outline Pro
+              Upgrade to Pro
+            </a>
+          </div>
+        </article>
+
+        <article class="price-card">
+          <span class="status-pill">Lifetime Early Bird</span>
+          <h3>Lifetime</h3>
+          <p class="price-line">$19.90 <span class="price-old">$49</span></p>
+          <ul>
+            <li>One-time payment for the Pro plan for Wisteria Jump</li>
+            <li>All Pro features without yearly renewal</li>
+            <li>Maintenance promised through at least May 2029</li>
+          </ul>
+          <p>Early bird lifetime access</p>
+          <div class="hero-actions">
+            <a class="btn-link secondary" href="#pricing">
+              Coming soon
             </a>
           </div>
         </article>
@@ -152,7 +348,7 @@
         <strong>Refund policy:</strong> All purchases are covered by a 14-day refund policy.
         <a href="refund.html">View Refund Policy</a>
       </div>
-      <p class="small-note">New users get a 7-day Pro trial. During the trial, Pro limits apply to outline navigation, highlights, and exports.</p>
+      <p class="small-note">New users get a 7-day Pro trial. During the trial, Pro limits apply to outline navigation, highlights, and exports. Gemini outline jumping has no directory jump count limit.</p>
     </section>
 
     <section id="features">
@@ -160,7 +356,7 @@
       <div class="feature-grid">
         <article class="feature-item">
           <h3>1. One-click Outline</h3>
-          <p>Click <strong>Outline</strong> in ChatGPT to auto-extract the current conversation question list.</p>
+          <p>Click <strong>Outline</strong> in ChatGPT or Gemini to auto-extract the current conversation question list. Gemini outline jumping has no directory jump count limit.</p>
         </article>
         <article class="feature-item">
           <h3>2. Click to Jump</h3>
@@ -194,7 +390,15 @@
       <div class="faq-grid">
         <article class="faq-item">
           <h3>What is this product for?</h3>
-          <p>It converts long ChatGPT conversations into a clickable outline so you can quickly find and review key points.</p>
+          <p>It converts long ChatGPT and Gemini conversations into a clickable outline so you can quickly find and review key points. Gemini outline jumping has no directory jump count limit.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Does Wisteria Jump support Gemini?</h3>
+          <p>Yes. Wisteria Jump supports Gemini conversations in Chrome and Chromium-based browser extension environments.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Is Gemini outline jumping limited?</h3>
+          <p>No. Gemini outline jumping has no directory jump count limit.</p>
         </article>
         <article class="faq-item">
           <h3>How do I activate after purchase?</h3>
@@ -206,7 +410,7 @@
         </article>
         <article class="faq-item">
           <h3>Do you offer a trial?</h3>
-          <p>Yes. New users get a 7-day Pro trial. During the trial, Pro limits apply to outline navigation, highlights, and exports.</p>
+          <p>Yes. New users get a 7-day Pro trial. During the trial, Pro limits apply to outline navigation, highlights, and exports. Gemini outline jumping has no directory jump count limit.</p>
         </article>
         <article class="faq-item">
           <h3>Do I need to stay online after activation?</h3>
@@ -214,7 +418,15 @@
         </article>
         <article class="faq-item">
           <h3>What is the difference between Free and Pro?</h3>
-          <p>Free lets you click the first 15 outline items, add up to 2 highlights per conversation, and export up to 3 conversations per month. Pro and active trial remove those limits.</p>
+          <p>Free lets you click the first 15 ChatGPT outline items, use unlimited Gemini outline jumping, add up to 2 highlights per conversation, and export up to 3 conversations per month. The Pro plan and active trial remove the ChatGPT navigation, highlight, and export limits.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What is the Lifetime plan?</h3>
+          <p>Lifetime is a planned one-time purchase for the Pro plan for Wisteria Jump. The early bird price is $19.90, the original price is $49, and maintenance is promised through at least May 2029. Lifetime checkout is coming soon.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Does Wisteria Jump upload my ChatGPT or Gemini content?</h3>
+          <p>No. ChatGPT and Gemini page content is processed locally in your browser and is not uploaded to our servers.</p>
         </article>
         <article class="faq-item">
           <h3>Can I export only the highlighted parts?</h3>
@@ -222,7 +434,7 @@
         </article>
         <article class="faq-item">
           <h3>Which environment is supported?</h3>
-          <p>ChatGPT web usage scenarios in Chrome/Chromium browser extension environments.</p>
+          <p>ChatGPT and Gemini web usage scenarios in Chrome/Chromium browser extension environments.</p>
         </article>
         <article class="faq-item">
           <h3>How can I contact support?</h3>
@@ -236,7 +448,7 @@
     <div class="footer-links">
       <a href="product.html">Products</a> |
       <a href="pricing.html">Pricing</a> |
-      <a href="outline-pro.html">ChatGPT Outline</a> |
+      <a href="outline-pro.html">Wisteria Jump</a> |
       <a href="inbox.html">Inbox</a> |
       <a href="support.html">Support</a> |
       <a href="privacy.html">Privacy Policy</a> |
@@ -288,12 +500,12 @@
         }
       };
       var checkoutOpened = false;
-      var shouldAutoCheckout = false;
+      var shouldScrollToPricing = false;
 
       try {
-        shouldAutoCheckout = new URLSearchParams(window.location.search).get("autoCheckout") === "1";
+        shouldScrollToPricing = new URLSearchParams(window.location.search).get("autoCheckout") === "1";
       } catch (error) {
-        shouldAutoCheckout = false;
+        shouldScrollToPricing = false;
       }
 
       function showCheckoutError() {
@@ -333,12 +545,11 @@
         });
       });
 
-      if (shouldAutoCheckout) {
+      if (shouldScrollToPricing) {
         var pricingSection = document.getElementById("pricing");
         if (pricingSection) {
           pricingSection.scrollIntoView({ behavior: "smooth", block: "start" });
         }
-        window.setTimeout(openCheckout, 2000);
       }
     })();
   </script>
@@ -386,7 +597,7 @@
           "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         );
         iframe.setAttribute("allowfullscreen", "");
-        iframe.setAttribute("title", "ChatGPT Outline 34-second demo");
+        iframe.setAttribute("title", "Wisteria Jump 34-second demo");
         iframe.setAttribute("loading", "eager");
         iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
         iframe.style.cssText =

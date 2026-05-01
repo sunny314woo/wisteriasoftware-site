@@ -285,6 +285,10 @@ footer p {
   gap: 16px;
 }
 
+.price-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .product-card,
 .feature-item,
 .price-card,
