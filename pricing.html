@@ -183,21 +183,78 @@
   </footer>
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <script type="text/javascript">
+    var PADDLE_TXN_STORAGE_KEY = "paddle_checkout_txn";
+    var PADDLE_TXN_STORAGE_TS_KEY = "paddle_checkout_txn_ts";
+    var PADDLE_TXN_STORAGE_MAX_AGE_MS = 4 * 60 * 60 * 1000;
+
+    function readStoredPaddleTransactionId() {
+      var now = Date.now();
+      try {
+        var sessionTid = sessionStorage.getItem(PADDLE_TXN_STORAGE_KEY);
+        var sessionTs = Number(sessionStorage.getItem(PADDLE_TXN_STORAGE_TS_KEY) || 0);
+        if (sessionTid && sessionTs && now - sessionTs < PADDLE_TXN_STORAGE_MAX_AGE_MS) return sessionTid;
+      } catch (e) {}
+      try {
+        var localTid = localStorage.getItem(PADDLE_TXN_STORAGE_KEY);
+        var localTs = Number(localStorage.getItem(PADDLE_TXN_STORAGE_TS_KEY) || 0);
+        if (localTid && localTs && now - localTs < PADDLE_TXN_STORAGE_MAX_AGE_MS) return localTid;
+      } catch (e) {}
+      return "";
+    }
+
+    function storePaddleTransactionId(tid) {
+      if (!tid || typeof tid !== "string" || tid.indexOf("txn_") !== 0) return;
+      var now = String(Date.now());
+      try {
+        sessionStorage.setItem(PADDLE_TXN_STORAGE_KEY, tid);
+        sessionStorage.setItem(PADDLE_TXN_STORAGE_TS_KEY, now);
+      } catch (e) {}
+      try {
+        localStorage.setItem(PADDLE_TXN_STORAGE_KEY, tid);
+        localStorage.setItem(PADDLE_TXN_STORAGE_TS_KEY, now);
+      } catch (e) {}
+    }
+
+    function extractPaddleTransactionId(event) {
+      var data = event && event.data ? event.data : {};
+      var candidates = [
+        data.transaction_id,
+        data.transactionId,
+        data.transaction && data.transaction.id,
+        data.transaction && data.transaction.transaction_id,
+        data.checkout && data.checkout.transaction_id,
+        data.checkout && data.checkout.transaction && data.checkout.transaction.id,
+        data.id
+      ];
+
+      for (var i = 0; i < candidates.length; i++) {
+        var value = candidates[i];
+        if (typeof value === "string" && value.indexOf("txn_") === 0) {
+          return value;
+        }
+      }
+      return "";
+    }
+
+    function redirectToPaymentSuccess(tid) {
+      window.location.href = "/payment-success?transaction_id=" + encodeURIComponent(tid);
+    }
+
     Paddle.Initialize({
       token: "live_3d23a490eb6f34c96ae919a7b4c",
       eventCallback: function (event) {
         try {
-          if (event && event.name === "checkout.completed" && event.data) {
-            var tid =
-              event.data.transaction_id ||
-              (event.data.transaction && event.data.transaction.id) ||
-              "";
+          var tid = extractPaddleTransactionId(event);
+          if (tid) {
+            storePaddleTransactionId(tid);
+          }
+          if (event && event.name === "checkout.completed") {
+            tid = tid || readStoredPaddleTransactionId();
             if (tid) {
-              try {
-                sessionStorage.setItem("paddle_checkout_txn", tid);
-              } catch (e) {}
-              window.location.href =
-                "payment-success.html?transaction_id=" + encodeURIComponent(tid);
+              storePaddleTransactionId(tid);
+              redirectToPaymentSuccess(tid);
+            } else {
+              window.location.href = "/payment-success";
             }
           }
         } catch (e) {
@@ -213,7 +270,7 @@
         settings: {
           theme: "light",
           locale: "en",
-          successUrl: "https://wisteriasoftware.uk/payment-success.html"
+          successUrl: "https://wisteriasoftware.uk/payment-success"
         }
       };
 

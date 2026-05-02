@@ -188,8 +188,11 @@ const FETCH_OPTS={};
 
 const POLL_INTERVAL=200;
 const MAX_ATTEMPTS=150;
+const EXCHANGE_POLL_INTERVAL=1000;
+const MAX_EXCHANGE_ATTEMPTS=120;
 
 let attempts=0;
+let exchangeAttempts=0;
 let licenseReady=false;
 let currentToken=null;
 let resendCooldown=false;
@@ -197,6 +200,8 @@ let resendCount=0;
 const MAX_RESEND=2;
 
 const PADDLE_TXN_STORAGE_KEY = "paddle_checkout_txn";
+const PADDLE_TXN_STORAGE_TS_KEY = "paddle_checkout_txn_ts";
+const PADDLE_TXN_STORAGE_MAX_AGE_MS = 4 * 60 * 60 * 1000;
 
 const params=new URLSearchParams(window.location.search);
 const urlToken=params.get("token");
@@ -206,11 +211,29 @@ const urlTransactionId=
   params.get("_ptxn");
 
 function takeStoredTransactionId(){
+var v=null;
+var ts=0;
+var now=Date.now();
 try{
-var v=sessionStorage.getItem(PADDLE_TXN_STORAGE_KEY);
+v=sessionStorage.getItem(PADDLE_TXN_STORAGE_KEY);
+ts=Number(sessionStorage.getItem(PADDLE_TXN_STORAGE_TS_KEY)||0);
+sessionStorage.removeItem(PADDLE_TXN_STORAGE_TS_KEY);
 if(v){
 sessionStorage.removeItem(PADDLE_TXN_STORAGE_KEY);
+if(ts&&now-ts<PADDLE_TXN_STORAGE_MAX_AGE_MS){
 return v;
+}
+}
+}catch(e){}
+try{
+v=localStorage.getItem(PADDLE_TXN_STORAGE_KEY);
+ts=Number(localStorage.getItem(PADDLE_TXN_STORAGE_TS_KEY)||0);
+localStorage.removeItem(PADDLE_TXN_STORAGE_TS_KEY);
+if(v){
+localStorage.removeItem(PADDLE_TXN_STORAGE_KEY);
+if(ts&&now-ts<PADDLE_TXN_STORAGE_MAX_AGE_MS){
+return v;
+}
 }
 }catch(e){}
 return null;
@@ -229,6 +252,7 @@ showSimpleSuccess();
 })();
 
 async function exchangeToken(transactionId){
+exchangeAttempts++;
 try{
 const url=`${API_BASE}/api/public/exchange-token?transaction_id=${encodeURIComponent(transactionId)}`;
 const resp=await fetch(url,{method:"POST",...FETCH_OPTS});
@@ -238,11 +262,17 @@ if(data.status==="ok"&&data.token){
 currentToken=data.token;
 window.history.replaceState(null,"",`${window.location.pathname}?token=${currentToken}`);
 pollLicense();
+}else if(exchangeAttempts<MAX_EXCHANGE_ATTEMPTS){
+setTimeout(()=>exchangeToken(transactionId),EXCHANGE_POLL_INTERVAL);
 }else{
-showError("⚠️ Unable to verify session.");
+showSimpleSuccess();
 }
 }catch{
-showError("⚠️ Network error.");
+if(exchangeAttempts<MAX_EXCHANGE_ATTEMPTS){
+setTimeout(()=>exchangeToken(transactionId),EXCHANGE_POLL_INTERVAL);
+}else{
+showSimpleSuccess();
+}
 }
 }
 
@@ -313,7 +343,8 @@ document.getElementById("license-status").innerHTML=
 function showSimpleSuccess(){
 const statusEl=document.getElementById("license-status");
 statusEl.innerHTML=
-`<p style="color:#555;">Your payment is complete. Please check your email for your license and receipt from Paddle.</p>`;
+`<p style="color:#555;">Your payment is complete. Please check your email for your activation code and receipt from Paddle.</p>
+<p style="color:#888;font-size:13px;margin-top:8px;">If the activation code does not arrive within 20 minutes, contact support@wisteriasoftware.uk.</p>`;
 document.getElementById("resend-btn").disabled=true;
 }
 
