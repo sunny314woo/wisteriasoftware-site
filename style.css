@@ -66,6 +66,7 @@ nav {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .nav-link {
@@ -84,6 +85,29 @@ nav {
   background: var(--primary-soft);
   color: #1e40af;
   font-weight: 600;
+}
+
+.language-control {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.language-control select {
+  min-height: 36px;
+  padding: 7px 28px 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.language-control select:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.28);
+  outline-offset: 2px;
 }
 
 /* Layout */
@@ -746,6 +770,12 @@ footer p {
 }
 
 @media (max-width: 760px) {
+  .nav-wrap {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .split-hero,
   .meta-grid,
   .preview-grid {

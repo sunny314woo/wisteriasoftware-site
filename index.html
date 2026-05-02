@@ -8,6 +8,9 @@
   <meta name="description"
     content="Wisteria Software builds Wisteria Suite: Wisteria Jump, Inbox Capture, and Inbox Local for macOS." />
   <link rel="canonical" href="https://wisteriasoftware.uk/" />
+  <link rel="alternate" hreflang="en" href="https://wisteriasoftware.uk/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://wisteriasoftware.uk/zh-Hans/" />
+  <link rel="alternate" hreflang="x-default" href="https://wisteriasoftware.uk/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Wisteria Software - Wisteria Suite" />
   <meta property="og:description" content="Practical tools for navigating, capturing, and revisiting AI work." />
@@ -24,6 +27,46 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
   <meta name="theme-color" content="#6d3fcb" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://wisteriasoftware.uk/#organization",
+          "name": "Wisteria Software Ltd.",
+          "url": "https://wisteriasoftware.uk/",
+          "email": "support@wisteriasoftware.uk"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://wisteriasoftware.uk/#website",
+          "name": "Wisteria Software",
+          "url": "https://wisteriasoftware.uk/",
+          "inLanguage": "en",
+          "publisher": {
+            "@id": "https://wisteriasoftware.uk/#organization"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Wisteria Jump",
+          "applicationCategory": "BrowserApplication",
+          "operatingSystem": "Chrome",
+          "description": "ChatGPT and Gemini outline navigator with a smart sidebar outline, jump-to-message navigation, key turn marking, and chat export.",
+          "offers": {
+            "@type": "Offer",
+            "price": "9.99",
+            "priceCurrency": "USD",
+            "url": "https://wisteriasoftware.uk/pricing.html"
+          },
+          "publisher": {
+            "@id": "https://wisteriasoftware.uk/#organization"
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 
 <body>
@@ -195,6 +238,9 @@
     </p>
   </footer>
 
+  <script src="i18n/config.js" defer></script>
+  <script src="i18n/locales/zh-Hans.js" defer></script>
+  <script src="i18n.js" defer></script>
   <script src="analytics.js" defer></script>
 </body>
 

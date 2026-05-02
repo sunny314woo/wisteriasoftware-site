@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://wisteriasoftware.uk/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wisteriasoftware.uk/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://wisteriasoftware.uk/zh-Hans/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wisteriasoftware.uk/" />
     <lastmod>2026-04-30</lastmod>
+  </url>
+  <url>
+    <loc>https://wisteriasoftware.uk/zh-Hans/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wisteriasoftware.uk/" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://wisteriasoftware.uk/zh-Hans/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wisteriasoftware.uk/" />
+    <lastmod>2026-05-02</lastmod>
   </url>
   <url>
     <loc>https://wisteriasoftware.uk/product.html</loc>
@@ -26,7 +37,17 @@
   </url>
   <url>
     <loc>https://wisteriasoftware.uk/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wisteriasoftware.uk/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://wisteriasoftware.uk/zh-Hans/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wisteriasoftware.uk/privacy.html" />
     <lastmod>2026-04-30</lastmod>
+  </url>
+  <url>
+    <loc>https://wisteriasoftware.uk/zh-Hans/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wisteriasoftware.uk/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://wisteriasoftware.uk/zh-Hans/privacy.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wisteriasoftware.uk/privacy.html" />
+    <lastmod>2026-05-02</lastmod>
   </url>
   <url>
     <loc>https://wisteriasoftware.uk/terms.html</loc>
