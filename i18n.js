@@ -225,28 +225,92 @@
     const nav = document.querySelector("header nav");
     if (!nav || document.querySelector(".language-control")) return;
 
-    const label = document.createElement("label");
-    label.className = "language-control";
-    label.setAttribute("aria-label", "Language");
+    const control = document.createElement("div");
+    control.className = "language-control";
 
-    const select = document.createElement("select");
-    select.setAttribute("aria-label", "Language");
-    select.innerHTML = locales.map((locale) => (
-      `<option value="${locale.code}">${locale.label}</option>`
-    )).join("");
-    select.value = language;
-    select.addEventListener("change", () => {
-      saveLanguage(select.value);
-      const target = localizedPath(select.value);
-      if (target !== window.location.pathname) {
-        window.location.href = target + window.location.search + window.location.hash;
-        return;
-      }
-      applyLanguage(select.value);
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "language-toggle";
+    button.setAttribute("aria-haspopup", "menu");
+    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", "Language");
+    button.innerHTML = [
+      '<span class="language-icon" aria-hidden="true">🌐</span>',
+      '<span class="language-label">Language</span>',
+      '<span class="language-caret" aria-hidden="true">▾</span>',
+    ].join("");
+
+    const menu = document.createElement("ul");
+    menu.className = "language-menu";
+    menu.setAttribute("role", "menu");
+    menu.hidden = true;
+
+    function closeMenu() {
+      menu.hidden = true;
+      button.setAttribute("aria-expanded", "false");
+    }
+
+    locales.forEach((locale) => {
+      const item = document.createElement("li");
+      item.setAttribute("role", "none");
+
+      const option = document.createElement("button");
+      option.type = "button";
+      option.className = "language-option";
+      option.setAttribute("role", "menuitemradio");
+      option.setAttribute("data-language", locale.code);
+      option.textContent = locale.label;
+      option.addEventListener("click", () => {
+        saveLanguage(locale.code);
+        const target = localizedPath(locale.code);
+        closeMenu();
+        if (target !== window.location.pathname) {
+          window.location.href = target + window.location.search + window.location.hash;
+          return;
+        }
+        applyLanguage(locale.code);
+      });
+
+      item.append(option);
+      menu.append(item);
     });
 
-    label.append(select);
-    nav.append(label);
+    button.addEventListener("click", () => {
+      const isOpen = button.getAttribute("aria-expanded") === "true";
+      if (isOpen) {
+        closeMenu();
+      } else {
+        menu.hidden = false;
+        button.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!control.contains(event.target)) closeMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+
+    control.append(button);
+    control.append(menu);
+    nav.append(control);
+  }
+
+  function syncLanguageControl(language) {
+    const button = document.querySelector(".language-toggle");
+    const label = document.querySelector(".language-label");
+    if (button && label) {
+      const locale = localeByCode[language];
+      label.textContent = locale ? locale.label : "Language";
+    }
+
+    document.querySelectorAll(".language-option").forEach((option) => {
+      const isActive = option.getAttribute("data-language") === language;
+      option.classList.toggle("is-active", isActive);
+      option.setAttribute("aria-checked", isActive ? "true" : "false");
+    });
   }
 
   function applyLanguage(language) {
@@ -256,8 +320,7 @@
     translateAnnotatedElements(normalized);
     translatePage(normalized);
 
-    const select = document.querySelector(".language-control select");
-    if (select) select.value = normalized;
+    syncLanguageControl(normalized);
   }
 
   const initialLanguage = preferredLanguage();
