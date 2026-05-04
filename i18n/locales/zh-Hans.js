@@ -7,7 +7,7 @@
         "index.html": "首页",
         "product.html": "产品",
         "pricing.html": "价格",
-        "outline-pro.html": "Wisteria Jump",
+        "outline-pro.html": "Outline",
         "inbox.html": "Inbox",
         "support.html": "支持",
         "privacy.html": "隐私",
@@ -17,7 +17,7 @@
       footer: {
         "product.html": "产品",
         "pricing.html": "价格",
-        "outline-pro.html": "Wisteria Jump",
+        "outline-pro.html": "Outline",
         "inbox.html": "Inbox",
         "support.html": "支持",
         "privacy.html": "隐私政策",
@@ -31,78 +31,65 @@
       "index.html": {
         title: "Wisteria Software - Wisteria Suite",
         description:
-          "Wisteria Software 构建 Wisteria Suite：面向 macOS 与浏览器的 Wisteria Jump、Inbox Capture 和 Inbox Local。",
+          "Wisteria Software 是英国注册的独立软件公司，为认真使用 AI 的开发者、科研人员、创作者和知识工作者构建本地优先效率工具。",
         selectors: {
-          ".eyebrow": "Wisteria Suite",
-          ".hero-title": "用于导航、捕捉和回顾 AI 工作的实用工具。",
+          ".eyebrow": "英国独立软件公司",
+          ".hero-title": "为认真使用 AI 的人构建软件。",
           ".split-hero > div > .subtitle":
-            "<strong>Wisteria Suite</strong> 包含三款专注工具：<strong>Wisteria Jump</strong>、<strong>Inbox Capture</strong> 和 <strong>Inbox Local for macOS</strong>。Wisteria Jump 现已可用，Inbox Capture 已在 Chrome 上架，Inbox Local 可用于 Apple Silicon Mac。",
-          ".split-hero .hero-actions .btn-link.primary": "升级 Wisteria Jump",
-          ".split-hero .hero-actions .btn-link.secondary": "查看全部产品",
-          ".hero-card h2": "当前可用情况",
+            "<strong>Wisteria Software</strong> 是一家英国注册的独立软件公司，面向 AI 时代构建本地优先的效率工具。我们帮助开发者、科研人员、创作者和重度 AI 用户导航长对话、保留重要上下文，并把有价值的输出沉淀成真正属于自己的第二大脑。",
+          ".split-hero .hero-actions .btn-link.primary": "了解 Outline",
+          ".split-hero .hero-actions .btn-link.secondary": "查看产品套组",
+          ".hero-card h2": "我们重视什么",
           ".hero-points li:nth-child(1)":
-            "<strong>Wisteria Jump：</strong>现已可用，并可在本站购买 Pro 方案。",
+            "<strong>数据归属：</strong>本地优先的工作流，让重要材料留在你的掌控之中。",
           ".hero-points li:nth-child(2)":
-            "<strong>Inbox Capture：</strong>现已在 Chrome Web Store 上架。",
+            "<strong>流畅效率：</strong>减少滚动、搜索、复制和上下文切换。",
           ".hero-points li:nth-child(3)":
-            "<strong>Inbox Local for macOS：</strong>可下载用于 Apple Silicon Mac。",
-          "main > section:nth-of-type(1) .section-intro h2": "产品",
+            "<strong>知识记忆：</strong>为 AI 工作建立实用的第二大脑层。",
+          "main > section:nth-of-type(1) .section-intro h2": "为 AI 工作日而构建",
           "main > section:nth-of-type(1) .section-intro .subtitle":
-            "一个套件，三款专注工具，并在本站提供清晰的商业路径。",
+            "AI 很强大，但围绕 AI 的工作很容易变乱：长线程、分散截图、想不起在哪的答案，以及被困在昨天对话里的好想法。",
+          "main > section:nth-of-type(1) .meta-card:nth-child(1)":
+            "<strong>更快推进</strong>在长 AI 对话中快速定位，不丢位置，也不打断思路。",
+          "main > section:nth-of-type(1) .meta-card:nth-child(2)":
+            "<strong>保留重点</strong>在信息消失前捕捉重要答案、研究片段、截图和笔记。",
+          "main > section:nth-of-type(1) .meta-card:nth-child(3)":
+            "<strong>建立第二大脑</strong>把有用的 AI 输出变成可复用的知识，并整理在你自己的设备上。",
+          "main > section:nth-of-type(2) h2": "Wisteria Suite",
+          "main > section:nth-of-type(2) > p":
+            "我们的产品套组遵循一个简单工作流：导航对话、捕捉重点，并把它们保存在本地优先的系统中，用于回顾和复用。",
           ".product-card:nth-child(1) .status-pill": "现已可用",
-          ".product-card:nth-child(1) h3": "Wisteria Jump",
+          ".product-card:nth-child(1) h3": "Outline",
           ".product-card:nth-child(1) .subtitle":
-            "ChatGPT 与 Gemini 大纲导航器：智能侧边栏大纲，可跳转到消息、标记关键回合，并轻松导出聊天。",
-          ".product-card:nth-child(1) .btn-link.primary": "查看产品",
-          ".product-card:nth-child(1) .btn-link.secondary": "在 Chrome 安装",
+            "面向长 ChatGPT 和 Gemini 对话的智能侧边栏大纲。跳转消息、标记关键回合，并在对话值得保存时导出聊天。",
+          ".product-card:nth-child(1) .btn-link.primary": "查看 Outline",
           ".product-card:nth-child(2) .status-pill": "现已可用",
           ".product-card:nth-child(2) h3": "Inbox Capture",
           ".product-card:nth-child(2) .subtitle":
-            "从浏览器捕捉文本、截图和想法，并以更少摩擦带入你的工作流。",
-          ".product-card:nth-child(2) .small-note":
-            "作为 Inbox 的浏览器搭档使用。现已在 Chrome Web Store 上架。",
+            "浏览器伴侣工具，用于把有价值的网页文本、截图、图片和笔记保存到你的知识工作流。",
           ".product-card:nth-child(2) .btn-link.primary": "查看 Inbox",
-          ".product-card:nth-child(2) .btn-link.secondary": "在 Chrome 安装",
           ".product-card:nth-child(3) .status-pill": "可下载",
-          ".product-card:nth-child(3) h3": "Inbox",
+          ".product-card:nth-child(3) h3": "Inbox Local",
           ".product-card:nth-child(3) .subtitle":
-            "在本地优先的工作流中捕捉、整理并回顾 AI 对话、笔记和截图。目前以 Inbox Local for macOS 形式提供。",
-          ".product-card:nth-child(3) .small-note":
-            "Wisteria Jump 用户目前可在试用期内免费试用 Inbox Pro AI 摘要。",
+            "本地优先的 macOS 应用，用于整理和回顾 AI 对话、捕捉材料与工作笔记。",
           ".product-card:nth-child(3) .btn-link.primary": "查看 Inbox",
-          ".product-card:nth-child(3) .btn-link.secondary": "下载 macOS 版",
-          "main > section:nth-of-type(2) h2": "观看 Wisteria Jump 实际运行",
-          "main > section:nth-of-type(2) > p":
-            "在这里查看真实产品界面，然后前往产品页播放本站内嵌的 34 秒演示，无需离开 wisteriasoftware.uk。",
-          ".preview-card:nth-child(1) figcaption":
-            "直接跳到长对话中的准确位置。",
-          ".preview-card:nth-child(2) figcaption":
-            "查看清晰大纲，而不是无休止地滚动。",
-          "main > section:nth-of-type(2) .hero-actions .btn-link.primary":
-            "播放 34 秒演示",
-          "main > section:nth-of-type(2) .hero-actions .btn-link.secondary":
-            "产品页与价格",
-          "main > section:nth-of-type(3) h2": "为什么这个结构有效",
+          "main > section:nth-of-type(3) h2": "为依赖 AI 的人服务",
           "main > section:nth-of-type(3) > p":
-            "AI 对话和网页研究很快会变得零散。Wisteria Suite 将导航、捕捉和本地回顾拆分为更易理解、也更易交付的工具。",
-          ".meta-card:nth-child(1)":
-            "<strong>导航</strong>Wisteria Jump 让长篇 ChatGPT 和 Gemini 会话更容易扫描、复盘和回访。",
-          ".meta-card:nth-child(2)":
-            "<strong>捕捉</strong>Inbox Capture 让文本、截图和想法贴近来源。",
-          ".meta-card:nth-child(3)":
-            "<strong>回顾</strong>Inbox Local for macOS 将保存的材料整理在你自己的设备上。",
+            "Wisteria Software 面向那些希望 AI 工作更快、更安全、更可沉淀的人：在长线程中调试的开发者、保留推理和资料的科研人员、收集灵感的写作者，以及希望把每日 AI 输出变成长期知识的知识工作者。",
+          "main > section:nth-of-type(3) .hero-actions .btn-link.primary": "观看 Outline 演示",
+          "main > section:nth-of-type(3) .hero-actions .btn-link.secondary": "探索产品套组",
         },
       },
       "privacy.html": {
         title: "隐私政策 - Wisteria Software",
         description:
-          "Wisteria Software 产品的隐私政策，包括 Wisteria Jump、Inbox Capture 和 Inbox Local / Wisteria Inbox。",
+          "Wisteria Software 产品的隐私政策，包括 Outline、Inbox Capture 和 Inbox Local / Wisteria Inbox。",
         selectors: {
           ".compact-hero h1": "隐私政策",
           ".compact-hero .subtitle":
-            "适用于 <strong>Wisteria Software</strong> 产品，包括 <strong>Wisteria Jump</strong>、<strong>Inbox Capture</strong> 和 <strong>Inbox Local / Wisteria Inbox</strong><br /><strong>最后更新：</strong>2026 年 3 月 24 日",
+            "适用于 <strong>Wisteria Software</strong> 产品，包括 <strong>Outline</strong>、<strong>Inbox Capture</strong> 和 <strong>Inbox Local / Wisteria Inbox</strong><br /><strong>最后更新：</strong>2026 年 3 月 24 日",
           ".contact-box p":
-            "<strong>摘要：</strong>本政策适用于 Wisteria Software 网站及本站当前展示的相关产品，包括 <strong>Wisteria Jump</strong>、<strong>Inbox Capture</strong> 和 <strong>Inbox Local / Wisteria Inbox</strong>。我们的产品围绕本地优先工作流设计。我们仅在支付、授权、支持、安全、欺诈预防、保护隐私的网站分析和网站基础运行所需的范围内收集有限的技术与运营数据。我们不出售个人数据，也不使用第三方广告追踪器。",
+            "<strong>摘要：</strong>本政策适用于 Wisteria Software 网站及本站当前展示的相关产品，包括 <strong>Outline</strong>、<strong>Inbox Capture</strong> 和 <strong>Inbox Local / Wisteria Inbox</strong>。我们的产品围绕本地优先工作流设计。我们仅在支付、授权、支持、安全、欺诈预防、保护隐私的网站分析和网站基础运行所需的范围内收集有限的技术与运营数据。我们不出售个人数据，也不使用第三方广告追踪器。",
           "main > section:nth-of-type(2) h2": "1. 一般信息",
           "main > section:nth-of-type(2) p:nth-of-type(1)":
             "本隐私政策说明 <strong>Wisteria Software Ltd.</strong> 如何处理与本网站、产品页面、结账相关流程、客户支持以及本站列出的产品有关的数据。",
@@ -112,9 +99,9 @@
             "对于网站本身，我们以及托管或 CDN 服务商可能会处理有限的技术请求数据，例如用户代理、请求路径、时间戳，以及基础错误或安全日志，用于交付页面、防止滥用、排查问题、保持服务可靠性，并了解聚合页面使用情况。",
           "main > section:nth-of-type(2) p:nth-of-type(4)":
             "我们可能使用保护隐私的网站分析工具，例如 Cloudflare Web Analytics，以了解聚合页面浏览量、来源、设备/浏览器类别和页面性能。这些分析用于网站运行和改进，不用于广告或跨站画像。",
-          "main > section:nth-of-type(3) h2": "2. Wisteria Jump",
+          "main > section:nth-of-type(3) h2": "2. Outline",
           "main > section:nth-of-type(3) p:nth-of-type(1)":
-            "<strong>Wisteria Jump</strong> 是一款本地优先的浏览器扩展。它的核心大纲功能会在你使用它的页面中，于你的浏览器内运行。",
+            "<strong>Outline</strong> 是一款本地优先的浏览器扩展。它的核心大纲功能会在你使用它的页面中，于你的浏览器内运行。",
           "main > section:nth-of-type(3) p:nth-of-type(2)":
             "用于生成大纲的对话内容会在你的浏览器本地处理。我们不会为了分析或广告目的将这些对话内容传输到我们的服务器。",
           "main > section:nth-of-type(3) p:nth-of-type(3)":

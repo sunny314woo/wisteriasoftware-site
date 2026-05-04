@@ -10,7 +10,7 @@
   const PADDLE_CLIENT_TOKEN = "live_3d23a490eb6f34c96ae919a7b4c";
 
   // Paddle Checkout 需要 Price ID（pri_...），不是 Product ID（pro_...）。
-  // 你已经创建了 Wisteria Jump 的 Pro 套餐价格，把它填在这里即可。
+  // 你已经创建了 Outline 的 Pro 套餐价格，把它填在这里即可。
   const OUTLINE_PRO_PRICE_ID = "pri_01khqxts0v5x9z1vv2tz4zxpbg";
 
   // 支付成功/取消后的回跳地址。
