@@ -397,6 +397,12 @@ footer p {
   width: 100%;
 }
 
+.pricing-full-width .price-grid.two-col-pricing {
+  width: min(1600px, calc(100vw - (var(--page-gutter-x) * 2)));
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
+
 .product-card,
 .feature-item,
 .price-card,
@@ -910,5 +916,11 @@ footer p {
   .price-grid,
   .faq-grid {
     grid-template-columns: 1fr;
+  }
+
+  .pricing-full-width .price-grid.two-col-pricing {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
   }
 }
