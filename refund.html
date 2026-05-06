@@ -19,21 +19,9 @@
 <body>
 
   <!-- Header (static, no JS) -->
-  <header>
-    <div class="nav-wrap">
-      <div class="brand">Wisteria Software</div>
-      <nav>
-        <a class="nav-link" href="index.html">Home</a>
-        <a class="nav-link" href="product.html">Products</a>
-        <a class="nav-link" href="outline-pro.html">Outline</a>
-        <a class="nav-link" href="inbox.html">Inbox</a>
-        <a class="nav-link" href="support.html">Support</a>
-        <a class="nav-link" href="privacy.html">Privacy</a>
-        <a class="nav-link" href="terms.html">Terms</a>
-        <a class="nav-link active" href="refund.html">Refund</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Header -->
+  <!-- 【MODIFIED】Shared navigation mount: i18n.js renders the homepage-standard navbar here. -->
+  <header data-shared-header></header>
 
   <!-- Main -->
   <main>
@@ -91,27 +79,9 @@
   </main>
 
   <!-- Footer (static) -->
-  <footer>
-    <div class="footer-links">
-      <a href="product.html">Products</a> |
-      <a href="outline-pro.html">Outline</a> |
-      <a href="inbox.html">Inbox</a> |
-      <a href="support.html">Support</a> |
-      <a href="privacy.html">Privacy Policy</a> |
-      <a href="terms.html">Terms of Service</a> |
-      <a href="refund.html">Refund Policy</a>
-    </div>
-
-    <p>
-      © 2026 Wisteria Software Ltd.<br />
-      Registered in England and Wales.<br />
-      Company No. 16965144<br />
-      Email:
-      <a href="mailto:support@wisteriasoftware.uk">
-        support@wisteriasoftware.uk
-      </a>
-    </p>
-  </footer>
+  <!-- Footer -->
+  <!-- 【MODIFIED】Shared footer mount: i18n.js renders the homepage-standard footer here. -->
+  <footer data-shared-footer></footer>
 
   <script src="i18n/config.js" defer></script>
   <script src="i18n/locales/zh-Hans.js" defer></script>

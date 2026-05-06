@@ -1,14 +1,48 @@
+/*
+ * 【MODIFIED】File purpose: runtime i18n and shared layout renderer for the static Wisteria landing site.
+ * Main functions: resolves language preference, renders shared navigation/footer, applies translations, and records missing keys.
+ * Latest modification purpose: make first-stage Chinese support work through runtime/localStorage/query without changing default English URLs.
+ */
 (function () {
   const config = window.WISTERIA_I18N_CONFIG || {};
   const dictionaries = window.WISTERIA_I18N_DICTIONARIES || {};
   const defaultLocale = config.defaultLocale || "en";
   const locales = config.locales || [{ code: defaultLocale, label: "English", htmlLang: "en" }];
+  const selectableLocales = locales.filter((locale) => !locale.pending);
   const supported = new Set(locales.map((locale) => locale.code));
+  const selectable = new Set(selectableLocales.map((locale) => locale.code));
   const localeByCode = locales.reduce((all, locale) => {
     all[locale.code] = locale;
     return all;
   }, {});
   const storageKey = config.storageKey || "wisteria-language";
+  const manualStorageKey = config.manualStorageKey || `${storageKey}-manual`;
+  const missingKeys = [];
+  const missingKeySet = new Set();
+  let activeLanguage = defaultLocale;
+
+  /**
+   * 【MODIFIED】Records an i18n fallback that should be visible during QA.
+   * @param {string} type - Missing item category, such as dictionary, selector, or page.
+   * @param {string} key - Translation key, selector, or page identifier.
+   * @param {string} language - Locale being applied.
+   * @param {string} page - Current page key.
+   * Side effects: writes to window.WisteriaI18n.missingKeys when the public object is available and warns in the console.
+   */
+  function recordMissing(type, key, language, page) {
+    if (language === defaultLocale) return;
+    const id = `${type}:${language}:${page}:${key}`;
+    if (missingKeySet.has(id)) return;
+    missingKeySet.add(id);
+    const entry = { type, key, language, page };
+    missingKeys.push(entry);
+    if (window.WisteriaI18n) {
+      window.WisteriaI18n.missingKeys = missingKeys;
+    }
+    if (window.console && typeof window.console.warn === "function") {
+      window.console.warn("[Wisteria i18n missing]", entry);
+    }
+  }
 
   function pageKey() {
     const file = window.location.pathname.split("/").pop();
@@ -34,29 +68,65 @@
     if (directMatch) return directMatch.code;
 
     const languageMatch = locales.find((locale) => lower.startsWith(locale.code.toLowerCase().split("-")[0]));
-    return languageMatch ? languageMatch.code : defaultLocale;
+    return languageMatch && selectable.has(languageMatch.code) ? languageMatch.code : defaultLocale;
   }
 
-  function readSavedLanguage() {
+  /**
+   * 【MODIFIED】Reads the URL language parameter for first-stage runtime language switching.
+   * Input: current window.location.search.
+   * Output: normalized locale code or null when no supported query language exists.
+   * Side effects: none.
+   */
+  function queryLanguage() {
     try {
-      return localStorage.getItem(storageKey);
+      const value = new URLSearchParams(window.location.search).get("lang");
+      if (!value) return null;
+      const normalized = normalizeLanguage(value);
+      return selectable.has(normalized) ? normalized : defaultLocale;
     } catch (error) {
       return null;
     }
   }
 
-  function saveLanguage(language) {
+  function readSavedLanguage() {
+    try {
+      const saved = localStorage.getItem(storageKey);
+      return selectable.has(saved) ? saved : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  /**
+   * 【MODIFIED】Persists a user-selected locale.
+   * @param {string} language - Locale code to store.
+   * @param {boolean} manual - Whether this came from a user action or explicit query parameter.
+   * Side effects: writes localStorage keys used by the i18n runtime.
+   */
+  function saveLanguage(language, manual) {
     try {
       localStorage.setItem(storageKey, language);
+      if (manual) localStorage.setItem(manualStorageKey, "1");
     } catch (error) {
       return;
     }
   }
 
+  /**
+   * 【MODIFIED】Chooses the initial language without redirecting away from the English default path.
+   * Input priority: query parameter, saved user choice, compatible localized path, browser language, default locale.
+   * Output: locale code.
+   * Side effects: explicit query parameters are saved as manual user preference.
+   */
   function preferredLanguage() {
+    const queried = queryLanguage();
+    if (queried) {
+      saveLanguage(queried, true);
+      return queried;
+    }
     const saved = readSavedLanguage();
     if (supported.has(saved)) return saved;
-    if (pathLanguage() !== defaultLocale) return pathLanguage();
+    if (selectable.has(pathLanguage()) && pathLanguage() !== defaultLocale) return pathLanguage();
     const browserLanguage =
       navigator.languages && navigator.languages.length ? navigator.languages[0] : navigator.language;
     return normalizeLanguage(browserLanguage);
@@ -89,8 +159,30 @@
     }, dictionary);
   }
 
+  /**
+   * 【MODIFIED】Translates a single runtime string for inline page scripts.
+   * @param {string} key - Dot-separated dictionary key.
+   * @param {string} fallback - English fallback string.
+   * Output: localized string when available, otherwise fallback.
+   * Side effects: records missing runtime keys for QA visibility.
+   */
+  function translateString(key, fallback) {
+    if (activeLanguage === defaultLocale) return fallback;
+    const value = getValue(currentDictionary(activeLanguage), key);
+    if (value === undefined) {
+      recordMissing("runtime", key, activeLanguage, pageKey());
+      return fallback;
+    }
+    return value;
+  }
+
   function setHtml(selector, html, language) {
-    document.querySelectorAll(selector).forEach((element) => {
+    const matches = document.querySelectorAll(selector);
+    if (!matches.length) {
+      recordMissing("selector", selector, language, pageKey());
+      return;
+    }
+    matches.forEach((element) => {
       rememberOriginalHtml(element);
       element.innerHTML = language === defaultLocale ? element.dataset.i18nOriginalHtml : html;
     });
@@ -105,6 +197,63 @@
     return dictionaries[language] || {};
   }
 
+  /**
+   * 【MODIFIED】Returns a URL with only the lang query parameter changed for runtime language switching.
+   * @param {string} language - Locale code selected by the user.
+   * Output: path/search/hash string for the current page.
+   * Side effects: none.
+   */
+  function languageUrl(language) {
+    const url = new URL(window.location.href);
+    if (language === defaultLocale) {
+      url.searchParams.delete("lang");
+    } else {
+      url.searchParams.set("lang", language === "zh-Hans" ? "zh-CN" : language);
+    }
+    return `${url.pathname}${url.search}${url.hash}`;
+  }
+
+  /**
+   * 【MODIFIED】Renders shared header and footer from a single configuration source.
+   * Input: config.sharedLayout plus any existing <header>/<footer> mount points.
+   * Output: normalized DOM for navigation and footer.
+   * Side effects: replaces header/footer innerHTML on pages that include those elements.
+   */
+  function renderSharedLayout() {
+    const layout = config.sharedLayout || {};
+    const header = document.querySelector("header");
+    if (header && layout.nav) {
+      const current = pageKey();
+      const navLinks = layout.nav.map((item) => {
+        const active = item.href.split("#")[0].split("?")[0].replace(/^\//, "") === current ? " active" : "";
+        return `<a class="nav-link${active}" href="${item.href}">${item.label}</a>`;
+      }).join("");
+      header.innerHTML = [
+        '<!-- 【MODIFIED】Shared navigation is rendered here from i18n/config.js to keep every page consistent. -->',
+        '<div class="nav-wrap">',
+        `<div class="brand">${layout.brand || "Wisteria Software"}</div>`,
+        `<nav>${navLinks}</nav>`,
+        '</div>',
+      ].join("");
+    }
+
+    const footer = document.querySelector("footer");
+    if (footer && layout.footer) {
+      const links = layout.footer.map((item) => `<a href="${item.href}">${item.label}</a>`).join(" | ");
+      footer.innerHTML = [
+        '<!-- 【MODIFIED】Shared footer is rendered here from i18n/config.js to keep every page consistent. -->',
+        `<div class="footer-links">${links}</div>`,
+        `<p>${layout.companyHtml || ""}</p>`,
+      ].join("");
+    }
+  }
+
+  /**
+   * 【MODIFIED】Translates shared navigation and footer text rendered from the common layout config.
+   * @param {string} language - Locale currently being applied.
+   * Output: none.
+   * Side effects: mutates nav/footer DOM text and records missing shared keys.
+   */
   function translateShared(language) {
     const dictionary = currentDictionary(language);
     const shared = dictionary.shared || {};
@@ -112,12 +261,14 @@
     document.querySelectorAll("nav .nav-link").forEach((anchor) => {
       rememberOriginalText(anchor);
       const translated = shared.nav && shared.nav[hrefFile(anchor)];
+      if (!translated) recordMissing("shared.nav", hrefFile(anchor), language, pageKey());
       anchor.textContent = language !== defaultLocale && translated ? translated : anchor.dataset.i18nOriginalText;
     });
 
     document.querySelectorAll(".footer-links a").forEach((anchor) => {
       rememberOriginalText(anchor);
       const translated = shared.footer && shared.footer[hrefFile(anchor)];
+      if (!translated) recordMissing("shared.footer", hrefFile(anchor), language, pageKey());
       anchor.textContent = language !== defaultLocale && translated ? translated : anchor.dataset.i18nOriginalText;
     });
 
@@ -132,6 +283,12 @@
     });
   }
 
+  /**
+   * 【MODIFIED】Applies explicit data-i18n attributes while recording missing keys.
+   * @param {string} language - Locale currently being applied.
+   * Output: none.
+   * Side effects: mutates annotated DOM nodes and translated attributes.
+   */
   function translateAnnotatedElements(language) {
     const dictionary = currentDictionary(language);
 
@@ -142,6 +299,7 @@
       element.innerHTML = language === defaultLocale || value === undefined
         ? element.dataset.i18nOriginalHtml
         : value;
+      if (value === undefined) recordMissing("data-i18n", key, language, pageKey());
     });
 
     document.querySelectorAll("[data-i18n-attrs]").forEach((element) => {
@@ -155,6 +313,7 @@
           attribute,
           language === defaultLocale || value === undefined ? element.dataset[originalKey] : value
         );
+        if (value === undefined) recordMissing("data-i18n-attr", key, language, pageKey());
       });
     });
   }
@@ -180,10 +339,19 @@
     );
   }
 
+  /**
+   * 【MODIFIED】Applies page-level selector translations and records pages/selectors that fall back to English.
+   * @param {string} language - Locale currently being applied.
+   * Output: none.
+   * Side effects: mutates page DOM and metadata.
+   */
   function translatePage(language) {
     const dictionary = currentDictionary(language);
     const pageConfig = dictionary.pages && dictionary.pages[pageKey()];
-    if (!pageConfig) return;
+    if (!pageConfig) {
+      recordMissing("page", pageKey(), language, pageKey());
+      return;
+    }
 
     translatePageMetadata(pageConfig, language);
     Object.entries(pageConfig.selectors || {}).forEach(([selector, html]) => {
@@ -191,36 +359,22 @@
     });
   }
 
+  /**
+   * 【MODIFIED】Compatibility API for callers that need the current-page language URL.
+   * @param {string} language - Locale code.
+   * Output: current path with lang query adjusted; no path redirect is generated.
+   * Side effects: none.
+   */
   function localizedPath(language) {
-    const routes = config.localizedRoutes || {};
-    const route = routes[pageKey()];
-    if (route && route[language]) return route[language];
-
-    const currentPath = window.location.pathname.endsWith("/")
-      ? `${window.location.pathname}index.html`
-      : window.location.pathname;
-    if (language === defaultLocale) {
-      return currentPath.replace(/^\/[^/]+\/(.+)$/, "/$1");
-    }
-    return currentPath;
+    return languageUrl(language);
   }
 
-  function comparablePath(path) {
-    return path.replace(/\/index\.html$/, "/");
-  }
-
-  function redirectToPreferredRoute(language) {
-    const routes = config.localizedRoutes || {};
-    const route = routes[pageKey()];
-    if (!route || !route[language]) return false;
-
-    const target = route[language];
-    if (comparablePath(target) === comparablePath(window.location.pathname)) return false;
-
-    window.location.replace(target + window.location.search + window.location.hash);
-    return true;
-  }
-
+  /**
+   * 【MODIFIED】Injects the language selector into the shared navigation.
+   * @param {string} language - Initial active locale.
+   * Output: none.
+   * Side effects: mutates navigation DOM, updates URL query on user selection, writes localStorage through saveLanguage.
+   */
   function ensureLanguageControl(language) {
     const nav = document.querySelector("header nav");
     if (!nav || document.querySelector(".language-control")) return;
@@ -250,7 +404,7 @@
       button.setAttribute("aria-expanded", "false");
     }
 
-    locales.forEach((locale) => {
+    selectableLocales.forEach((locale) => {
       const item = document.createElement("li");
       item.setAttribute("role", "none");
 
@@ -261,12 +415,11 @@
       option.setAttribute("data-language", locale.code);
       option.textContent = locale.label;
       option.addEventListener("click", () => {
-        saveLanguage(locale.code);
-        const target = localizedPath(locale.code);
+        saveLanguage(locale.code, true);
+        const target = languageUrl(locale.code);
         closeMenu();
-        if (target !== window.location.pathname) {
-          window.location.href = target + window.location.search + window.location.hash;
-          return;
+        if (target !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
+          window.history.replaceState(null, "", target);
         }
         applyLanguage(locale.code);
       });
@@ -313,9 +466,17 @@
     });
   }
 
+  /**
+   * 【MODIFIED】Applies a locale to the current document.
+   * @param {string} language - Locale code to apply.
+   * Output: none.
+   * Side effects: updates html lang/data attributes, DOM text, metadata, and language selector state.
+   */
   function applyLanguage(language) {
-    const normalized = supported.has(language) ? language : defaultLocale;
+    const normalized = selectable.has(language) ? language : defaultLocale;
+    activeLanguage = normalized;
     document.documentElement.lang = (localeByCode[normalized] && localeByCode[normalized].htmlLang) || normalized;
+    document.documentElement.setAttribute("data-current-language", normalized);
     translateShared(normalized);
     translateAnnotatedElements(normalized);
     translatePage(normalized);
@@ -324,7 +485,7 @@
   }
 
   const initialLanguage = preferredLanguage();
-  if (redirectToPreferredRoute(initialLanguage)) return;
+  renderSharedLayout();
   ensureLanguageControl(initialLanguage);
   applyLanguage(initialLanguage);
 
@@ -332,5 +493,7 @@
     applyLanguage,
     currentLanguage: () => document.documentElement.lang,
     localizedPath,
+    missingKeys,
+    t: translateString,
   };
 })();

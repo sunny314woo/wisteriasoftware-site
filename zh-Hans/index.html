@@ -73,21 +73,8 @@
 <body>
 
   <!-- Header -->
-  <header>
-    <div class="nav-wrap">
-      <div class="brand">Wisteria Software</div>
-      <nav>
-        <a class="nav-link active" href="zh-Hans/">首页</a>
-        <a class="nav-link" href="product.html">产品</a>
-        <a class="nav-link" href="outline-pro.html">Outline</a>
-        <a class="nav-link" href="inbox.html">Inbox</a>
-        <a class="nav-link" href="support.html">支持</a>
-        <a class="nav-link" href="zh-Hans/privacy.html">隐私</a>
-        <a class="nav-link" href="terms.html">条款</a>
-        <a class="nav-link" href="refund.html">退款</a>
-      </nav>
-    </div>
-  </header>
+  <!-- 【MODIFIED】Shared navigation mount: i18n.js renders the homepage-standard navbar here. -->
+  <header data-shared-header></header>
 
   <!-- Main -->
   <main>
@@ -197,27 +184,8 @@
   </main>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-links">
-      <a href="product.html">产品</a> |
-      <a href="outline-pro.html">Outline</a> |
-      <a href="inbox.html">Inbox</a> |
-      <a href="support.html">支持</a> |
-      <a href="zh-Hans/privacy.html">隐私政策</a> |
-      <a href="terms.html">服务条款</a> |
-      <a href="refund.html">退款政策</a>
-    </div>
-
-    <p>
-      © 2026 Wisteria Software Ltd.<br />
-      在英格兰和威尔士注册。<br />
-      公司编号：16965144<br />
-      邮箱：
-      <a href="mailto:support@wisteriasoftware.uk">
-        support@wisteriasoftware.uk
-      </a>
-    </p>
-  </footer>
+  <!-- 【MODIFIED】Shared footer mount: i18n.js renders the homepage-standard footer here. -->
+  <footer data-shared-footer></footer>
 
   <script src="i18n/config.js" defer></script>
   <script src="i18n/locales/zh-Hans.js" defer></script>

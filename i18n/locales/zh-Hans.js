@@ -1,3 +1,8 @@
+/*
+ * 【MODIFIED】File purpose: Simplified Chinese translation dictionary for the static Wisteria landing site.
+ * Main functions: provides shared navigation/footer, page selector translations, and runtime strings for dynamic UI.
+ * Latest modification purpose: support first-stage Chinese i18n without expanding hand-written /zh-Hans/ pages.
+ */
 (function () {
   window.WISTERIA_I18N_DICTIONARIES = window.WISTERIA_I18N_DICTIONARIES || {};
 
@@ -245,7 +250,8 @@
           ".price-grid .price-card:nth-child(2) ul li:nth-child(4)":
             "<strong>智能摘要：</strong>在 Inbox 桌面应用内使用深度 AI 摘要",
           ".price-grid .price-card:nth-child(2) ul li:nth-child(5)": "每份许可最多 3 台设备，许可期内可重新激活",
-          ".price-grid .price-card:nth-child(2) p.small-note:nth-of-type(1)":
+          // 【MODIFIED】Selector corrected after shared layout QA so the Pro checkout note translates without touching Paddle logic.
+          ".price-grid .price-card:nth-child(2) p.small-note:not([data-checkout-error])":
             "按年一次性付费。这不是自动续订的订阅，因此日后无需担心意外续费。",
           ".price-grid .price-card:nth-child(2) .hero-actions .btn-link.primary": "解锁 Pro",
           ".price-grid .price-card:nth-child(3) .status-pill": "终身早鸟",
@@ -364,6 +370,8 @@
             "关于 <strong>Outline</strong>、<strong>Inbox Capture</strong> 与 <strong>适用于 macOS 的 Inbox Local</strong> 的帮助与联系信息。",
           "main > section:nth-of-type(1) > p":
             "安装问题、账单协助、版本状态与缺陷报告，均可通过本页联系 Wisteria Suite。",
+          // 【MODIFIED】Support card label translated during residual-English QA; product name remains intact.
+          ".product-grid .product-card:nth-child(3) .status-pill": "适用于 macOS 的 Inbox Local",
           ".product-grid .product-card:nth-child(1) p": "安装、激活、账单、退款与缺陷报告相关问题。",
           ".product-grid .product-card:nth-child(2) p": "Chrome 扩展的安装、设置与支持问题。",
           ".product-grid .product-card:nth-child(3) p": "在 Apple Silicon Mac 上的下载、设置与本地应用问题。",
@@ -513,7 +521,8 @@
           "main > section#pricing .price-card:nth-child(2) > p:nth-of-type(4)":
             "适合严肃研究、写作、编程与周期性知识回顾。",
           "main > section#pricing .price-card:nth-child(2) .hero-actions .btn-link.primary": "解锁 Pro",
-          "main > section#pricing .notice-box:nth-of-type(1)":
+          // 【MODIFIED】Selector corrected after shared layout QA so the refund notice translates reliably.
+          "main > section#pricing > .notice-box:not(.plan-note)":
             "<strong>退款政策：</strong>所有购买均适用 14 天退款政策。<a href=\"refund.html\">查看退款政策</a>",
           "main > section#pricing > p.small-note":
             "新用户可获得 7 天 Pro 试用。试用期间，大纲导航、书签与导出适用 Pro 限制。Gemini 大纲跳转无目录条数上限。",
