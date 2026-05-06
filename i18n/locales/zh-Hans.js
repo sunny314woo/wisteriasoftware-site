@@ -167,6 +167,491 @@
             "如需提出隐私相关请求或询问本政策，请联系：<strong><a href=\"mailto:support@wisteriasoftware.uk\">support@wisteriasoftware.uk</a></strong>",
         },
       },
+      "product.html": {
+        title: "产品 – Wisteria Software",
+        description:
+          "了解 Wisteria Suite 产品：面向 macOS 与浏览器的 Outline、Inbox Capture 与 Inbox Local。",
+        selectors: {
+          ".compact-hero h1": "产品",
+          ".compact-hero .subtitle":
+            "<strong>Wisteria Suite</strong> 包含三款面向 AI 原生工作流的工具：<strong>Outline</strong>、<strong>Inbox Capture</strong> 与 <strong>适用于 macOS 的 Inbox Local</strong>。",
+          ".product-card.featured-product .status-pill": "当前付费产品",
+          ".product-card.featured-product h2": "Outline",
+          ".product-card.featured-product > p:first-of-type":
+            "Chrome 扩展：面向 ChatGPT 与 Gemini 的大纲导航器，带智能侧边栏——跳转到消息、标记关键回合，并轻松导出聊天记录。",
+          ".product-card.featured-product ul li:nth-child(1)": "面向长 ChatGPT 与 Gemini 对话的可点击大纲导航",
+          ".product-card.featured-product ul li:nth-child(2)": "直接跳转到你需要的位置",
+          ".product-card.featured-product ul li:nth-child(3)": "将对话下载为 Markdown 或导入 Inbox",
+          ".product-card.featured-product ul li:nth-child(4)": "本地优先，兼顾隐私与速度",
+          ".product-card.featured-product p.small-note":
+            "ChatGPT 与 Gemini 页面内容在浏览器本地处理，不会上传到我们的服务器。",
+          ".product-card.featured-product .hero-actions .btn-link.primary": "查看产品",
+          ".product-card.featured-product .hero-actions .btn-link.secondary": "在 Chrome 网上应用店查看",
+          ".product-grid article:nth-child(2) .status-pill": "现已推出",
+          ".product-grid article:nth-child(2) h3": "Inbox Capture",
+          ".product-grid article:nth-child(2) > p:first-of-type":
+            "用于将文本、截图、图片和笔记保存到工作流的浏览器捕捉工具。",
+          ".product-grid article:nth-child(2) ul li:nth-child(1)": "从当前页面捕捉",
+          ".product-grid article:nth-child(2) ul li:nth-child(2)": "快速预览与保存流程",
+          ".product-grid article:nth-child(2) ul li:nth-child(3)": "作为浏览器伴侣与 Inbox 配合使用",
+          ".product-grid article:nth-child(2) .hero-actions .btn-link.primary": "查看 Inbox",
+          ".product-grid article:nth-child(2) .hero-actions .btn-link.secondary": "在 Chrome 上安装",
+          ".product-grid article:nth-child(3) .status-pill": "可下载",
+          ".product-grid article:nth-child(3) h3": "Inbox",
+          ".product-grid article:nth-child(3) > p:first-of-type":
+            "用于捕捉、整理与回顾 AI 对话、笔记与截图的本地优先知识工作流。目前以适用于 macOS 的 Inbox Local 形式提供。",
+          ".product-grid article:nth-child(3) ul li:nth-child(1)": "将 Markdown 文件导入本地优先的回顾工作流",
+          ".product-grid article:nth-child(3) ul li:nth-child(2)": "预览导入的 ChatGPT 对话时保留对话导航",
+          ".product-grid article:nth-child(3) ul li:nth-child(3)": "支持 AI 摘要；免费用户可使用自己的 API Key",
+          ".product-grid article:nth-child(3) p.small-note":
+            "在当前试用期内，Outline 用户也可免费试用 Inbox Pro 的 AI 摘要功能。",
+          ".product-grid article:nth-child(3) .hero-actions .btn-link.primary": "查看 Inbox",
+          ".product-grid article:nth-child(3) .hero-actions .btn-link.secondary": "下载 macOS 版",
+          "main > section.cta h2": "当前付费方案",
+          "main > section.cta > p":
+            "Outline 在本站提供付费 Pro 方案。结账前请查看价格、激活与退款说明。",
+          "main > section.cta a": "查看 Outline 价格",
+        },
+      },
+      "pricing.html": {
+        title: "价格 – Outline",
+        description:
+          "Outline 的免费、Pro 与计划中的终身版价格。Pro 早鸟价为每年 $9.99，终身版早鸟计划价为 $19.90；Gemini 大纲跳转无次数上限。",
+        selectors: {
+          ".compact-hero h1": "价格",
+          ".compact-hero .subtitle":
+            "三种方式使用 <strong>Outline</strong>：免费入门、按年解锁完整 Pro 工作流，或等待计划中的终身早鸟选项。",
+          ".price-grid .price-card:nth-child(1) .status-pill": "免费",
+          ".price-grid .price-card:nth-child(1) h2": "免费",
+          ".price-grid .price-card:nth-child(1) .plan-kicker": "适合以 Gemini 为主的工作流的扎实起点。",
+          ".price-grid .price-card:nth-child(1) ul li:nth-child(1)":
+            "<strong>Gemini 特权：</strong>大纲条目与跳转完全不限",
+          ".price-grid .price-card:nth-child(1) ul li:nth-child(2)":
+            "<strong>ChatGPT 跳转：</strong>每次对话仅限前 15 个大纲条目",
+          ".price-grid .price-card:nth-child(1) ul li:nth-child(3)":
+            "<strong>基础额度：</strong>每场对话 3 个书签、每月 3 次导出",
+          ".price-grid .price-card:nth-child(1) ul li:nth-child(4)":
+            "<strong>Inbox 联动：</strong>可将所选内容发送到可选的 macOS 桌面应用",
+          ".price-grid .price-card:nth-child(1) > p:last-of-type": "适合较短对话与重度使用 Gemini 的场景。",
+          ".price-grid .price-card:nth-child(2) .status-pill": "Pro 年费",
+          ".price-grid .price-card:nth-child(2) h2": "Pro",
+          ".price-grid .price-card:nth-child(2) .plan-kicker": "为长而严肃的对话解锁完整工作流。",
+          ".price-grid .price-card:nth-child(2) ul li:nth-child(1)":
+            "<strong>无界跳转：</strong>解除 ChatGPT 15 条限制，驾驭超长对话",
+          ".price-grid .price-card:nth-child(2) ul li:nth-child(2)":
+            "<strong>知识捕捉：</strong>无限书签，并完整导出到本地 Markdown 或 Inbox",
+          ".price-grid .price-card:nth-child(2) ul li:nth-child(3)":
+            "<strong>精准导出：</strong>不需要整段对话时，仅导出已加书签的问答",
+          ".price-grid .price-card:nth-child(2) ul li:nth-child(4)":
+            "<strong>智能摘要：</strong>在 Inbox 桌面应用内使用深度 AI 摘要",
+          ".price-grid .price-card:nth-child(2) ul li:nth-child(5)": "每份许可最多 3 台设备，许可期内可重新激活",
+          ".price-grid .price-card:nth-child(2) p.small-note:nth-of-type(1)":
+            "按年一次性付费。这不是自动续订的订阅，因此日后无需担心意外续费。",
+          ".price-grid .price-card:nth-child(2) .hero-actions .btn-link.primary": "解锁 Pro",
+          ".price-grid .price-card:nth-child(3) .status-pill": "终身早鸟",
+          ".price-grid .price-card:nth-child(3) h2": "终身",
+          ".price-grid .price-card:nth-child(3) .plan-kicker": "与计划中的一次性购买相同的 Pro 工作流。",
+          ".price-grid .price-card:nth-child(3) ul li:nth-child(1)": "为 Outline 的 Pro 方案一次性付费",
+          ".price-grid .price-card:nth-child(3) ul li:nth-child(2)": "包含全部 Pro 导航、书签、导出与 Inbox 摘要能力，无需按年续费",
+          ".price-grid .price-card:nth-child(3) ul li:nth-child(3)": "维护承诺至少至 2029 年 5 月",
+          ".price-grid .price-card:nth-child(3) ul li:nth-child(4)": "结账入口尚未接通",
+          ".price-grid .price-card:nth-child(3) > p:last-of-type": "终身早鸟资格。",
+          ".price-grid .price-card:nth-child(3) .hero-actions .btn-link.secondary": "查看终身方案",
+          ".notice-box.plan-note":
+            "<strong>交付方式：</strong>购买后以激活码形式数字交付。激活后可离线使用；有效的 Pro 试用在书签、导出、ChatGPT 导航与 Inbox 摘要权限上与 Pro 相同。",
+          "main > section:nth-of-type(2) h2": "技术与隐私说明",
+          "main > section:nth-of-type(2) > p":
+            "Inbox 是可选的本地 macOS 应用（Apple Silicon）。可单独从 wisteriasoftware.uk 下载，基础 Outline 导航不依赖 Inbox。",
+          "main > section:nth-of-type(2) ul li:nth-child(1)": "Inbox 数据默认保存在你的设备上",
+          "main > section:nth-of-type(2) ul li:nth-child(2)": "AI 摘要由你手动触发，不会自动运行",
+          "main > section:nth-of-type(2) ul li:nth-child(3)": "使用摘要时在 Inbox 内自行提供 API Key",
+          "main > section:nth-of-type(2) ul li:nth-child(4)": "本地优先架构，数据由你掌控",
+          "main > section:nth-of-type(3) h2": "支付与交付",
+          "main > section:nth-of-type(3) p:nth-of-type(1)":
+            "所有付款均由 Paddle 安全处理，Paddle 是我们的授权支付服务商（Merchant of Record）。",
+          "main > section:nth-of-type(3) p:nth-of-type(2)": "支付成功后，客户将收到：",
+          "main > section:nth-of-type(3) ul li:nth-child(1)": "购买确认邮件",
+          "main > section:nth-of-type(3) ul li:nth-child(2)": "数字许可密钥",
+          "main > section:nth-of-type(3) ul li:nth-child(3)": "在许可有效期内允许重新激活",
+          "main > section:nth-of-type(4) h2": "退款政策",
+          "main > section:nth-of-type(4) p:nth-of-type(1)":
+            "数字购买适用 14 天退款政策。如遇问题，请联系：<strong>support@wisteriasoftware.uk</strong>",
+          "main > section:nth-of-type(4) p:nth-of-type(2)":
+            "阅读完整政策：<a href=\"refund.html\">退款政策</a>",
+        },
+      },
+      "inbox.html": {
+        title: "Inbox – Wisteria Software",
+        description:
+          "Inbox 帮助你捕捉、整理并回顾 AI 对话、截图与笔记。目前提供适用于 macOS 的 Inbox Local，并以 Inbox Capture 作为浏览器伴侣。",
+        selectors: {
+          ".inbox-page .split-hero .eyebrow": "Inbox",
+          ".inbox-page .hero-title":
+            "把 AI 对话变成你真正拥有的知识。",
+          ".inbox-page .split-hero > div > .subtitle":
+            "ChatGPT 与其他 AI 工具里最好的想法不该消失在滚动记录里。Inbox 帮助你捕捉、整理并回顾重要内容，让对话结束后工作仍然有用。",
+          ".inbox-page .split-hero .hero-actions .btn-link.primary": "下载适用于 macOS 的 Inbox Local",
+          ".inbox-page .split-hero .hero-actions .btn-link.secondary": "了解工作流",
+          ".inbox-page .hero-card h2": "当前可用性",
+          ".inbox-page .hero-points li:nth-child(1)":
+            "<strong>适用于 macOS 的 Inbox Local：</strong>现已支持 Apple Silicon Mac。",
+          ".inbox-page .hero-points li:nth-child(2)":
+            "<strong>Inbox Capture：</strong>现已在 Chrome 网上应用店上线，作为浏览器伴侣。",
+          ".inbox-page .hero-points li:nth-child(3)":
+            "<strong>数据归属：</strong>围绕本地优先工作流构建，保存的资料留在你手中。",
+          "main > section:nth-of-type(1) h2": "为什么需要 Inbox",
+          "main > section:nth-of-type(1) > p":
+            "AI 擅长生成答案，却不擅长帮你把它们留下来。",
+          "main > section:nth-of-type(1) .feature-item:nth-child(1) h3": "长对话会埋没有价值的工作",
+          "main > section:nth-of-type(1) .feature-item:nth-child(1) p": "有用的回答、提示与想法会淹没在重度滚动的会话里。",
+          "main > section:nth-of-type(1) .feature-item:nth-child(2) h3": "好素材变得支离破碎",
+          "main > section:nth-of-type(1) .feature-item:nth-child(2) p": "截图、笔记、引用与导出的对话散落在太多地方。",
+          "main > section:nth-of-type(1) .feature-item:nth-child(3) h3": "复用比想象中更难",
+          "main > section:nth-of-type(1) .feature-item:nth-child(3) p": "你不得不重复提问，而不是在已学到的内容上继续构建。",
+          "main > section:nth-of-type(1) .feature-item:nth-child(4) h3": "平台所有权不等于你的所有权",
+          "main > section:nth-of-type(1) .feature-item:nth-child(4) p":
+            "太多工作仍困在从未被设计成你长期资料库的工具里。",
+          "main > section:nth-of-type(2) h2": "Inbox 是什么",
+          "main > section:nth-of-type(2) p:nth-of-type(1)":
+            "Inbox 是面向重度 AI 使用者的个人知识工作流，帮助你把对话、截图与笔记变成可以长期保存、回顾与复用的材料。",
+          "main > section:nth-of-type(2) p:nth-of-type(2)":
+            "目前 Inbox 以 <strong>适用于 macOS 的 Inbox Local</strong> 提供，并与浏览器伴侣 <strong>Inbox Capture</strong> 配合，让保存有用内容更快捷。",
+          "main > section:nth-of-type(3) h2": "用 Inbox 能做什么",
+          "main > section:nth-of-type(3) .feature-item:nth-child(1) h3": "捕捉重要内容",
+          "main > section:nth-of-type(3) .feature-item:nth-child(1) p": "在有用内容消失前，保存对话、截图、摘录与想法。",
+          "main > section:nth-of-type(3) .feature-item:nth-child(2) h3": "整理成可用的结构",
+          "main > section:nth-of-type(3) .feature-item:nth-child(2) p": "以更清晰的结构回顾已保存内容，减少滚动，突出要点。",
+          "main > section:nth-of-type(3) .feature-item:nth-child(3) h3": "回顾与复用",
+          "main > section:nth-of-type(3) .feature-item:nth-child(3) p": "快速回到过去的答案，减少重复提示，建立可复用的知识。",
+          "main > section:nth-of-type(3) .feature-item:nth-child(4) h3": "保持归属",
+          "main > section:nth-of-type(3) .feature-item:nth-child(4) p": "采用本地优先工作流，让保存的资料留在你的设备上并由你掌控。",
+          "main > section:nth-of-type(4) h2": "更好的工作流",
+          "main > section:nth-of-type(4) .workflow-line": "捕捉 → 整理 → 复用 → 归属",
+          "main > section:nth-of-type(4) > p:nth-of-type(2)":
+            "Inbox 帮助把 AI 从一次性对话工具，变成面向长期思考与知识的系统。",
+          "main > section:nth-of-type(4) .meta-card:nth-child(1)":
+            "<strong>捕捉</strong>在工作中及时保存重要内容，避免有用上下文流失。",
+          "main > section:nth-of-type(4) .meta-card:nth-child(2)":
+            "<strong>整理</strong>让已保存内容更易浏览、回顾与查找。",
+          "main > section:nth-of-type(4) .meta-card:nth-child(3)":
+            "<strong>复用</strong>把一次性 AI 输出变成可不断查阅的参考资料。",
+          ".companion-section .section-intro .eyebrow": "浏览器伴侣",
+          ".companion-section .section-intro h2": "与 Inbox Capture 配合",
+          ".companion-section > p":
+            "Inbox Capture 是 Inbox 的浏览器伴侣。浏览时快速保存有用文本、截图、图片与笔记，再带入 Inbox 工作流进行回顾与复用。",
+          ".companion-section .hero-actions .btn-link.primary": "在 Chrome 上安装 Inbox Capture",
+          ".companion-section .hero-actions .btn-link.secondary": "查看全部产品",
+          "main > section:nth-of-type(6) h2": "适合谁",
+          "main > section:nth-of-type(6) .feature-item:nth-child(1) h3": "开发者",
+          "main > section:nth-of-type(6) .feature-item:nth-child(1) p": "整理提示、代码解释与研究笔记，供后续开发使用。",
+          "main > section:nth-of-type(6) .feature-item:nth-child(2) h3": "写作者与创作者",
+          "main > section:nth-of-type(6) .feature-item:nth-child(2) p": "保存想法、草稿、引用与 AI 辅助产出，不丢线索。",
+          "main > section:nth-of-type(6) .feature-item:nth-child(3) h3": "研究者与知识工作者",
+          "main > section:nth-of-type(6) .feature-item:nth-child(3) p": "建立个人参考层，而不是每次都从零开始。",
+          "main > section:nth-of-type(6) .feature-item:nth-child(4) h3": "日常 AI 用户",
+          "main > section:nth-of-type(6) .feature-item:nth-child(4) p": "留住 AI 工作流中有用的部分，而不是让它们消失在聊天记录里。",
+          "main > section.cta h2": "别再丢掉你用 AI 创造的价值。",
+          "main > section.cta > p": "用适用于 macOS 的 Inbox Local 保存、结构化并真正拥有它们。",
+          "main > section.cta a": "下载适用于 macOS 的 Inbox Local",
+        },
+      },
+      "support.html": {
+        title: "支持 – Wisteria Suite",
+        description: "Outline、Inbox Capture 与适用于 macOS 的 Inbox Local 的支持页面。",
+        selectors: {
+          ".compact-hero h1": "支持",
+          ".compact-hero .subtitle":
+            "关于 <strong>Outline</strong>、<strong>Inbox Capture</strong> 与 <strong>适用于 macOS 的 Inbox Local</strong> 的帮助与联系信息。",
+          "main > section:nth-of-type(1) > p":
+            "安装问题、账单协助、版本状态与缺陷报告，均可通过本页联系 Wisteria Suite。",
+          ".product-grid .product-card:nth-child(1) p": "安装、激活、账单、退款与缺陷报告相关问题。",
+          ".product-grid .product-card:nth-child(2) p": "Chrome 扩展的安装、设置与支持问题。",
+          ".product-grid .product-card:nth-child(3) p": "在 Apple Silicon Mac 上的下载、设置与本地应用问题。",
+          ".contact-box h2": "联系",
+          ".contact-box p:nth-of-type(1)":
+            "📧 邮箱：<a href=\"mailto:support@wisteriasoftware.uk\">support@wisteriasoftware.uk</a>",
+          ".contact-box .subtitle": "我们通常在 1–2 个工作日内回复。",
+        },
+      },
+      "terms.html": {
+        title: "服务条款 – Outline",
+        description: "适用于本站 Outline 付费购买与使用的服务条款。",
+        selectors: {
+          ".compact-hero h1": "服务条款",
+          ".compact-hero .subtitle": "Outline",
+          "main > section:nth-of-type(1) h2": "1. 引言",
+          "main > section:nth-of-type(1) p:nth-of-type(1)":
+            "本服务条款目前适用于在本站购买与使用 Outline 付费方案。",
+          "main > section:nth-of-type(1) p:nth-of-type(2)":
+            "本服务条款规范你对 Wisteria Software Ltd. 提供的 Outline Chrome 扩展（「产品」）的使用。购买、安装或使用产品即表示你同意本条款。",
+          "main > section:nth-of-type(2) h2": "2. 产品说明",
+          "main > section:nth-of-type(2) p":
+            "Outline 是一款为 ChatGPT 与 Gemini 对话生成可导航目录结构的浏览器扩展。扩展在用户浏览器内本地运行。",
+          "main > section:nth-of-type(3) h2": "3. 许可",
+          "main > section:nth-of-type(3) p":
+            "购买后，你获得非独占、不可转让、有限范围的许可，可将产品用于个人或商业用途。",
+          "main > section:nth-of-type(3) ul li:nth-child(1)": "许可有效期：自购买日起 1 年（另有说明除外）。",
+          "main > section:nth-of-type(3) ul li:nth-child(2)": "许可可能限制在指定数量的设备上使用。",
+          "main > section:nth-of-type(3) ul li:nth-child(3)": "在许可有效期内，可按需重新激活。",
+          "main > section:nth-of-type(3) ul li:nth-child(4)": "不得转售、再分发或逆向工程本产品。",
+          "main > section:nth-of-type(4) h2": "4. 支付",
+          "main > section:nth-of-type(4) p":
+            "付款通过 Paddle（我们的 Merchant of Record）安全处理。完成购买即表示你同意 Paddle 的结账条款。",
+          "main > section:nth-of-type(5) h2": "5. 数字交付",
+          "main > section:nth-of-type(5) p":
+            "产品以电子方式交付。许可密钥在购买成功后通过邮件发送。不寄送实体商品。",
+          "main > section:nth-of-type(6) h2": "6. 退款",
+          "main > section:nth-of-type(6) p":
+            "退款请求按照我们的退款政策处理。详情请参阅退款政策页面。",
+          "main > section:nth-of-type(7) h2": "7. 责任限制",
+          "main > section:nth-of-type(7) p":
+            "产品按「现状」提供，不作任何明示或暗示担保。Wisteria Software Ltd. 不对因使用产品而产生的间接、附带或后果性损害承担责任。",
+          "main > section:nth-of-type(8) h2": "8. 变更",
+          "main > section:nth-of-type(8) p":
+            "我们可能随时更新本条款。继续使用产品即视为接受更新后的条款。",
+          "main > section:nth-of-type(9) h2": "9. 联系",
+          "main > section:nth-of-type(9) p": "如对本条款有疑问：support@wisteriasoftware.uk",
+        },
+      },
+      "refund.html": {
+        title: "退款政策 – Outline",
+        description: "通过 Paddle 在本站完成的符合条件的 Outline 数字购买之退款政策。",
+        selectors: {
+          ".compact-hero h1": "退款政策",
+          ".compact-hero .subtitle": "Outline",
+          "main > section:nth-of-type(1) h2": "1. 数字产品",
+          "main > section:nth-of-type(1) p:nth-of-type(1)":
+            "本退款政策适用于通过 Paddle 在本站完成的符合条件的数字购买。",
+          "main > section:nth-of-type(1) p:nth-of-type(2)":
+            "Outline 为以电子方式交付的数字软件产品，不寄送实体商品。",
+          "main > section:nth-of-type(2) h2": "2. 14 天退款政策",
+          "main > section:nth-of-type(2) p:nth-of-type(1)":
+            "根据 Paddle 的买家保护标准与适用的消费者法规，客户有权在购买后 14 天内获得全额退款。",
+          "main > section:nth-of-type(2) p:nth-of-type(2)": "退款由我们的 Merchant of Record——Paddle 处理。",
+          "main > section:nth-of-type(3) h2": "3. 如何申请退款",
+          "main > section:nth-of-type(3) p:nth-of-type(1)":
+            "如需退款，请直接通过购买收据邮件联系 Paddle，或联系我们的支持团队：",
+          "main > section:nth-of-type(3) p:nth-of-type(2)":
+            "<a href=\"mailto:support@wisteriasoftware.uk\">support@wisteriasoftware.uk</a>",
+          "main > section:nth-of-type(4) h2": "4. 处理时间",
+          "main > section:nth-of-type(4) p":
+            "获批的退款由 Paddle 处理，到账原支付方式可能需要 5–10 个工作日。",
+        },
+      },
+      "outline-pro.html": {
+        title: "Outline - ChatGPT 与 Gemini 大纲导航",
+        description:
+          "Outline 是面向 ChatGPT 与 Gemini 的 Chrome 扩展，将长对话变为可点击的侧边栏大纲。跳转到消息、为关键问答加书签，并导出为 Markdown 或 Inbox。Gemini 大纲跳转无次数上限。",
+        selectors: {
+          ".sales-hero .eyebrow": "ChatGPT 与 Gemini 大纲",
+          ".sales-hero h1": "ChatGPT 与 Gemini 大纲",
+          ".sales-hero > p:nth-child(3)":
+            "用专注的侧边栏大纲导航 ChatGPT 与 Gemini 的长对话。跳转到消息、标记关键回合，并轻松导出聊天。",
+          ".sales-hero > p:nth-child(4)":
+            "Gemini 大纲跳转无目录条数上限。为重要问答加书签，并将保存的内容精确导出到本地 Markdown 或 Inbox。",
+          ".sales-hero .hero-actions .btn-link.primary": "升级到 Pro",
+          ".sales-hero > p:nth-child(6)":
+            "14 天退款政策。<a href=\"refund.html\">查看退款说明</a>。",
+          ".sales-hero > p:nth-child(8)": "付款由 Paddle（Merchant of Record）处理。",
+          ".sales-hero .kicker-list .kicker:nth-child(1)": "Chrome 扩展",
+          ".sales-hero .kicker-list .kicker:nth-child(2)": "本地优先",
+          ".sales-hero .kicker-list .kicker:nth-child(3)": "对话内容留在你的设备上",
+          ".sales-hero .kicker-list .kicker:nth-child(4)": "激活码通过邮件发送",
+          ".demo-section > h2": "观看 34 秒演示",
+          ".demo-section > p:first-of-type":
+            "在真实对话中观看 Outline。若内嵌播放器无法加载，页面会自动回退到真实产品截图。",
+          ".video-poster-overlay":
+            "<span class=\"eyebrow\">34 秒演示</span><strong>观看 Outline 实际效果</strong><span>在本页直接播放产品演示。</span><span class=\"video-poster-cta\">播放演示</span>",
+          "#outline-demo-note":
+            "当前环境无法播放视频，因此页面展示真实产品截图。",
+          "#outline-demo-fallback .preview-card:nth-child(1) figcaption":
+            "点击任意条目即可瞬间跳转到长对话中的对应位置。",
+          "#outline-demo-fallback .preview-card:nth-child(2) figcaption":
+            "将冗长的 ChatGPT 与 Gemini 对话变成清晰可扫读的大纲。",
+          ".demo-section .hero-actions-centered .btn-link.primary": "播放 34 秒演示",
+          ".demo-section .hero-actions-centered .btn-link.secondary": "浏览功能",
+          "main > section:nth-of-type(2) h2": "它能做什么",
+          "main > section:nth-of-type(2) p:nth-of-type(1)":
+            "<strong>Outline</strong> 会自动把冗长的 ChatGPT 与 Gemini 会话变成可点击的目录。无论你是在写作、编程、学习还是进行多轮讨论，都可以瞬间跳到任意要点，而无需无尽滚动。",
+          "main > section:nth-of-type(2) p:nth-of-type(2)":
+            "你还可以为值得保留的具体问答回合加书签，然后将整段对话或仅书签部分导出到本地 Markdown 或 Inbox。",
+          "main > section:nth-of-type(2) p:nth-of-type(3)":
+            "ChatGPT 与 Gemini 页面内容在浏览器本地处理，不会上传到我们的服务器。",
+          "main > section#pricing .section-intro .eyebrow": "升级 Pro",
+          "main > section#pricing .section-intro h2": "解锁完整 Outline 工作流",
+          "main > section#pricing .section-intro .subtitle":
+            "按你使用长对话的深度选择方案。免费版下 Gemini 导航依然慷慨；Pro 解除 ChatGPT 限制，并解锁完整捕捉、导出与 Inbox 回顾流程。",
+          "main > section#pricing .price-card:nth-child(1) .status-pill": "免费",
+          "main > section#pricing .price-card:nth-child(1) h3": "免费",
+          "main > section#pricing .price-card:nth-child(1) .plan-kicker": "适合以 Gemini 为主的工作流的扎实起点。",
+          "main > section#pricing .price-card:nth-child(1) .plan-compare-list li:nth-child(1)":
+            "<span class=\"plan-icon\">🟢</span><span><strong>Gemini 跳转：</strong>不限</span>",
+          "main > section#pricing .price-card:nth-child(1) .plan-compare-list li:nth-child(2)":
+            "<span class=\"plan-icon\">🟡</span><span><strong>ChatGPT 跳转：</strong>前 15 个大纲条目</span>",
+          "main > section#pricing .price-card:nth-child(1) .plan-compare-list li:nth-child(3)":
+            "<span class=\"plan-icon\">🟠</span><span><strong>书签与导出：</strong>每场对话 3 个书签，每月 3 次导出</span>",
+          "main > section#pricing .price-card:nth-child(1) .plan-compare-list li:nth-child(4)":
+            "<span class=\"plan-icon\">🟢</span><span><strong>Inbox 传递：</strong>将所选内容发送到 Inbox 应用</span>",
+          "main > section#pricing .price-card:nth-child(1) .plan-compare-list li:nth-child(5)":
+            "<span class=\"plan-icon\">❌</span><span><strong>Inbox 深度摘要：</strong>仅 Pro</span>",
+          "main > section#pricing .price-card:nth-child(1) > p:last-of-type": "适合短对话、Gemini 导航与轻度捕捉。",
+          "main > section#pricing .price-card:nth-child(2) .status-pill": "Pro 年费",
+          "main > section#pricing .price-card:nth-child(2) h3": "Pro",
+          "main > section#pricing .price-card:nth-child(2) .plan-kicker": "适合每天在超长 ChatGPT 与 Gemini 线程里工作的人。",
+          "main > section#pricing .price-card:nth-child(2) .plan-compare-list li:nth-child(1)":
+            "<span class=\"plan-icon\">✅</span><span><strong>Gemini 跳转：</strong>不限</span>",
+          "main > section#pricing .price-card:nth-child(2) .plan-compare-list li:nth-child(2)":
+            "<span class=\"plan-icon\">✅</span><span><strong>ChatGPT 跳转：</strong>无 15 条上限</span>",
+          "main > section#pricing .price-card:nth-child(2) .plan-compare-list li:nth-child(3)":
+            "<span class=\"plan-icon\">✅</span><span><strong>书签与导出：</strong>不限 + 仅导出书签</span>",
+          "main > section#pricing .price-card:nth-child(2) .plan-compare-list li:nth-child(4)":
+            "<span class=\"plan-icon\">✅</span><span><strong>Inbox 传递：</strong>包含</span>",
+          "main > section#pricing .price-card:nth-child(2) .plan-compare-list li:nth-child(5)":
+            "<span class=\"plan-icon\">✅</span><span><strong>Inbox 深度摘要：</strong>包含</span>",
+          "main > section#pricing .price-card:nth-child(2) p.small-note":
+            "按年一次性付费。这不是自动续订的订阅，因此日后无需担心意外续费。",
+          "main > section#pricing .price-card:nth-child(2) > p:nth-of-type(4)":
+            "适合严肃研究、写作、编程与周期性知识回顾。",
+          "main > section#pricing .price-card:nth-child(2) .hero-actions .btn-link.primary": "解锁 Pro",
+          "main > section#pricing .notice-box:nth-of-type(1)":
+            "<strong>退款政策：</strong>所有购买均适用 14 天退款政策。<a href=\"refund.html\">查看退款政策</a>",
+          "main > section#pricing > p.small-note":
+            "新用户可获得 7 天 Pro 试用。试用期间，大纲导航、书签与导出适用 Pro 限制。Gemini 大纲跳转无目录条数上限。",
+          "main > section#pricing .notice-box.plan-note":
+            "<strong>技术与隐私：</strong>Inbox 是可选的本地 macOS 应用（Apple Silicon）。数据默认保存在你的设备上；AI 摘要由你手动触发，并在 Inbox 内使用你自己的 API Key。Inbox 可单独从 wisteriasoftware.uk 下载。",
+          "#features h2": "功能",
+          "#features .feature-item:nth-child(1) h3": "1. 一键大纲",
+          "#features .feature-item:nth-child(1) p":
+            "在 ChatGPT 或 Gemini 中点击 <strong>Outline</strong>，即可自动提取当前对话的问题列表。Gemini 大纲跳转无目录条数上限。",
+          "#features .feature-item:nth-child(2) h3": "2. 点击跳转",
+          "#features .feature-item:nth-child(2) p": "点击任意条目即可平滑滚动到目标消息并保持位置。",
+          "#features .feature-item:nth-child(3) h3": "3. 为重要问答加书签",
+          "#features .feature-item:nth-child(3) p":
+            "保存你想保留的用户与助手回合。免费版每场对话最多 3 个书签；Pro 与有效试用可无限书签。",
+          "#features .feature-item:nth-child(4) h3": "4. 自动刷新",
+          "#features .feature-item:nth-child(4) p": "新消息出现或切换对话时，大纲会自动更新。",
+          "#features .feature-item:nth-child(5) h3": "5. 图像感知标记",
+          "#features .feature-item:nth-child(5) p": "纯图片或图文混合提示会被标注，便于更快回顾。",
+          "#features .feature-item:nth-child(6) h3": "6. 灵活侧边栏",
+          "#features .feature-item:nth-child(6) p":
+            "可切换左右、拖拽调整大小，并使用 <strong>Alt/Option + ←/→</strong> 显示或隐藏。",
+          "#features .feature-item:nth-child(7) h3": "7. 书签导出与发送到 Inbox",
+          "#features .feature-item:nth-child(7) p":
+            "导出整段对话，或仅导出已加书签的问答，到本地 Markdown 或 Inbox，便于日后聚焦回顾。",
+          "#features .feature-item:nth-child(8) h3": "8. Inbox 智能摘要",
+          "#features .feature-item:nth-child(8) p":
+            "Pro 用户可在可选的 Inbox 桌面应用中回顾捕捉内容，并使用自行配置的 API Key 手动触发深度 AI 摘要。",
+          "main > section:nth-of-type(5) h2": "常见问题",
+          ".faq-grid .faq-item:nth-child(1) h3": "这款产品适合做什么？",
+          ".faq-grid .faq-item:nth-child(1) p":
+            "将冗长的 ChatGPT 与 Gemini 对话变成可点击大纲，便于快速查找与回顾要点。Gemini 大纲跳转无目录条数上限。",
+          ".faq-grid .faq-item:nth-child(2) h3": "Outline 支持 Gemini 吗？",
+          ".faq-grid .faq-item:nth-child(2) p": "支持。Outline 在 Chrome 及基于 Chromium 的浏览器扩展环境中支持 Gemini 对话。",
+          ".faq-grid .faq-item:nth-child(3) h3": "Gemini 大纲跳转有限制吗？",
+          ".faq-grid .faq-item:nth-child(3) p": "没有。Gemini 大纲跳转无目录条数上限。",
+          ".faq-grid .faq-item:nth-child(4) h3": "购买后如何激活？",
+          ".faq-grid .faq-item:nth-child(4) p":
+            "你会收到包含激活码的邮件（例如：<code>XXXX-XXXX-XXXX</code>）。在扩展中输入即可激活。在许可有效期内可按需重新激活。",
+          ".faq-grid .faq-item:nth-child(5) h3": "若微信支付成功但页面似乎卡住？",
+          ".faq-grid .faq-item:nth-child(5) p":
+            "微信支付可能异步完成，因此成功页可能稍晚才更新。请预留约 15 分钟等待支付状态同步。激活码邮件也可能延迟；若 20 分钟后仍未收到，请联系 <a href=\"mailto:support@wisteriasoftware.uk\">support@wisteriasoftware.uk</a>。",
+          ".faq-grid .faq-item:nth-child(6) h3": "是否提供试用？",
+          ".faq-grid .faq-item:nth-child(6) p":
+            "是的。新用户可获得 7 天 Pro 试用。试用期间，大纲导航、书签与导出适用 Pro 限制。Gemini 大纲跳转无目录条数上限。",
+          ".faq-grid .faq-item:nth-child(7) h3": "激活后需要一直联网吗？",
+          ".faq-grid .faq-item:nth-child(7) p": "不需要。首次激活需要联网；之后可本地离线运行。",
+          ".faq-grid .faq-item:nth-child(8) h3": "免费版与 Pro 有何区别？",
+          ".faq-grid .faq-item:nth-child(8) p":
+            "免费版可点击前 15 个 ChatGPT 大纲条目、无限制使用 Gemini 大纲跳转、每场对话最多 3 个书签、每月最多导出 3 次。Pro 方案与有效试用可解除 ChatGPT 导航、书签与导出限制。",
+          ".faq-grid .faq-item:nth-child(9) h3": "终身方案是什么？",
+          ".faq-grid .faq-item:nth-child(9) p":
+            "终身方案是计划中针对 Outline Pro 的一次性购买。早鸟价 $19.90，原价 $49，维护承诺至少至 2029 年 5 月。终身结账即将推出。",
+          ".faq-grid .faq-item:nth-child(10) h3": "Outline 会上传我的 ChatGPT 或 Gemini 内容吗？",
+          ".faq-grid .faq-item:nth-child(10) p": "不会。页面内容在浏览器本地处理，不会上传到我们的服务器。",
+          ".faq-grid .faq-item:nth-child(11) h3": "能否仅导出加书签的部分？",
+          ".faq-grid .faq-item:nth-child(11) p":
+            "可以。先为重要问答加书签，即可仅将保存的段落导出到本地 Markdown 或 Inbox，而无需导出整段对话。",
+          ".faq-grid .faq-item:nth-child(12) h3": "支持哪些环境？",
+          ".faq-grid .faq-item:nth-child(12) p": "Chrome / Chromium 浏览器扩展环境下的 ChatGPT 与 Gemini 网页使用场景。",
+          ".faq-grid .faq-item:nth-child(13) h3": "如何联系支持？",
+          ".faq-grid .faq-item:nth-child(13) p":
+            "<a href=\"mailto:support@wisteriasoftware.uk\">support@wisteriasoftware.uk</a>",
+        },
+      },
+      "payment-success": {
+        title: "支付成功",
+        description: "支付成功。请激活你的 Outline 许可。",
+        selectors: {
+          "main .hero h1": "🎉 支付成功！",
+          "main .hero .subtitle":
+            "你的支付已成功完成。<br>你现在拥有 <strong>Outline</strong> 的 <strong>一年订阅</strong>。",
+          "main > section:nth-of-type(1) h2": "你的激活码",
+          "main > section:nth-of-type(1) > p": "在扩展中输入此码以激活许可。",
+          ".waiting-text": "正在安全生成你的许可。",
+          ".waiting-warning": "⚠️ 请勿关闭本页面。",
+          "main > section:nth-of-type(2) h2": "如何激活",
+          "main > section:nth-of-type(2) ol li:nth-child(1)": "复制上方显示的激活码。",
+          "main > section:nth-of-type(2) ol li:nth-child(2)": "打开扩展并点击 <strong>获取 Pro</strong>。",
+          "main > section:nth-of-type(2) ol li:nth-child(3)": "点击 <strong>已有许可？</strong>",
+          "main > section:nth-of-type(2) ol li:nth-child(4)": "输入激活码并点击 <strong>激活</strong>。",
+          "main > section:nth-of-type(3) h2": "重要提示",
+          ".important-box p": "🔐 请妥善保管你的激活码。",
+          ".email-notice p:nth-of-type(1)": "📧 激活码副本已发送至你的邮箱。",
+          ".email-notice p:nth-of-type(2)": "若未收到，可点击重新发送。",
+          "#resend-btn": "📧 重新发送许可邮件",
+          "#license-box .btn-primary": "📋 复制激活码",
+          "#copy-tip": "✓ 已复制！",
+          "main > section:nth-of-type(4) h2": "需要帮助？",
+          "main > section:nth-of-type(4) p": "📧 support@wisteriasoftware.uk",
+        },
+      },
+      "payment-success.html": {
+        title: "支付成功",
+        description: "支付成功。请激活你的 Outline 许可。",
+        selectors: {
+          "main .hero h1": "🎉 支付成功！",
+          "main .hero .subtitle":
+            "你的支付已成功完成。<br>你现在拥有 <strong>Outline</strong> 的 <strong>一年订阅</strong>。",
+          "main > section:nth-of-type(1) h2": "你的激活码",
+          "main > section:nth-of-type(1) > p": "在扩展中输入此码以激活许可。",
+          ".waiting-text": "正在安全生成你的许可。",
+          ".waiting-warning": "⚠️ 请勿关闭本页面。",
+          "main > section:nth-of-type(2) h2": "如何激活",
+          "main > section:nth-of-type(2) ol li:nth-child(1)": "复制上方显示的激活码。",
+          "main > section:nth-of-type(2) ol li:nth-child(2)": "打开扩展并点击 <strong>获取 Pro</strong>。",
+          "main > section:nth-of-type(2) ol li:nth-child(3)": "点击 <strong>已有许可？</strong>",
+          "main > section:nth-of-type(2) ol li:nth-child(4)": "输入激活码并点击 <strong>激活</strong>。",
+          "main > section:nth-of-type(3) h2": "重要提示",
+          ".important-box p": "🔐 请妥善保管你的激活码。",
+          ".email-notice p:nth-of-type(1)": "📧 激活码副本已发送至你的邮箱。",
+          ".email-notice p:nth-of-type(2)": "若未收到，可点击重新发送。",
+          "#resend-btn": "📧 重新发送许可邮件",
+          "#license-box .btn-primary": "📋 复制激活码",
+          "#copy-tip": "✓ 已复制！",
+          "main > section:nth-of-type(4) h2": "需要帮助？",
+          "main > section:nth-of-type(4) p": "📧 support@wisteriasoftware.uk",
+        },
+      },
+      "payment-cancel": {
+        title: "支付已取消",
+        description: "",
+        selectors: {
+          ".card h1": "支付已取消",
+          ".card p:nth-of-type(1)": "你的结账未完成。",
+          ".card p:nth-of-type(2)": "未产生扣款。",
+          ".card .btn": "返回产品页",
+        },
+      },
+      "payment-cancel.html": {
+        title: "支付已取消",
+        description: "",
+        selectors: {
+          ".card h1": "支付已取消",
+          ".card p:nth-of-type(1)": "你的结账未完成。",
+          ".card p:nth-of-type(2)": "未产生扣款。",
+          ".card .btn": "返回产品页",
+        },
+      },
     },
   };
 })();
