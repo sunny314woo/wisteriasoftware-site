@@ -1,7 +1,7 @@
 /*
  * 【MODIFIED】File purpose: runtime i18n and shared layout renderer for the static Wisteria landing site.
  * Main functions: resolves language preference, renders shared navigation/footer, applies translations, and records missing keys.
- * Latest modification purpose: make first-stage Chinese support work through runtime/localStorage/query without changing default English URLs.
+ * Latest modification purpose: keep the first-stage language model query/runtime-first while preserving legacy /zh-Hans/ entry pages.
  */
 (function () {
   const config = window.WISTERIA_I18N_CONFIG || {};
@@ -56,6 +56,17 @@
         || window.location.pathname.startsWith(`${locale.pathPrefix}/`);
     });
     return match ? match.code : defaultLocale;
+  }
+
+  /**
+   * 【MODIFIED】Converts internal locale codes into public query values.
+   * @param {string} language - Internal locale code, such as zh-Hans.
+   * Output: public query value, such as zh-CN.
+   * Side effects: none.
+   */
+  function publicLanguageCode(language) {
+    if (language === "zh-Hans") return "zh-CN";
+    return language;
   }
 
   function normalizeLanguage(value) {
@@ -114,9 +125,9 @@
 
   /**
    * 【MODIFIED】Chooses the initial language without redirecting away from the English default path.
-   * Input priority: query parameter, saved user choice, compatible localized path, browser language, default locale.
+   * Input priority: query parameter, saved user choice, legacy localized path, browser language, default locale.
    * Output: locale code.
-   * Side effects: explicit query parameters are saved as manual user preference.
+   * Side effects: explicit query parameters and legacy path entries are saved so child pages keep the selected language.
    */
   function preferredLanguage() {
     const queried = queryLanguage();
@@ -126,7 +137,11 @@
     }
     const saved = readSavedLanguage();
     if (supported.has(saved)) return saved;
-    if (selectable.has(pathLanguage()) && pathLanguage() !== defaultLocale) return pathLanguage();
+    const pathLocale = pathLanguage();
+    if (selectable.has(pathLocale) && pathLocale !== defaultLocale) {
+      saveLanguage(pathLocale, true);
+      return pathLocale;
+    }
     const browserLanguage =
       navigator.languages && navigator.languages.length ? navigator.languages[0] : navigator.language;
     return normalizeLanguage(browserLanguage);
@@ -208,9 +223,30 @@
     if (language === defaultLocale) {
       url.searchParams.delete("lang");
     } else {
-      url.searchParams.set("lang", language === "zh-Hans" ? "zh-CN" : language);
+      url.searchParams.set("lang", publicLanguageCode(language));
     }
     return `${url.pathname}${url.search}${url.hash}`;
+  }
+
+  /**
+   * 【MODIFIED】Builds public links for shared navigation/footer using query parameters, not localized paths.
+   * @param {string} href - Base static page href from config.sharedLayout.
+   * @param {string} language - Active locale.
+   * Output: href with ?lang=zh-CN when active locale is Chinese; English remains clean.
+   * Side effects: none.
+   */
+  function localizedHref(href, language) {
+    if (language === defaultLocale) return href;
+    try {
+      const normalizedHref = href.split("#")[0].split("?")[0] === "index.html"
+        ? "/"
+        : href;
+      const url = new URL(normalizedHref, window.location.origin);
+      url.searchParams.set("lang", publicLanguageCode(language));
+      return `${url.pathname}${url.search}${url.hash}`;
+    } catch (error) {
+      return href;
+    }
   }
 
   /**
@@ -226,7 +262,7 @@
       const current = pageKey();
       const navLinks = layout.nav.map((item) => {
         const active = item.href.split("#")[0].split("?")[0].replace(/^\//, "") === current ? " active" : "";
-        return `<a class="nav-link${active}" href="${item.href}">${item.label}</a>`;
+        return `<a class="nav-link${active}" data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`;
       }).join("");
       header.innerHTML = [
         '<!-- 【MODIFIED】Shared navigation is rendered here from i18n/config.js to keep every page consistent. -->',
@@ -239,7 +275,9 @@
 
     const footer = document.querySelector("footer");
     if (footer && layout.footer) {
-      const links = layout.footer.map((item) => `<a href="${item.href}">${item.label}</a>`).join(" | ");
+      const links = layout.footer
+        .map((item) => `<a data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`)
+        .join(" | ");
       footer.innerHTML = [
         '<!-- 【MODIFIED】Shared footer is rendered here from i18n/config.js to keep every page consistent. -->',
         `<div class="footer-links">${links}</div>`,
@@ -263,6 +301,7 @@
       const translated = shared.nav && shared.nav[hrefFile(anchor)];
       if (!translated) recordMissing("shared.nav", hrefFile(anchor), language, pageKey());
       anchor.textContent = language !== defaultLocale && translated ? translated : anchor.dataset.i18nOriginalText;
+      anchor.setAttribute("href", localizedHref(anchor.dataset.i18nBaseHref || anchor.getAttribute("href") || "", language));
     });
 
     document.querySelectorAll(".footer-links a").forEach((anchor) => {
@@ -270,6 +309,7 @@
       const translated = shared.footer && shared.footer[hrefFile(anchor)];
       if (!translated) recordMissing("shared.footer", hrefFile(anchor), language, pageKey());
       anchor.textContent = language !== defaultLocale && translated ? translated : anchor.dataset.i18nOriginalText;
+      anchor.setAttribute("href", localizedHref(anchor.dataset.i18nBaseHref || anchor.getAttribute("href") || "", language));
     });
 
     document.querySelectorAll("footer > p").forEach((paragraph) => {

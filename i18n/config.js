@@ -81,15 +81,7 @@
       companyHtml:
         "© 2026 Wisteria Software Ltd.<br />Registered in England and Wales.<br />Company No. 16965144<br />Email: <a href=\"mailto:support@wisteriasoftware.uk\">support@wisteriasoftware.uk</a>",
     },
-    localizedRoutes: {
-      "index.html": {
-        en: "/",
-        "zh-Hans": "/zh-Hans/",
-      },
-      "privacy.html": {
-        en: "/privacy.html",
-        "zh-Hans": "/zh-Hans/privacy.html",
-      },
-    },
+    // 【MODIFIED】Legacy path pages are compatibility-only; the official first-stage language model is query/runtime.
+    legacyPathPrefixes: ["/zh-Hans"],
   };
 })();
