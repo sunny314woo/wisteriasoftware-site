@@ -676,6 +676,26 @@
   }
 
   /**
+   * Restores all translated page content to the original English when switching back
+   * to the default locale.  translatePage() skips English because there is no "en"
+   * dictionary, so we need an explicit fallback for the reverse direction.
+   */
+  function restoreOriginalContent() {
+    /* Restore every element that translatePage ever touched */
+    document.querySelectorAll("[data-i18n-original-html]").forEach((el) => {
+      el.innerHTML = el.dataset.i18nOriginalHtml;
+    });
+    /* Restore page title and meta description */
+    if (document.documentElement.dataset.i18nOriginalTitle) {
+      document.title = document.documentElement.dataset.i18nOriginalTitle;
+    }
+    var desc = document.querySelector('meta[name="description"]');
+    if (desc && desc.dataset.i18nOriginalContent) {
+      desc.setAttribute("content", desc.dataset.i18nOriginalContent);
+    }
+  }
+
+  /**
    * 【MODIFIED】Applies a locale to the current document.
    * @param {string} language - Locale code to apply.
    * Output: none.
@@ -688,7 +708,13 @@
     document.documentElement.setAttribute("data-current-language", normalized);
     translateShared(normalized);
     translateAnnotatedElements(normalized);
-    translatePage(normalized);
+
+    if (normalized === defaultLocale) {
+      /* English has no dictionary — restore original content explicitly */
+      restoreOriginalContent();
+    } else {
+      translatePage(normalized);
+    }
 
     syncLanguageControl(normalized);
   }
