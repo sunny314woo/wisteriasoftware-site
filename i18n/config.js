@@ -26,28 +26,30 @@
         label: "日本語",
         htmlLang: "ja",
         pathPrefix: "/ja",
-        pending: true,
       },
       {
         code: "ko",
         label: "한국어",
         htmlLang: "ko",
         pathPrefix: "/ko",
-        pending: true,
       },
       {
         code: "de",
         label: "Deutsch",
         htmlLang: "de",
         pathPrefix: "/de",
-        pending: true,
+      },
+      {
+        code: "fr",
+        label: "Français",
+        htmlLang: "fr",
+        pathPrefix: "/fr",
       },
       {
         code: "es",
         label: "Español",
         htmlLang: "es",
         pathPrefix: "/es",
-        pending: true,
       },
     ],
     aliases: {
@@ -57,18 +59,10 @@
       "zh-hk": "zh-Hans",
       "zh-tw": "zh-Hans",
     },
+    // Nav is now in nav.js (window.WISTERIA_NAV) — loaded before i18n.js.
+    // Footer config stays here, independent from nav.
     sharedLayout: {
       brand: "Wisteria Software",
-      nav: [
-        { href: "index.html", label: "Home" },
-        { href: "product.html", label: "Products" },
-        { href: "outline-pro.html", label: "Outline" },
-        { href: "inbox.html", label: "Inbox" },
-        { href: "support.html", label: "Support" },
-        { href: "privacy.html", label: "Privacy" },
-        { href: "terms.html", label: "Terms" },
-        { href: "refund.html", label: "Refund" },
-      ],
       footer: [
         { href: "product.html", label: "Products" },
         { href: "outline-pro.html", label: "Outline" },

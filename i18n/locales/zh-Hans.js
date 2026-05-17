@@ -14,10 +14,11 @@
         "pricing.html": "价格",
         "outline-pro.html": "Outline",
         "inbox.html": "Inbox",
+        "privacy.html": "隐私政策",
+        "terms.html": "服务条款",
+        "refund.html": "退款政策",
         "support.html": "支持",
-        "privacy.html": "隐私",
-        "terms.html": "条款",
-        "refund.html": "退款",
+        "nav-about": "关于",
       },
       footer: {
         "product.html": "产品",
@@ -34,55 +35,46 @@
     },
     pages: {
       "index.html": {
-        title: "Wisteria Software - Wisteria Suite",
+        title: "紫藤软件 — AI 时代的本地优先工具",
         description:
-          "Wisteria Software 是英国注册的独立软件公司，为认真使用 AI 的开发者、科研人员、创作者和知识工作者构建本地优先效率工具。",
+          "紫藤软件是英国注册的独立软件公司。我们为认真使用 AI 的人构建本地优先、隐私优先的工具：Outline、Inbox 与 Inbox Capture。",
         selectors: {
-          ".eyebrow": "英国独立软件公司",
-          ".hero-title": "为认真使用 AI 的人构建软件。",
-          ".split-hero > div > .subtitle":
-            "<strong>Wisteria Software</strong> 是一家英国注册的独立软件公司，面向 AI 时代构建本地优先的效率工具。我们帮助开发者、科研人员、创作者和重度 AI 用户导航长对话、保留重要上下文，并把有价值的输出沉淀成真正属于自己的第二大脑。",
-          ".split-hero .hero-actions .btn-link.primary": "了解 Outline",
-          ".split-hero .hero-actions .btn-link.secondary": "查看产品套组",
-          ".hero-card h2": "我们重视什么",
-          ".hero-points li:nth-child(1)":
-            "<strong>数据归属：</strong>本地优先的工作流，让重要材料留在你的掌控之中。",
-          ".hero-points li:nth-child(2)":
-            "<strong>流畅效率：</strong>减少滚动、搜索、复制和上下文切换。",
-          ".hero-points li:nth-child(3)":
-            "<strong>知识记忆：</strong>为 AI 工作建立实用的第二大脑层。",
-          "main > section:nth-of-type(1) .section-intro h2": "为 AI 工作日而构建",
-          "main > section:nth-of-type(1) .section-intro .subtitle":
-            "AI 很强大，但围绕 AI 的工作很容易变乱：长线程、分散截图、想不起在哪的答案，以及被困在昨天对话里的好想法。",
-          "main > section:nth-of-type(1) .meta-card:nth-child(1)":
-            "<strong>更快推进</strong>在长 AI 对话中快速定位，不丢位置，也不打断思路。",
-          "main > section:nth-of-type(1) .meta-card:nth-child(2)":
-            "<strong>保留重点</strong>在信息消失前捕捉重要答案、研究片段、截图和笔记。",
-          "main > section:nth-of-type(1) .meta-card:nth-child(3)":
-            "<strong>建立第二大脑</strong>把有用的 AI 输出变成可复用的知识，并整理在你自己的设备上。",
-          "main > section:nth-of-type(2) h2": "Wisteria Suite",
-          "main > section:nth-of-type(2) > p":
-            "我们的产品套组遵循一个简单工作流：导航对话、捕捉重点，并把它们保存在本地优先的系统中，用于回顾和复用。",
-          ".product-card:nth-child(1) .status-pill": "现已可用",
+          ".home-hero h1": "为你真实的 AI 工作方式<br>而构建的工具。",
+          ".home-hero-sub":
+            "长对话。有价值的碎片。随时需要找回之前的成果。我们构建本地优先的软件，帮助你导航 AI 对话、捕捉重要内容，并将零散的产出转化为你真正拥有的知识。",
+          ".home-hero .hero-actions .btn-link.primary": "了解 Outline",
+          ".home-hero .hero-actions .btn-link.secondary": "查看完整套组",
+          "main > section:nth-of-type(2) .section-intro .eyebrow": "产品",
+          "main > section:nth-of-type(2) .section-intro h2": "紫藤套组",
+          "main > section:nth-of-type(2) .section-intro > p": "一组专注的本地优先工具，为 AI 工作日而生 —— 导航、捕捉并拥有你的知识。",
           ".product-card:nth-child(1) h3": "Outline",
           ".product-card:nth-child(1) .subtitle":
-            "面向长 ChatGPT 和 Gemini 对话的智能侧边栏大纲。跳转消息、标记关键回合，并在对话值得保存时导出聊天。",
+            "<strong>ChatGPT Gemini 对话目录与大纲。</strong>将长 AI 对话变为可点击的侧边栏目录。一键跳转到任意消息、为关键节点加书签，并导出为 Markdown 或带结构的对话到 Inbox。",
           ".product-card:nth-child(1) .btn-link.primary": "查看 Outline",
-          ".product-card:nth-child(2) .status-pill": "现已可用",
-          ".product-card:nth-child(2) h3": "Inbox Capture",
+          ".product-card:nth-child(2) h3": "Inbox",
           ".product-card:nth-child(2) .subtitle":
-            "浏览器伴侣工具，用于把有价值的网页文本、截图、图片和笔记保存到你的知识工作流。",
+            "AI 与人脑之间的缓存层。",
+          ".product-card:nth-child(2) ul li:nth-child(1)": "<strong>结构化导入</strong> —— 将 AI 对话导入 Inbox，完整保留目录跳转",
+          ".product-card:nth-child(2) ul li:nth-child(2)": "<strong>AI 对话管理</strong> —— 标签、按时间筛选，让长线程保持有序",
+          ".product-card:nth-child(2) ul li:nth-child(3)": "<strong>个人知识库</strong> —— 建立可搜索的本地知识库，随你的 AI 工作一起成长",
+          ".product-card:nth-child(2) ul li:nth-child(4)": "<strong>网络信息缓存</strong> —— 在网页文本、图片和剪贴板内容消失前保存它们",
+          ".product-card:nth-child(2) .small-note": "现已支持 macOS（Apple Silicon）。Windows 版本即将推出。",
           ".product-card:nth-child(2) .btn-link.primary": "查看 Inbox",
-          ".product-card:nth-child(3) .status-pill": "可下载",
-          ".product-card:nth-child(3) h3": "Inbox Local",
+          ".product-card:nth-child(3) h3": "Inbox Capture",
           ".product-card:nth-child(3) .subtitle":
-            "本地优先的 macOS 应用，用于整理和回顾 AI 对话、捕捉材料与工作笔记。",
+            "浏览器插件，用于将网页文本、截图和笔记直接保存到 Inbox 工作流中。与 Outline 配合使用，形成完整的捕获到回顾流程。",
           ".product-card:nth-child(3) .btn-link.primary": "查看 Inbox",
-          "main > section:nth-of-type(3) h2": "为依赖 AI 的人服务",
-          "main > section:nth-of-type(3) > p":
-            "Wisteria Software 面向那些希望 AI 工作更快、更安全、更可沉淀的人：在长线程中调试的开发者、保留推理和资料的科研人员、收集灵感的写作者，以及希望把每日 AI 输出变成长期知识的知识工作者。",
-          "main > section:nth-of-type(3) .hero-actions .btn-link.primary": "观看 Outline 演示",
-          "main > section:nth-of-type(3) .hero-actions .btn-link.secondary": "探索产品套组",
+          ".home-principles .section-intro .eyebrow": "我们的理念",
+          ".home-principles .section-intro h2": "设计为不打扰你的工作",
+          ".home-principles .meta-card:nth-child(1)":
+            "<strong>你的数据归你所有</strong>一切在本地运行。没有云存储，没有数据上传到我们的服务器。我们不出售数据，也不使用广告追踪器。",
+          ".home-principles .meta-card:nth-child(2)":
+            "<strong>为长对话而生</strong>AI 对话很快就会变得很长。我们的工具专为帮助你在数百条消息中导航而不丢失上下文而设计。",
+          ".home-principles .meta-card:nth-child(3)":
+            "<strong>隐私即架构</strong>本地优先不是一项功能——它是我们的基础。你的 AI 工作材料不会离开你的设备，除非你主动导出。",
+          ".home-cta h2": "准备好认真对待你的 AI 工作流了吗？",
+          ".home-cta p": "从 Outline 开始——将混乱的 AI 对话转变为结构化、可导航的浏览器扩展。",
+          ".home-cta a": "了解 Outline",
         },
       },
       "privacy.html": {
@@ -228,27 +220,29 @@
             "三种方式使用 <strong>Outline</strong>：免费入门、按年解锁完整 Pro 工作流，或等待计划中的终身早鸟选项。",
           ".price-grid .price-card:nth-child(1) .status-pill": "免费",
           ".price-grid .price-card:nth-child(1) h2": "免费",
-          ".price-grid .price-card:nth-child(1) .plan-kicker": "适合以 Gemini 为主的工作流的扎实起点。",
+          ".price-grid .price-card:nth-child(1) .plan-kicker": "ChatGPT 和 Gemini 的完整目录导航。",
           ".price-grid .price-card:nth-child(1) ul li:nth-child(1)":
-            "<strong>Gemini 特权：</strong>大纲条目与跳转完全不限",
+            "<strong>目录跳转：</strong>所有 ChatGPT 和 Gemini 对话完全不限跳转次数",
           ".price-grid .price-card:nth-child(1) ul li:nth-child(2)":
-            "<strong>ChatGPT 跳转：</strong>每次对话仅限前 15 个大纲条目",
+            "<strong>书签：</strong>每会话 5 个书签",
           ".price-grid .price-card:nth-child(1) ul li:nth-child(3)":
-            "<strong>基础额度：</strong>每场对话 3 个书签、每月 3 次导出",
+            "<strong>导出：</strong>每月共 5 次 — ChatGPT、Gemini、Inbox 与本地 Markdown 合并计算",
           ".price-grid .price-card:nth-child(1) ul li:nth-child(4)":
-            "<strong>Inbox 联动：</strong>可将所选内容发送到可选的 macOS 桌面应用",
-          ".price-grid .price-card:nth-child(1) > p:last-of-type": "适合较短对话与重度使用 Gemini 的场景。",
+            "<strong>Inbox 集成：</strong>本地 Mac 应用完整保留目录结构",
+          ".price-grid .price-card:nth-child(1) ul li:nth-child(5)":
+            "<strong>Markdown 导出：</strong>不安装 Inbox 也可使用",
+          ".price-grid .price-card:nth-child(1) > p:last-of-type": "适合需要可靠导航和偶尔导出的日常 AI 用户。",
           ".price-grid .price-card:nth-child(2) .status-pill": "Pro 年费",
           ".price-grid .price-card:nth-child(2) h2": "Pro",
-          ".price-grid .price-card:nth-child(2) .plan-kicker": "为长而严肃的对话解锁完整工作流。",
+          ".price-grid .price-card:nth-child(2) .plan-kicker": "包含免费版全部功能，另加无限书签、无限导出与 AI 摘要。",
           ".price-grid .price-card:nth-child(2) ul li:nth-child(1)":
-            "<strong>无界跳转：</strong>解除 ChatGPT 15 条限制，驾驭超长对话",
+            "<strong>目录跳转：</strong>所有 ChatGPT 和 Gemini 对话完全不限跳转次数",
           ".price-grid .price-card:nth-child(2) ul li:nth-child(2)":
-            "<strong>知识捕捉：</strong>无限书签，并完整导出到本地 Markdown 或 Inbox",
+            "<strong>书签：</strong>每会话无限制",
           ".price-grid .price-card:nth-child(2) ul li:nth-child(3)":
-            "<strong>精准导出：</strong>不需要整段对话时，仅导出已加书签的问答",
+            "<strong>导出：</strong>无限制 — ChatGPT、Gemini、Inbox、本地 Markdown，另支持仅导出书签",
           ".price-grid .price-card:nth-child(2) ul li:nth-child(4)":
-            "<strong>智能摘要：</strong>在 Inbox 桌面应用内使用深度 AI 摘要",
+            "<strong>Inbox 摘要：</strong>在 Inbox 桌面应用中用你自己的 API Key 触发深度 AI 摘要",
           ".price-grid .price-card:nth-child(2) ul li:nth-child(5)": "每份许可最多 3 台设备，许可期内可重新激活",
           // 【MODIFIED】Selector corrected after shared layout QA so the Pro checkout note translates without touching Paddle logic.
           ".price-grid .price-card:nth-child(2) p.small-note:not([data-checkout-error])":
@@ -289,76 +283,66 @@
       "inbox.html": {
         title: "Inbox – Wisteria Software",
         description:
-          "Inbox 帮助你捕捉、整理并回顾 AI 对话、截图与笔记。目前提供适用于 macOS 的 Inbox Local，并以 Inbox Capture 作为浏览器伴侣。",
+          "Inbox 是紫藤软件出品的本地优先、隐私优先的 AI 信息处理器。AI 与人脑之间的缓存层——导入结构化 AI 对话并保留目录跳转、按标签和时间筛选、支持插件扩展。",
         selectors: {
-          ".inbox-page .split-hero .eyebrow": "Inbox",
+          ".inbox-page .split-hero .eyebrow": "紫藤软件",
           ".inbox-page .hero-title":
-            "把 AI 对话变成你真正拥有的知识。",
-          ".inbox-page .split-hero > div > .subtitle":
-            "ChatGPT 与其他 AI 工具里最好的想法不该消失在滚动记录里。Inbox 帮助你捕捉、整理并回顾重要内容，让对话结束后工作仍然有用。",
-          ".inbox-page .split-hero .hero-actions .btn-link.primary": "下载适用于 macOS 的 Inbox Local",
-          ".inbox-page .split-hero .hero-actions .btn-link.secondary": "了解工作流",
-          ".inbox-page .hero-card h2": "当前可用性",
+            "Inbox —— AI 与人脑之间的缓存层。",
+          ".inbox-page .split-hero > div > .subtitle:nth-of-type(1)":
+            "AI 在单次会话中产生的信息量远超任何人能吸收的上限。<strong>Inbox</strong> 位于你与 AI 之间，提供一个本地优先、隐私优先的空间，用于导入、筛选、回顾和复用结构化 AI 对话——同时完整保留使你能够高效使用的目录导航。",
+          ".inbox-page .split-hero > div > .subtitle:nth-of-type(2)":
+            "与其他工具导出的扁平 Markdown 或 PDF 不同，通过 <strong>Outline</strong> 导入 Inbox 的对话保留了完整目录跳转功能。点击大纲中的任意问题，即可跳转到对应回答——就像在原始聊天中一样。",
+          ".inbox-page .split-hero .hero-actions .btn-link.primary": "下载 Inbox Local（macOS 版）",
+          ".inbox-page .split-hero .hero-actions .btn-link.secondary": "了解功能",
+          ".inbox-page .hero-card h2": "概览",
           ".inbox-page .hero-points li:nth-child(1)":
-            "<strong>适用于 macOS 的 Inbox Local：</strong>现已支持 Apple Silicon Mac。",
+            "<strong>本地优先与隐私优先：</strong>你的数据留存在你自己的设备上，不上传到我们的服务器。",
           ".inbox-page .hero-points li:nth-child(2)":
-            "<strong>Inbox Capture：</strong>现已在 Chrome 网上应用店上线，作为浏览器伴侣。",
+            "<strong>由紫藤软件有限公司开发</strong>，英国注册的独立软件公司。",
           ".inbox-page .hero-points li:nth-child(3)":
-            "<strong>数据归属：</strong>围绕本地优先工作流构建，保存的资料留在你手中。",
-          "main > section:nth-of-type(1) h2": "为什么需要 Inbox",
+            "<strong>与 Outline 联动：</strong>通过 Outline 导出的 ChatGPT 和 Gemini 对话保留目录结构，支持跳转导航。",
+          ".inbox-page .hero-points li:nth-child(4)":
+            "<strong>可扩展：</strong>插件系统支持捕获网页内容、图片和剪贴板材料。",
+          "main > section:nth-of-type(1) h2": "Inbox 能做什么",
           "main > section:nth-of-type(1) > p":
-            "AI 擅长生成答案，却不擅长帮你把它们留下来。",
-          "main > section:nth-of-type(1) .feature-item:nth-child(1) h3": "长对话会埋没有价值的工作",
-          "main > section:nth-of-type(1) .feature-item:nth-child(1) p": "有用的回答、提示与想法会淹没在重度滚动的会话里。",
-          "main > section:nth-of-type(1) .feature-item:nth-child(2) h3": "好素材变得支离破碎",
-          "main > section:nth-of-type(1) .feature-item:nth-child(2) p": "截图、笔记、引用与导出的对话散落在太多地方。",
-          "main > section:nth-of-type(1) .feature-item:nth-child(3) h3": "复用比想象中更难",
-          "main > section:nth-of-type(1) .feature-item:nth-child(3) p": "你不得不重复提问，而不是在已学到的内容上继续构建。",
-          "main > section:nth-of-type(1) .feature-item:nth-child(4) h3": "平台所有权不等于你的所有权",
+            "Inbox 专为 AI 工作的现实场景而设计：长线程、有价值的碎片，以及日后查找的持续需求。它处理结构化的 AI 信息，为你提供保持条理的工具。",
+          "main > section:nth-of-type(1) .feature-item:nth-child(1) h3": "导入结构化对话",
+          "main > section:nth-of-type(1) .feature-item:nth-child(1) p":
+            "导入通过 <strong>Outline</strong> 导出的 ChatGPT 和 Gemini 对话。目录结构被完整保留——点击任意大纲条目即可跳转到对话对应位置。没有其他工具能做到这一点。",
+          "main > section:nth-of-type(1) .feature-item:nth-child(2) h3": "按标签、时间等条件筛选",
+          "main > section:nth-of-type(1) .feature-item:nth-child(2) p":
+            "为导入的材料添加标签。按标签、日期范围和其他条件进行筛选，在需要时精准找到所需内容。",
+          "main > section:nth-of-type(1) .feature-item:nth-child(3) h3": "从任何地方捕获",
+          "main > section:nth-of-type(1) .feature-item:nth-child(3) p":
+            "使用浏览器伴侣插件 <strong>Inbox Capture</strong>，在浏览时保存网页文本、截图、图片和笔记。也可以从剪贴板直接粘贴到 Inbox。",
+          "main > section:nth-of-type(1) .feature-item:nth-child(4) h3": "插件扩展",
           "main > section:nth-of-type(1) .feature-item:nth-child(4) p":
-            "太多工作仍困在从未被设计成你长期资料库的工具里。",
-          "main > section:nth-of-type(2) h2": "Inbox 是什么",
-          "main > section:nth-of-type(2) p:nth-of-type(1)":
-            "Inbox 是面向重度 AI 使用者的个人知识工作流，帮助你把对话、截图与笔记变成可以长期保存、回顾与复用的材料。",
-          "main > section:nth-of-type(2) p:nth-of-type(2)":
-            "目前 Inbox 以 <strong>适用于 macOS 的 Inbox Local</strong> 提供，并与浏览器伴侣 <strong>Inbox Capture</strong> 配合，让保存有用内容更快捷。",
-          "main > section:nth-of-type(3) h2": "用 Inbox 能做什么",
-          "main > section:nth-of-type(3) .feature-item:nth-child(1) h3": "捕捉重要内容",
-          "main > section:nth-of-type(3) .feature-item:nth-child(1) p": "在有用内容消失前，保存对话、截图、摘录与想法。",
-          "main > section:nth-of-type(3) .feature-item:nth-child(2) h3": "整理成可用的结构",
-          "main > section:nth-of-type(3) .feature-item:nth-child(2) p": "以更清晰的结构回顾已保存内容，减少滚动，突出要点。",
-          "main > section:nth-of-type(3) .feature-item:nth-child(3) h3": "回顾与复用",
-          "main > section:nth-of-type(3) .feature-item:nth-child(3) p": "快速回到过去的答案，减少重复提示，建立可复用的知识。",
-          "main > section:nth-of-type(3) .feature-item:nth-child(4) h3": "保持归属",
-          "main > section:nth-of-type(3) .feature-item:nth-child(4) p": "采用本地优先工作流，让保存的资料留在你的设备上并由你掌控。",
-          "main > section:nth-of-type(4) h2": "更好的工作流",
-          "main > section:nth-of-type(4) .workflow-line": "捕捉 → 整理 → 复用 → 归属",
-          "main > section:nth-of-type(4) > p:nth-of-type(2)":
-            "Inbox 帮助把 AI 从一次性对话工具，变成面向长期思考与知识的系统。",
-          "main > section:nth-of-type(4) .meta-card:nth-child(1)":
-            "<strong>捕捉</strong>在工作中及时保存重要内容，避免有用上下文流失。",
-          "main > section:nth-of-type(4) .meta-card:nth-child(2)":
-            "<strong>整理</strong>让已保存内容更易浏览、回顾与查找。",
-          "main > section:nth-of-type(4) .meta-card:nth-child(3)":
-            "<strong>复用</strong>把一次性 AI 输出变成可不断查阅的参考资料。",
+            "Inbox 支持插件来扩展捕获能力：抓取网页文章、图片和结构化内容，将它们纳入你的本地知识工作流。",
+          "main > section:nth-of-type(1) .feature-item:nth-child(5) h3": "回顾与复用",
+          "main > section:nth-of-type(1) .feature-item:nth-child(5) p":
+            "不再重复问同样的问题。建立一个不断增长的个人 AI 辅助工作库，可以随时搜索、筛选和在此基础上继续构建。",
+          "main > section:nth-of-type(1) .feature-item:nth-child(6) h3": "你的数据，你的设备",
+          "main > section:nth-of-type(1) .feature-item:nth-child(6) p":
+            "一切都在本地。没有云存储，没有数据上传到我们的服务器。Inbox 是原生 macOS 应用，完全在你的机器上运行。",
+          "main > section:nth-of-type(2) h2": "工作流",
+          "main > section:nth-of-type(2) .workflow-line": "与 AI 对话 → 用 Outline 生成目录 → 导出到 Inbox → 标签、筛选、回顾 → 复用",
+          "main > section:nth-of-type(2) > p:nth-of-type(2)":
+            "Inbox 将 AI 从一次性问答工具转变为长期思考和知识的系统。Outline 浏览器扩展生成结构；Inbox 存储、保留它，并让你与之协作。",
+          "main > section:nth-of-type(2) .meta-card:nth-child(1)":
+            "<strong>Outline</strong>从任意 ChatGPT 或 Gemini 对话中生成可点击的目录。",
+          "main > section:nth-of-type(2) .meta-card:nth-child(2)":
+            "<strong>导出</strong>将结构化对话发送到 Inbox——目录跳转保持完整。",
+          "main > section:nth-of-type(2) .meta-card:nth-child(3)":
+            "<strong>Inbox</strong>标签、筛选、搜索，并回顾你不断增长的知识库。",
           ".companion-section .section-intro .eyebrow": "浏览器伴侣",
-          ".companion-section .section-intro h2": "与 Inbox Capture 配合",
+          ".companion-section .section-intro h2": "Inbox Capture",
           ".companion-section > p":
-            "Inbox Capture 是 Inbox 的浏览器伴侣。浏览时快速保存有用文本、截图、图片与笔记，再带入 Inbox 工作流进行回顾与复用。",
+            "Inbox Capture 是 Inbox 的浏览器端插件。在浏览时保存有用的文本、截图、图片和笔记，然后将它们带入 Inbox 知识库进行回顾和复用。与 Outline 配合使用，形成完整的捕获工作流。",
           ".companion-section .hero-actions .btn-link.primary": "在 Chrome 上安装 Inbox Capture",
           ".companion-section .hero-actions .btn-link.secondary": "查看全部产品",
-          "main > section:nth-of-type(6) h2": "适合谁",
-          "main > section:nth-of-type(6) .feature-item:nth-child(1) h3": "开发者",
-          "main > section:nth-of-type(6) .feature-item:nth-child(1) p": "整理提示、代码解释与研究笔记，供后续开发使用。",
-          "main > section:nth-of-type(6) .feature-item:nth-child(2) h3": "写作者与创作者",
-          "main > section:nth-of-type(6) .feature-item:nth-child(2) p": "保存想法、草稿、引用与 AI 辅助产出，不丢线索。",
-          "main > section:nth-of-type(6) .feature-item:nth-child(3) h3": "研究者与知识工作者",
-          "main > section:nth-of-type(6) .feature-item:nth-child(3) p": "建立个人参考层，而不是每次都从零开始。",
-          "main > section:nth-of-type(6) .feature-item:nth-child(4) h3": "日常 AI 用户",
-          "main > section:nth-of-type(6) .feature-item:nth-child(4) p": "留住 AI 工作流中有用的部分，而不是让它们消失在聊天记录里。",
-          "main > section.cta h2": "别再丢掉你用 AI 创造的价值。",
-          "main > section.cta > p": "用适用于 macOS 的 Inbox Local 保存、结构化并真正拥有它们。",
-          "main > section.cta a": "下载适用于 macOS 的 Inbox Local",
+          "main > section.cta h2": "你的 AI 对话值得拥有一个归宿。",
+          "main > section.cta > p": "用 Inbox Local（macOS 版）导入、整理并拥有它们。",
+          "main > section.cta a": "下载 Inbox Local（macOS 版）",
         },
       },
       "support.html": {
@@ -447,12 +431,12 @@
         },
       },
       "outline-pro.html": {
-        title: "Outline - ChatGPT 与 Gemini 大纲导航",
+        title: "Outline - ChatGPT Gemini 对话目录与大纲",
         description:
-          "Outline 是面向 ChatGPT 与 Gemini 的 Chrome 扩展，将长对话变为可点击的侧边栏大纲。跳转到消息、为关键问答加书签，并导出为 Markdown 或 Inbox。Gemini 大纲跳转无次数上限。",
+          "Outline 是面向 ChatGPT 与 Gemini 的 Chrome 扩展：ChatGPT Gemini 对话目录与大纲：ChatGPT Gemini 对话目录与大纲。将长对话变为可点击的侧边栏大纲。跳转到消息、为关键问答加书签，并导出为 Markdown 或 Inbox。Gemini 大纲跳转无次数上限。",
         selectors: {
-          ".sales-hero .eyebrow": "ChatGPT 与 Gemini 大纲",
-          ".sales-hero h1": "ChatGPT 与 Gemini 大纲",
+          ".sales-hero .eyebrow": "ChatGPT Gemini 对话目录与大纲",
+          ".sales-hero h1": "ChatGPT Gemini 对话目录与大纲",
           ".sales-hero > p:nth-child(3)":
             "用专注的侧边栏大纲导航 ChatGPT 与 Gemini 的长对话。跳转到消息、标记关键回合，并轻松导出聊天。",
           ".sales-hero > p:nth-child(4)":
@@ -488,34 +472,34 @@
           "main > section#pricing .section-intro .eyebrow": "升级 Pro",
           "main > section#pricing .section-intro h2": "解锁完整 Outline 工作流",
           "main > section#pricing .section-intro .subtitle":
-            "按你使用长对话的深度选择方案。免费版下 Gemini 导航依然慷慨；Pro 解除 ChatGPT 限制，并解锁完整捕捉、导出与 Inbox 回顾流程。",
+            "选择适合你使用长 AI 对话深度的方案。",
           "main > section#pricing .price-card:nth-child(1) .status-pill": "免费",
           "main > section#pricing .price-card:nth-child(1) h3": "免费",
-          "main > section#pricing .price-card:nth-child(1) .plan-kicker": "适合以 Gemini 为主的工作流的扎实起点。",
+          "main > section#pricing .price-card:nth-child(1) .plan-kicker": "ChatGPT 和 Gemini 的完整目录导航。",
           "main > section#pricing .price-card:nth-child(1) .plan-compare-list li:nth-child(1)":
-            "<span class=\"plan-icon\">🟢</span><span><strong>Gemini 跳转：</strong>不限</span>",
+            "<span class=\"plan-icon\">🟢</span><span><strong>目录跳转：</strong>所有 ChatGPT 和 Gemini 对话均不限制跳转次数</span>",
           "main > section#pricing .price-card:nth-child(1) .plan-compare-list li:nth-child(2)":
-            "<span class=\"plan-icon\">🟡</span><span><strong>ChatGPT 跳转：</strong>前 15 个大纲条目</span>",
+            "<span class=\"plan-icon\">🟡</span><span><strong>书签：</strong>每会话 5 个书签</span>",
           "main > section#pricing .price-card:nth-child(1) .plan-compare-list li:nth-child(3)":
-            "<span class=\"plan-icon\">🟠</span><span><strong>书签与导出：</strong>每场对话 3 个书签，每月 3 次导出</span>",
+            "<span class=\"plan-icon\">🟠</span><span><strong>导出：</strong>每月共 5 次导出 &mdash; ChatGPT、Gemini、Inbox 与本地 Markdown 合并计算</span>",
           "main > section#pricing .price-card:nth-child(1) .plan-compare-list li:nth-child(4)":
-            "<span class=\"plan-icon\">🟢</span><span><strong>Inbox 传递：</strong>将所选内容发送到 Inbox 应用</span>",
+            "<span class=\"plan-icon\">🟢</span><span><strong>Inbox：</strong>本地 Mac 应用，完整保留目录结构；通过 Outline 导出的 ChatGPT 和 Gemini 对话支持目录跳转</span>",
           "main > section#pricing .price-card:nth-child(1) .plan-compare-list li:nth-child(5)":
-            "<span class=\"plan-icon\">❌</span><span><strong>Inbox 深度摘要：</strong>仅 Pro</span>",
-          "main > section#pricing .price-card:nth-child(1) > p:last-of-type": "适合短对话、Gemini 导航与轻度捕捉。",
+            "<span class=\"plan-icon\">❌</span><span><strong>Inbox 摘要：</strong>仅 Pro &mdash; 需填入你自己的 API Key</span>",
+          "main > section#pricing .price-card:nth-child(1) > p:last-of-type": "适合需要可靠导航、基本书签和偶尔导出的日常 AI 用户。",
           "main > section#pricing .price-card:nth-child(2) .status-pill": "Pro 年费",
           "main > section#pricing .price-card:nth-child(2) h3": "Pro",
-          "main > section#pricing .price-card:nth-child(2) .plan-kicker": "适合每天在超长 ChatGPT 与 Gemini 线程里工作的人。",
+          "main > section#pricing .price-card:nth-child(2) .plan-kicker": "包含免费版全部功能，另加无限书签、无限导出与 AI 摘要。",
           "main > section#pricing .price-card:nth-child(2) .plan-compare-list li:nth-child(1)":
-            "<span class=\"plan-icon\">✅</span><span><strong>Gemini 跳转：</strong>不限</span>",
+            "<span class=\"plan-icon\">✅</span><span><strong>目录跳转：</strong>所有 ChatGPT 和 Gemini 对话均不限制跳转次数</span>",
           "main > section#pricing .price-card:nth-child(2) .plan-compare-list li:nth-child(2)":
-            "<span class=\"plan-icon\">✅</span><span><strong>ChatGPT 跳转：</strong>无 15 条上限</span>",
+            "<span class=\"plan-icon\">✅</span><span><strong>书签：</strong>每会话无限制</span>",
           "main > section#pricing .price-card:nth-child(2) .plan-compare-list li:nth-child(3)":
-            "<span class=\"plan-icon\">✅</span><span><strong>书签与导出：</strong>不限 + 仅导出书签</span>",
+            "<span class=\"plan-icon\">✅</span><span><strong>导出：</strong>无限制 &mdash; ChatGPT、Gemini、Inbox 与本地 Markdown 合并计算；书签导出支持 Markdown、PDF 与 Typeless 格式</span>",
           "main > section#pricing .price-card:nth-child(2) .plan-compare-list li:nth-child(4)":
-            "<span class=\"plan-icon\">✅</span><span><strong>Inbox 传递：</strong>包含</span>",
+            "<span class=\"plan-icon\">✅</span><span><strong>Inbox：</strong>本地 Mac 应用，完整保留目录结构；通过 Outline 导出的 ChatGPT 和 Gemini 对话支持目录跳转</span>",
           "main > section#pricing .price-card:nth-child(2) .plan-compare-list li:nth-child(5)":
-            "<span class=\"plan-icon\">✅</span><span><strong>Inbox 深度摘要：</strong>包含</span>",
+            "<span class=\"plan-icon\">✅</span><span><strong>Inbox 摘要：</strong>在 Inbox 桌面应用中用你自己的 API Key 触发深度 AI 摘要</span>",
           "main > section#pricing .price-card:nth-child(2) p.small-note":
             "按年一次性付费。这不是自动续订的订阅，因此日后无需担心意外续费。",
           "main > section#pricing .price-card:nth-child(2) > p:nth-of-type(4)":

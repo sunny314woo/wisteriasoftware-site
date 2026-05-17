@@ -61,9 +61,16 @@ header {
 
 .brand {
   font-weight: 800;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: 0.1px;
   color: #1e1b4b;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.brand-icon {
+  flex-shrink: 0;
 }
 
 nav {
@@ -186,6 +193,116 @@ nav {
 .language-option.is-active {
   background: var(--accent-soft);
   color: #5b21b6;
+  font-weight: 600;
+}
+
+/* ---- Nav dropdown ---- */
+
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Invisible bridge between trigger and menu — prevents the gap from firing mouseleave */
+.nav-dropdown::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 10px;
+  z-index: 24;
+  pointer-events: none;
+}
+
+.nav-dropdown:hover::before {
+  pointer-events: auto;
+}
+
+.nav-dropdown-trigger {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Keep the <a> trigger looking like a nav-link */
+a.nav-dropdown-trigger.nav-link:hover {
+  background: #f1f5f9;
+  text-decoration: none;
+}
+a.nav-dropdown-trigger.nav-link.active {
+  background: var(--primary-soft);
+  color: #4c1d95;
+  font-weight: 600;
+}
+
+/* <button> trigger — same visual as nav-link */
+button.nav-dropdown-trigger {
+  font-family: inherit;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.18s ease, color 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+button.nav-dropdown-trigger:hover {
+  background: #f1f5f9;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  color: #64748b;
+  transition: transform 0.18s ease;
+}
+.nav-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+.nav-dropdown-trigger[aria-expanded="true"] .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 1px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 170px;
+  padding: 8px 6px 6px;
+  border: 1px solid #dbe4f0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+  z-index: 25;
+}
+
+/* Right-align About dropdown (it's the last item before language control) */
+.nav-dropdown:last-of-type .nav-dropdown-menu {
+  left: auto;
+  right: 0;
+  transform: none;
+}
+
+.dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.dropdown-item:hover {
+  background: #f8fafc;
+  text-decoration: none;
+}
+.dropdown-item.active {
+  background: var(--primary-soft);
+  color: #4c1d95;
   font-weight: 600;
 }
 
@@ -398,9 +515,8 @@ footer p {
 }
 
 .pricing-full-width .price-grid.two-col-pricing {
-  width: min(1600px, calc(100vw - (var(--page-gutter-x) * 2)));
-  margin-left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  max-width: 100%;
 }
 
 .product-card,
@@ -494,6 +610,11 @@ footer p {
   align-items: flex-start;
   margin-bottom: 10px;
   line-height: 1.45;
+}
+
+.plan-compare-list li > span:last-child {
+  min-width: 0;
+  word-wrap: break-word;
 }
 
 .plan-icon {
@@ -821,6 +942,100 @@ footer p {
   color: var(--muted);
   font-size: 13px;
   text-align: center;
+}
+
+/* ===== Homepage ===== */
+
+.home-hero {
+  text-align: left;
+  padding: 48px 0 36px;
+  border: none;
+  background: none;
+  margin-bottom: 0;
+}
+
+.home-hero .eyebrow {
+  margin-bottom: 20px;
+}
+
+.home-hero h1 {
+  font-size: clamp(38px, 6.2vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  color: #1e1b4b;
+  margin-bottom: 20px;
+  max-width: 760px;
+}
+
+.home-hero-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 640px;
+  margin-bottom: 24px;
+}
+
+.home-hero-note {
+  margin-top: 18px;
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+.home-principles {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.home-cta {
+  text-align: center;
+  margin-top: 48px;
+  padding: 40px 32px;
+  border: 1px solid #e0d9f7;
+  border-radius: 20px;
+  background: linear-gradient(140deg, #faf8ff 0%, #f5f0ff 100%);
+}
+
+.home-cta h2 {
+  margin-top: 0;
+  font-size: clamp(22px, 3.4vw, 28px);
+  color: #2d1b69;
+}
+
+.home-cta p {
+  margin-bottom: 20px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-cta a {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: background-color 0.18s ease;
+}
+.home-cta a:hover {
+  background: #4c1d95;
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .home-hero {
+    padding: 32px 0 24px;
+  }
+  .home-hero h1 {
+    max-width: 100%;
+  }
+  .home-hero-sub {
+    max-width: 100%;
+  }
 }
 
 .workflow-band,

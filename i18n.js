@@ -44,9 +44,15 @@
     }
   }
 
+  /**
+   * Returns the canonical page key for dictionary lookups.
+   * Normalises so /outline-pro and /outline-pro.html both become "outline-pro.html".
+   */
   function pageKey() {
-    const file = window.location.pathname.split("/").pop();
-    return file || "index.html";
+    let file = window.location.pathname.split("/").pop();
+    if (!file) return "index.html";
+    if (!file.endsWith(".html")) file = file + ".html";
+    return file;
   }
 
   function pathLanguage() {
@@ -238,72 +244,234 @@
   function localizedHref(href, language) {
     if (language === defaultLocale) return href;
     try {
-      const normalizedHref = href.split("#")[0].split("?")[0] === "index.html"
-        ? "/"
-        : href;
-      const url = new URL(normalizedHref, window.location.origin);
-      url.searchParams.set("lang", publicLanguageCode(language));
-      return `${url.pathname}${url.search}${url.hash}`;
+      /* Build language-aware URL with pure string manipulation.
+         Avoids new URL() which breaks under file:// (origin "null" in Chrome). */
+      var base = href.split("#")[0].split("?")[0];
+      var hashPart = href.includes("#") ? "#" + href.split("#").slice(1).join("#") : "";
+      var existingQuery = href.includes("?") ? href.split("?")[1].split("#")[0] : "";
+      var searchParams = new URLSearchParams(existingQuery);
+      searchParams.set("lang", publicLanguageCode(language));
+      var queryString = searchParams.toString();
+      return base + (queryString ? "?" + queryString : "") + hashPart;
     } catch (error) {
       return href;
     }
   }
 
   /**
-   * 【MODIFIED】Renders shared header and footer from a single configuration source.
-   * Input: config.sharedLayout plus any existing <header>/<footer> mount points.
-   * Output: normalized DOM for navigation and footer.
-   * Side effects: replaces header/footer innerHTML on pages that include those elements.
+   * Renders shared header and footer from configuration.
+   * Nav structure comes from window.WISTERIA_NAV (nav.js).
+   * Footer structure comes from config.sharedLayout (i18n/config.js).
    */
-  function renderSharedLayout() {
-    const layout = config.sharedLayout || {};
-    const header = document.querySelector("header");
-    if (header && layout.nav) {
-      const current = pageKey();
-      const navLinks = layout.nav.map((item) => {
-        const active = item.href.split("#")[0].split("?")[0].replace(/^\//, "") === current ? " active" : "";
-        return `<a class="nav-link${active}" data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`;
-      }).join("");
-      header.innerHTML = [
-        '<!-- 【MODIFIED】Shared navigation is rendered here from i18n/config.js to keep every page consistent. -->',
-        '<div class="nav-wrap">',
-        `<div class="brand">${layout.brand || "Wisteria Software"}</div>`,
-        `<nav>${navLinks}</nav>`,
-        '</div>',
-      ].join("");
+  function renderNavItem(item, currentPage) {
+    if (!item.children || !item.children.length) {
+      /* Plain link */
+      var active = item.href.split("#")[0].split("?")[0].replace(/^\//, "") === currentPage
+        ? " active"
+        : "";
+      return (
+        '<a class="nav-link' + active + '"'
+        + ' data-i18n-base-href="' + item.href + '"'
+        + ' href="' + item.href + '">'
+        + item.label
+        + '</a>'
+      );
     }
 
-    const footer = document.querySelector("footer");
+    /* Dropdown */
+    if (item.href) {
+      /* Has a dedicated page — trigger is an <a> with dropdown arrow */
+      var active =
+        item.href.split("#")[0].split("?")[0].replace(/^\//, "") === currentPage
+          ? " active"
+          : "";
+      var childLinks = item.children
+        .map(function (child) {
+          var cActive =
+            child.href.split("#")[0].split("?")[0].replace(/^\//, "") ===
+            currentPage
+              ? " active"
+              : "";
+          return (
+            '<a class="nav-link dropdown-item' + cActive + '"'
+            + ' data-i18n-base-href="' + child.href + '"'
+            + ' href="' + child.href + '">'
+            + child.label
+            + '</a>'
+          );
+        })
+        .join("");
+      return (
+        '<div class="nav-dropdown">'
+        + '<a class="nav-link nav-dropdown-trigger' + active + '"'
+        + ' href="' + item.href + '"'
+        + ' data-i18n-base-href="' + item.href + '"'
+        + ' aria-haspopup="true">'
+        + '<span class="nav-label">' + item.label + '</span>'
+        + ' <span class="dropdown-arrow">▾</span>'
+        + '</a>'
+        + '<div class="nav-dropdown-menu">'
+        + childLinks
+        + '</div>'
+        + '</div>'
+      );
+    }
+
+    /* No href — trigger is a <button> */
+    var key = item.key || "";
+    var childLinks = item.children
+      .map(function (child) {
+        var cActive =
+          child.href.split("#")[0].split("?")[0].replace(/^\//, "") ===
+          currentPage
+            ? " active"
+            : "";
+        return (
+          '<a class="nav-link dropdown-item' + cActive + '"'
+          + ' data-i18n-base-href="' + child.href + '"'
+          + ' href="' + child.href + '">'
+          + child.label
+          + '</a>'
+        );
+      })
+      .join("");
+    return (
+      '<div class="nav-dropdown">'
+      + '<button class="nav-link nav-dropdown-trigger"'
+      + ' type="button"'
+      + ' data-nav-key="' + key + '"'
+      + ' aria-haspopup="true"'
+      + ' aria-expanded="false">'
+      + '<span class="nav-label">' + item.label + '</span>'
+      + ' <span class="dropdown-arrow">▾</span>'
+      + '</button>'
+      + '<div class="nav-dropdown-menu">'
+      + childLinks
+      + '</div>'
+      + '</div>'
+    );
+  }
+
+  function renderSharedLayout() {
+    var navConfig = window.WISTERIA_NAV || {};
+    var layout = config.sharedLayout || {};
+
+    /* ---- Header / Navigation ---- */
+    var header = document.querySelector("header");
+    if (header && navConfig.main) {
+      var current = pageKey();
+      var navLinks = navConfig.main
+        .map(function (item) {
+          return renderNavItem(item, current);
+        })
+        .join("");
+      header.innerHTML = [
+        '<!-- Shared navigation rendered from nav.js -->',
+        '<div class="nav-wrap">',
+        '<div class="brand">'
+        + '<svg class="brand-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">'
+        + '<circle cx="7" cy="7" r="3" fill="#a78bfa" opacity=".9"/>'
+        + '<circle cx="17" cy="7" r="3" fill="#8b5cf6" opacity=".9"/>'
+        + '<circle cx="7" cy="17" r="3" fill="#7c3aed" opacity=".8"/>'
+        + '<circle cx="17" cy="17" r="3" fill="#6d28d9" opacity=".7"/>'
+        + '<circle cx="12" cy="12" r="5" fill="none" stroke="#7c3aed" stroke-width="1.2" opacity=".5"/>'
+        + '</svg>'
+        + (navConfig.brand || "Wisteria Software")
+        + '</div>',
+        '<nav>' + navLinks + '</nav>',
+        '</div>',
+      ].join("");
+
+      /* Dropdown hover behaviour */
+      var dropdowns = header.querySelectorAll(".nav-dropdown");
+      dropdowns.forEach(function (dd) {
+        dd.addEventListener("mouseenter", function () {
+          var menu = dd.querySelector(".nav-dropdown-menu");
+          var trigger = dd.querySelector(".nav-dropdown-trigger");
+          if (menu) menu.style.display = "block";
+          if (trigger) trigger.setAttribute("aria-expanded", "true");
+        });
+        dd.addEventListener("mouseleave", function () {
+          var menu = dd.querySelector(".nav-dropdown-menu");
+          var trigger = dd.querySelector(".nav-dropdown-trigger");
+          if (menu) menu.style.display = "";
+          if (trigger) trigger.setAttribute("aria-expanded", "false");
+        });
+        /* Click toggle for touch / keyboard */
+        var trigger = dd.querySelector(".nav-dropdown-trigger");
+        if (trigger && trigger.tagName === "BUTTON") {
+          trigger.addEventListener("click", function (e) {
+            e.preventDefault();
+            var menu = dd.querySelector(".nav-dropdown-menu");
+            var expanded = trigger.getAttribute("aria-expanded") === "true";
+            if (menu) menu.style.display = expanded ? "" : "block";
+            trigger.setAttribute("aria-expanded", expanded ? "false" : "true");
+          });
+        }
+      });
+    }
+
+    /* ---- Footer ---- */
+    var footer = document.querySelector("footer");
     if (footer && layout.footer) {
-      const links = layout.footer
-        .map((item) => `<a data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`)
+      var links = layout.footer
+        .map(function (item) {
+          return (
+            '<a data-i18n-base-href="' + item.href + '" href="' + item.href + '">'
+            + item.label
+            + '</a>'
+          );
+        })
         .join(" | ");
       footer.innerHTML = [
-        '<!-- 【MODIFIED】Shared footer is rendered here from i18n/config.js to keep every page consistent. -->',
-        `<div class="footer-links">${links}</div>`,
-        `<p>${layout.companyHtml || ""}</p>`,
+        '<!-- Shared footer rendered from i18n/config.js -->',
+        '<div class="footer-links">' + links + '</div>',
+        '<p>' + (layout.companyHtml || "") + '</p>',
       ].join("");
     }
   }
 
   /**
-   * 【MODIFIED】Translates shared navigation and footer text rendered from the common layout config.
-   * @param {string} language - Locale currently being applied.
-   * Output: none.
-   * Side effects: mutates nav/footer DOM text and records missing shared keys.
+   * Translates shared navigation and footer text.
+   * Handles regular nav links, dropdown items, and dropdown trigger buttons.
    */
   function translateShared(language) {
     const dictionary = currentDictionary(language);
     const shared = dictionary.shared || {};
 
+    /* ---- Regular nav links (including dropdown items) ---- */
     document.querySelectorAll("nav .nav-link").forEach((anchor) => {
       rememberOriginalText(anchor);
       const translated = shared.nav && shared.nav[hrefFile(anchor)];
       if (!translated) recordMissing("shared.nav", hrefFile(anchor), language, pageKey());
-      anchor.textContent = language !== defaultLocale && translated ? translated : anchor.dataset.i18nOriginalText;
+
+      if (anchor.classList.contains("nav-dropdown-trigger")) {
+        /* Translate only the .nav-label child, preserve the arrow */
+        var labelEl = anchor.querySelector(".nav-label");
+        if (labelEl) {
+          rememberOriginalText(labelEl);
+          labelEl.textContent = language !== defaultLocale && translated ? translated : labelEl.dataset.i18nOriginalText;
+        }
+      } else {
+        anchor.textContent = language !== defaultLocale && translated ? translated : anchor.dataset.i18nOriginalText;
+      }
+
       anchor.setAttribute("href", localizedHref(anchor.dataset.i18nBaseHref || anchor.getAttribute("href") || "", language));
     });
 
+    /* ---- Dropdown trigger buttons (About) ---- */
+    document.querySelectorAll("nav .nav-dropdown-trigger[data-nav-key]").forEach((trigger) => {
+      const key = trigger.getAttribute("data-nav-key");
+      const translated = shared.nav && shared.nav[key];
+      const labelEl = trigger.querySelector(".nav-label");
+      if (labelEl) {
+        rememberOriginalText(labelEl);
+        labelEl.textContent = language !== defaultLocale && translated ? translated : labelEl.dataset.i18nOriginalText;
+      }
+      if (!translated) recordMissing("shared.nav", key, language, pageKey());
+    });
+
+    /* ---- Footer links ---- */
     document.querySelectorAll(".footer-links a").forEach((anchor) => {
       rememberOriginalText(anchor);
       const translated = shared.footer && shared.footer[hrefFile(anchor)];
@@ -312,6 +480,7 @@
       anchor.setAttribute("href", localizedHref(anchor.dataset.i18nBaseHref || anchor.getAttribute("href") || "", language));
     });
 
+    /* ---- Footer company line ---- */
     document.querySelectorAll("footer > p").forEach((paragraph) => {
       const mailLink = paragraph.querySelector("a");
       if (!mailLink) return;
