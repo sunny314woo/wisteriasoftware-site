@@ -656,6 +656,16 @@ footer p {
   color: #1d4ed8;
 }
 
+.product-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #7c3aed;
+  margin-bottom: 6px;
+}
+
 .sales-hero {
   background: linear-gradient(130deg, #f8fbff 0%, #eef2ff 100%);
 }
@@ -785,11 +795,9 @@ footer p {
 }
 
 .demo-player-shell {
-  margin-top: 14px;
+  margin: 14px auto 0;
   width: 100%;
-  max-width: min(100%, var(--max));
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 720px;
 }
 
 .video-poster {
@@ -802,6 +810,29 @@ footer p {
   background: #ffffff;
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.video-poster img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-poster-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 28px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.08), rgba(15, 23, 42, 0.52));
+  transition: background 0.2s ease;
+}
+.video-poster:hover .video-poster-overlay {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.12), rgba(15, 23, 42, 0.62));
 }
 
 .video-poster img {
@@ -846,12 +877,15 @@ footer p {
   align-items: center;
   justify-content: center;
   min-width: 160px;
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.34);
-  background: rgba(255, 255, 255, 0.16);
+  padding: 14px 24px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1e1b4b;
   font-weight: 700;
+  font-size: 15px;
   backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
 }
 
 .preview-card {
@@ -973,6 +1007,14 @@ footer p {
   line-height: 1.7;
   color: var(--muted);
   max-width: 640px;
+  margin-bottom: 16px;
+}
+
+.home-hero-tagline {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #7c3aed;
   margin-bottom: 24px;
 }
 
@@ -980,6 +1022,20 @@ footer p {
   margin-top: 18px;
   font-size: 12px;
   color: #94a3b8;
+}
+
+.home-products {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.home-value-summary {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--muted);
+  text-align: center;
+  font-style: italic;
 }
 
 .home-principles {

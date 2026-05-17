@@ -35,46 +35,34 @@
     },
     pages: {
       "index.html": {
-        title: "紫藤软件 — AI 时代的本地优先工具",
+        title: "紫藤软件 — 找到它。标记它。保存它。",
         description:
-          "紫藤软件是英国注册的独立软件公司。我们为认真使用 AI 的人构建本地优先、隐私优先的工具：Outline、Inbox 与 Inbox Capture。",
+          "紫藤软件帮你导航、标记和保存长 AI 对话。为 ChatGPT 和 Gemini 自动生成可点击目录，标记重要内容并结构化保存到本地。",
         selectors: {
-          ".home-hero h1": "为你真实的 AI 工作方式<br>而构建的工具。",
+          ".home-hero h1": "别再在长 AI 对话里<br>反复翻找。",
           ".home-hero-sub":
-            "长对话。有价值的碎片。随时需要找回之前的成果。我们构建本地优先的软件，帮助你导航 AI 对话、捕捉重要内容，并将零散的产出转化为你真正拥有的知识。",
-          ".home-hero .hero-actions .btn-link.primary": "了解 Outline",
-          ".home-hero .hero-actions .btn-link.secondary": "查看完整套组",
-          "main > section:nth-of-type(2) .section-intro .eyebrow": "产品",
-          "main > section:nth-of-type(2) .section-intro h2": "紫藤套组",
-          "main > section:nth-of-type(2) .section-intro > p": "一组专注的本地优先工具，为 AI 工作日而生 —— 导航、捕捉并拥有你的知识。",
-          ".product-card:nth-child(1) h3": "Outline",
+            "为 ChatGPT 和 Gemini 自动生成可点击目录，快速定位重要内容，并将其结构化保存到本地。",
+          ".home-hero-tagline": "找到它。标记它。保存它。",
+          ".home-hero .hero-actions .btn-link.primary": "安装 Chrome 插件",
+          ".home-hero .hero-actions .btn-link.secondary": "了解 Inbox",
+          ".home-products .section-intro h2": "两个工具。一个工作流。",
+          ".home-products .section-intro > p":
+            "从在长对话中找到答案，到长期保存和复用——紫藤软件帮你建立完整的 AI 知识工作流。",
+          ".product-card:nth-child(1) h3": "ChatGPT Gemini 对话目录与大纲",
           ".product-card:nth-child(1) .subtitle":
-            "<strong>ChatGPT Gemini 对话目录与大纲。</strong>将长 AI 对话变为可点击的侧边栏目录。一键跳转到任意消息、为关键节点加书签，并导出为 Markdown 或带结构的对话到 Inbox。",
+            "Chrome 扩展。为 200+ 轮超长对话自动生成目录，支持一键跳转、书签标记，并导出为 Markdown 或带结构的对话到 Inbox。",
           ".product-card:nth-child(1) .btn-link.primary": "查看 Outline",
-          ".product-card:nth-child(2) h3": "Inbox",
+          ".product-card:nth-child(2) h3": "Inbox for Mac",
           ".product-card:nth-child(2) .subtitle":
-            "AI 与人脑之间的缓存层。",
-          ".product-card:nth-child(2) ul li:nth-child(1)": "<strong>结构化导入</strong> —— 将 AI 对话导入 Inbox，完整保留目录跳转",
-          ".product-card:nth-child(2) ul li:nth-child(2)": "<strong>AI 对话管理</strong> —— 标签、按时间筛选，让长线程保持有序",
-          ".product-card:nth-child(2) ul li:nth-child(3)": "<strong>个人知识库</strong> —— 建立可搜索的本地知识库，随你的 AI 工作一起成长",
-          ".product-card:nth-child(2) ul li:nth-child(4)": "<strong>网络信息缓存</strong> —— 在网页文本、图片和剪贴板内容消失前保存它们",
+            "紫藤软件开发的本地 Mac 应用，用于保存 AI 对话、笔记和截图。从 Outline 导入时完整保留目录结构以便跳转导航。标签、筛选、回顾你的知识——一切数据留在你的设备上。",
           ".product-card:nth-child(2) .small-note": "现已支持 macOS（Apple Silicon）。Windows 版本即将推出。",
           ".product-card:nth-child(2) .btn-link.primary": "查看 Inbox",
-          ".product-card:nth-child(3) h3": "Inbox Capture",
-          ".product-card:nth-child(3) .subtitle":
-            "浏览器插件，用于将网页文本、截图和笔记直接保存到 Inbox 工作流中。与 Outline 配合使用，形成完整的捕获到回顾流程。",
-          ".product-card:nth-child(3) .btn-link.primary": "查看 Inbox",
-          ".home-principles .section-intro .eyebrow": "我们的理念",
-          ".home-principles .section-intro h2": "设计为不打扰你的工作",
-          ".home-principles .meta-card:nth-child(1)":
-            "<strong>你的数据归你所有</strong>一切在本地运行。没有云存储，没有数据上传到我们的服务器。我们不出售数据，也不使用广告追踪器。",
-          ".home-principles .meta-card:nth-child(2)":
-            "<strong>为长对话而生</strong>AI 对话很快就会变得很长。我们的工具专为帮助你在数百条消息中导航而不丢失上下文而设计。",
-          ".home-principles .meta-card:nth-child(3)":
-            "<strong>隐私即架构</strong>本地优先不是一项功能——它是我们的基础。你的 AI 工作材料不会离开你的设备，除非你主动导出。",
-          ".home-cta h2": "准备好认真对待你的 AI 工作流了吗？",
-          ".home-cta p": "从 Outline 开始——将混乱的 AI 对话转变为结构化、可导航的浏览器扩展。",
-          ".home-cta a": "了解 Outline",
+          ".home-value-summary":
+            "从"找到答案"到"长期保存和复用"，紫藤软件是你完整的 AI 知识工作流。",
+          ".home-cta h2": "准备好告别反复翻找了吗？",
+          ".home-cta p":
+            "安装免费 Chrome 插件，将你的下一段长 AI 对话转变为结构化、可导航的目录。",
+          ".home-cta a": "从 Outline 开始",
         },
       },
       "privacy.html": {
@@ -167,47 +155,24 @@
       "product.html": {
         title: "产品 – Wisteria Software",
         description:
-          "了解 Wisteria Suite 产品：面向 macOS 与浏览器的 Outline、Inbox Capture 与 Inbox Local。",
+          "紫藤软件产品：ChatGPT Gemini 对话目录与大纲、Inbox for Mac 与 Inbox Capture。为重度 AI 用户打造的本地优先工具。",
         selectors: {
-          ".compact-hero h1": "产品",
+          ".compact-hero h1": "为重度 AI 用户打造的工具。",
           ".compact-hero .subtitle":
-            "<strong>Wisteria Suite</strong> 包含三款面向 AI 原生工作流的工具：<strong>Outline</strong>、<strong>Inbox Capture</strong> 与 <strong>适用于 macOS 的 Inbox Local</strong>。",
-          ".product-card.featured-product .status-pill": "当前付费产品",
-          ".product-card.featured-product h2": "Outline",
-          ".product-card.featured-product > p:first-of-type":
-            "Chrome 扩展：面向 ChatGPT 与 Gemini 的大纲导航器，带智能侧边栏——跳转到消息、标记关键回合，并轻松导出聊天记录。",
-          ".product-card.featured-product ul li:nth-child(1)": "面向长 ChatGPT 与 Gemini 对话的可点击大纲导航",
-          ".product-card.featured-product ul li:nth-child(2)": "直接跳转到你需要的位置",
-          ".product-card.featured-product ul li:nth-child(3)": "将对话下载为 Markdown 或导入 Inbox",
-          ".product-card.featured-product ul li:nth-child(4)": "本地优先，兼顾隐私与速度",
-          ".product-card.featured-product p.small-note":
-            "ChatGPT 与 Gemini 页面内容在浏览器本地处理，不会上传到我们的服务器。",
-          ".product-card.featured-product .hero-actions .btn-link.primary": "查看产品",
-          ".product-card.featured-product .hero-actions .btn-link.secondary": "在 Chrome 网上应用店查看",
-          ".product-grid article:nth-child(2) .status-pill": "现已推出",
-          ".product-grid article:nth-child(2) h3": "Inbox Capture",
-          ".product-grid article:nth-child(2) > p:first-of-type":
-            "用于将文本、截图、图片和笔记保存到工作流的浏览器捕捉工具。",
-          ".product-grid article:nth-child(2) ul li:nth-child(1)": "从当前页面捕捉",
-          ".product-grid article:nth-child(2) ul li:nth-child(2)": "快速预览与保存流程",
-          ".product-grid article:nth-child(2) ul li:nth-child(3)": "作为浏览器伴侣与 Inbox 配合使用",
+            "导航长 AI 对话，捕获重要内容，并将一切结构化保存在本地。",
+          ".product-card.featured-product h2": "ChatGPT Gemini 对话目录与大纲",
+          ".product-card.featured-product .product-tag": "Chrome 扩展",
+          ".product-card.featured-product .subtitle": "为 ChatGPT 和 Gemini 长对话自动生成可点击目录。一键跳转到任意消息、标记关键问答，并带结构完整导出。",
+          ".product-card.featured-product .hero-actions .btn-link.primary": "查看 Outline",
+          ".product-grid article:nth-child(2) h3": "Inbox for Mac",
+          ".product-grid article:nth-child(2) .product-tag": "macOS",
+          ".product-grid article:nth-child(2) .subtitle": "你的本地知识中枢，用于 AI 对话、笔记和网页捕获。一切数据留在你的设备上。",
           ".product-grid article:nth-child(2) .hero-actions .btn-link.primary": "查看 Inbox",
-          ".product-grid article:nth-child(2) .hero-actions .btn-link.secondary": "在 Chrome 上安装",
-          ".product-grid article:nth-child(3) .status-pill": "可下载",
-          ".product-grid article:nth-child(3) h3": "Inbox",
-          ".product-grid article:nth-child(3) > p:first-of-type":
-            "用于捕捉、整理与回顾 AI 对话、笔记与截图的本地优先知识工作流。目前以适用于 macOS 的 Inbox Local 形式提供。",
-          ".product-grid article:nth-child(3) ul li:nth-child(1)": "将 Markdown 文件导入本地优先的回顾工作流",
-          ".product-grid article:nth-child(3) ul li:nth-child(2)": "预览导入的 ChatGPT 对话时保留对话导航",
-          ".product-grid article:nth-child(3) ul li:nth-child(3)": "支持 AI 摘要；免费用户可使用自己的 API Key",
-          ".product-grid article:nth-child(3) p.small-note":
-            "在当前试用期内，Outline 用户也可免费试用 Inbox Pro 的 AI 摘要功能。",
+          ".product-grid article:nth-child(3) h3": "Inbox Capture",
+          ".product-grid article:nth-child(3) .product-tag": "Chrome 扩展",
+          ".product-grid article:nth-child(3) .subtitle": "一键将网页内容发送到 Inbox。轻量级捕获伴侣。",
           ".product-grid article:nth-child(3) .hero-actions .btn-link.primary": "查看 Inbox",
-          ".product-grid article:nth-child(3) .hero-actions .btn-link.secondary": "下载 macOS 版",
-          "main > section.cta h2": "当前付费方案",
-          "main > section.cta > p":
-            "Outline 在本站提供付费 Pro 方案。结账前请查看价格、激活与退款说明。",
-          "main > section.cta a": "查看 Outline 价格",
+          ".home-value-summary": "Outline 帮你找到它。Capture 帮你收集它。Inbox 帮你保存它。",
         },
       },
       "pricing.html": {
@@ -449,19 +414,10 @@
           ".sales-hero .kicker-list .kicker:nth-child(2)": "本地优先",
           ".sales-hero .kicker-list .kicker:nth-child(3)": "对话内容留在你的设备上",
           ".sales-hero .kicker-list .kicker:nth-child(4)": "激活码通过邮件发送",
-          ".demo-section > h2": "观看 34 秒演示",
-          ".demo-section > p:first-of-type":
-            "在真实对话中观看 Outline。若内嵌播放器无法加载，页面会自动回退到真实产品截图。",
-          ".video-poster-overlay":
-            "<span class=\"eyebrow\">34 秒演示</span><strong>观看 Outline 实际效果</strong><span>在本页直接播放产品演示。</span><span class=\"video-poster-cta\">播放演示</span>",
+          ".demo-section .section-intro h2": "观看演示",
+          ".video-poster-overlay .video-poster-cta": "观看演示",
           "#outline-demo-note":
-            "当前环境无法播放视频，因此页面展示真实产品截图。",
-          "#outline-demo-fallback .preview-card:nth-child(1) figcaption":
-            "点击任意条目即可瞬间跳转到长对话中的对应位置。",
-          "#outline-demo-fallback .preview-card:nth-child(2) figcaption":
-            "将冗长的 ChatGPT 与 Gemini 对话变成清晰可扫读的大纲。",
-          ".demo-section .hero-actions-centered .btn-link.primary": "播放 34 秒演示",
-          ".demo-section .hero-actions-centered .btn-link.secondary": "浏览功能",
+            "当前环境无法播放视频。显示产品截图。",
           "main > section:nth-of-type(2) h2": "它能做什么",
           "main > section:nth-of-type(2) p:nth-of-type(1)":
             "<strong>Outline</strong> 会自动把冗长的 ChatGPT 与 Gemini 会话变成可点击的目录。无论你是在写作、编程、学习还是进行多轮讨论，都可以瞬间跳到任意要点，而无需无尽滚动。",

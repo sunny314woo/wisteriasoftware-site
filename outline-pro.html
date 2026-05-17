@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Outline - ChatGPT Gemini Outline &amp; Export</title>
-  <meta name="description" content="Outline is a Chrome extension: ChatGPT Gemini Outline &amp; Export. Turns long AI conversations into a clickable sidebar outline. Jump to messages, bookmark key Q&amp;As, and export to Markdown or Inbox. Gemini outline jumping has no directory jump count limit." />
+  <title>ChatGPT Gemini Outline &amp; Export — Stop scrolling. Find it. Save it.</title>
+  <meta name="description" content="Automatically build a clickable outline for long ChatGPT and Gemini conversations. One-click jump to any message, bookmark key Q&amp;As, and export to Markdown or Inbox with structure intact." />
   <link rel="canonical" href="https://wisteriasoftware.uk/outline-pro.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Outline - ChatGPT Gemini Outline &amp; Export" />
-  <meta property="og:description" content="Turn long ChatGPT and Gemini conversations into a clickable sidebar outline. Bookmark key Q&amp;As and export to Markdown or Inbox." />
+  <meta property="og:title" content="ChatGPT Gemini Outline & Export" />
+  <meta property="og:description" content="Stop scrolling. Find it. Save it. Auto-generate a clickable outline for long ChatGPT and Gemini conversations." />
   <meta property="og:url" content="https://wisteriasoftware.uk/outline-pro.html" />
   <meta property="og:site_name" content="Wisteria Software" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Outline - ChatGPT Gemini Outline &amp; Export" />
-  <meta name="twitter:description" content="A Chrome extension for navigating, bookmarking, and exporting long ChatGPT and Gemini conversations." />
+  <meta name="twitter:title" content="ChatGPT Gemini Outline & Export" />
+  <meta name="twitter:description" content="Stop scrolling through long AI conversations. Build a clickable outline, find key messages instantly, and save what matters." />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -26,163 +26,31 @@
   {
     "@context": "https://schema.org",
     "@graph": [
+      { "@type": "Organization", "@id": "https://wisteriasoftware.uk/#organization", "name": "Wisteria Software Ltd.", "url": "https://wisteriasoftware.uk/", "email": "support@wisteriasoftware.uk" },
+      { "@type": "WebSite", "@id": "https://wisteriasoftware.uk/#website", "name": "Wisteria Software", "url": "https://wisteriasoftware.uk/", "publisher": { "@id": "https://wisteriasoftware.uk/#organization" } },
+      { "@type": "BreadcrumbList", "@id": "https://wisteriasoftware.uk/outline-pro.html#breadcrumb", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://wisteriasoftware.uk/" }, { "@type": "ListItem", "position": 2, "name": "Outline", "item": "https://wisteriasoftware.uk/outline-pro.html" } ] },
       {
-        "@type": "Organization",
-        "@id": "https://wisteriasoftware.uk/#organization",
-        "name": "Wisteria Software Ltd",
-        "url": "https://wisteriasoftware.uk/",
-        "email": "support@wisteriasoftware.uk"
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://wisteriasoftware.uk/#website",
-        "name": "Wisteria Software",
-        "url": "https://wisteriasoftware.uk/",
-        "publisher": {
-          "@id": "https://wisteriasoftware.uk/#organization"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://wisteriasoftware.uk/outline-pro.html#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://wisteriasoftware.uk/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Outline",
-            "item": "https://wisteriasoftware.uk/outline-pro.html"
-          }
-        ]
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://wisteriasoftware.uk/outline-pro.html#software",
-        "name": "Outline",
-        "alternateName": "Outline",
+        "@type": "SoftwareApplication", "@id": "https://wisteriasoftware.uk/outline-pro.html#software",
+        "name": "ChatGPT Gemini Outline & Export", "alternateName": "Outline",
         "url": "https://wisteriasoftware.uk/outline-pro.html",
-        "description": "Outline is a Chrome extension: ChatGPT Gemini Outline & Export. Turns long AI conversations into a clickable sidebar outline. It supports message jumping, Q&A bookmarks, and exports to local Markdown or Inbox. Gemini outline jumping has no directory jump count limit.",
-        "applicationCategory": "BrowserApplication",
-        "operatingSystem": "Chrome, Chromium",
+        "description": "Automatically build a clickable outline for long ChatGPT and Gemini conversations. One-click jump to any message, bookmark key Q&As, export to Markdown or Inbox.",
+        "applicationCategory": "BrowserApplication", "operatingSystem": "Chrome, Chromium",
         "browserRequirements": "Chrome or a Chromium-based browser",
         "softwareHelp": "https://wisteriasoftware.uk/support.html",
-        "publisher": {
-          "@id": "https://wisteriasoftware.uk/#organization"
-        },
+        "publisher": { "@id": "https://wisteriasoftware.uk/#organization" },
         "offers": [
-          {
-            "@type": "Offer",
-            "name": "Outline Annual Pro Plan",
-            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
-            "price": "9.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "Early bird annual price for the Pro plan for Outline. Original price is USD 19.99 per year."
-          },
-          {
-            "@type": "Offer",
-            "name": "Outline Lifetime Early Bird",
-            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
-            "price": "19.90",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/PreOrder",
-            "description": "Early bird lifetime access. Original price is USD 49. Maintenance is promised through at least May 2029."
-          }
+          { "@type": "Offer", "name": "Outline Annual Pro Plan", "url": "https://wisteriasoftware.uk/outline-pro.html#pricing", "price": "9.99", "priceCurrency": "USD", "availability": "https://schema.org/InStock" },
+          { "@type": "Offer", "name": "Outline Lifetime Early Bird", "url": "https://wisteriasoftware.uk/outline-pro.html#pricing", "price": "19.90", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder" }
         ]
       },
       {
-        "@type": "Product",
-        "@id": "https://wisteriasoftware.uk/outline-pro.html#product",
-        "name": "Outline",
-        "alternateName": "Outline",
-        "description": "A Chrome extension for navigating, bookmarking, and exporting long ChatGPT and Gemini conversations.",
-        "image": [
-          "https://wisteriasoftware.uk/outline-demo-find.png",
-          "https://wisteriasoftware.uk/outline-demo-jump.png"
-        ],
-        "brand": {
-          "@type": "Brand",
-          "name": "Wisteria Software"
-        },
-        "category": "Browser extension",
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Outline Annual Pro Plan",
-            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
-            "price": "9.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "Early bird annual price for the Pro plan for Outline. Original price is USD 19.99 per year."
-          },
-          {
-            "@type": "Offer",
-            "name": "Outline Lifetime Early Bird",
-            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
-            "price": "19.90",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/PreOrder",
-            "description": "Early bird lifetime access. Original price is USD 49. Maintenance is promised through at least May 2029."
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://wisteriasoftware.uk/outline-pro.html#faq",
+        "@type": "FAQPage", "@id": "https://wisteriasoftware.uk/outline-pro.html#faq",
         "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What is Outline?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Outline is a Chrome extension that converts long ChatGPT and Gemini conversations into a clickable sidebar outline so you can jump to key messages, bookmark important Q&As, and export to Markdown or Inbox."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Outline support Gemini?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Outline supports Gemini conversations in Chrome and Chromium-based browser extension environments."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is Gemini outline jumping limited?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. Gemini outline jumping has no directory jump count limit."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the difference between Free, Pro, and Lifetime?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Free includes ChatGPT jumping for the first 15 outline items, unlimited Gemini outline jumping, limited bookmarks, and limited exports. The Pro plan removes the ChatGPT navigation, bookmark, and export limits. Lifetime is planned as a one-time payment for Pro access, with maintenance promised through at least May 2029."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Outline upload my ChatGPT or Gemini content?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. ChatGPT and Gemini page content is processed locally in your browser and is not uploaded to Wisteria Software servers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I export only bookmarked Q&As?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. You can bookmark important Q&As and export only those bookmarked sections to local Markdown or Inbox."
-            }
-          }
+          { "@type": "Question", "name": "What does Outline do?", "acceptedAnswer": { "@type": "Answer", "text": "Outline automatically generates a clickable table of contents for long ChatGPT and Gemini conversations, so you can jump to any message, bookmark key Q&As, and export what matters." } },
+          { "@type": "Question", "name": "Does it work with Gemini?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Outline works with both ChatGPT and Gemini in Chrome and Chromium-based browsers. There is no limit on Gemini outline jumping." } },
+          { "@type": "Question", "name": "How does activation work?", "acceptedAnswer": { "@type": "Answer", "text": "After purchase you receive an activation code by email. Enter it in the extension to activate. You only need internet for first activation — it runs locally offline after that." } },
+          { "@type": "Question", "name": "Is a trial available?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. New users get a 7-day Pro trial with full Pro limits on navigation, bookmarks, and exports." } },
+          { "@type": "Question", "name": "Does Outline upload my conversations?", "acceptedAnswer": { "@type": "Answer", "text": "No. All page content is processed locally in your browser and never uploaded to any server." } }
         ]
       }
     ]
@@ -191,99 +59,135 @@
 </head>
 
 <body>
-  <!-- Header -->
-  <!-- 【MODIFIED】Shared navigation mount: i18n.js renders the homepage-standard navbar here. -->
   <header data-shared-header></header>
 
   <main>
-    <div class="hero sales-hero">
-      <span class="eyebrow">ChatGPT Gemini Outline &amp; Export</span>
-      <h1>ChatGPT Gemini Outline &amp; Export</h1>
-      <p class="subtitle">
-        Navigate long conversations with a focused sidebar outline for ChatGPT &amp; Gemini. Jump to messages, mark key turns, and export chats effortlessly.
-      </p>
-      <p class="subtitle">
-        Gemini outline jumping has no directory jump count limit. Bookmark the Q&amp;As that matter and export exactly what you saved to local Markdown or Inbox.
-      </p>
-      <div class="hero-actions">
-        <a
-          class="btn-link primary"
-          href="#"
-          data-paddle-price-id="pri_01khqxts0v5x9z1vv2tz4zxpbg"
-        >
-          Upgrade to Pro
-        </a>
-      </div>
-      <p class="small-note">14-day refund policy. <a href="refund.html">Read refund details</a>.</p>
-      <p class="small-note" data-checkout-error style="display:none;color:#b91c1c;"></p>
-      <p class="small-note">
-        Payments are processed by Paddle (Merchant of Record).
-      </p>
-      <div class="kicker-list">
-        <span class="kicker">Chrome extension</span>
-        <span class="kicker">Local-first behavior</span>
-        <span class="kicker">Your chat content stays on your device</span>
-        <span class="kicker">Activation code by email</span>
-      </div>
-    </div>
 
-    <section class="demo-section" id="demo">
-      <h2>Watch the 34-second Demo</h2>
-      <p>
-        Watch Outline on a real conversation. If the embedded player cannot load, the page falls back to real product screenshots automatically.
+    <!-- Hero: Problem-first, value within 3 seconds -->
+    <section class="hero sales-hero">
+      <h1>Stop scrolling. Find it. Save it.</h1>
+      <p class="subtitle" style="font-size:17px;line-height:1.55;max-width:640px;">
+        Automatically build a clickable outline for long ChatGPT and Gemini conversations.
+        Jump to any message instantly, bookmark what matters, and export with structure intact.
       </p>
+      <div class="hero-actions" style="margin-top:20px;">
+        <a class="btn-link primary" href="#pricing">Install Chrome Extension</a>
+        <a class="btn-link secondary" href="#features">See what it does</a>
+      </div>
+      <div class="kicker-list" style="margin-top:22px;">
+        <span class="kicker">Chrome extension</span>
+        <span class="kicker">Works with ChatGPT &amp; Gemini</span>
+        <span class="kicker">Local-first, private</span>
+        <span class="kicker">200+ message conversations</span>
+      </div>
+    </section>
+
+    <!-- What it solves -->
+    <section>
+      <h2>Long AI conversations are impossible to navigate.</h2>
+      <p>
+        You ask ChatGPT or Gemini a question. You follow up. You dig deeper. Before you know it,
+        the conversation is 150 messages long&mdash;and the one answer you need is buried somewhere in the middle.
+        You scroll. You search. You give up and re-ask the question.
+      </p>
+      <p>
+        <strong>Outline</strong> fixes this. It automatically builds a clickable directory of your entire conversation.
+        Find any message in one click. Bookmark the ones worth keeping. Export them before they disappear into chat history.
+      </p>
+    </section>
+
+    <!-- Key benefits: priority-ordered -->
+    <section id="features">
+      <h2>What it does</h2>
+      <div class="feature-grid">
+        <article class="feature-item">
+          <h3>Clickable outline for 200+ message conversations</h3>
+          <p>One click generates a full table of contents from any ChatGPT or Gemini conversation. Works on threads of any length&mdash;200 messages or more.</p>
+        </article>
+        <article class="feature-item">
+          <h3>Jump to any message instantly</h3>
+          <p>Click any item in the outline. The page scrolls directly to that message. No more endless scrolling through hundreds of replies.</p>
+        </article>
+        <article class="feature-item">
+          <h3>Bookmark what matters</h3>
+          <p>Mark the specific Q&amp;A turns worth keeping. Free users get 5 bookmarks per session; Pro users get unlimited. Revisit your bookmarks anytime.</p>
+        </article>
+        <article class="feature-item">
+          <h3>Export to Inbox with structure intact</h3>
+          <p>Send conversations to Inbox and the directory structure stays. Jump between messages inside Inbox just like in the original chat. No other export tool does this.</p>
+        </article>
+        <article class="feature-item">
+          <h3>Markdown export</h3>
+          <p>Export full conversations or only bookmarked Q&amp;As as clean Markdown files. Works with or without Inbox.</p>
+        </article>
+        <article class="feature-item">
+          <h3>Local processing, private by design</h3>
+          <p>All page content stays in your browser. Nothing is uploaded to any server. The extension works offline after activation.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Demo: centered, clean -->
+    <section class="demo-section">
+      <div class="section-intro">
+        <h2>See it in action</h2>
+      </div>
       <div class="demo-player-shell" id="outline-demo-shell">
         <button class="video-poster" id="outline-demo-poster" type="button">
-          <img src="outline-demo-find.png" alt="Outline demo poster preview." />
+          <img src="outline-demo-find.png" alt="Outline demo showing a clickable conversation directory." />
           <span class="video-poster-overlay">
-            <span class="eyebrow">34-second demo</span>
-            <strong>See Outline in action</strong>
-            <span>Play the product walkthrough directly on this page.</span>
-            <span class="video-poster-cta">Play Demo</span>
+            <span class="video-poster-cta">Watch Demo</span>
           </span>
         </button>
         <div class="inline-video-player" id="outline-demo-player" hidden></div>
       </div>
       <p class="video-inline-note" id="outline-demo-note" hidden>
-        Video playback is unavailable in this environment, so the page is showing real product screenshots instead.
+        Video playback is unavailable here. Showing a product screenshot instead.
       </p>
-      <div class="preview-grid" id="outline-demo-fallback" hidden>
-        <figure class="preview-card">
-          <img src="outline-demo-jump.png" alt="Outline preview showing image navigation and jump-to-item behavior." />
-          <figcaption>Click any item to jump instantly to the right part of a long conversation.</figcaption>
-        </figure>
-        <figure class="preview-card">
-          <img src="outline-demo-find.png" alt="Outline preview showing a clean sidebar outline for a long chat." />
-          <figcaption>Turn long ChatGPT and Gemini conversations into a clean, scannable outline.</figcaption>
-        </figure>
-      </div>
-      <div class="hero-actions hero-actions-centered">
-        <a class="btn-link primary" href="#demo">Play 34-second Demo</a>
-        <a class="btn-link secondary" href="#features">Browse Features</a>
+      <div id="outline-demo-fallback" hidden style="text-align:center;margin-top:16px;">
+        <img src="outline-demo-jump.png" alt="Outline: click any outline item to jump directly to that message." style="max-width:720px;width:100%;border-radius:16px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(15,23,42,0.08);" />
       </div>
     </section>
 
+    <!-- Also includes -->
     <section>
-      <h2>What It Does</h2>
-      <p>
-        <strong>Outline</strong> automatically turns long ChatGPT and Gemini sessions into a clickable table of contents.
-        Whether you are writing, coding, studying, or running multi-round discussions,
-        you can jump to any key point instantly instead of endless scrolling.
-      </p>
-      <p>
-        You can also bookmark the specific Q&amp;A turns worth keeping, then export either the full conversation or only the bookmarked parts to local Markdown or Inbox.
-      </p>
-      <p>
-        ChatGPT and Gemini page content is processed locally in your browser and is not uploaded to our servers.
-      </p>
+      <h2>Also includes</h2>
+      <div class="meta-grid">
+        <article class="meta-card">
+          <strong>Dark mode</strong>
+          Matches your system preference automatically.
+        </article>
+        <article class="meta-card">
+          <strong>Keyboard shortcuts</strong>
+          Alt/Option + &larr;/&rarr; to toggle the sidebar.
+        </article>
+        <article class="meta-card">
+          <strong>Flexible sidebar</strong>
+          Switch left/right, resize by dragging.
+        </article>
+        <article class="meta-card">
+          <strong>Auto-refresh</strong>
+          Outline updates when new messages appear or you switch conversations.
+        </article>
+        <article class="meta-card">
+          <strong>Image-aware</strong>
+          Image-only prompts are labeled for faster scanning.
+        </article>
+        <article class="meta-card">
+          <strong>Continuously maintained</strong>
+          We adapt when ChatGPT or Gemini change their page structure, so the extension keeps working.
+        </article>
+      </div>
     </section>
 
+    <!-- Pricing -->
     <section id="pricing">
       <div class="section-intro">
-        <span class="eyebrow">Upgrade Pro</span>
-        <h2>Unlock the Complete Outline Workflow</h2>
+        <span class="eyebrow">Pricing</span>
+        <h2>Free to start. Pro when you need more.</h2>
         <p class="subtitle">
-          Choose the plan that matches how deeply you use long AI conversations.
+          All plans include unlimited directory jumping for both ChatGPT and Gemini.
+          Pro adds unlimited bookmarks, exports, and Inbox AI summaries.
         </p>
       </div>
       <div class="price-grid two-col-pricing">
@@ -316,114 +220,59 @@
           <p class="small-note">Pay once for annual access. This is not a recurring subscription, so there is no surprise renewal to cancel later.</p>
           <p>Best for serious research, writing, coding, and recurring knowledge review.</p>
           <div class="hero-actions">
-            <a
-              class="btn-link primary"
-              href="#"
-              data-paddle-price-id="pri_01khqxts0v5x9z1vv2tz4zxpbg"
-            >
-              Unlock Pro Access
-            </a>
+            <a class="btn-link primary" href="#" data-paddle-price-id="pri_01khqxts0v5x9z1vv2tz4zxpbg">Unlock Pro Access</a>
           </div>
+          <p class="small-note" data-checkout-error style="display:none;color:#b91c1c;"></p>
         </article>
       </div>
-      <div class="notice-box" style="margin-top: 16px;">
-        <strong>Refund policy:</strong> All purchases are covered by a 14-day refund policy.
-        <a href="refund.html">View Refund Policy</a>
+      <p class="small-note" style="margin-top:16px;">New users get a 7-day Pro trial. During the trial, Pro limits apply to outline navigation, bookmarks, and exports.</p>
+      <div class="notice-box" style="margin-top:12px;">
+        <strong>Refund policy:</strong> All purchases are covered by a 14-day refund policy. <a href="refund.html">View Refund Policy</a>
       </div>
-      <p class="small-note">New users get a 7-day Pro trial. During the trial, Pro limits apply to outline navigation, bookmarks, and exports. Gemini outline jumping has no directory jump count limit.</p>
       <div class="notice-box plan-note">
-        <strong>Technology &amp; privacy:</strong> Inbox is an optional local macOS app for Apple Silicon Macs. Data is stored on your device by default, AI summaries are triggered manually, and you provide your own API key inside Inbox. Inbox can be downloaded separately from wisteriasoftware.uk.
+        <strong>Technology &amp; privacy:</strong> Inbox is an optional local macOS app for Apple Silicon Macs. Data is stored on your device by default, AI summaries are triggered manually, and you provide your own API key inside Inbox. Inbox can be downloaded separately from wisteriasoftware.uk. Payments are processed by Paddle (Merchant of Record).
       </div>
     </section>
 
-    <section id="features">
-      <h2>Features</h2>
-      <div class="feature-grid">
-        <article class="feature-item">
-          <h3>1. One-click Outline</h3>
-          <p>Click <strong>Outline</strong> in ChatGPT or Gemini to auto-extract the current conversation question list. Gemini outline jumping has no directory jump count limit.</p>
-        </article>
-        <article class="feature-item">
-          <h3>2. Click to Jump</h3>
-          <p>Click any item to smoothly scroll to the target message and keep your place.</p>
-        </article>
-        <article class="feature-item">
-          <h3>3. Bookmark Important Q&amp;As</h3>
-          <p>Save the exact user-and-reply turns you want to keep. Free supports up to 3 bookmarks per conversation, while Pro and active trial unlock unlimited bookmarks.</p>
-        </article>
-        <article class="feature-item">
-          <h3>4. Auto Refresh</h3>
-          <p>When new messages appear or you switch conversations, the outline updates automatically.</p>
-        </article>
-        <article class="feature-item">
-          <h3>5. Image-aware Marking</h3>
-          <p>Image-only or mixed text-image prompts are labeled for faster review.</p>
-        </article>
-        <article class="feature-item">
-          <h3>6. Flexible Sidebar</h3>
-          <p>Switch left/right, resize by dragging, and toggle with <strong>Alt/Option + ←/→</strong>.</p>
-        </article>
-        <article class="feature-item">
-          <h3>7. Bookmark Export &amp; Inbox Send</h3>
-          <p>Export the full conversation, or export only your bookmarked Q&amp;As, to local Markdown or Inbox for focused review later.</p>
-        </article>
-        <article class="feature-item">
-          <h3>8. Inbox Smart Summaries</h3>
-          <p>Pro users can review captured material in the optional Inbox desktop app and manually trigger deep AI summaries using their own configured API key.</p>
-        </article>
-      </div>
-    </section>
-
-    <section>
+    <!-- FAQ: consolidated, less repetitive -->
+    <section id="faq">
       <h2>FAQ</h2>
       <div class="faq-grid">
         <article class="faq-item">
-          <h3>What is this product for?</h3>
-          <p>It converts long ChatGPT and Gemini conversations into a clickable outline so you can quickly find and review key points. Gemini outline jumping has no directory jump count limit.</p>
+          <h3>What does Outline do?</h3>
+          <p>It automatically generates a clickable table of contents for long ChatGPT and Gemini conversations, so you can jump to any message, bookmark key Q&amp;As, and export what matters. Works on 200+ message threads.</p>
         </article>
         <article class="faq-item">
-          <h3>Does Outline support Gemini?</h3>
-          <p>Yes. Outline supports Gemini conversations in Chrome and Chromium-based browser extension environments.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Is Gemini outline jumping limited?</h3>
-          <p>No. Gemini outline jumping has no directory jump count limit.</p>
+          <h3>Does it work with Gemini?</h3>
+          <p>Yes. Outline works with both ChatGPT and Gemini in Chrome and Chromium-based browsers. There is no limit on Gemini directory jumping.</p>
         </article>
         <article class="faq-item">
           <h3>How do I activate after purchase?</h3>
-          <p>You will receive an activation code by email (for example: <code>XXXX-XXXX-XXXX</code>). Enter it in the extension to activate. During the license validity period, you can re-activate again if needed.</p>
+          <p>You receive an activation code by email (e.g. <code>XXXX-XXXX-XXXX</code>). Enter it in the extension to activate. You only need internet for the first activation&mdash;it runs locally offline after that. Re-activation is allowed during the license period.</p>
         </article>
         <article class="faq-item">
           <h3>What if WeChat Pay succeeds but the page looks stuck?</h3>
-          <p>WeChat Pay can complete in asynchronous mode, so the success page may take a little longer to update. Please allow about 15 minutes for the payment status to finish syncing. The activation code email can also be delayed, so if you have not received it after 20 minutes, contact <a href="mailto:support@wisteriasoftware.uk">support@wisteriasoftware.uk</a>.</p>
+          <p>WeChat Pay can complete asynchronously, so the success page may take a few minutes to update. Please allow about 15 minutes for the payment status to sync. The activation code email can also be delayed&mdash;if you haven&rsquo;t received it after 20 minutes, contact <a href="mailto:support@wisteriasoftware.uk">support@wisteriasoftware.uk</a>.</p>
         </article>
         <article class="faq-item">
-          <h3>Do you offer a trial?</h3>
-          <p>Yes. New users get a 7-day Pro trial. During the trial, Pro limits apply to outline navigation, bookmarks, and exports. Gemini outline jumping has no directory jump count limit.</p>
+          <h3>Is there a trial?</h3>
+          <p>Yes. New users get a 7-day Pro trial with full Pro limits on navigation, bookmarks, and exports. Gemini directory jumping is unlimited during the trial.</p>
         </article>
         <article class="faq-item">
-          <h3>Do I need to stay online after activation?</h3>
-          <p>No. Internet is required for first activation only. After activation it can run locally offline.</p>
+          <h3>Do I need to stay online?</h3>
+          <p>No. Internet is only required for first activation. After that, the extension works entirely offline.</p>
         </article>
         <article class="faq-item">
           <h3>What is the difference between Free and Pro?</h3>
-          <p>Free lets you click the first 15 ChatGPT outline items, use unlimited Gemini outline jumping, add up to 3 bookmarks per conversation, and export up to 3 conversations per month. The Pro plan and active trial remove the ChatGPT navigation, bookmark, and export limits.</p>
+          <p>Both plans include unlimited directory jumping for ChatGPT and Gemini. Free gives you 5 bookmarks per session and 5 exports per month. Pro unlocks unlimited bookmarks and exports, plus Inbox AI summaries (with your own API key). See the <a href="#pricing">pricing table</a> above for a full comparison.</p>
         </article>
         <article class="faq-item">
-          <h3>What is the Lifetime plan?</h3>
-          <p>Lifetime is a planned one-time purchase for the Pro plan for Outline. The early bird price is $19.90, the original price is $49, and maintenance is promised through at least May 2029. Lifetime checkout is coming soon.</p>
+          <h3>Does Outline upload my conversations?</h3>
+          <p>No. All page content is processed locally in your browser. Nothing is uploaded to any server. The extension works offline after activation and does not send your conversation data anywhere.</p>
         </article>
         <article class="faq-item">
-          <h3>Does Outline upload my ChatGPT or Gemini content?</h3>
-          <p>No. ChatGPT and Gemini page content is processed locally in your browser and is not uploaded to our servers.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Can I export only the bookmarked parts?</h3>
-          <p>Yes. If you bookmark important Q&amp;As first, you can export only those saved sections to local Markdown or Inbox instead of exporting the whole conversation.</p>
-        </article>
-        <article class="faq-item">
-          <h3>Which environment is supported?</h3>
-          <p>ChatGPT and Gemini web usage scenarios in Chrome/Chromium browser extension environments.</p>
+          <h3>Can I export only bookmarked parts?</h3>
+          <p>Yes. Bookmark the Q&amp;As you want to keep, then export only those sections to Markdown or Inbox&mdash;no need to export the entire conversation.</p>
         </article>
         <article class="faq-item">
           <h3>How can I contact support?</h3>
@@ -431,10 +280,12 @@
         </article>
       </div>
     </section>
+
   </main>
-  <!-- Footer -->
-  <!-- 【MODIFIED】Shared footer mount: i18n.js renders the homepage-standard footer here. -->
+
   <footer data-shared-footer></footer>
+
+  <!-- ====== Functional scripts — DO NOT MODIFY ====== -->
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <script type="text/javascript">
     var PADDLE_TXN_STORAGE_KEY = "paddle_checkout_txn";
@@ -459,33 +310,23 @@
     function storePaddleTransactionId(tid) {
       if (!tid || typeof tid !== "string" || tid.indexOf("txn_") !== 0) return;
       var now = String(Date.now());
-      try {
-        sessionStorage.setItem(PADDLE_TXN_STORAGE_KEY, tid);
-        sessionStorage.setItem(PADDLE_TXN_STORAGE_TS_KEY, now);
-      } catch (e) {}
-      try {
-        localStorage.setItem(PADDLE_TXN_STORAGE_KEY, tid);
-        localStorage.setItem(PADDLE_TXN_STORAGE_TS_KEY, now);
-      } catch (e) {}
+      try { sessionStorage.setItem(PADDLE_TXN_STORAGE_KEY, tid); sessionStorage.setItem(PADDLE_TXN_STORAGE_TS_KEY, now); } catch (e) {}
+      try { localStorage.setItem(PADDLE_TXN_STORAGE_KEY, tid); localStorage.setItem(PADDLE_TXN_STORAGE_TS_KEY, now); } catch (e) {}
     }
 
     function extractPaddleTransactionId(event) {
       var data = event && event.data ? event.data : {};
       var candidates = [
-        data.transaction_id,
-        data.transactionId,
+        data.transaction_id, data.transactionId,
         data.transaction && data.transaction.id,
         data.transaction && data.transaction.transaction_id,
         data.checkout && data.checkout.transaction_id,
         data.checkout && data.checkout.transaction && data.checkout.transaction.id,
         data.id
       ];
-
       for (var i = 0; i < candidates.length; i++) {
         var value = candidates[i];
-        if (typeof value === "string" && value.indexOf("txn_") === 0) {
-          return value;
-        }
+        if (typeof value === "string" && value.indexOf("txn_") === 0) return value;
       }
       return "";
     }
@@ -499,21 +340,13 @@
       eventCallback: function (event) {
         try {
           var tid = extractPaddleTransactionId(event);
-          if (tid) {
-            storePaddleTransactionId(tid);
-          }
+          if (tid) storePaddleTransactionId(tid);
           if (event && event.name === "checkout.completed") {
             tid = tid || readStoredPaddleTransactionId();
-            if (tid) {
-              storePaddleTransactionId(tid);
-              redirectToPaymentSuccess(tid);
-            } else {
-              window.location.href = "/payment-success";
-            }
+            if (tid) { storePaddleTransactionId(tid); redirectToPaymentSuccess(tid); }
+            else { window.location.href = "/payment-success"; }
           }
-        } catch (e) {
-          // no-op: avoid breaking checkout if something goes wrong
-        }
+        } catch (e) {}
       }
     });
   </script>
@@ -521,64 +354,16 @@
     (function () {
       var checkoutSettings = {
         items: [{ priceId: "pri_01khqxts0v5x9z1vv2tz4zxpbg", quantity: 1 }],
-        settings: {
-          theme: "light",
-          locale: "en",
-          successUrl: "https://wisteriasoftware.uk/payment-success"
-        }
+        settings: { theme: "light", locale: "en", successUrl: "https://wisteriasoftware.uk/payment-success" }
       };
       var checkoutOpened = false;
       var shouldScrollToPricing = false;
-
-      try {
-        shouldScrollToPricing = new URLSearchParams(window.location.search).get("autoCheckout") === "1";
-      } catch (error) {
-        shouldScrollToPricing = false;
-      }
-
-      function showCheckoutError() {
-        var errorTarget = document.querySelector("[data-checkout-error]");
-        if (errorTarget) {
-          errorTarget.textContent = "Checkout is temporarily unavailable. Please try again.";
-          errorTarget.style.display = "block";
-        }
-      }
-
-      function clearCheckoutError() {
-        var errorTarget = document.querySelector("[data-checkout-error]");
-        if (errorTarget) {
-          errorTarget.style.display = "none";
-          errorTarget.textContent = "";
-        }
-      }
-
-      function openCheckout() {
-        if (checkoutOpened) return;
-
-        clearCheckoutError();
-
-        try {
-          Paddle.Checkout.open(checkoutSettings);
-          checkoutOpened = true;
-        } catch (error) {
-          showCheckoutError();
-        }
-      }
-
-      document.querySelectorAll("[data-paddle-price-id]").forEach(function (button) {
-        button.addEventListener("click", function (event) {
-          event.preventDefault();
-
-          openCheckout();
-        });
-      });
-
-      if (shouldScrollToPricing) {
-        var pricingSection = document.getElementById("pricing");
-        if (pricingSection) {
-          pricingSection.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }
+      try { shouldScrollToPricing = new URLSearchParams(window.location.search).get("autoCheckout") === "1"; } catch (error) { shouldScrollToPricing = false; }
+      function showCheckoutError() { var errorTarget = document.querySelector("[data-checkout-error]"); if (errorTarget) { errorTarget.textContent = "Checkout is temporarily unavailable. Please try again."; errorTarget.style.display = "block"; } }
+      function clearCheckoutError() { var errorTarget = document.querySelector("[data-checkout-error]"); if (errorTarget) { errorTarget.style.display = "none"; errorTarget.textContent = ""; } }
+      function openCheckout() { if (checkoutOpened) return; clearCheckoutError(); try { Paddle.Checkout.open(checkoutSettings); checkoutOpened = true; } catch (error) { showCheckoutError(); } }
+      document.querySelectorAll("[data-paddle-price-id]").forEach(function (button) { button.addEventListener("click", function (event) { event.preventDefault(); openCheckout(); }); });
+      if (shouldScrollToPricing) { var pricingSection = document.getElementById("pricing"); if (pricingSection) pricingSection.scrollIntoView({ behavior: "smooth", block: "start" }); }
     })();
   </script>
   <script>
@@ -590,73 +375,13 @@
       var demoShell = document.getElementById("outline-demo-shell");
       var playerTimeout = null;
       var VIDEO_ID = "1BZpejb1oT0";
-
       if (!poster || !playerRoot || !fallback || !note || !demoShell) return;
-
-      function showFallback(message) {
-        if (playerTimeout) {
-          window.clearTimeout(playerTimeout);
-          playerTimeout = null;
-        }
-        playerRoot.innerHTML = "";
-        playerRoot.hidden = true;
-        demoShell.hidden = true;
-        fallback.hidden = false;
-        note.hidden = false;
-        if (message) {
-          note.textContent = message;
-        }
-      }
-
-      function buildPlayer() {
-        playerRoot.hidden = false;
-        poster.hidden = true;
-        playerRoot.innerHTML = "";
-
-        var iframe = document.createElement("iframe");
-        iframe.setAttribute(
-          "src",
-          "https://www.youtube-nocookie.com/embed/" +
-            VIDEO_ID +
-            "?autoplay=1&rel=0&playsinline=1&modestbranding=1"
-        );
-        iframe.setAttribute(
-          "allow",
-          "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        );
-        iframe.setAttribute("allowfullscreen", "");
-        iframe.setAttribute("title", "Outline 34-second demo");
-        iframe.setAttribute("loading", "eager");
-        iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin");
-        iframe.style.cssText =
-          "position:absolute;inset:0;width:100%;height:100%;border:0";
-        playerRoot.appendChild(iframe);
-
-        iframe.addEventListener("load", function () {
-          if (playerTimeout) {
-            window.clearTimeout(playerTimeout);
-            playerTimeout = null;
-          }
-        });
-
-        playerTimeout = window.setTimeout(function () {
-          showFallback(
-            "Video playback could not be started here, so the page is showing real product screenshots instead."
-          );
-        }, 15000);
-      }
-
-      poster.addEventListener("click", function () {
-        if (window.location.protocol === "file:") {
-          showFallback(
-            "Local file previews do not load the embedded player reliably, so the page is showing real product screenshots instead."
-          );
-          return;
-        }
-        buildPlayer();
-      });
+      function showFallback(message) { if (playerTimeout) { window.clearTimeout(playerTimeout); playerTimeout = null; } playerRoot.innerHTML = ""; playerRoot.hidden = true; demoShell.hidden = true; fallback.hidden = false; note.hidden = false; if (message) note.textContent = message; }
+      function buildPlayer() { playerRoot.hidden = false; poster.hidden = true; playerRoot.innerHTML = ""; var iframe = document.createElement("iframe"); iframe.setAttribute("src", "https://www.youtube-nocookie.com/embed/" + VIDEO_ID + "?autoplay=1&rel=0&playsinline=1&modestbranding=1"); iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"); iframe.setAttribute("allowfullscreen", ""); iframe.setAttribute("title", "Outline demo"); iframe.setAttribute("loading", "eager"); iframe.setAttribute("referrerpolicy", "strict-origin-when-cross-origin"); iframe.style.cssText = "position:absolute;inset:0;width:100%;height:100%;border:0"; playerRoot.appendChild(iframe); iframe.addEventListener("load", function () { if (playerTimeout) { window.clearTimeout(playerTimeout); playerTimeout = null; } }); playerTimeout = window.setTimeout(function () { showFallback("Video playback could not be started here, so the page is showing real product screenshots instead."); }, 15000); }
+      poster.addEventListener("click", function () { if (window.location.protocol === "file:") { showFallback("Local file previews do not load the embedded player reliably, so the page is showing real product screenshots instead."); return; } buildPlayer(); });
     })();
   </script>
+  <!-- ====== i18n scripts ====== -->
   <script src="nav.js" defer></script>
   <script src="i18n/config.js" defer></script>
   <script src="i18n/locales/zh-Hans.js" defer></script>
