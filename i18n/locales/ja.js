@@ -17,6 +17,7 @@
         "refund.html": "返金ポリシー",
         "support.html": "サポート",
         "nav-about": "会社情報",
+        "https://blog.wisteriasoftware.uk/": "ブログ",
       },
       footer: {
         "product.html": "製品",

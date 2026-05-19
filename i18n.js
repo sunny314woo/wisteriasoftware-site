@@ -243,6 +243,8 @@
    */
   function localizedHref(href, language) {
     if (language === defaultLocale) return href;
+    /* External links — leave untouched */
+    if (/^https?:\/\//.test(href)) return href;
     try {
       /* Build language-aware URL with pure string manipulation.
          Avoids new URL() which breaks under file:// (origin "null" in Chrome). */

@@ -10,6 +10,7 @@
         "outline-pro.html": "Outline", "inbox.html": "Inbox",
         "privacy.html": "개인정보처리방침", "terms.html": "이용약관",
         "refund.html": "환불 정책", "support.html": "지원", "nav-about": "회사 정보",
+        "https://blog.wisteriasoftware.uk/": "블로그",
       },
       footer: {
         "product.html": "제품", "pricing.html": "가격",

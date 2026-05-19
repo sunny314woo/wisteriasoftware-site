@@ -5,7 +5,7 @@
   window.WISTERIA_I18N_DICTIONARIES = window.WISTERIA_I18N_DICTIONARIES || {};
   window.WISTERIA_I18N_DICTIONARIES["es"] = {
     shared: {
-      nav: {"index.html":"Inicio","product.html":"Productos","pricing.html":"Precios","outline-pro.html":"Outline","inbox.html":"Inbox","privacy.html":"Política de privacidad","terms.html":"Términos de servicio","refund.html":"Política de reembolso","support.html":"Soporte","nav-about":"Acerca de"},
+      nav: {"index.html":"Inicio","product.html":"Productos","pricing.html":"Precios","outline-pro.html":"Outline","inbox.html":"Inbox","privacy.html":"Política de privacidad","terms.html":"Términos de servicio","refund.html":"Política de reembolso","support.html":"Soporte","nav-about":"Acerca de","https://blog.wisteriasoftware.uk/":"Blog"},
       footer: {"product.html":"Productos","pricing.html":"Precios","outline-pro.html":"Outline","inbox.html":"Inbox","support.html":"Soporte","privacy.html":"Política de privacidad","terms.html":"Términos de servicio","refund.html":"Política de reembolso"},
       company:"© 2026 Wisteria Software Ltd.<br />Registrada en Inglaterra y Gales.<br />Número de empresa: 16965144<br />Correo electrónico: ",
     },

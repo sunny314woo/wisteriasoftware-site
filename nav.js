@@ -43,6 +43,9 @@
 
       /* Support */
       { href: "support.html", label: "Support" },
+
+      /* Blog */
+      { href: "https://blog.wisteriasoftware.uk/", label: "Blog" },
     ],
   };
 })();
