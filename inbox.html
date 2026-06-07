@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inbox – Wisteria Software</title>
-  <meta name="description" content="Inbox helps you capture, organize, and revisit AI conversations, screenshots, and notes. Currently available as Inbox Local for macOS, with Inbox Capture as a browser companion." />
+  <meta name="description" content="Inbox is a local-first, privacy-first AI information processor by Wisteria Software. A cache layer between AI and your brain — import structured AI conversations with directory jumping, filter by tags and time, and extend with plugins." />
   <link rel="canonical" href="https://wisteriasoftware.uk/inbox.html" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" sizes="any" />
@@ -17,124 +17,116 @@
 </head>
 
 <body class="inbox-page">
-  <!-- Header -->
-  <!-- 【MODIFIED】Shared navigation mount: i18n.js renders the homepage-standard navbar here. -->
   <header data-shared-header></header>
 
   <main>
+    <!-- Hero -->
     <div class="hero split-hero sales-hero">
       <div>
-        <span class="eyebrow">Inbox</span>
-        <h1 class="hero-title">Turn AI conversations into knowledge you actually own.</h1>
+        <span class="eyebrow">Wisteria Software</span>
+        <h1 class="hero-title">Inbox &mdash; a cache layer between AI and your brain.</h1>
         <p class="subtitle">
-          The best ideas from ChatGPT and other AI tools should not disappear into scrollback. Inbox helps you capture,
-          organize, and revisit what matters, so your work stays useful long after the conversation ends.
+          AI generates more information than anyone can absorb in a single session. <strong>Inbox</strong> sits between you and the AI,
+          giving you a local-first, privacy-first space to import, filter, review, and reuse structured AI conversations&mdash;without
+          losing the navigation that makes them usable.
+        </p>
+        <p class="subtitle" style="margin-top:12px;">
+          Unlike flat Markdown or PDF exports from other tools, conversations imported into Inbox via <strong>Outline</strong>
+          preserve full directory jumping. Click any question in the outline and jump straight to the answer&mdash;just like in the
+          original chat.
         </p>
         <div class="hero-actions">
           <a class="btn-link primary" href="https://download.wisteriasoftware.uk/Inbox-1.0.0-mac.dmg">Download Inbox Local for macOS</a>
-          <a class="btn-link secondary" href="#workflow">See the Workflow</a>
+          <a class="btn-link secondary" href="#features">Explore Features</a>
         </div>
       </div>
 
       <aside class="hero-card">
-        <h2>Current Availability</h2>
+        <h2>At a Glance</h2>
         <ul class="hero-points">
-          <li><strong>Inbox Local for macOS:</strong> available now for Apple Silicon Macs.</li>
-          <li><strong>Inbox Capture:</strong> available now on the Chrome Web Store as a browser companion.</li>
-          <li><strong>Data ownership:</strong> built around a local-first workflow so your saved material stays with you.</li>
+          <li><strong>Local-first &amp; privacy-first:</strong> your data stays on your own device, not on our servers.</li>
+          <li><strong>Built by Wisteria Software Ltd.</strong>, a UK-registered independent software company.</li>
+          <li><strong>Works with Outline:</strong> ChatGPT and Gemini conversations exported via Outline retain their directory structure for jump navigation.</li>
+          <li><strong>Extensible:</strong> plugin system for capturing web content, images, and clipboard material.</li>
         </ul>
       </aside>
     </div>
 
-    <section>
-      <h2>Why Inbox Exists</h2>
+    <!-- What Inbox Does -->
+    <section id="features">
+      <h2>What Inbox Does</h2>
       <p>
-        AI is great at generating answers. It is much worse at helping you keep them.
+        Inbox is designed for the reality of working with AI: long threads, valuable fragments, and the constant
+        need to find things later. It processes structured AI information and gives you tools to stay organized.
       </p>
       <div class="feature-grid">
         <article class="feature-item">
-          <h3>Long conversations bury valuable work</h3>
-          <p>Useful answers, prompts, and ideas get lost inside scroll-heavy sessions.</p>
+          <h3>Import structured conversations</h3>
+          <p>Import ChatGPT and Gemini conversations exported via <strong>Outline</strong>. The directory structure
+          is preserved&mdash;click any outline item to jump directly to that part of the conversation. No other tool does this.</p>
         </article>
         <article class="feature-item">
-          <h3>Good material gets fragmented</h3>
-          <p>Screenshots, notes, references, and exported chats end up in too many places.</p>
+          <h3>Filter by tags, time, and more</h3>
+          <p>Tag your imported material. Filter by tags, date ranges, and other criteria to surface exactly what you need,
+          when you need it.</p>
         </article>
         <article class="feature-item">
-          <h3>Reuse is harder than it should be</h3>
-          <p>You end up re-asking questions instead of building on what you already learned.</p>
+          <h3>Capture from anywhere</h3>
+          <p>Use <strong>Inbox Capture</strong>, the browser companion plugin, to save web text, screenshots, images,
+          and notes while browsing. Paste from the clipboard directly into Inbox.</p>
         </article>
         <article class="feature-item">
-          <h3>Platform ownership is not your ownership</h3>
-          <p>Too much of your work remains trapped inside tools that were never designed to be your long-term library.</p>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <h2>What Inbox Is</h2>
-      <p>
-        Inbox is a personal knowledge workflow for people who use AI seriously. It helps you turn conversations,
-        screenshots, and notes into material you can keep, review, and reuse over time.
-      </p>
-      <p>
-        Today, Inbox is available as <strong>Inbox Local for macOS</strong>. It is designed to work with
-        <strong>Inbox Capture</strong>, a browser companion that makes saving useful content fast.
-      </p>
-    </section>
-
-    <section>
-      <h2>What You Can Do With Inbox</h2>
-      <div class="feature-grid">
-        <article class="feature-item">
-          <h3>Capture what matters</h3>
-          <p>Save useful conversations, screenshots, excerpts, and ideas before they disappear.</p>
-        </article>
-        <article class="feature-item">
-          <h3>Organize it into something usable</h3>
-          <p>Review saved material in a cleaner structure, with less scrolling and more signal.</p>
+          <h3>Plugin extensions</h3>
+          <p>Inbox supports plugins for extending capture capabilities: grab articles, images, and structured
+          content from the web and bring them into your local knowledge workflow.</p>
         </article>
         <article class="feature-item">
           <h3>Revisit and reuse</h3>
-          <p>Return to past answers quickly, avoid repeated prompting, and build reusable knowledge.</p>
+          <p>Stop re-asking the same questions. Build a growing personal library of AI-assisted work that you can
+          search, filter, and build upon over time.</p>
         </article>
         <article class="feature-item">
-          <h3>Keep ownership</h3>
-          <p>Use a local-first workflow so the material you save stays on your device and under your control.</p>
+          <h3>Your data, your device</h3>
+          <p>Everything stays local. No cloud storage, no data uploaded to our servers. Inbox is a native macOS app
+          that runs entirely on your machine.</p>
         </article>
       </div>
     </section>
 
-    <section id="workflow" class="workflow-band">
-      <h2>A Better Workflow</h2>
-      <p class="workflow-line">Capture -> Organize -> Reuse -> Own</p>
+    <!-- Workflow -->
+    <section class="workflow-band">
+      <h2>The Workflow</h2>
+      <p class="workflow-line">Chat with AI &rarr; Outline the conversation &rarr; Export to Inbox &rarr; Tag, filter, review &rarr; Reuse</p>
       <p>
-        Inbox helps turn AI from a one-time conversation tool into a system for long-term thinking and knowledge.
+        Inbox turns AI from a one-shot Q&amp;A tool into a long-term system for thinking and knowledge.
+        The Outline browser extension generates the structure; Inbox stores it, preserves it, and lets you work with it.
       </p>
       <div class="meta-grid">
         <article class="meta-card">
-          <strong>Capture</strong>
-          Save what matters while you are working, before useful context disappears.
+          <strong>Outline</strong>
+          Generate a clickable directory from any ChatGPT or Gemini conversation.
         </article>
         <article class="meta-card">
-          <strong>Organize</strong>
-          Keep saved material in a form that is easier to scan, review, and revisit.
+          <strong>Export</strong>
+          Send structured conversations to Inbox&mdash;directory jumping intact.
         </article>
         <article class="meta-card">
-          <strong>Reuse</strong>
-          Turn one-off AI output into a growing body of reference material you can use again.
+          <strong>Inbox</strong>
+          Tag, filter, search, and revisit your growing knowledge library.
         </article>
       </div>
     </section>
 
+    <!-- Companion -->
     <section class="companion-section">
       <div class="section-intro">
         <span class="eyebrow">Browser Companion</span>
-        <h2>Works with Inbox Capture</h2>
+        <h2>Inbox Capture</h2>
       </div>
       <p>
-        Inbox Capture is the browser companion for Inbox. Use it to quickly save useful text, screenshots, images,
-        and notes while browsing, then bring them into your Inbox workflow for review and reuse.
+        Inbox Capture is the browser-side plugin for Inbox. Save useful text, screenshots, images, and notes while
+        browsing, then bring them into your Inbox library for review and reuse. Works alongside Outline for a complete
+        capture workflow.
       </p>
       <div class="hero-actions">
         <a class="btn-link primary" href="https://chromewebstore.google.com/detail/inbox-capture/ifdkdkiflmmeoecimhibjmndpehbdbnn" target="_blank" rel="noopener noreferrer">Install Inbox Capture on Chrome</a>
@@ -142,41 +134,24 @@
       </div>
     </section>
 
-    <section>
-      <h2>Who It Is For</h2>
-      <div class="feature-grid">
-        <article class="feature-item">
-          <h3>Developers</h3>
-          <p>Keep prompts, code explanations, and research notes organized for future work.</p>
-        </article>
-        <article class="feature-item">
-          <h3>Writers and creators</h3>
-          <p>Save ideas, drafts, references, and AI-assisted outputs without losing the thread.</p>
-        </article>
-        <article class="feature-item">
-          <h3>Researchers and knowledge workers</h3>
-          <p>Build a personal reference layer instead of starting over every time.</p>
-        </article>
-        <article class="feature-item">
-          <h3>Daily AI users</h3>
-          <p>Keep the useful parts of your AI workflow instead of letting them vanish into chat history.</p>
-        </article>
-      </div>
-    </section>
-
     <section class="cta">
-      <h2>Stop losing the value you create with AI.</h2>
+      <h2>Your AI conversations deserve a home.</h2>
       <p>
-        Keep it, structure it, and make it yours with Inbox Local for macOS.
+        Import, organize, and own them with Inbox Local for macOS.
       </p>
       <a href="https://download.wisteriasoftware.uk/Inbox-1.0.0-mac.dmg">Download Inbox Local for macOS</a>
     </section>
   </main>
-  <!-- Footer -->
-  <!-- 【MODIFIED】Shared footer mount: i18n.js renders the homepage-standard footer here. -->
+
   <footer data-shared-footer></footer>
+  <script src="nav.js" defer></script>
   <script src="i18n/config.js" defer></script>
   <script src="i18n/locales/zh-Hans.js" defer></script>
+  <script src="i18n/locales/ja.js" defer></script>
+  <script src="i18n/locales/ko.js" defer></script>
+  <script src="i18n/locales/de.js" defer></script>
+  <script src="i18n/locales/fr.js" defer></script>
+  <script src="i18n/locales/es.js" defer></script>
   <script src="i18n.js" defer></script>
   <script src="analytics.js" defer></script>
 </body>
