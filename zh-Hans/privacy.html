@@ -25,7 +25,7 @@
         "url": "https://wisteriasoftware.uk/",
         "email": "support@wisteriasoftware.uk"
       },
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-06-07"
     }
   </script>
   <link rel="stylesheet" href="style.css" />
@@ -51,7 +51,7 @@
         适用于 <strong>Wisteria Software</strong> 产品，包括 <strong>ChatGPT Gemini 对话目录与大纲 (ChatGPT Gemini Outline &
           Export)</strong>、
         <strong>Inbox Capture</strong> 和 <strong>Inbox Local / Wisteria Inbox</strong><br />
-        <strong>最后更新：</strong>2026 年 5 月 16 日
+        <strong>最后更新：</strong>2026 年 6 月 7 日
       </p>
     </div>
 
@@ -61,7 +61,8 @@
       </p>
       <ul>
         <li><strong>本地处理</strong>：ChatGPT 和 Gemini 的对话内容均在您的浏览器本地处理。</li>
-        <li><strong>不上传服务器</strong>：我们不会将您的聊天内容上传到我们的服务器。</li>
+        <li><strong>不上传我们的服务器</strong>：我们不会将聊天内容上传到 Wisteria Software 的服务器。只有当你主动使用 Google Drive
+          备份时，所选导出文件才会直接发送到你自己的 Google Drive。</li>
         <li><strong>无广告追踪</strong>：我们不使用广告追踪器，绝不出售个人数据。</li>
         <li><strong>极简数据收集</strong>：仅收集电子邮箱、许可证状态和支付信息，用于激活、计费和客户支持。</li>
         <li><strong>支付安全</strong>：所有支付均由我们的记录商 (Merchant of Record) <strong>Paddle</strong> 安全处理。</li>
@@ -89,7 +90,18 @@
         <strong>对话内容处理</strong>：扩展读取的对话内容（用于生成目录、大纲或导出）完全在您的浏览器本地处理，<strong>绝不会上传到我们的服务器</strong>。
       </p>
       <p>
-        <strong>导出功能</strong>：当您使用导出功能（如导出为 Markdown）时，文件在本地生成并由您保存。
+        <strong>导出功能</strong>：当你导出为 Markdown 或 HTML 时，文件会在本地生成并由你保存。HTML 导出可包含目录。
+      </p>
+      <p>
+        <strong>Google 账号授权与 Google Drive 备份</strong>：只有当你选择使用自己的 Google 账号进行授权时，扩展才会使用 Chrome 的
+        <code>identity</code> 权限。身份验证过程由 Chrome 和 Google OAuth 处理。
+      </p>
+      <p>
+        扩展仅使用取得的授权令牌，将对话导出文件上传到你所选择的 Google Drive 位置。文件仅在你主动发起备份时直接上传到你自己的
+        Google Drive，不会经由或存储在 Wisteria Software 的服务器上。
+      </p>
+      <p>
+        扩展不会收集、存储、出售或分享你的 Google 身份信息。Google 可能依据其自身的隐私政策和服务条款处理账号信息及上传的文件。
       </p>
       <p>
         <strong>收集的数据</strong>：为了管理您的订阅和许可证，我们可能会在启用付费功能时收集：
@@ -203,14 +215,8 @@
   <!-- 【MODIFIED】Shared footer mount: i18n.js renders the homepage-standard footer here. -->
   <footer data-shared-footer></footer>
 
-  <script src="nav.js" defer></script>
   <script src="i18n/config.js" defer></script>
   <script src="i18n/locales/zh-Hans.js" defer></script>
-  <script src="i18n/locales/ja.js" defer></script>
-  <script src="i18n/locales/ko.js" defer></script>
-  <script src="i18n/locales/de.js" defer></script>
-  <script src="i18n/locales/fr.js" defer></script>
-  <script src="i18n/locales/es.js" defer></script>
   <script src="i18n.js" defer></script>
   <script src="analytics.js" defer></script>
 </body>
