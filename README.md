@@ -73,20 +73,50 @@ python3 -m http.server 8080
 
 ---
 
-## 7. 配置与环境变量
+## 7. 部署与发布
+
+本站的真实开发源位于私有 monorepo：
+
+```text
+apps/website/landing/wisteriasoftware.uk/
+```
+
+线上 GitHub Pages 继续由公开仓库发布：
+
+```text
+sunny314woo/wisteriasoftware-site
+```
+
+不要手动复制文件。私有仓库根目录的 GitHub Actions workflow 会在 `main` 分支中本站目录变化时，将本目录内容同步到公开 Pages 仓库：
+
+```text
+.github/workflows/sync-website-repo.yml
+```
+
+该 workflow 使用 SSH deploy key，不使用个人账号 PAT。需要以下 GitHub 配置：
+
+- 在 `sunny314woo/wisteriasoftware-site` 的 `Settings -> Deploy keys` 中添加公钥，并勾选 `Allow write access`。
+- 在私有仓库 `sunny314woo/wisteria-suite` 的 `Settings -> Secrets and variables -> Actions` 中添加 secret：`WISTERIA_SITE_DEPLOY_KEY`。
+- `WISTERIA_SITE_DEPLOY_KEY` 的值为对应的私钥；不要写入代码、README、issue、commit message 或聊天记录。
+
+轮换密钥时，生成新的 ed25519 key pair，替换公开仓库 deploy key 和私有仓库 secret，然后删除旧 deploy key。
+
+---
+
+## 8. 配置与环境变量
 
 - 无服务端 `.env`。Paddle、API 域名等多在 HTML/JS 中硬编码或由外链脚本提供；具体键名与生产域名 **待确认** 与 `services/api-server` / 支付后台一致。
 
 ---
 
-## 8. 数据流 / 业务流程
+## 9. 数据流 / 业务流程
 
 - 用户浏览静态页 → 点击购买 → 跳转 Paddle Hosted Checkout（细节以页面链接为准）→ 支付成功/取消回到本站或 API 同源页面（与 `services/api-server` 的 `payment-success` 等路由关系 **待确认** 当前主用哪一套）。
 - i18n：首屏英文 fallback → 脚本加载字典 → 按优先级覆盖文案。
 
 ---
 
-## 9. 与其他项目的关系
+## 10. 与其他项目的关系
 
 | 项目 | 关系 |
 |------|------|
@@ -96,7 +126,7 @@ python3 -m http.server 8080
 
 ---
 
-## 10. 当前风险与注意事项
+## 11. 当前风险与注意事项
 
 - **多语言脆弱性：** 依赖 DOM 结构与 `selectors`；改版易漏翻或错绑。
 - **双站点：** landing 与 `app.wisteriasoftware.uk` 内容可能重复或链接分叉，需避免用户迷路。
@@ -104,14 +134,14 @@ python3 -m http.server 8080
 
 ---
 
-## 11. 后续开发建议
+## 12. 后续开发建议
 
 - 新页面优先使用 `data-i18n` 键（见 `i18n/README.md`），减少 `selectors` 依赖。
 - 重大文案或定价变更同步 `sitemap`/`hreflang`（若使用）。
 
 ---
 
-## 12. 给未来 AI / 维护者的提示
+## 13. 给未来 AI / 维护者的提示
 
 - 深度问题分析可参考 `docs/website-多语言专项审计-2026-05.md`（若存在）；最终以浏览器开发者工具中网络与控制台为准。
 - 修改 `zh-Hans/` 下页面时注意 `<base href="../" />` 对相对路径的影响。

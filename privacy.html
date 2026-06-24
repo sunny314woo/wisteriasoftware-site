@@ -60,7 +60,8 @@
       <ul>
         <li><strong>Local Processing</strong>: ChatGPT and Gemini conversation content is processed locally in your
           browser.</li>
-        <li><strong>Not Uploaded to Our Servers</strong>: We do not upload your chats to our servers.</li>
+        <li><strong>Not Uploaded to Our Servers</strong>: We do not upload your chats to Wisteria Software servers.
+          When you explicitly use Google Drive backup, the selected export is sent directly to your own Google Drive.</li>
         <li><strong>No Advertising Trackers</strong>: We do not use advertising trackers or sell personal data.</li>
         <li><strong>Minimal Data Collection</strong>: We only collect limited information such as email address, license
           status, and payment information for activation, billing, and support.</li>
@@ -95,11 +96,22 @@
         exports) is processed entirely locally in your browser and is <strong>not uploaded to our servers</strong>.
       </p>
       <p>
-        <strong>Exporting and Google Drive Backup</strong>: Markdown and HTML exports are generated locally and saved
-        by you. If you choose Google Drive backup, the extension uses the identity permission only to let you authorize
-        with your own Google account and upload exported conversations to the Google Drive location you select.
-        Authentication is handled by Chrome and Google OAuth. We do not collect, store, sell, or share your identity
-        information, and the authorization token is used only for the requested upload.
+        <strong>Exporting</strong>: When you export to Markdown or HTML, files are generated locally and saved by you.
+        HTML exports may include a table of contents.
+      </p>
+      <p>
+        <strong>Google Account Authorization and Google Drive Backup</strong>: The extension uses Chrome's
+        <code>identity</code> permission only when you choose to authorize with your own Google account.
+        Authentication is handled by Chrome and Google OAuth.
+      </p>
+      <p>
+        The extension uses the resulting authorization token only to upload conversation exports to the Google Drive
+        location you select. Files are uploaded directly to your own Google Drive at your request and are not routed
+        through or stored on Wisteria Software servers.
+      </p>
+      <p>
+        The extension does not collect, store, sell, or share your Google identity information. Google may process
+        account and uploaded file data according to Google's own privacy policy and terms.
       </p>
       <p>
         <strong>Data We Collect</strong>: To manage your subscription and license, we may collect the following when
@@ -240,14 +252,8 @@
   <!-- 【MODIFIED】Shared footer mount: i18n.js renders the homepage-standard footer here. -->
   <footer data-shared-footer></footer>
 
-  <script src="nav.js" defer></script>
   <script src="i18n/config.js" defer></script>
   <script src="i18n/locales/zh-Hans.js" defer></script>
-  <script src="i18n/locales/ja.js" defer></script>
-  <script src="i18n/locales/ko.js" defer></script>
-  <script src="i18n/locales/de.js" defer></script>
-  <script src="i18n/locales/fr.js" defer></script>
-  <script src="i18n/locales/es.js" defer></script>
   <script src="i18n.js" defer></script>
   <script src="analytics.js" defer></script>
 </body>

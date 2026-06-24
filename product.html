@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Products – Wisteria Software</title>
-  <meta name="description" content="Wisteria Software products: ChatGPT Gemini Outline & Export, Inbox for Mac, and Inbox Capture. Local-first tools for serious AI users." />
+  <meta name="description" content="Explore Wisteria Suite products: Outline, Inbox Capture, and Inbox Local for macOS." />
   <link rel="canonical" href="https://wisteriasoftware.uk/product.html" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" sizes="any" />
@@ -17,68 +17,98 @@
 </head>
 
 <body class="products-page">
+  <!-- Header -->
+  <!-- 【MODIFIED】Shared navigation mount: i18n.js renders the homepage-standard navbar here. -->
   <header data-shared-header></header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero compact-hero">
-      <h1>Tools built for serious AI users.</h1>
+    <div class="hero compact-hero">
+      <h1>Products</h1>
       <p class="subtitle">
-        Navigate long AI conversations, capture what matters, and keep everything organized locally.
+        <strong>Wisteria Suite</strong> includes three focused tools for AI-native workflows:
+        <strong>Outline</strong>, <strong>Inbox Capture</strong>, and
+        <strong>Inbox Local for macOS</strong>.
       </p>
-    </section>
+    </div>
 
-    <!-- Product Cards -->
     <section class="product-grid">
-      <!-- Outline: lead product, visually emphasized -->
       <article class="product-card featured-product">
-        <h2>ChatGPT Gemini Outline &amp; Export</h2>
-        <p class="product-tag">Chrome extension</p>
-        <p class="subtitle">Turn long ChatGPT and Gemini conversations into a clickable outline. Jump to any message, bookmark key Q&amp;As, export as Markdown or HTML, and back up conversations to your own Google Drive.</p>
+        <span class="status-pill available">Current paid product</span>
+        <h2>Outline</h2>
+        <p>
+          A Chrome extension for navigating long ChatGPT and Gemini conversations, bookmarking key Q&amp;As, and exporting or backing up chats.
+        </p>
+        <ul>
+          <li>Clickable outline navigation for long ChatGPT and Gemini chats</li>
+          <li>Jump directly to the section you need</li>
+          <li>Export conversations as Markdown or HTML, including HTML with a table of contents</li>
+          <li>Back up conversations directly to your own Google Drive</li>
+          <li>Local-first behavior for privacy and speed</li>
+        </ul>
+        <p class="small-note">
+          ChatGPT and Gemini page content is processed locally in your browser. Google Drive backup runs only when you choose it and sends the selected export directly to your own Drive.
+        </p>
         <div class="hero-actions">
-          <a class="btn-link primary" href="outline-pro.html">View Outline</a>
+          <a class="btn-link primary" href="outline-pro.html">View Product</a>
+          <a class="btn-link secondary" href="https://chromewebstore.google.com/detail/chatgpt-outline/opbngifmlnoahbhjhgmngkggedlofddj" target="_blank" rel="noopener">View on Chrome Web Store</a>
         </div>
       </article>
 
-      <!-- Inbox: core ecosystem -->
       <article class="product-card">
-        <h3>Inbox for Mac</h3>
-        <p class="product-tag">macOS</p>
-        <p class="subtitle">Your local knowledge hub for AI conversations, notes, and web captures. Everything stays on your device.</p>
-        <div class="hero-actions">
-          <a class="btn-link primary" href="inbox.html">View Inbox</a>
-        </div>
-      </article>
-
-      <!-- Capture: lightweight companion -->
-      <article class="product-card">
+        <span class="status-pill available">Available now</span>
         <h3>Inbox Capture</h3>
-        <p class="product-tag">Chrome extension</p>
-        <p class="subtitle">Quickly send web content to Inbox. A lightweight companion for your capture workflow.</p>
+        <p>
+          A browser capture tool for saving text, screenshots, images, and notes into your workflow.
+        </p>
+        <ul>
+          <li>Capture from the current page</li>
+          <li>Fast preview and save flow</li>
+          <li>Works with Inbox as a browser companion</li>
+        </ul>
         <div class="hero-actions">
           <a class="btn-link primary" href="inbox.html">View Inbox</a>
+          <a class="btn-link secondary" href="https://chromewebstore.google.com/detail/inbox-capture/ifdkdkiflmmeoecimhibjmndpehbdbnn" target="_blank" rel="noopener noreferrer">Install on Chrome</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <span class="status-pill download">Download available</span>
+        <h3>Inbox</h3>
+        <p>
+          A local-first knowledge workflow for capturing, organizing, and revisiting AI conversations, notes, and
+          screenshots. Currently available as Inbox Local for macOS.
+        </p>
+        <ul>
+          <li>Import Markdown files into a local-first review workflow</li>
+          <li>Preserve conversation navigation when previewing imported ChatGPT chats</li>
+          <li>AI summaries are available, and free users can use their own API key</li>
+        </ul>
+        <p class="small-note">
+          During the current trial period, Outline users can also try Inbox Pro AI summary features for free.
+        </p>
+        <div class="hero-actions">
+          <a class="btn-link primary" href="inbox.html">View Inbox</a>
+          <a class="btn-link secondary" href="https://download.wisteriasoftware.uk/Inbox-1.0.0-mac.dmg">Download for macOS</a>
         </div>
       </article>
     </section>
 
-    <!-- Product relationship -->
-    <section class="home-products" style="margin-top:32px;padding-top:24px;border-top:1px solid var(--line);">
-      <p class="home-value-summary">
-        Outline finds it. Capture collects it. Inbox keeps it.
+    <section class="cta">
+      <h2>Current Paid Plan</h2>
+      <p>
+        Outline currently offers a paid Pro plan on this site. View pricing, activation, and refund details
+        before checkout.
       </p>
+      <a href="outline-pro.html#pricing">View Outline Pricing</a>
     </section>
-
   </main>
 
+ <!-- Footer (static) -->
+  <!-- Footer -->
+  <!-- 【MODIFIED】Shared footer mount: i18n.js renders the homepage-standard footer here. -->
   <footer data-shared-footer></footer>
-  <script src="nav.js" defer></script>
   <script src="i18n/config.js" defer></script>
   <script src="i18n/locales/zh-Hans.js" defer></script>
-  <script src="i18n/locales/ja.js" defer></script>
-  <script src="i18n/locales/ko.js" defer></script>
-  <script src="i18n/locales/de.js" defer></script>
-  <script src="i18n/locales/fr.js" defer></script>
-  <script src="i18n/locales/es.js" defer></script>
   <script src="i18n.js" defer></script>
   <script src="analytics.js" defer></script>
 </body>

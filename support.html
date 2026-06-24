@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Support – Wisteria Software</title>
-  <meta name="description" content="Support for Wisteria Software products: Outline, Inbox for Mac, and Inbox Capture. Installation, billing, and bug reports." />
+  <title>Support – Wisteria Suite</title>
+  <meta name="description" content="Support page for Outline, Inbox Capture, and Inbox Local for macOS." />
   <link rel="canonical" href="https://wisteriasoftware.uk/support.html" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.ico" sizes="any" />
@@ -17,61 +17,60 @@
 </head>
 
 <body>
+  <!-- Header -->
+  <!-- 【MODIFIED】Shared navigation mount: i18n.js renders the homepage-standard navbar here. -->
   <header data-shared-header></header>
 
   <main>
-    <section class="hero compact-hero">
+    <div class="hero compact-hero">
       <h1>Support</h1>
       <p class="subtitle">
-        Installation, billing, activation, and bug reports for Wisteria Software products.
+        Help and contact information for <strong>Outline</strong>, <strong>Inbox Capture</strong>, and
+        <strong>Inbox Local for macOS</strong>.
+      </p>
+    </div>
+
+    <section>
+      <p>
+        Use this page for installation questions, billing help, release status, and bug reports across Wisteria Suite.
       </p>
     </section>
 
     <section class="product-grid">
       <article class="product-card">
-        <h3>ChatGPT Gemini Outline &amp; Export</h3>
-        <p class="product-tag">Chrome extension</p>
+        <span class="status-pill available">Outline</span>
         <p>Installation, activation, billing, refund, and bug-report questions.</p>
-        <div class="hero-actions">
-          <a class="btn-link primary" href="outline-pro.html">View Outline</a>
-        </div>
       </article>
       <article class="product-card">
-        <h3>Inbox for Mac</h3>
-        <p class="product-tag">macOS</p>
-        <p>Download, setup, and local app issues on Apple Silicon Macs. Windows coming soon.</p>
-        <div class="hero-actions">
-          <a class="btn-link primary" href="inbox.html">View Inbox</a>
-        </div>
+        <span class="status-pill available">Inbox Capture</span>
+        <p>Installation, setup, and support questions for the Chrome extension.</p>
       </article>
       <article class="product-card">
-        <h3>Inbox Capture</h3>
-        <p class="product-tag">Chrome extension</p>
-        <p>Installation, setup, and browser companion questions.</p>
-        <div class="hero-actions">
-          <a class="btn-link primary" href="inbox.html">View Inbox</a>
-        </div>
+        <span class="status-pill download">Inbox Local for macOS</span>
+        <p>Download, setup, and local app issues on Apple Silicon Macs.</p>
       </article>
     </section>
 
     <section class="contact-box">
       <h2>Contact</h2>
       <p>
-        <a href="mailto:support@wisteriasoftware.uk">support@wisteriasoftware.uk</a>
+        📧 Email:
+        <a href="mailto:support@wisteriasoftware.uk">
+          support@wisteriasoftware.uk
+        </a>
       </p>
-      <p class="subtitle">We usually respond within 1&ndash;2 business days.</p>
+      <p class="subtitle">
+        We usually respond within 1–2 business days.
+      </p>
     </section>
   </main>
 
+ <!-- Footer (static) -->
+  <!-- Footer -->
+  <!-- 【MODIFIED】Shared footer mount: i18n.js renders the homepage-standard footer here. -->
   <footer data-shared-footer></footer>
-  <script src="nav.js" defer></script>
   <script src="i18n/config.js" defer></script>
   <script src="i18n/locales/zh-Hans.js" defer></script>
-  <script src="i18n/locales/ja.js" defer></script>
-  <script src="i18n/locales/ko.js" defer></script>
-  <script src="i18n/locales/de.js" defer></script>
-  <script src="i18n/locales/fr.js" defer></script>
-  <script src="i18n/locales/es.js" defer></script>
   <script src="i18n.js" defer></script>
   <script src="analytics.js" defer></script>
 </body>
