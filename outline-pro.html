@@ -267,23 +267,25 @@
         Browse the product highlights: fast search, offline HTML knowledge pages, filters, and notes for long AI chats.
       </p>
       <div class="promo-carousel" data-promo-carousel>
-        <div class="promo-carousel-track">
-          <figure class="promo-slide is-active">
-            <img src="asset/1.PNG" alt="Outline promotional image showing Find Fast and the outline sidebar." />
-            <figcaption>Find Fast: turn long chats into a scannable outline and jump to what matters.</figcaption>
-          </figure>
-          <figure class="promo-slide">
-            <img src="asset/2.PNG" loading="lazy" alt="Outline promotional image showing offline HTML export." />
-            <figcaption>Powerful offline HTML exports create private, searchable knowledge pages.</figcaption>
-          </figure>
-          <figure class="promo-slide">
-            <img src="asset/3.PNG" loading="lazy" alt="Outline promotional image showing filter, search, and focus controls." />
-            <figcaption>Filter by notes, bookmarks, starred items, highlights, and keywords.</figcaption>
-          </figure>
-          <figure class="promo-slide">
-            <img src="asset/4.PNG" loading="lazy" alt="Outline promotional image showing annotation and note tools." />
-            <figcaption>Annotate your chats with highlights and notes, then find them again quickly.</figcaption>
-          </figure>
+        <div class="promo-carousel-viewport">
+          <div class="promo-carousel-track">
+            <figure class="promo-slide is-active">
+              <img src="asset/1.PNG" alt="Outline promotional image showing Find Fast and the outline sidebar." />
+              <figcaption>Find Fast: turn long chats into a scannable outline and jump to what matters.</figcaption>
+            </figure>
+            <figure class="promo-slide">
+              <img src="asset/2.PNG" loading="lazy" alt="Outline promotional image showing offline HTML export." />
+              <figcaption>Powerful offline HTML exports create private, searchable knowledge pages.</figcaption>
+            </figure>
+            <figure class="promo-slide">
+              <img src="asset/3.PNG" loading="lazy" alt="Outline promotional image showing filter, search, and focus controls." />
+              <figcaption>Filter by notes, bookmarks, starred items, highlights, and keywords.</figcaption>
+            </figure>
+            <figure class="promo-slide">
+              <img src="asset/4.PNG" loading="lazy" alt="Outline promotional image showing annotation and note tools." />
+              <figcaption>Annotate your chats with highlights and notes, then find them again quickly.</figcaption>
+            </figure>
+          </div>
         </div>
         <button class="promo-carousel-btn prev" type="button" aria-label="Previous promotional image">&lsaquo;</button>
         <button class="promo-carousel-btn next" type="button" aria-label="Next promotional image">&rsaquo;</button>
@@ -676,6 +678,7 @@
       var carousel = document.querySelector("[data-promo-carousel]");
       if (!carousel) return;
 
+      var track = carousel.querySelector(".promo-carousel-track");
       var slides = Array.prototype.slice.call(carousel.querySelectorAll(".promo-slide"));
       var dots = Array.prototype.slice.call(carousel.querySelectorAll(".promo-carousel-dots button"));
       var prev = carousel.querySelector(".promo-carousel-btn.prev");
@@ -683,13 +686,20 @@
       var activeIndex = 0;
       var timer = null;
 
+      if (!track || slides.length === 0) return;
+
       function showSlide(index) {
         activeIndex = (index + slides.length) % slides.length;
+        track.style.transform = "translateX(-" + (activeIndex * 100) + "%)";
         slides.forEach(function (slide, slideIndex) {
-          slide.classList.toggle("is-active", slideIndex === activeIndex);
+          var isActive = slideIndex === activeIndex;
+          slide.classList.toggle("is-active", isActive);
+          slide.setAttribute("aria-hidden", isActive ? "false" : "true");
         });
         dots.forEach(function (dot, dotIndex) {
-          dot.classList.toggle("is-active", dotIndex === activeIndex);
+          var isActive = dotIndex === activeIndex;
+          dot.classList.toggle("is-active", isActive);
+          dot.setAttribute("aria-current", isActive ? "true" : "false");
         });
       }
 

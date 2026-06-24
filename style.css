@@ -398,8 +398,9 @@ footer p {
 }
 
 .price-grid.pricing-plans {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
   width: 100%;
+  align-items: stretch;
 }
 
 .pricing-full-width .price-grid.two-col-pricing {
@@ -409,9 +410,9 @@ footer p {
 }
 
 .pricing-full-width .price-grid.pricing-plans {
-  width: min(1600px, calc(100vw - (var(--page-gutter-x) * 2)));
-  margin-left: 50%;
-  transform: translateX(-50%);
+  width: 100%;
+  margin-left: 0;
+  transform: none;
 }
 
 .product-card,
@@ -429,6 +430,11 @@ footer p {
 .price-card {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+}
+
+.pricing-plans .price-card {
+  height: 100%;
 }
 
 .featured-product {
@@ -665,6 +671,7 @@ footer p {
   font-weight: 800;
   letter-spacing: -0.02em;
   margin: 2px 0 10px;
+  line-height: 1.2;
 }
 
 .price-old {
@@ -719,7 +726,7 @@ footer p {
   position: relative;
 }
 
-.promo-carousel-track {
+.promo-carousel-viewport {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -728,14 +735,19 @@ footer p {
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
 }
 
-.promo-slide {
-  display: none;
-  margin: 0;
-  padding: 16px;
+.promo-carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.45s ease;
+  will-change: transform;
 }
 
-.promo-slide.is-active {
+.promo-slide {
   display: block;
+  flex: 0 0 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 16px;
 }
 
 .promo-slide img {
@@ -810,6 +822,12 @@ footer p {
   width: 26px;
   border-radius: 999px;
   background: var(--brand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-carousel-track {
+    transition: none;
+  }
 }
 
 .workflow-band,
@@ -900,6 +918,10 @@ footer p {
   .feature-grid,
   .price-grid,
   .faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .price-grid.pricing-plans {
     grid-template-columns: 1fr;
   }
 
