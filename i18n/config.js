@@ -70,7 +70,7 @@
           label: "Privacy",
           children: [
             { href: "privacy.html", label: "General Privacy", i18nKey: "privacy-general" },
-            { href: "englishflow-privacy.html", label: "EnglishFlow Privacy" },
+            { href: "englishflow-privacy.html", label: "EnglishFlow" },
           ],
         },
         { href: "terms.html", label: "Terms" },

@@ -17,7 +17,7 @@
         "support.html": "支持",
         "privacy.html": "隐私",
         "privacy-general": "通用隐私",
-        "englishflow-privacy.html": "EnglishFlow 隐私",
+        "englishflow-privacy.html": "EnglishFlow",
         "terms.html": "条款",
         "refund.html": "退款",
       },
