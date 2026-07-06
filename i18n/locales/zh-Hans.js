@@ -16,6 +16,8 @@
         "inbox.html": "Inbox",
         "support.html": "支持",
         "privacy.html": "隐私",
+        "privacy-general": "通用隐私",
+        "englishflow-privacy.html": "EnglishFlow 隐私",
         "terms.html": "条款",
         "refund.html": "退款",
       },
@@ -26,6 +28,7 @@
         "inbox.html": "Inbox",
         "support.html": "支持",
         "privacy.html": "隐私政策",
+        "englishflow-privacy.html": "EnglishFlow 隐私政策",
         "terms.html": "服务条款",
         "refund.html": "退款政策",
       },
@@ -78,6 +81,11 @@
           ".product-card:nth-child(3) .subtitle":
             "本地优先的 macOS 应用，用于整理和回顾 AI 对话、捕捉材料与工作笔记。",
           ".product-card:nth-child(3) .btn-link.primary": "查看 Inbox",
+          ".product-card:nth-child(4) .status-pill": "Chrome 扩展",
+          ".product-card:nth-child(4) h3": "EnglishFlow",
+          ".product-card:nth-child(4) .subtitle":
+            "面向支持网站的轻量翻译与写作助手。选中文本即可翻译，在输入框中标记内容即可改写，也可更快起草回复。",
+          ".product-card:nth-child(4) .btn-link.primary": "查看隐私政策",
           "main > section:nth-of-type(3) h2": "为依赖 AI 的人服务",
           "main > section:nth-of-type(3) > p":
             "Wisteria Software 面向那些希望 AI 工作更快、更安全、更可沉淀的人：在长线程中调试的开发者、保留推理和资料的科研人员、收集灵感的写作者，以及希望把每日 AI 输出变成长期知识的知识工作者。",
@@ -188,11 +196,11 @@
       "product.html": {
         title: "产品 – Wisteria Software",
         description:
-          "了解 Wisteria Suite 产品：面向 macOS 与浏览器的 Outline、Inbox Capture 与 Inbox Local。",
+          "了解 Wisteria Suite 产品：面向 macOS 与浏览器的 Outline、Inbox Capture、Inbox Local 与 EnglishFlow。",
         selectors: {
           ".compact-hero h1": "产品",
           ".compact-hero .subtitle":
-            "<strong>Wisteria Suite</strong> 包含三款面向 AI 原生工作流的工具：<strong>Outline</strong>、<strong>Inbox Capture</strong> 与 <strong>适用于 macOS 的 Inbox Local</strong>。",
+            "<strong>Wisteria Suite</strong> 包含面向 AI 原生工作流的工具：<strong>Outline</strong>、<strong>Inbox Capture</strong>、<strong>适用于 macOS 的 Inbox Local</strong> 与 <strong>EnglishFlow</strong>。",
           ".product-card.featured-product .status-pill": "当前付费产品",
           ".product-card.featured-product h2": "Outline",
           ".product-card.featured-product > p:first-of-type":
@@ -226,10 +234,42 @@
             "在当前试用期内，Outline 用户也可免费试用 Inbox Pro 的 AI 摘要功能。",
           ".product-grid article:nth-child(3) .hero-actions .btn-link.primary": "查看 Inbox",
           ".product-grid article:nth-child(3) .hero-actions .btn-link.secondary": "下载 macOS 版",
+          ".product-grid article:nth-child(4) .status-pill": "Chrome 扩展",
+          ".product-grid article:nth-child(4) h3": "EnglishFlow",
+          ".product-grid article:nth-child(4) > p:first-of-type":
+            "面向支持网站的翻译与写作助手，用于多语言阅读、自然英文改写，以及无需切换标签页的快速回复。",
+          ".product-grid article:nth-child(4) ul li:nth-child(1)": "翻译支持页面中的选中文本",
+          ".product-grid article:nth-child(4) ul li:nth-child(2)":
+            "将 <code>;;;你的草稿;;;</code> 这类标记输入改写为目标语言",
+          ".product-grid article:nth-child(4) ul li:nth-child(3)": "语言偏好和 API 设置保存在浏览器本地",
+          ".product-grid article:nth-child(4) p.small-note":
+            "EnglishFlow 只会在你请求翻译、改写或回复辅助时，把相关文本发送给 AI 服务处理。",
+          ".product-grid article:nth-child(4) .hero-actions .btn-link.primary": "查看隐私政策",
           "main > section.cta h2": "当前付费方案",
           "main > section.cta > p":
             "Outline 在本站提供付费 Pro 方案。结账前请查看价格、激活与退款说明。",
           "main > section.cta a": "查看 Outline 价格",
+        },
+      },
+      "englishflow-privacy.html": {
+        title: "EnglishFlow 隐私政策 - Wisteria Software",
+        description:
+          "EnglishFlow Chrome 扩展的隐私政策，说明翻译、改写、回复辅助、API Key、本地存储和 Wisteria Software API 的数据处理方式。",
+        selectors: {
+          ".compact-hero h1": "EnglishFlow 隐私政策",
+          ".compact-hero .subtitle":
+            "适用于 <strong>EnglishFlow: Read, Write &amp; Reply in English</strong>，由 <strong>Wisteria Software Ltd.</strong> 提供的 Chrome 扩展。<br /><strong>最后更新：</strong>2026 年 7 月 6 日",
+          ".contact-box p": "<strong>隐私摘要：</strong>",
+          ".contact-box li:nth-child(1)":
+            "<strong>单一用途：</strong>EnglishFlow 帮助用户在支持的网站上进行多语言阅读、翻译、改写和回复。",
+          ".contact-box li:nth-child(2)":
+            "<strong>用户触发处理：</strong>只有当你请求翻译、改写或回复辅助时，相关文本才会发送给 AI 服务处理。",
+          ".contact-box li:nth-child(3)":
+            "<strong>本地设置：</strong>语言偏好、模型设置、API Endpoint 和 API Key 保存在浏览器扩展存储中。",
+          ".contact-box li:nth-child(4)":
+            "<strong>API 服务：</strong>请求可能发送到你配置的 AI API Endpoint，包括 DeepSeek 或 Wisteria Software API Endpoint。",
+          ".contact-box li:nth-child(5)":
+            "<strong>无广告用途：</strong>我们不出售用户数据，不用于定向广告，也不建立广告画像。",
         },
       },
       "pricing.html": {

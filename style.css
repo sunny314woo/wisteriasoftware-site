@@ -73,6 +73,11 @@ nav {
   align-items: center;
 }
 
+.nav-menu {
+  position: relative;
+  display: inline-flex;
+}
+
 .nav-link {
   padding: 8px 12px;
   border-radius: 10px;
@@ -91,6 +96,33 @@ nav {
   background: var(--primary-soft);
   color: #4c1d95;
   font-weight: 600;
+}
+
+.nav-submenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 30;
+  min-width: 210px;
+  padding: 6px;
+  border: 1px solid #dbe4f0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14);
+  display: none;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-menu:hover .nav-submenu,
+.nav-menu:focus-within .nav-submenu {
+  display: flex;
+}
+
+.nav-submenu-link {
+  width: 100%;
+  white-space: nowrap;
+  font-size: 13px;
 }
 
 .language-control {
@@ -297,6 +329,31 @@ li {
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 16px;
+  background: #ffffff;
+}
+
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.policy-table th,
+.policy-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.policy-table th {
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 700;
+}
+
+.policy-table td {
   background: #ffffff;
 }
 
@@ -1504,6 +1561,17 @@ footer p {
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+  }
+
+  .nav-submenu {
+    position: static;
+    display: flex;
+    margin-top: 4px;
+    box-shadow: none;
   }
 
   .language-control {

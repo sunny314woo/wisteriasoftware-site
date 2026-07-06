@@ -65,7 +65,14 @@
         { href: "outline-pro.html", label: "Outline" },
         { href: "inbox.html", label: "Inbox" },
         { href: "support.html", label: "Support" },
-        { href: "privacy.html", label: "Privacy" },
+        {
+          href: "privacy.html",
+          label: "Privacy",
+          children: [
+            { href: "privacy.html", label: "General Privacy", i18nKey: "privacy-general" },
+            { href: "englishflow-privacy.html", label: "EnglishFlow Privacy" },
+          ],
+        },
         { href: "terms.html", label: "Terms" },
         { href: "refund.html", label: "Refund" },
       ],
@@ -75,6 +82,7 @@
         { href: "inbox.html", label: "Inbox" },
         { href: "support.html", label: "Support" },
         { href: "privacy.html", label: "Privacy Policy" },
+        { href: "englishflow-privacy.html", label: "EnglishFlow Privacy" },
         { href: "terms.html", label: "Terms of Service" },
         { href: "refund.html", label: "Refund Policy" },
       ],

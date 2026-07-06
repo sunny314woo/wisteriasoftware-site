@@ -261,8 +261,22 @@
     if (header && layout.nav) {
       const current = pageKey();
       const navLinks = layout.nav.map((item) => {
-        const active = item.href.split("#")[0].split("?")[0].replace(/^\//, "") === current ? " active" : "";
-        return `<a class="nav-link${active}" data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`;
+        const children = Array.isArray(item.children) ? item.children : [];
+        const itemFile = item.href.split("#")[0].split("?")[0].replace(/^\//, "");
+        const childActive = children.some((child) => (
+          child.href.split("#")[0].split("?")[0].replace(/^\//, "") === current
+        ));
+        const active = itemFile === current || childActive ? " active" : "";
+        const parentKey = item.i18nKey || itemFile;
+        const parentLink = `<a class="nav-link${active}" data-i18n-key="${parentKey}" data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`;
+        if (!children.length) return parentLink;
+        const submenu = children.map((child) => {
+          const childFile = child.href.split("#")[0].split("?")[0].replace(/^\//, "");
+          const childKey = child.i18nKey || childFile;
+          const childActiveClass = childFile === current ? " active" : "";
+          return `<a class="nav-link nav-submenu-link${childActiveClass}" data-i18n-key="${childKey}" data-i18n-base-href="${child.href}" href="${child.href}">${child.label}</a>`;
+        }).join("");
+        return `<div class="nav-menu">${parentLink}<div class="nav-submenu">${submenu}</div></div>`;
       }).join("");
       header.innerHTML = [
         '<!-- 【MODIFIED】Shared navigation is rendered here from i18n/config.js to keep every page consistent. -->',
@@ -298,16 +312,18 @@
 
     document.querySelectorAll("nav .nav-link").forEach((anchor) => {
       rememberOriginalText(anchor);
-      const translated = shared.nav && shared.nav[hrefFile(anchor)];
-      if (!translated) recordMissing("shared.nav", hrefFile(anchor), language, pageKey());
+      const key = anchor.dataset.i18nKey || hrefFile(anchor);
+      const translated = shared.nav && shared.nav[key];
+      if (!translated) recordMissing("shared.nav", key, language, pageKey());
       anchor.textContent = language !== defaultLocale && translated ? translated : anchor.dataset.i18nOriginalText;
       anchor.setAttribute("href", localizedHref(anchor.dataset.i18nBaseHref || anchor.getAttribute("href") || "", language));
     });
 
     document.querySelectorAll(".footer-links a").forEach((anchor) => {
       rememberOriginalText(anchor);
-      const translated = shared.footer && shared.footer[hrefFile(anchor)];
-      if (!translated) recordMissing("shared.footer", hrefFile(anchor), language, pageKey());
+      const key = anchor.dataset.i18nKey || hrefFile(anchor);
+      const translated = shared.footer && shared.footer[key];
+      if (!translated) recordMissing("shared.footer", key, language, pageKey());
       anchor.textContent = language !== defaultLocale && translated ? translated : anchor.dataset.i18nOriginalText;
       anchor.setAttribute("href", localizedHref(anchor.dataset.i18nBaseHref || anchor.getAttribute("href") || "", language));
     });
