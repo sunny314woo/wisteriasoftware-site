@@ -78,6 +78,18 @@ nav {
   display: inline-flex;
 }
 
+/* The submenu touches its trigger and this transparent bridge remains part of
+   the same hover target. Moving from Products or Privacy into its panel can
+   never cross an un-hovered gap. */
+.nav-menu::after {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  height: 8px;
+  content: "";
+}
+
 .nav-link {
   padding: 8px 12px;
   border-radius: 10px;
@@ -100,7 +112,7 @@ nav {
 
 .nav-submenu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: 100%;
   left: 0;
   z-index: 30;
   min-width: 210px;
@@ -1570,7 +1582,7 @@ footer p {
   .nav-submenu {
     position: static;
     display: flex;
-    margin-top: 4px;
+    margin-top: 0;
     box-shadow: none;
   }
 

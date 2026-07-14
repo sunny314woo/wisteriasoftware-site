@@ -61,9 +61,15 @@
       brand: "Wisteria Software",
       nav: [
         { href: "index.html", label: "Home" },
-        { href: "product.html", label: "Products" },
-        { href: "outline-pro.html", label: "Outline" },
-        { href: "inbox.html", label: "Inbox" },
+        {
+          href: "product.html",
+          label: "Products",
+          children: [
+            { href: "outline-pro.html", label: "Outline" },
+            { href: "englishflow/", label: "EnglishFlow" },
+            { href: "inbox.html", label: "Inbox" },
+          ],
+        },
         { href: "support.html", label: "Support" },
         {
           href: "privacy.html",
@@ -79,6 +85,7 @@
       footer: [
         { href: "product.html", label: "Products" },
         { href: "outline-pro.html", label: "Outline" },
+        { href: "englishflow/", label: "EnglishFlow" },
         { href: "inbox.html", label: "Inbox" },
         { href: "support.html", label: "Support" },
         { href: "privacy.html", label: "Privacy Policy" },

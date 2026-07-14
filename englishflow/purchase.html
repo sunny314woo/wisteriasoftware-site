@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Secure EnglishFlow Purchase — Wisteria Software</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&family=Newsreader:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="englishflow.css" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+</head>
+<body class="purchase-page">
+  <div class="grain" aria-hidden="true"></div>
+  <header class="site-header checkout-header">
+    <a class="wordmark" href="./"><span class="wordmark-mark">W</span><span>Wisteria Software</span></a>
+    <span class="secure-label"><i></i> Verified account checkout</span>
+  </header>
+  <main class="purchase-shell">
+    <section class="purchase-copy">
+      <p class="eyebrow"><span></span> EnglishFlow purchase</p>
+      <h1>One verified email.<br /><em>One clear entitlement.</em></h1>
+      <p>We verify the EnglishFlow email account before creating a Paddle transaction. Your payment is assigned to that account’s trusted user ID—not to a browser installation or a billing email field.</p>
+      <div class="purchase-plan-note" aria-live="polite">
+        <span id="purchasePlanKicker">Selected plan</span>
+        <strong id="purchasePlanName">Annual</strong>
+        <p id="purchasePlanDetail">US$49 per year · recurring subscription · official AI allowance and BYOK.</p>
+      </div>
+      <ul><li>Monthly and annual plans can be cancelled in EnglishFlow settings</li><li>Lifetime is one payment and uses your own API key</li><li>Unused Trial access is never removed by this verification</li></ul>
+      <a href="./">← Back to EnglishFlow plans</a>
+    </section>
+
+    <section class="purchase-card" aria-live="polite">
+      <div class="purchase-step"><span>01</span><div><strong>Enter your EnglishFlow email</strong><p>Use the address you verified in EnglishFlow, or verify it here first.</p></div></div>
+      <form id="emailForm" class="purchase-form">
+        <label for="purchaseEmail">Email address</label>
+        <div class="purchase-input-row"><input id="purchaseEmail" type="email" autocomplete="email" placeholder="you@example.com" required /><button id="sendCodeButton" class="button button-primary" type="submit">Send code</button></div>
+      </form>
+
+      <form id="codeForm" class="purchase-form" hidden>
+        <div class="purchase-step compact"><span>02</span><div><strong>Enter the 6-digit code</strong><p>It expires shortly and is sent only to the email above.</p></div></div>
+        <label for="purchaseCode">Verification code</label>
+        <div class="purchase-input-row"><input id="purchaseCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" placeholder="000000" required /><button id="verifyCodeButton" class="button button-primary" type="submit">Verify email</button></div>
+      </form>
+
+      <div id="checkoutReady" class="checkout-ready" hidden>
+        <div class="purchase-step compact"><span>03</span><div><strong>Email verified</strong><p id="verifiedAccount">Your selected plan is ready for secure checkout.</p></div></div>
+        <button id="continueCheckoutButton" class="button button-primary" type="button">Continue to secure Paddle checkout</button>
+      </div>
+      <p id="purchaseStatus" class="purchase-status" role="status"></p>
+      <p class="purchase-fineprint">Paddle is Merchant of Record. Card details do not pass through Wisteria. A receipt is sent by Paddle.</p>
+    </section>
+  </main>
+  <script src="purchase.js"></script>
+</body>
+</html>
