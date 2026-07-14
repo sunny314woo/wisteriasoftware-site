@@ -6,8 +6,10 @@
     installationToken: "englishflow.web.installationToken",
     challengeId: "englishflow.web.challengeId",
     email: "englishflow.web.email",
-    sessionToken: "englishflow.web.sessionToken"
+    sessionToken: "englishflow.web.sessionToken",
+    sessionVersion: "englishflow.web.sessionVersion"
   };
+  var CURRENT_SESSION_VERSION = "2";
   var plans = {
     MONTHLY: { name: "Monthly", detail: "US$6 per month · recurring subscription · official AI allowance and BYOK." },
     ANNUAL: { name: "Annual", detail: "US$49 per year · recurring subscription · official AI allowance and BYOK." },
@@ -133,6 +135,11 @@
 
   function isInstallationBindingConflict(error) {
     return error && error.status === 409 && error.detail === "Installation is already bound to another account";
+  }
+
+  if (read(STORAGE.sessionVersion) !== CURRENT_SESSION_VERSION) {
+    clearPurchaseSession();
+    store(STORAGE.sessionVersion, CURRENT_SESSION_VERSION);
   }
 
   emailForm.addEventListener("submit", async function (event) {
