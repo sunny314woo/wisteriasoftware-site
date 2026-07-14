@@ -4,31 +4,9 @@
   var LIFETIME_PRICE = "pri_01kxdy52y2yna3mqh6jrv25rzd";
   var CLIENT_TOKEN = "live_3d23a490eb6f34c96ae919a7b4c";
 
-  function updatePrice(kind, value) {
-    var node = document.querySelector('[data-price="' + kind + '"]');
-    if (node && value) node.textContent = value;
-  }
-
   if (window.Paddle) {
     try {
       window.Paddle.Initialize({ token: CLIENT_TOKEN });
-      window.Paddle.PricePreview({
-        items: [
-          { priceId: MONTHLY_PRICE, quantity: 1 },
-          { priceId: ANNUAL_PRICE, quantity: 1 },
-          { priceId: LIFETIME_PRICE, quantity: 1 }
-        ]
-      }).then(function (result) {
-        var lines = result && result.data && result.data.details
-          ? result.data.details.lineItems || [] : [];
-        lines.forEach(function (line) {
-          var priceId = line && line.price ? line.price.id : "";
-          var formatted = line && line.formattedTotals ? line.formattedTotals.subtotal : "";
-          if (priceId === MONTHLY_PRICE) updatePrice("monthly", formatted);
-          if (priceId === ANNUAL_PRICE) updatePrice("annual", formatted);
-          if (priceId === LIFETIME_PRICE) updatePrice("lifetime", formatted);
-        });
-      }).catch(function () {});
     } catch (error) {}
   }
 
