@@ -32,6 +32,17 @@
   function store(key, value) { window.sessionStorage.setItem(key, value); }
   function read(key) { return window.sessionStorage.getItem(key) || ""; }
   function clear(key) { window.sessionStorage.removeItem(key); }
+  function clearPurchaseSession(options) {
+    var keepEmail = options && options.keepEmail;
+    clear(STORAGE.installationId);
+    clear(STORAGE.installationToken);
+    clear(STORAGE.challengeId);
+    clear(STORAGE.sessionToken);
+    if (!keepEmail) clear(STORAGE.email);
+    codeInput.value = "";
+    codeForm.hidden = true;
+    checkoutReady.hidden = true;
+  }
   function setStatus(message, error) {
     status.textContent = message || "";
     status.classList.toggle("is-error", Boolean(error));
@@ -59,7 +70,10 @@
     try { body = text ? JSON.parse(text) : {}; } catch (_) {}
     if (!response.ok) {
       var detail = body && body.detail;
-      throw new Error(typeof detail === "string" ? detail : "Account verification could not be completed. Please try again.");
+      var error = new Error(typeof detail === "string" ? detail : "Account verification could not be completed. Please try again.");
+      error.status = response.status;
+      error.detail = detail;
+      throw error;
     }
     return body;
   }
@@ -103,6 +117,24 @@
     return { installationId: installationId, token: registration.installation_token };
   }
 
+  async function beginEmailVerification(email) {
+    var installation = await ensureWebInstallation();
+    var result = await request("/auth/email/start", {
+      method: "POST",
+      headers: { "Authorization": "Bearer " + installation.token, "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email, product_id: PRODUCT_ID })
+    });
+    store(STORAGE.challengeId, result.challenge_id);
+    store(STORAGE.email, email);
+    codeForm.hidden = false;
+    codeInput.focus();
+    return result;
+  }
+
+  function isInstallationBindingConflict(error) {
+    return error && error.status === 409 && error.detail === "Installation is already bound to another account";
+  }
+
   emailForm.addEventListener("submit", async function (event) {
     event.preventDefault();
     var email = emailInput.value.trim().toLowerCase();
@@ -110,16 +142,9 @@
     setBusy(sendButton, true, "Sending…");
     setStatus("Preparing your verified purchase session…");
     try {
-      var installation = await ensureWebInstallation();
-      var result = await request("/auth/email/start", {
-        method: "POST",
-        headers: { "Authorization": "Bearer " + installation.token, "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email, product_id: PRODUCT_ID })
-      });
-      store(STORAGE.challengeId, result.challenge_id);
-      store(STORAGE.email, email);
-      codeForm.hidden = false;
-      codeInput.focus();
+      var previousEmail = read(STORAGE.email);
+      if (previousEmail && previousEmail !== email) clearPurchaseSession();
+      await beginEmailVerification(email);
       setStatus("Verification code sent. Check your inbox.");
     } catch (error) {
       setStatus(message(error), true);
@@ -150,7 +175,19 @@
       document.querySelector("#verifiedAccount").textContent = "Verified as " + result.email + ". Your " + plans[selectedPlan].name + " checkout is ready.";
       setStatus("Email verified. Continue when you are ready.");
     } catch (error) {
-      setStatus(message(error), true);
+      if (isInstallationBindingConflict(error)) {
+        var email = read(STORAGE.email) || emailInput.value.trim().toLowerCase();
+        clearPurchaseSession();
+        emailInput.value = email;
+        try {
+          await beginEmailVerification(email);
+          setStatus("This browser had an older purchase session. We refreshed it safely and sent a new code. Enter the latest code from your inbox.");
+        } catch (recoveryError) {
+          setStatus(message(recoveryError), true);
+        }
+      } else {
+        setStatus(message(error), true);
+      }
     } finally {
       setBusy(verifyButton, false, "Verify email");
     }
