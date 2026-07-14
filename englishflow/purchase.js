@@ -68,19 +68,35 @@
     var installationId = read(STORAGE.installationId);
     var token = read(STORAGE.installationToken);
     if (installationId && token) return { installationId: installationId, token: token };
-    installationId = window.crypto && window.crypto.randomUUID ? window.crypto.randomUUID() : "";
+
+    function newInstallationId() {
+      return window.crypto && window.crypto.randomUUID ? window.crypto.randomUUID() : "";
+    }
+    async function register(id) {
+      return request("/installations/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          installation_id: id,
+          product_id: PRODUCT_ID,
+          app_version: "web-1.0.0",
+          platform: "web",
+          locale: navigator.language || "en"
+        })
+      });
+    }
+
+    installationId = installationId || newInstallationId();
     if (!installationId) throw new Error("This browser cannot create a secure purchase session. Please use a current browser.");
-    var registration = await request("/installations/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        installation_id: installationId,
-        product_id: PRODUCT_ID,
-        app_version: "web-1.0.0",
-        platform: "web",
-        locale: navigator.language || "en"
-      })
-    });
+    var registration = await register(installationId);
+    // The server deliberately does not re-issue an old anonymous credential.
+    // If this browser retained only its old device id, use a fresh device
+    // identity so email verification and Checkout can continue safely.
+    if (!registration.installation_token) {
+      installationId = newInstallationId();
+      if (!installationId) throw new Error("This browser cannot restore a secure purchase session. Please use a current browser.");
+      registration = await register(installationId);
+    }
     if (!registration.installation_token) throw new Error("Could not initialize a secure purchase session. Reload this page and try again.");
     store(STORAGE.installationId, installationId);
     store(STORAGE.installationToken, registration.installation_token);
