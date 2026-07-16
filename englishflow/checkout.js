@@ -48,6 +48,8 @@
       checkout: {
         settings: {
           displayMode: "overlay",
+          variant: "one-page",
+          allowLogout: false,
           theme: "light",
           successUrl: "https://wisteriasoftware.uk/englishflow/payment-complete.html"
         }
@@ -71,7 +73,7 @@
     });
     reopen.hidden = false;
     reopen.addEventListener("click", openCheckout);
-    // Paddle.js automatically opens the transaction supplied in `_ptxn`.
+    // Paddle.js automatically opens the server-created transaction supplied in `_ptxn`.
   } catch (error) {
     title.textContent = "Checkout could not be initialized.";
     status.textContent = "Reload the page or create a fresh checkout from EnglishFlow.";
