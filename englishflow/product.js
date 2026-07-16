@@ -3,6 +3,7 @@
   var ANNUAL_PRICE = "pri_01kxdy8k28zdsq3p3j4gabfspg";
   var LIFETIME_PRICE = "pri_01kxdy52y2yna3mqh6jrv25rzd";
   var CLIENT_TOKEN = "live_3d23a490eb6f34c96ae919a7b4c";
+  var CHROME_STORE_URL = "https://chromewebstore.google.com/detail/nobiefbaobhcpdbidggmfikalohfejpc";
 
   var referralCode = new URLSearchParams(window.location.search).get("ref") || "";
   if (/^[A-Za-z0-9_-]{6,24}$/.test(referralCode)) {
@@ -14,8 +15,10 @@
       '<strong>You both receive 15 extra Trial days</strong>' +
       '<p id="referralHandoffStatus">Keep this page open while installing EnglishFlow. The invitation will be handed to the extension automatically.</p></div>' +
       '<div class="referral-handoff-code"><span>Invite code</span><b></b></div>' +
-      '<button type="button">Copy code</button>';
+      '<div class="referral-handoff-actions"><a target="_blank" rel="noopener">Install extension</a>' +
+      '<button type="button">Copy code</button></div>';
     handoff.querySelector("b").textContent = referralCode;
+    handoff.querySelector("a").href = CHROME_STORE_URL;
     handoff.querySelector("button").addEventListener("click", function () {
       navigator.clipboard.writeText(referralCode).then(function () {
         handoff.querySelector("button").textContent = "Copied";

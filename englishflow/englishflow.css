@@ -36,7 +36,9 @@ button { font: inherit; }
 .referral-handoff-code { display: grid; min-width: 150px; padding: 10px 14px; border-left: 1px solid #8eb3a4; gap: 3px; }
 .referral-handoff-code span { color: #527268; font-size: 9px; font-weight: 750; text-transform: uppercase; }
 .referral-handoff-code b { color: var(--ink); font: 800 16px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .07em; }
-.referral-handoff button { min-height: 42px; padding: 0 16px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper-bright); font: 700 11px var(--sans); cursor: pointer; }
+.referral-handoff-actions { display: grid; gap: 6px; }
+.referral-handoff-actions a,.referral-handoff button { display: inline-flex; min-height: 42px; padding: 0 16px; align-items: center; justify-content: center; border: 1px solid var(--ink); background: var(--ink); color: var(--paper-bright); font: 700 11px var(--sans); text-decoration: none; cursor: pointer; }
+.referral-handoff button { background: transparent; color: var(--ink); }
 .referral-handoff.is-captured { border-color: #4f9f72; background: #e5f1e9; }
 .eyebrow { display: flex; margin: 0 0 18px; align-items: center; gap: 9px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
 .eyebrow > span { width: 24px; height: 1px; background: var(--coral); }
