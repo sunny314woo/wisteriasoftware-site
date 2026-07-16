@@ -29,6 +29,15 @@ button { font: inherit; }
 .site-header nav a:hover::after { transform: scaleX(1); }
 
 .hero { display: grid; width: min(1240px, calc(100% - 48px)); min-height: 700px; margin: auto; padding: 90px 0 92px; grid-template-columns: minmax(0, .93fr) minmax(480px, 1.07fr); align-items: center; gap: 60px; }
+.referral-handoff { display: grid; width: min(1240px, calc(100% - 48px)); margin: 24px auto -20px; padding: 20px 22px; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 22px; border: 1px solid #8eb3a4; background: #dce9e1; box-shadow: 0 16px 42px rgba(8,32,29,.08); }
+.referral-handoff-kicker { display: block; margin-bottom: 5px; color: #356358; font-size: 9px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.referral-handoff strong { font: 600 23px/1.1 var(--serif); }
+.referral-handoff p { margin: 5px 0 0; color: #47675f; font-size: 11px; line-height: 1.5; }
+.referral-handoff-code { display: grid; min-width: 150px; padding: 10px 14px; border-left: 1px solid #8eb3a4; gap: 3px; }
+.referral-handoff-code span { color: #527268; font-size: 9px; font-weight: 750; text-transform: uppercase; }
+.referral-handoff-code b { color: var(--ink); font: 800 16px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .07em; }
+.referral-handoff button { min-height: 42px; padding: 0 16px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper-bright); font: 700 11px var(--sans); cursor: pointer; }
+.referral-handoff.is-captured { border-color: #4f9f72; background: #e5f1e9; }
 .eyebrow { display: flex; margin: 0 0 18px; align-items: center; gap: 9px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .17em; text-transform: uppercase; }
 .eyebrow > span { width: 24px; height: 1px; background: var(--coral); }
 .hero h1 { max-width: 700px; margin: 0; font: 600 clamp(58px, 6.6vw, 102px)/.91 var(--serif); letter-spacing: -.055em; }
@@ -107,6 +116,8 @@ button { font: inherit; }
   .hero { min-height: auto; padding-top: 65px; grid-template-columns: 1fr; }.flow-stage { min-height: 500px; }.section-intro,.faq-section { grid-template-columns: 1fr; }.feature-wide { grid-template-columns: auto 1fr; }.mini-reader { grid-column: 1/-1; }.steps { grid-template-columns: repeat(2,1fr); gap: 35px 0; }.plan-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }.plan-card { min-height: auto; }.plan-card.featured { transform: none; }.purchase-guide { grid-template-columns: 1fr; }
 }
 @media (max-width: 680px) {
+  .referral-handoff { width: calc(100% - 28px); margin-bottom: 0; grid-template-columns: 1fr auto; }
+  .referral-handoff > div:first-child { grid-column: 1 / -1; }
   .site-header { width: calc(100% - 28px); height: 72px; }.site-header nav a:not(:last-child) { display: none; }.hero,.section,.purchase-guide { width: calc(100% - 28px); }.hero { padding: 55px 0; }.hero h1 { font-size: 54px; }.flow-stage { min-height: 420px; }.flow-card { width: 82%; padding: 19px; }.flow-card p { font-size: 19px; }.card-source { top: 50px; left: 0; }.card-result { bottom: 40px; }.ef-seal { right: 2%; width: 65px; height: 65px; }.orbit { display: none; }.section { padding: 90px 0; }.section-intro h2 { font-size: 43px; }.feature-grid { grid-template-columns: 1fr; }.feature-wide { display: block; grid-column: auto; }.feature { min-height: 340px; padding: 24px; }.mini-reader { margin-top: 35px; padding: 20px 0 0; border-top: 1px solid var(--line); border-left: 0; }.steps { grid-template-columns: 1fr; }.steps li { min-height: auto; padding: 0 0 30px 18px; }.steps li > span { margin-bottom: 25px; }.plans-section { padding-right: 14px; padding-left: 14px; }.plan-grid { grid-template-columns: 1fr; }.purchase-guide { margin: 60px auto; padding: 34px 25px; }.site-footer { grid-template-columns: 1fr; }.purchase-dialog { padding: 32px 24px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
