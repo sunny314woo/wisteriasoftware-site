@@ -13,11 +13,12 @@
         "product.html": "产品",
         "pricing.html": "价格",
         "outline-pro.html": "Outline",
+        "englishflow/": "FluentSocial AI",
         "inbox.html": "Inbox",
         "support.html": "支持",
         "privacy.html": "隐私",
         "privacy-general": "通用隐私",
-        "englishflow-privacy.html": "EnglishFlow",
+        "englishflow-privacy.html": "FluentSocial AI",
         "terms.html": "条款",
         "refund.html": "退款",
       },
@@ -25,10 +26,11 @@
         "product.html": "产品",
         "pricing.html": "价格",
         "outline-pro.html": "Outline",
+        "englishflow/": "FluentSocial AI",
         "inbox.html": "Inbox",
         "support.html": "支持",
         "privacy.html": "隐私政策",
-        "englishflow-privacy.html": "EnglishFlow 隐私政策",
+        "englishflow-privacy.html": "FluentSocial AI 隐私政策",
         "terms.html": "服务条款",
         "refund.html": "退款政策",
       },
@@ -81,11 +83,12 @@
           ".product-card:nth-child(3) .subtitle":
             "本地优先的 macOS 应用，用于整理和回顾 AI 对话、捕捉材料与工作笔记。",
           ".product-card:nth-child(3) .btn-link.primary": "查看 Inbox",
-          ".product-card:nth-child(4) .status-pill": "Chrome 扩展",
-          ".product-card:nth-child(4) h3": "EnglishFlow",
+          ".product-card:nth-child(4) .status-pill": "现已可用",
+          ".product-card:nth-child(4) h3": "FluentSocial AI",
           ".product-card:nth-child(4) .subtitle":
-            "面向支持网站的轻量翻译与写作助手。选中文本即可翻译，在输入框中标记内容即可改写，也可更快起草回复。",
-          ".product-card:nth-child(4) .btn-link.primary": "查看隐私政策",
+            "面向 Reddit 与 X 的上下文语言助手。双语阅读对话，并起草自然回复；发送前始终由你审核。",
+          ".product-card:nth-child(4) .btn-link.primary": "查看 FluentSocial AI",
+          ".product-card:nth-child(4) .btn-link.secondary": "查看隐私政策",
           "main > section:nth-of-type(3) h2": "为依赖 AI 的人服务",
           "main > section:nth-of-type(3) > p":
             "Wisteria Software 面向那些希望 AI 工作更快、更安全、更可沉淀的人：在长线程中调试的开发者、保留推理和资料的科研人员、收集灵感的写作者，以及希望把每日 AI 输出变成长期知识的知识工作者。",
@@ -196,11 +199,11 @@
       "product.html": {
         title: "产品 – Wisteria Software",
         description:
-          "了解 Wisteria Suite 产品：面向 macOS 与浏览器的 Outline、Inbox Capture、Inbox Local 与 EnglishFlow。",
+          "了解 Wisteria Suite 产品：面向 macOS 与浏览器的 Outline、Inbox Capture、Inbox Local 与 FluentSocial AI。",
         selectors: {
           ".compact-hero h1": "产品",
           ".compact-hero .subtitle":
-            "<strong>Wisteria Suite</strong> 包含面向 AI 原生工作流的工具：<strong>Outline</strong>、<strong>Inbox Capture</strong>、<strong>适用于 macOS 的 Inbox Local</strong> 与 <strong>EnglishFlow</strong>。",
+            "<strong>Wisteria Suite</strong> 包含面向 AI 原生工作流的工具：<strong>Outline</strong>、<strong>Inbox Capture</strong>、<strong>适用于 macOS 的 Inbox Local</strong> 与 <strong>FluentSocial AI</strong>。",
           ".product-card.featured-product .status-pill": "当前付费产品",
           ".product-card.featured-product h2": "Outline",
           ".product-card.featured-product > p:first-of-type":
@@ -234,17 +237,17 @@
             "在当前试用期内，Outline 用户也可免费试用 Inbox Pro 的 AI 摘要功能。",
           ".product-grid article:nth-child(3) .hero-actions .btn-link.primary": "查看 Inbox",
           ".product-grid article:nth-child(3) .hero-actions .btn-link.secondary": "下载 macOS 版",
-          ".product-grid article:nth-child(4) .status-pill": "Chrome 扩展",
-          ".product-grid article:nth-child(4) h3": "EnglishFlow",
+          ".product-grid article:nth-child(4) .status-pill": "现已可用",
+          ".product-grid article:nth-child(4) h3": "FluentSocial AI",
           ".product-grid article:nth-child(4) > p:first-of-type":
-            "面向支持网站的翻译与写作助手，用于多语言阅读、自然英文改写，以及无需切换标签页的快速回复。",
-          ".product-grid article:nth-child(4) ul li:nth-child(1)": "翻译支持页面中的选中文本",
-          ".product-grid article:nth-child(4) ul li:nth-child(2)":
-            "将 <code>;;;你的草稿;;;</code> 这类标记输入改写为目标语言",
-          ".product-grid article:nth-child(4) ul li:nth-child(3)": "语言偏好和 API 设置保存在浏览器本地",
+            "面向 Reddit 与 X 的上下文语言助手，用于双语阅读和自然回复，无需离开当前对话。",
+          ".product-grid article:nth-child(4) ul li:nth-child(1)": "同时查看原帖、评论与对应翻译",
+          ".product-grid article:nth-child(4) ul li:nth-child(2)": "根据当前讨论上下文起草回复",
+          ".product-grid article:nth-child(4) ul li:nth-child(3)": "使用你习惯的语言写作，并在原位置转换文本",
           ".product-grid article:nth-child(4) p.small-note":
-            "EnglishFlow 只会在你请求翻译、改写或回复辅助时，把相关文本发送给 AI 服务处理。",
-          ".product-grid article:nth-child(4) .hero-actions .btn-link.primary": "查看隐私政策",
+            "FluentSocial AI 绝不会自动发布内容。每一条回复都由你审核并亲自发送。",
+          ".product-grid article:nth-child(4) .hero-actions .btn-link.primary": "查看 FluentSocial AI",
+          ".product-grid article:nth-child(4) .hero-actions .btn-link.secondary": "查看隐私政策",
           "main > section.cta h2": "当前付费方案",
           "main > section.cta > p":
             "Outline 在本站提供付费 Pro 方案。结账前请查看价格、激活与退款说明。",
@@ -252,16 +255,16 @@
         },
       },
       "englishflow-privacy.html": {
-        title: "EnglishFlow 隐私政策 - Wisteria Software",
+        title: "FluentSocial AI 隐私政策 - Wisteria Software",
         description:
-          "EnglishFlow Chrome 扩展的隐私政策，说明翻译、改写、回复辅助、API Key、本地存储和 Wisteria Software API 的数据处理方式。",
+          "FluentSocial AI Chrome 扩展的隐私政策，说明翻译、改写、上下文回复辅助、API Key、本地存储和 Wisteria Software API 的数据处理方式。",
         selectors: {
-          ".compact-hero h1": "EnglishFlow 隐私政策",
+          ".compact-hero h1": "FluentSocial AI 隐私政策",
           ".compact-hero .subtitle":
-            "适用于 <strong>EnglishFlow: Read, Write &amp; Reply in English</strong>，由 <strong>Wisteria Software Ltd.</strong> 提供的 Chrome 扩展。<br /><strong>最后更新：</strong>2026 年 7 月 6 日",
+            "适用于 <strong>FluentSocial AI: Read in your language. Reply naturally in theirs.</strong>，由 <strong>Wisteria Software Ltd.</strong> 提供的 Chrome 扩展。<br /><strong>最后更新：</strong>2026 年 7 月 18 日",
           ".contact-box p": "<strong>隐私摘要：</strong>",
           ".contact-box li:nth-child(1)":
-            "<strong>单一用途：</strong>EnglishFlow 帮助用户在支持的网站上进行多语言阅读、翻译、改写和回复。",
+            "<strong>单一用途：</strong>FluentSocial AI 帮助用户在支持的网站上进行多语言阅读、翻译、改写和回复。",
           ".contact-box li:nth-child(2)":
             "<strong>用户触发处理：</strong>只有当你请求翻译、改写或回复辅助时，相关文本才会发送给 AI 服务处理。",
           ".contact-box li:nth-child(3)":
