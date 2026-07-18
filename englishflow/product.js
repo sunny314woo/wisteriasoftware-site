@@ -11,9 +11,9 @@
     handoff.className = "referral-handoff";
     handoff.setAttribute("aria-live", "polite");
     handoff.innerHTML =
-      '<div><span class="referral-handoff-kicker">EnglishFlow invitation</span>' +
+      '<div><span class="referral-handoff-kicker">FluentSocial AI invitation</span>' +
       '<strong>You both receive 15 extra Trial days</strong>' +
-      '<p id="referralHandoffStatus">Keep this page open while installing EnglishFlow. The invitation will be handed to the extension automatically.</p></div>' +
+      '<p id="referralHandoffStatus">Keep this page open while installing FluentSocial AI. The invitation will be handed to the extension automatically.</p></div>' +
       '<div class="referral-handoff-code"><span>Invite code</span><b></b></div>' +
       '<div class="referral-handoff-actions"><a target="_blank" rel="noopener">Install extension</a>' +
       '<button type="button">Copy code</button></div>';
@@ -24,7 +24,7 @@
         handoff.querySelector("button").textContent = "Copied";
       }).catch(function () {
         document.getElementById("referralHandoffStatus").textContent =
-          "Copy the invite code manually, then paste it in Account → Referral inside EnglishFlow.";
+          "Copy the invite code manually, then paste it in Account → Referral inside FluentSocial AI.";
       });
     });
     document.querySelector("main").before(handoff);
@@ -33,7 +33,7 @@
       if (event.data.type === "EF_REFERRAL_CAPTURED") {
         handoff.classList.add("is-captured");
         document.getElementById("referralHandoffStatus").textContent =
-          "Invitation saved in EnglishFlow. Verify your email there to claim it.";
+          "Invitation saved in FluentSocial AI. Verify your email there to claim it.";
       }
     });
   }

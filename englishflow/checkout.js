@@ -26,13 +26,13 @@
       window.Paddle.Checkout.open({ transactionId: transactionId });
     } catch (error) {
       title.textContent = "Checkout could not be opened.";
-      status.textContent = "Return to EnglishFlow and create a fresh checkout, or contact support.";
+      status.textContent = "Return to FluentSocial AI and create a fresh checkout, or contact support.";
     }
   }
 
   if (!validTransaction(transactionId)) {
     title.textContent = "This checkout link is incomplete.";
-    status.textContent = "For your security, start a purchase from the signed-in EnglishFlow extension.";
+    status.textContent = "For your security, start a purchase from the signed-in FluentSocial AI extension.";
     reopen.hidden = true;
     return;
   }
@@ -76,6 +76,6 @@
     // Paddle.js automatically opens the server-created transaction supplied in `_ptxn`.
   } catch (error) {
     title.textContent = "Checkout could not be initialized.";
-    status.textContent = "Reload the page or create a fresh checkout from EnglishFlow.";
+    status.textContent = "Reload the page or create a fresh checkout from FluentSocial AI.";
   }
 })();

@@ -4,43 +4,42 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="robots" content="noindex,nofollow" />
-  <title>Secure EnglishFlow Purchase — Wisteria Software</title>
+  <title>Secure FluentSocial AI Purchase — Wisteria Software</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&family=Newsreader:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;750&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="englishflow.css" />
   <link rel="icon" href="../favicon.ico" sizes="any" />
 </head>
 <body class="purchase-page">
-  <div class="grain" aria-hidden="true"></div>
   <header class="site-header checkout-header">
-    <a class="wordmark" href="./"><span class="wordmark-mark">W</span><span>Wisteria Software</span></a>
+    <a class="product-wordmark" href="./">FluentSocial AI</a>
     <span class="secure-label"><i></i> Secure Paddle checkout</span>
   </header>
   <main class="purchase-shell">
     <section class="purchase-copy">
-      <p class="eyebrow"><span></span> EnglishFlow purchase</p>
-      <h1>One email.<br /><em>Straight to checkout.</em></h1>
-      <p>Enter the email you want to use for EnglishFlow. We will prepare Paddle Checkout with that address, and your purchase will belong to the matching EnglishFlow account.</p>
+      <p class="section-kicker">Confirm your plan</p>
+      <h1>Almost there.<br /><em>One email, then payment.</em></h1>
+      <p>Use the email you want connected to FluentSocial AI. Paddle will use the same address for checkout and your purchase receipt.</p>
       <div class="purchase-plan-note" aria-live="polite">
         <span id="purchasePlanKicker">Selected plan</span>
         <strong id="purchasePlanName">Annual</strong>
-        <p id="purchasePlanDetail">US$49 per year · recurring subscription · official AI allowance and BYOK.</p>
+        <p id="purchasePlanDetail">US$49 per year · hosted AI included · no API key required.</p>
       </div>
-      <ul><li>No verification code before payment</li><li>Monthly and annual plans can be cancelled in EnglishFlow settings</li><li>Lifetime is one payment and uses your own API key</li></ul>
-      <a href="./">← Back to EnglishFlow plans</a>
+      <ul><li>No verification code before payment</li><li>Monthly and Annual can be cancelled in FluentSocial AI settings</li><li>Lifetime BYOK requires your own DeepSeek API key</li></ul>
+      <a href="./">← Back to pricing</a>
     </section>
 
     <section class="purchase-card" aria-live="polite">
-      <div class="purchase-step"><span>01</span><div><strong>Enter your EnglishFlow email</strong><p>You will use this same address when signing in to the extension.</p></div></div>
+      <div class="purchase-step"><span>1</span><div><strong>Continue with your account email</strong><p>Already signed in to the extension? Use that same email here.</p></div></div>
       <form id="emailForm" class="purchase-form">
         <label for="purchaseEmail">Email address</label>
-        <div class="purchase-input-row"><input id="purchaseEmail" type="email" autocomplete="email" placeholder="you@example.com" required /><button id="continueCheckoutButton" class="button button-primary" type="submit">Continue to payment</button></div>
+        <div class="purchase-input-row"><input id="purchaseEmail" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required /><button id="continueCheckoutButton" class="button button-primary" type="submit">Continue to payment</button></div>
       </form>
       <p id="purchaseStatus" class="purchase-status" role="status"></p>
-      <p class="purchase-fineprint">Paddle is Merchant of Record. Card details do not pass through Wisteria. Paid accounts do not receive an additional Trial.</p>
+      <p class="purchase-fineprint">Paddle is Merchant of Record. Your card details never pass through Wisteria Software servers.</p>
     </section>
   </main>
-  <script src="purchase.js?v=20260716-direct-checkout-v4"></script>
+  <script src="purchase.js?v=20260718-fluentsocial-redesign"></script>
 </body>
 </html>

@@ -1,9 +1,9 @@
 (function () {
   var API_BASE = "https://account.wisteriasoftware.uk/api/account/v1";
   var plans = {
-    MONTHLY: { name: "Monthly", detail: "US$6 per month · recurring subscription · official AI allowance and BYOK." },
-    ANNUAL: { name: "Annual", detail: "US$49 per year · recurring subscription · official AI allowance and BYOK." },
-    LIFETIME: { name: "Lifetime", detail: "US$59 once · lifetime BYOK access · no Wisteria public AI allowance." }
+    MONTHLY: { name: "Monthly", detail: "US$6 per month · hosted AI included · no API key required." },
+    ANNUAL: { name: "Annual", detail: "US$49 per year · hosted AI included · save US$23 compared with monthly." },
+    LIFETIME: { name: "Lifetime BYOK", detail: "US$59 one-time · requires your own DeepSeek API key · hosted AI not included." }
   };
   var selectedPlan = new URLSearchParams(window.location.search).get("plan") || "ANNUAL";
   if (!plans[selectedPlan]) selectedPlan = "ANNUAL";
@@ -38,7 +38,7 @@
         cache: "no-store"
       }, options || {}));
     } catch (_) {
-      throw new Error("Could not reach EnglishFlow Account Service. Check your connection and try again.");
+      throw new Error("Could not reach the FluentSocial AI account service. Check your connection and try again.");
     }
     var text = await response.text();
     var body = {};

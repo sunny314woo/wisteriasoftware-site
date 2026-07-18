@@ -3,179 +3,224 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>EnglishFlow — Translate, write and reply without breaking your flow</title>
-  <meta name="description" content="EnglishFlow is a Chrome translation and writing assistant with a verified-email trial, monthly and annual public AI plans, and a lifetime bring-your-own-key plan." />
+  <title>FluentSocial AI — Read and reply naturally on Reddit &amp; X</title>
+  <meta name="description" content="Read Reddit and X in your language, understand the conversation, and draft natural replies with FluentSocial AI." />
   <link rel="canonical" href="https://wisteriasoftware.uk/englishflow/" />
-  <meta property="og:title" content="EnglishFlow — Language help, right where you write" />
-  <meta property="og:description" content="Read, translate, rewrite and reply across the web without switching tabs." />
+  <meta property="og:title" content="FluentSocial AI — Read in your language. Reply naturally in theirs." />
+  <meta property="og:description" content="Context-aware bilingual reading and reply assistance for Reddit and X." />
   <meta property="og:url" content="https://wisteriasoftware.uk/englishflow/" />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wdth,wght@90..100,400..700&family=Newsreader:opsz,wght@6..72,500..700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;750&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="englishflow.css" />
   <link rel="icon" href="../favicon.ico" sizes="any" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"SoftwareApplication",
-    "name":"EnglishFlow",
+    "name":"FluentSocial AI",
     "applicationCategory":"BrowserApplication",
     "operatingSystem":"Chrome",
     "url":"https://wisteriasoftware.uk/englishflow/",
-    "offers":[{"@type":"Offer","price":"6","priceCurrency":"USD","description":"Monthly subscription"},{"@type":"Offer","price":"49","priceCurrency":"USD","description":"Annual subscription"},{"@type":"Offer","price":"59","priceCurrency":"USD","description":"Lifetime BYOK access"}]
+    "description":"A context-aware Reddit and X language assistant for bilingual reading, natural replies and first-language input conversion.",
+    "offers":[
+      {"@type":"Offer","price":"6","priceCurrency":"USD","description":"Monthly hosted AI subscription"},
+      {"@type":"Offer","price":"49","priceCurrency":"USD","description":"Annual hosted AI subscription"},
+      {"@type":"Offer","price":"59","priceCurrency":"USD","description":"Lifetime BYOK access for DeepSeek API users"}
+    ]
   }
   </script>
 </head>
 <body class="product-page">
-  <div class="grain" aria-hidden="true"></div>
   <header class="site-header">
-    <a class="wordmark" href="../index.html"><span class="wordmark-mark">W</span><span>Wisteria Software</span></a>
+    <a class="product-wordmark" href="./" aria-label="FluentSocial AI home">FluentSocial AI</a>
     <nav aria-label="Main navigation">
-      <a href="../product.html">Products</a>
+      <a href="#how-it-works">How it works</a>
       <a href="#features">Features</a>
-      <a href="#plans">Plans</a>
-      <a href="../englishflow-privacy.html">Privacy</a>
+      <a href="#plans">Pricing</a>
+      <a class="nav-cta" href="https://chromewebstore.google.com/detail/nobiefbaobhcpdbidggmfikalohfejpc" target="_blank" rel="noopener">Add to Chrome</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero page-shell">
       <div class="hero-copy reveal">
-        <p class="eyebrow"><span></span> EnglishFlow for Chrome</p>
-        <h1>Language help that stays <em>in your flow.</em></h1>
-        <p class="hero-lede">Translate what you read. Rewrite what you type. Shape a reply without leaving the page you are already on.</p>
+        <div class="platform-line"><span>Reddit</span><i aria-hidden="true"></i><span>X</span><b>Language assistant</b></div>
+        <h1>Read in your language.<br /><em>Reply naturally in theirs.</em></h1>
+        <p class="hero-lede">Understand Reddit and X conversations with bilingual translation, then create context-aware replies you can edit before sending.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="https://chromewebstore.google.com/detail/nobiefbaobhcpdbidggmfikalohfejpc" target="_blank" rel="noopener">Install from Chrome Web Store</a>
-          <a class="button button-quiet" href="#how-it-works">See how it works <span aria-hidden="true">↘</span></a>
+          <a class="button button-primary" href="https://chromewebstore.google.com/detail/nobiefbaobhcpdbidggmfikalohfejpc" target="_blank" rel="noopener">Add to Chrome — Start free</a>
+          <a class="button button-secondary" href="#how-it-works">See how it works</a>
         </div>
-        <div class="hero-proof" aria-label="Product principles">
-          <span>7-day verified trial</span><span>Monthly / annual plans</span><span>API keys stay local</span>
+        <div class="trust-line" aria-label="Trial and safety details">
+          <span>7-day free trial</span><span>No credit card</span><span>Never posts automatically</span>
         </div>
       </div>
 
-      <div class="flow-stage reveal delay-1" aria-label="EnglishFlow translation illustration">
-        <div class="orbit orbit-one"><span>read</span><span>leer</span><span>読む</span></div>
-        <div class="orbit orbit-two"><span>reply</span><span>répondre</span><span>回复</span></div>
-        <div class="flow-card card-source">
-          <p class="card-label">On the page</p>
-          <p>Could you make this sound more natural?</p>
-          <span class="selection">more natural</span>
+      <div class="product-preview reveal delay-1" aria-label="Example of a context-aware Reddit reply">
+        <div class="preview-toolbar">
+          <span class="preview-platform">Reddit</span>
+          <span class="preview-status">FluentSocial AI active</span>
         </div>
-        <div class="flow-line" aria-hidden="true"></div>
-        <div class="flow-card card-result">
-          <p class="card-label">EnglishFlow</p>
-          <p>Can you make this sound like something a real person would say?</p>
-          <span class="ready-dot">Ready to paste</span>
+        <article class="thread-card">
+          <div class="thread-meta"><b>r/SaaS</b><span>· 2h</span></div>
+          <h2>What helped you get comfortable joining discussions in another language?</h2>
+          <p>I can understand most posts, but writing a reply that sounds natural still takes me too long.</p>
+        </article>
+        <div class="reply-demo">
+          <div class="reply-demo-head"><strong>Context-aware reply</strong><span>Friendly · Short</span></div>
+          <p class="reply-native">我以前也是这样。对我来说，先把想法写清楚，再转换成自然的英文，比逐句翻译轻松很多。</p>
+          <p class="reply-result">I used to feel the same. Writing the idea clearly first, then turning it into natural English, feels much easier than translating sentence by sentence.</p>
+          <div class="reply-actions"><span>You review every reply</span><button type="button">Insert reply</button></div>
         </div>
-        <div class="ef-seal">EF</div>
       </div>
     </section>
 
-    <section class="ticker" aria-label="EnglishFlow capabilities">
-      <div><span>SELECT &amp; TRANSLATE</span><i>✦</i><span>WRITE IN PLACE</span><i>✦</i><span>REPLY WITH CONTEXT</span><i>✦</i><span>KEEP YOUR KEY LOCAL</span><i>✦</i></div>
-    </section>
-
-    <section id="features" class="section features-section">
-      <div class="section-intro reveal">
-        <p class="eyebrow"><span></span> Built around the page</p>
-        <h2>Less copying. Less tab switching. More finished thoughts.</h2>
-      </div>
-      <div class="feature-grid">
-        <article class="feature feature-wide reveal">
-          <span class="feature-number">01</span>
-          <div><h3>Read across languages</h3><p>Select text or open the reading layer to get a translation beside the original context.</p></div>
-          <div class="mini-reader" aria-hidden="true"><span></span><span></span><span></span><strong>把翻译留在原文旁边。</strong></div>
-        </article>
-        <article class="feature feature-dark reveal delay-1">
-          <span class="feature-number">02</span>
-          <h3>Write where the cursor is</h3>
-          <p>Wrap a draft in <code>;;;...;;;</code> and EnglishFlow replaces it in the language and tone you chose.</p>
-          <div class="cursor-demo" aria-hidden="true">;;;make this warmer;;;<b></b></div>
-        </article>
-        <article class="feature feature-coral reveal">
-          <span class="feature-number">03</span>
-          <h3>Reply with the thread in view</h3>
-          <p>Compose natural replies for supported social surfaces while keeping the conversation close.</p>
-          <div class="reply-stack" aria-hidden="true"><span>Context</span><span>Your intent</span><strong>Ready reply ↗</strong></div>
-        </article>
-        <article class="feature reveal delay-1">
-          <span class="feature-number">04</span>
-          <h3>Your API key stays yours</h3>
-          <p>On paid plans, your provider key is stored in browser-managed local storage and sent directly to the provider you configure.</p>
-          <div class="local-badge"><span>Browser</span><i>→</i><span>Your provider</span></div>
-        </article>
+    <section class="proof-strip" aria-label="Main capabilities">
+      <div class="page-shell">
+        <span>Context-aware replies</span><span>Immersive bilingual reading</span><span>First-language input</span><span>Two-way translation</span>
       </div>
     </section>
 
-    <section id="how-it-works" class="section access-map">
-      <div class="section-intro reveal">
-        <p class="eyebrow"><span></span> One account, clear access</p>
-        <h2>Your verified email keeps the entitlement. Your browser installation does not.</h2>
+    <section id="how-it-works" class="section page-shell">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Three ways to use it</p>
+        <h2>Stay in the conversation—not in a translation app.</h2>
+        <p>FluentSocial AI works directly where you read and write, so the original discussion always stays in view.</p>
       </div>
-      <ol class="steps reveal delay-1">
-        <li><span>1</span><div><strong>Verify your email</strong><p>EnglishFlow creates or reuses a stable account and starts the one-time seven-day trial.</p></div></li>
-        <li><span>2</span><div><strong>Choose a plan</strong><p>The extension asks Account Server to create a Paddle Checkout for your trusted user ID.</p></div></li>
-        <li><span>3</span><div><strong>Pay securely on this site</strong><p>Paddle is the Merchant of Record. Card details never pass through Wisteria servers.</p></div></li>
-        <li><span>4</span><div><strong>Refresh and continue</strong><p>No code, certificate or redemption step. The entitlement appears on the same email account.</p></div></li>
-      </ol>
+
+      <div class="use-case-list">
+        <article class="use-case reveal">
+          <div class="use-case-copy">
+            <span class="step-number">01</span>
+            <h3>Reply with the conversation in view</h3>
+            <p>Open a Reddit or X reply box and generate an editable draft based on the post, comment and surrounding discussion.</p>
+            <ul><li>Choose tone, style and length</li><li>See your language and the final reply together</li><li>You always review and send it yourself</li></ul>
+          </div>
+          <div class="demo-panel compact-reply" aria-label="Reply assistant example">
+            <div class="demo-label"><span>Reply assistant</span><b>Understands this thread</b></div>
+            <p class="context-quote">“How do you avoid sounding too formal when replying in English?”</p>
+            <div class="suggestion"><small>Suggested reply</small><p>I try to write the way I would actually speak—shorter sentences and fewer formal transitions usually help.</p></div>
+            <button type="button">Insert into reply</button>
+          </div>
+        </article>
+
+        <article class="use-case reverse reveal">
+          <div class="use-case-copy">
+            <span class="step-number">02</span>
+            <h3>Write the thought you actually mean</h3>
+            <p>Type in the language you know best. Wrap your text in three semicolons and it is replaced naturally in your second language.</p>
+            <div class="syntax-pill"><code>;;;your content;;;</code><span>→</span><strong>natural second-language text</strong></div>
+          </div>
+          <div class="demo-panel input-conversion" aria-label="First-language input conversion example">
+            <div class="compose-head"><span>New post</span><b>FluentSocial AI</b></div>
+            <div class="compose-box">
+              <p class="before-text">;;;我觉得这个功能很实用，不过第一次使用时需要一点引导。;;;</p>
+              <div class="conversion-arrow">Converted in place</div>
+              <p class="after-text">I think this feature is really useful, though a little guidance would help the first time you use it.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="use-case reveal">
+          <div class="use-case-copy">
+            <span class="step-number">03</span>
+            <h3>Read both languages together</h3>
+            <p>See translations beside the original text in Reddit and X posts, comments and reply threads—without losing the author’s tone or context.</p>
+            <ul><li>Original and translation stay together</li><li>Translate only the content you are reading</li><li>Quick selection and right-click translation anywhere</li></ul>
+          </div>
+          <div class="demo-panel bilingual-reader" aria-label="Immersive bilingual reading example">
+            <div class="reader-post"><small>Original · English</small><p>The hardest part isn’t understanding every word. It’s knowing how people in the community normally respond.</p></div>
+            <div class="reader-divider"></div>
+            <div class="reader-post translated"><small>Translation · 中文</small><p>最难的并不是理解每一个单词，而是了解社区里的人通常会怎样回应。</p></div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section id="plans" class="section plans-section">
-      <div class="section-intro centered reveal">
-        <p class="eyebrow"><span></span> Choose your access</p>
-        <h2>Pick the way you want to run EnglishFlow.</h2>
-        <p>Buying during Trial keeps every unused Trial day. Monthly and annual plans renew automatically; Lifetime is one-time and BYOK-only. No activation codes.</p>
+    <section id="features" class="section soft-section">
+      <div class="page-shell">
+        <div class="section-heading centered reveal">
+          <p class="section-kicker">Built for real conversations</p>
+          <h2>More than sentence-by-sentence translation.</h2>
+          <p>DeepSeek helps FluentSocial AI understand context, intent and tone before it rewrites your words.</p>
+        </div>
+        <div class="benefit-grid">
+          <article><span>Context</span><h3>Understands the discussion</h3><p>Uses the current post, comment or conversation to create a relevant reply.</p></article>
+          <article><span>Control</span><h3>Never posts automatically</h3><p>Every draft stays editable. Nothing is sent until you choose to send it.</p></article>
+          <article><span>X</span><h3>Fits the 280-character limit</h3><p>Replies can be shortened for non-Premium X accounts without losing the main point.</p></article>
+          <article><span>Languages</span><h3>Translate in both directions</h3><p>Freely choose your first and second languages and switch directions when needed.</p></article>
+        </div>
       </div>
-      <div class="plan-grid">
-        <article class="plan-card trial-plan reveal">
-          <p class="plan-kicker">Start here</p><h3>7-day Trial</h3>
-          <div class="price"><strong>Free</strong><span>once per verified email</span></div>
-          <ul><li>Wisteria public AI</li><li>Same feature set as paid plans</li><li>Trial and rate limits</li><li>Use your own API key too</li></ul>
-          <a class="button button-quiet" href="https://chromewebstore.google.com/detail/nobiefbaobhcpdbidggmfikalohfejpc" target="_blank" rel="noopener">Install EnglishFlow</a>
-        </article>
-        <article class="plan-card annual-plan reveal delay-1">
-          <p class="plan-kicker">Flexible access</p><h3>Monthly</h3>
-          <div class="price"><strong>USD $6.00</strong><span>per month · subscription</span></div>
-          <ul><li>Wisteria public AI</li><li>Allowance resets on the service schedule</li><li>Use your own API key too</li><li>Cancel any time</li></ul>
-          <a class="button button-primary" href="purchase.html?plan=MONTHLY">Buy Monthly securely</a>
-        </article>
-        <article class="plan-card annual-plan featured reveal delay-2">
-          <p class="plan-kicker">Best for convenience</p><h3>Annual</h3>
-          <div class="price"><strong>USD $49.00</strong><span>per year · subscription</span></div>
-          <ul><li>Wisteria public AI</li><li>Allowance resets on the service schedule</li><li>Use your own API key too</li><li>Cancel any time</li></ul>
-          <a class="button button-primary" href="purchase.html?plan=ANNUAL">Buy Annual securely</a>
-        </article>
-        <article class="plan-card lifetime-plan reveal delay-3">
-          <p class="plan-kicker">Best for BYOK</p><h3>Lifetime</h3>
-          <div class="price"><strong>USD $59.00</strong><span>one payment · lifetime access</span></div>
-          <ul><li>Use your own API key</li><li>Provider and model flexibility</li><li>No Wisteria public AI allowance</li><li>Key remains local in the browser</li></ul>
-          <a class="button button-dark" href="purchase.html?plan=LIFETIME">Buy Lifetime securely</a>
-        </article>
-      </div>
-      <p class="tax-note">All plan prices above are in USD. Paddle may add or include applicable tax at checkout.</p>
     </section>
 
-    <section id="purchase-guide" class="purchase-guide reveal">
-      <div><p class="eyebrow light"><span></span> Secure purchase handoff</p><h2>Choose a plan here. Verify the same email once.</h2></div>
-      <div><p>The purchase page verifies your email with Account Server before it creates Checkout. The server—not the public page—attaches the trusted <code>user_id</code>; Paddle then opens on this approved Wisteria domain.</p><p class="small">After payment, use “Refresh account status” in EnglishFlow. Webhook processing may take a few seconds.</p></div>
+    <section id="plans" class="section pricing-section page-shell">
+      <div class="section-heading centered reveal">
+        <p class="section-kicker">Simple pricing</p>
+        <h2>Choose how you want to use FluentSocial AI</h2>
+        <p>Start with hosted AI, or use your own DeepSeek API key for lifetime access.</p>
+        <div class="trial-note">7-day free trial <span>·</span> No credit card required</div>
+      </div>
+
+      <div class="pricing-group reveal">
+        <div class="group-label"><span>Hosted AI</span><b>No API key required</b></div>
+        <div class="hosted-grid">
+          <article class="price-card">
+            <div><h3>Monthly</h3><p>Flexible month-to-month access</p></div>
+            <div class="price"><strong>$6</strong><span>/ month</span></div>
+            <ul><li>Built-in AI usage included</li><li>No API key required</li><li>Cancel anytime</li></ul>
+            <a class="button button-secondary" href="purchase.html?plan=MONTHLY">Choose Monthly</a>
+          </article>
+          <article class="price-card annual-card">
+            <span class="plan-badge">Most convenient</span>
+            <div><h3>Annual</h3><p>The easiest option for regular use</p></div>
+            <div class="price"><strong>$49</strong><span>/ year</span></div>
+            <p class="price-detail">$4.08/month, billed annually</p>
+            <ul><li>Built-in AI usage included</li><li>No API key required</li><li>Save $23 compared with monthly</li></ul>
+            <a class="button button-secondary purple-outline" href="purchase.html?plan=ANNUAL">Choose Annual</a>
+          </article>
+        </div>
+      </div>
+
+      <div class="pricing-group byok-group reveal">
+        <div class="group-label"><span>Bring your own key</span><b>Best long-term value</b></div>
+        <article class="lifetime-card">
+          <span class="plan-badge strong">Best long-term value</span>
+          <div class="lifetime-main"><h3>Lifetime BYOK</h3><p>One-time purchase for users with their own DeepSeek API key.</p><div class="price"><strong>$59</strong><span>one-time</span></div></div>
+          <ul><li>Lifetime access to FluentSocial AI</li><li>Use your own DeepSeek API key</li><li>API key remains in your browser</li></ul>
+          <ul class="limit-list"><li>Built-in AI usage is not included</li><li>DeepSeek API charges are paid separately</li></ul>
+          <a class="button button-primary lifetime-button" href="purchase.html?plan=LIFETIME">Choose Lifetime BYOK</a>
+        </article>
+      </div>
+      <p class="tax-note">Prices are in USD. Applicable taxes may be added by Paddle at checkout.</p>
     </section>
 
-    <section class="section faq-section">
-      <div class="section-intro"><p class="eyebrow"><span></span> The important details</p><h2>Before you buy</h2></div>
-      <div class="faq-list">
-        <details><summary>How do monthly and annual plans renew?</summary><p>Monthly is US$6/month and Annual is US$49/year. Both are recurring Paddle subscriptions; cancel from EnglishFlow settings and the current period remains available until its end.</p></details>
-        <details><summary>What happens when the public allowance runs out?</summary><p>Normal users should have enough for everyday work. Individual high-frequency users may hit service limits; wait for the next reset or use your own API key to supplement.</p></details>
-        <details><summary>Does Lifetime include the public AI service?</summary><p>No. Lifetime unlocks EnglishFlow for your own API key. Choose Annual if you want Wisteria's public AI allowance.</p></details>
-        <details><summary>How do refunds affect access?</summary><p>Approved full refunds and chargebacks remove the corresponding grant. Partial refunds are reviewed manually and do not automatically shorten access. See the <a href="../refund.html">refund policy</a>.</p></details>
+    <section class="section faq-section page-shell">
+      <div class="section-heading reveal"><p class="section-kicker">Questions</p><h2>Before you start</h2></div>
+      <div class="faq-list reveal delay-1">
+        <details><summary>What is included in the 7-day trial?</summary><p>You can try the FluentSocial AI features with hosted AI after verifying your email. No credit card is required.</p></details>
+        <details><summary>What is the difference between hosted AI and Lifetime BYOK?</summary><p>Monthly and Annual include the FluentSocial AI hosted service and require no API setup. Lifetime BYOK is a one-time software purchase that uses your own DeepSeek API key and does not include hosted AI usage.</p></details>
+        <details><summary>Does FluentSocial AI post automatically?</summary><p>No. FluentSocial AI only creates editable suggestions. You always review the final content and choose whether to send it.</p></details>
+        <details><summary>Where is my DeepSeek API key stored?</summary><p>Your key is stored in browser-managed local storage and used only for requests you initiate through FluentSocial AI.</p></details>
+        <details><summary>Can I cancel a subscription?</summary><p>Yes. Monthly and Annual plans can be cancelled from FluentSocial AI settings. Your access remains available until the end of the current billing period.</p></details>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="page-shell">
+        <div><p class="section-kicker">Join the conversation</p><h2>Say what you mean—without leaving the page.</h2><p>Start with a free 7-day trial. No credit card required.</p></div>
+        <a class="button button-primary" href="https://chromewebstore.google.com/detail/nobiefbaobhcpdbidggmfikalohfejpc" target="_blank" rel="noopener">Add FluentSocial AI to Chrome</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div><a class="wordmark inverse" href="../index.html"><span class="wordmark-mark">W</span><span>Wisteria Software</span></a><p>Focused tools for calmer AI-native work.</p></div>
-    <div><a href="../englishflow-privacy.html">EnglishFlow Privacy</a><a href="../terms.html">Terms</a><a href="../refund.html">Refunds</a><a href="mailto:support@wisteriasoftware.uk">Support</a></div>
-    <p>© 2026 Wisteria Software Ltd.</p>
+    <div class="page-shell footer-grid">
+      <div><a class="product-wordmark" href="./">FluentSocial AI</a><p>A Reddit and X language assistant by Wisteria Software Ltd.</p></div>
+      <div><a href="../englishflow-privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../refund.html">Refunds</a><a href="mailto:support@wisteriasoftware.uk">Support</a></div>
+      <p>© 2026 Wisteria Software Ltd.</p>
+    </div>
   </footer>
 
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>

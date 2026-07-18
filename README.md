@@ -1,8 +1,10 @@
 # Wisteria 官网（wisteriasoftware.uk 静态落地站）
 
-**文档更新时间：** 2026-05-07  
+**文档更新时间：** 2026-07-18
 
-**当前维护状态：** 静态站点；无根目录 `package.json` 构建链（以当前仓库为准）。部署方式（如 Cloudflare Pages）见站内 `cf-pages-trigger.html` 等线索，具体生产配置 **待确认** 运维文档。  
+**当前维护状态：** 静态站点；无根目录 `package.json` 构建链。完整的目录、分支、测试、发布和故障排查方式见 monorepo 内的 [官网发布与排障手册](../../WEBSITE_RELEASE_RUNBOOK.md)。
+
+> 发布要点：功能分支 push 不会更新生产官网。官网改动必须进入 `wisteria-suite/main`，再由 GitHub Actions 自动同步到公开站点仓库；不要手动复制文件。
 
 **项目定位：** 产品介绍、定价、法律条款、支付成功/取消页、Outline / Inbox 相关落地页的多语言静态站点；通过 `i18n/` + `i18n.js` 在浏览器端完成语言切换与文案注入。  
 
@@ -75,19 +77,21 @@ python3 -m http.server 8080
 
 ## 7. 部署与发布
 
+完整操作步骤见 [官网发布与排障手册](../../WEBSITE_RELEASE_RUNBOOK.md)。本节只保留链路摘要。
+
 本站的真实开发源位于私有 monorepo：
 
 ```text
 apps/website/landing/wisteriasoftware.uk/
 ```
 
-线上 GitHub Pages 继续由公开仓库发布：
+自动同步的公开发布仓库：
 
 ```text
 sunny314woo/wisteriasoftware-site
 ```
 
-不要手动复制文件。私有仓库根目录的 GitHub Actions workflow 会在 `main` 分支中本站目录变化时，将本目录内容同步到公开 Pages 仓库：
+不要手动复制文件。私有仓库根目录的 GitHub Actions workflow 会在 `main` 分支中本站目录变化时，将本目录内容同步到公开仓库。公开仓库同时提供 GitHub Pages 镜像，生产域名 `wisteriasoftware.uk` 经过 Cloudflare；Cloudflare 的具体 Pages 项目、Worker 路由或源站配置仍需按发布手册登录后台核对：
 
 ```text
 .github/workflows/sync-website-repo.yml
