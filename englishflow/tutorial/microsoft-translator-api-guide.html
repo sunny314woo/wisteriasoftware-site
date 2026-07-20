@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Microsoft Translator API Key 申请教程 - EnglishFlow</title>
+    <link rel="stylesheet" href="api-guide.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">EnglishFlow · 阅读翻译</p>
+        <h1>Microsoft Translator API Key 申请教程</h1>
+        <p class="lead">Microsoft Translator 需要在 Azure 里创建 Translator 资源，然后把该资源的 <strong>Key</strong> 和 <strong>Region</strong> 填入 EnglishFlow。</p>
+        <div class="hero-actions">
+          <a class="official-link" href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation" target="_blank" rel="noreferrer">创建 Translator 资源 ↗</a>
+          <a class="official-link secondary" href="https://learn.microsoft.com/azure/ai-services/translator/how-to/create-translator-resource" target="_blank" rel="noreferrer">查看官方教程 ↗</a>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card"><b>EnglishFlow 需要</b><span>Azure Key、Region</span></div>
+          <div class="summary-card"><b>免费层</b><span>F0 每月 200 万字符标准翻译免费</span></div>
+          <div class="summary-card"><b>常见 Region</b><span><code>eastus</code>、<code>westeurope</code>、<code>global</code> 等，以资源页面为准</span></div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>1. 创建 Translator 资源</h2>
+        <ol class="step-list">
+          <li>登录 Azure Portal，搜索并创建 <strong>Translator</strong> 资源。</li>
+          <li>选择订阅、资源组、区域和定价层。个人低频使用可以先看是否可选 <strong>F0 Free</strong>。</li>
+          <li>资源名称建议写清楚用途，例如 <code>englishflow-translator</code>。</li>
+          <li>完成创建后进入该 Translator 资源详情页。</li>
+        </ol>
+      </section>
+
+      <section class="content-card">
+        <h2>2. 复制 Key 和 Region</h2>
+        <ol class="step-list">
+          <li>在资源左侧菜单找到 <strong>Keys and Endpoint</strong>。</li>
+          <li>复制 <strong>KEY 1</strong> 或 <strong>KEY 2</strong>，任选一个即可。</li>
+          <li>记录同一页面显示的 <strong>Location / Region</strong>。区域资源通常必须填写 Region；如果资源显示为 global，就按页面实际值填写。</li>
+          <li>不要复制 Endpoint 到 Region 输入框；EnglishFlow 这里只需要区域名称。</li>
+        </ol>
+      </section>
+
+      <section class="content-card">
+        <h2>3. 填写 EnglishFlow</h2>
+        <ol class="step-list">
+          <li>打开 EnglishFlow 设置页，进入 <strong>AI 与 API → 阅读与基础翻译服务</strong>。</li>
+          <li>选择 <strong>Microsoft Translator</strong>。</li>
+          <li>将 Key 粘贴到 <strong>Microsoft Translator Key</strong>，Region 按 Azure 资源页面填写，例如 <code>eastus</code>。</li>
+          <li>点击 <strong>测试阅读翻译</strong>。成功后点 <strong>保存阅读翻译设置</strong>。</li>
+        </ol>
+
+        <h2>排错清单</h2>
+        <div class="check-grid">
+          <div class="check-card"><b>401/403</b><span>Key、Region 必须来自同一个 Translator 资源。</span></div>
+          <div class="check-card"><b>资源类型不对</b><span>确认创建的是 Translator 或兼容的 Azure AI services 资源。</span></div>
+          <div class="check-card"><b>Region 填错</b><span>不要填完整 Endpoint；只填资源页面上的区域值。</span></div>
+          <div class="check-card"><b>免费层不可选</b><span>免费层、区域和订阅资格受 Azure 账户限制，以 Azure Portal 显示为准。</span></div>
+        </div>
+
+        <div class="note"><p><strong>价格以官网为准：</strong>Microsoft Azure 当前价格页显示，Translator F0 包含每月 200 万字符免费标准翻译；S1 与承诺用量价格会随区域、币种和协议变化，请以 <a href="https://azure.microsoft.com/en-us/pricing/details/translator/" target="_blank" rel="noreferrer">Azure Translator pricing</a> 为准。</p></div>
+      </section>
+    </main>
+  </body>
+</html>

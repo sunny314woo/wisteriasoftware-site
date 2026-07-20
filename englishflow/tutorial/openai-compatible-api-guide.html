@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenAI-compatible API 配置教程 - EnglishFlow</title>
+    <link rel="stylesheet" href="api-guide.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">EnglishFlow · AI 写作与回复</p>
+        <h1>OpenAI-compatible API 配置教程</h1>
+        <p class="lead">该选项适用于 OpenAI 官方 API，或明确提供 OpenAI 兼容接口的模型服务。你需要准备 <strong>API Key</strong>、<strong>Base URL</strong> 和 <strong>模型 ID</strong>。</p>
+        <div class="hero-actions">
+          <a class="official-link" href="https://platform.openai.com/api-keys" target="_blank" rel="noreferrer">创建 OpenAI API Key ↗</a>
+          <a class="official-link secondary" href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noreferrer">查看 OpenAI 官方价格 ↗</a>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card"><b>EnglishFlow 需要</b><span>Endpoint、模型名、API Key</span></div>
+          <div class="summary-card"><b>OpenAI Endpoint</b><span>通常填 <code>https://api.openai.com/v1</code></span></div>
+          <div class="summary-card"><b>兼容服务</b><span>必须支持 OpenAI 风格的对话接口，网页聊天地址不能用</span></div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>1. 使用 OpenAI 官方 API</h2>
+        <ol class="step-list">
+          <li>登录 OpenAI Platform，进入 <strong>API keys</strong> 页面创建新的 Secret key。</li>
+          <li>进入 Billing / Usage，确认账户有可用额度或已配置付款方式。</li>
+          <li>Endpoint 填 <code>https://api.openai.com/v1</code>。</li>
+          <li>模型名从 OpenAI 官方模型/价格页复制。展示名和 API 模型 ID 可能不同，不要手打猜测。</li>
+        </ol>
+      </section>
+
+      <section class="content-card">
+        <h2>2. 使用其他兼容服务</h2>
+        <ol class="step-list">
+          <li>确认服务商文档明确写着兼容 OpenAI API，且支持对话/文本生成接口。</li>
+          <li>从官方文档复制 <strong>Base URL</strong>。有些服务需要包含 <code>/v1</code>，有些不需要，按服务商文档填写。</li>
+          <li>复制准确模型 ID，例如服务商文档表格中的 API name，而不是官网营销名称。</li>
+          <li>创建 API Key，并确认账户额度、白名单、限速或地区限制。</li>
+        </ol>
+      </section>
+
+      <section class="content-card">
+        <h2>3. 填写 EnglishFlow</h2>
+        <ol class="step-list">
+          <li>打开 EnglishFlow 设置页，进入 <strong>AI 与 API → AI 写作与回复</strong>。</li>
+          <li>将“调用方式”设为 <strong>OpenAI-compatible / 自定义（Pro）</strong>。</li>
+          <li>依次填写模型、API Endpoint 和 API Key。</li>
+          <li>点击 <strong>测试 API Key</strong>。成功后点 <strong>保存 API 设置</strong>。</li>
+        </ol>
+
+        <h2>排错清单</h2>
+        <div class="check-grid">
+          <div class="check-card"><b>401 Unauthorized</b><span>Key 无效、Key 被删除，或当前项目/组织不匹配。</span></div>
+          <div class="check-card"><b>404 Not Found</b><span>Endpoint 路径不对，优先检查是否缺少或多写了 <code>/v1</code>。</span></div>
+          <div class="check-card"><b>Model not found</b><span>模型 ID 不可用，或你的账户没有该模型权限。</span></div>
+          <div class="check-card"><b>余额/限速错误</b><span>检查服务商账单、额度、限速和区域访问限制。</span></div>
+        </div>
+
+        <div class="note"><p><strong>价格以官网为准：</strong>OpenAI 官方价格页当前按 100 万 tokens 展示模型价格，并会随模型发布变化；第三方兼容服务也各自计费。请以 <a href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noreferrer">OpenAI Pricing</a> 或所选服务商的最新官方价格页为准。</p></div>
+      </section>
+    </main>
+  </body>
+</html>

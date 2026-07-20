@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>腾讯云机器翻译 API Key 申请教程 - EnglishFlow</title>
+    <link rel="stylesheet" href="api-guide.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">EnglishFlow · 阅读翻译</p>
+        <h1>腾讯云机器翻译 API Key 申请教程</h1>
+        <p class="lead">腾讯云机器翻译使用 <strong>SecretId + SecretKey + Region</strong> 三项信息。建议创建子用户并只授予机器翻译权限，避免把主账号密钥长期放在浏览器里。</p>
+        <div class="hero-actions">
+          <a class="official-link" href="https://console.cloud.tencent.com/tmt" target="_blank" rel="noreferrer">打开机器翻译控制台 ↗</a>
+          <a class="official-link secondary" href="https://console.cloud.tencent.com/cam/capi" target="_blank" rel="noreferrer">打开 API 密钥管理 ↗</a>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card"><b>EnglishFlow 需要</b><span>SecretId、SecretKey、Region</span></div>
+          <div class="summary-card"><b>当前计费口径</b><span>文本翻译每月 500 万字符免费额度，超出后按腾讯云最新规则计费</span></div>
+          <div class="summary-card"><b>费用控制</b><span>后付费默认关闭；关闭时资源包耗尽会自动停服</span></div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>1. 开通机器翻译</h2>
+        <ol class="step-list">
+          <li>注册或登录腾讯云，按控制台要求完成实名认证。</li>
+          <li>进入 <strong>机器翻译控制台</strong>，阅读并同意服务协议后开通服务。</li>
+          <li>在控制台确认文本翻译可用。EnglishFlow 只使用文本翻译，不需要图片、语音或文件翻译能力。</li>
+        </ol>
+      </section>
+
+      <section class="content-card">
+        <h2>2. 获取 SecretId 与 SecretKey</h2>
+        <ol class="step-list">
+          <li>推荐进入 <strong>访问管理 → 用户 → 用户列表</strong> 创建一个子用户，访问方式选择“编程访问”。</li>
+          <li>给子用户授予机器翻译相关权限，例如 <strong>QcloudTMTFullAccess</strong>。如果你很熟悉 CAM，也可以收窄到实际调用所需权限。</li>
+          <li>在该用户的 <strong>API 密钥</strong> 页创建密钥，并立即复制 <strong>SecretId</strong> 和 <strong>SecretKey</strong>。</li>
+          <li>如果只是临时测试，也可以从 <strong>访问管理 → API 密钥管理</strong> 使用主账号密钥；长期使用不推荐。</li>
+        </ol>
+      </section>
+
+      <section class="content-card">
+        <h2>3. 填写 EnglishFlow</h2>
+        <ol class="step-list">
+          <li>打开 EnglishFlow 设置页，进入 <strong>AI 与 API → 阅读与基础翻译服务</strong>。</li>
+          <li>选择 <strong>腾讯云机器翻译</strong>。</li>
+          <li>填写 SecretId、SecretKey 和 Region。常见 Region 可先试 <code>ap-guangzhou</code>，也可以按腾讯云控制台/API Explorer 显示填写。</li>
+          <li>点击 <strong>测试阅读翻译</strong>。成功后点 <strong>保存阅读翻译设置</strong>。</li>
+        </ol>
+
+        <h2>排错清单</h2>
+        <div class="check-grid">
+          <div class="check-card"><b>AuthFailure.SignatureFailure</b><span>通常是 SecretKey 填错，或复制时多了空格。</span></div>
+          <div class="check-card"><b>UnauthorizedOperation</b><span>检查子用户是否有机器翻译权限。</span></div>
+          <div class="check-card"><b>Region 错误</b><span>确认 Region 形如 <code>ap-guangzhou</code>，不是城市中文名。</span></div>
+          <div class="check-card"><b>额度耗尽</b><span>查看机器翻译控制台的资源包、后付费和账单状态。</span></div>
+        </div>
+
+        <div class="note"><p><strong>价格以官网为准：</strong>腾讯云计费文档 2026-07-15 显示，文本翻译每月 500 万字符免费额度，后付费 0-100 百万字符梯度为 58 元/百万字符；腾讯云可能调整额度和价格，最终以控制台与<a href="https://cloud.tencent.com/document/product/551/35017" target="_blank" rel="noreferrer">官方计费概述</a>为准。</p></div>
+      </section>
+    </main>
+  </body>
+</html>

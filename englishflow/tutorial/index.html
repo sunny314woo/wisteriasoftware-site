@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FluentSocial AI API Key 申请教程 - Wisteria Software</title>
+    <link rel="stylesheet" href="api-guide.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">FluentSocial AI · API 教程</p>
+        <h1>API Key 申请与配置教程</h1>
+        <p class="lead">这里集中说明 FluentSocial AI 设置页里可选的个人 API 服务。价格、免费额度和模型名称可能变化，教程只保留操作路径和填写方式，最终以各服务商官网为准。</p>
+        <div class="guide-grid">
+          <a href="#deepseek"><strong>DeepSeek</strong><small>AI 写作、润色与推荐回复</small></a>
+          <a href="#openai-compatible"><strong>OpenAI-compatible / 自定义</strong><small>OpenAI 或兼容接口的 Endpoint、模型与 Key</small></a>
+          <a href="#deepl"><strong>DeepL API</strong><small>阅读与基础翻译</small></a>
+          <a href="#microsoft"><strong>Microsoft Translator</strong><small>Azure Translator 资源、Key 与 Region</small></a>
+          <a href="#tencent"><strong>腾讯云机器翻译</strong><small>SecretId、SecretKey 与 Region</small></a>
+        </div>
+      </section>
+
+      <section id="deepseek" class="content-card guide-section">
+        <p class="eyebrow">AI 写作与回复</p>
+        <h2>DeepSeek API Key</h2>
+        <p>适用于 FluentSocial AI 的润色、语气改写、写作和上下文回复。你需要准备 Endpoint、模型名和 API Key。</p>
+        <div class="hero-actions">
+          <a class="official-link" href="https://platform.deepseek.com/api_keys" target="_blank" rel="noreferrer">打开 DeepSeek API Keys ↗</a>
+          <a class="official-link secondary" href="https://api-docs.deepseek.com/quick_start/pricing/" target="_blank" rel="noreferrer">查看官方价格 ↗</a>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card"><b>Endpoint</b><span><code>https://api.deepseek.com</code></span></div>
+          <div class="summary-card"><b>模型</b><span>按 DeepSeek 官方模型列表填写可调用 ID</span></div>
+          <div class="summary-card"><b>计费</b><span>按 tokens 计费，余额和价格以 DeepSeek 控制台为准</span></div>
+        </div>
+        <ol class="step-list">
+          <li>登录 DeepSeek 开放平台，进入 <strong>API Keys</strong> 页面。</li>
+          <li>创建新的 API Key，并立即复制完整 Key；关闭弹窗后通常无法再次查看。</li>
+          <li>确认账户余额可用，并从官方文档复制当前可调用的模型 ID。</li>
+          <li>回到 FluentSocial AI 设置页，进入 <strong>AI 与 API → AI 写作与回复</strong>。</li>
+          <li>选择 <strong>DeepSeek（Pro）</strong>，填写 Endpoint、模型名和 API Key，点击 <strong>测试 API Key</strong>，成功后保存。</li>
+        </ol>
+        <div class="check-grid">
+          <div class="check-card"><b>401 Unauthorized</b><span>Key 填错、Key 已删除，或复制时包含多余空格。</span></div>
+          <div class="check-card"><b>Insufficient balance</b><span>账户余额不足，需要充值或等待赠送额度到账。</span></div>
+          <div class="check-card"><b>Model not found</b><span>模型名不可用或已弃用，回到官方模型列表复制最新 ID。</span></div>
+          <div class="check-card"><b>连接超时</b><span>稍后重试，并确认网络可以访问 DeepSeek API 域名。</span></div>
+        </div>
+        <div class="note"><p><strong>价格以官网为准：</strong>DeepSeek 模型名、兼容名和 token 价格会调整，请以官方 Models &amp; Pricing 页面为准。</p></div>
+      </section>
+
+      <section id="openai-compatible" class="content-card guide-section">
+        <p class="eyebrow">AI 写作与回复</p>
+        <h2>OpenAI-compatible / 自定义 API</h2>
+        <p>适用于 OpenAI 官方 API，或明确提供 OpenAI 兼容接口的模型服务。网页聊天地址不能直接当 API Endpoint 使用。</p>
+        <div class="hero-actions">
+          <a class="official-link" href="https://platform.openai.com/api-keys" target="_blank" rel="noreferrer">创建 OpenAI API Key ↗</a>
+          <a class="official-link secondary" href="https://developers.openai.com/api/docs/pricing" target="_blank" rel="noreferrer">查看 OpenAI 官方价格 ↗</a>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card"><b>OpenAI Endpoint</b><span>通常为 <code>https://api.openai.com/v1</code></span></div>
+          <div class="summary-card"><b>兼容服务</b><span>Base URL 是否包含 <code>/v1</code> 以服务商文档为准</span></div>
+          <div class="summary-card"><b>模型</b><span>填写 API 模型 ID，不是营销展示名</span></div>
+        </div>
+        <ol class="step-list">
+          <li>在服务商控制台开通 API，并创建 API Key。</li>
+          <li>从官方开发文档复制 <strong>Base URL / API Endpoint</strong>。</li>
+          <li>复制一个支持对话或文本生成的准确模型 ID。</li>
+          <li>回到 FluentSocial AI 设置页，将“调用方式”设为 <strong>OpenAI-compatible / 自定义（Pro）</strong>。</li>
+          <li>依次填写模型、API Endpoint 和 API Key，点击 <strong>测试 API Key</strong>，成功后保存。</li>
+        </ol>
+        <div class="check-grid">
+          <div class="check-card"><b>401 Unauthorized</b><span>Key 无效、Key 被删除，或当前项目/组织不匹配。</span></div>
+          <div class="check-card"><b>404 Not Found</b><span>Endpoint 路径不对，检查是否缺少或多写了 <code>/v1</code>。</span></div>
+          <div class="check-card"><b>Model not found</b><span>模型 ID 不可用，或你的账户没有该模型权限。</span></div>
+          <div class="check-card"><b>余额/限速错误</b><span>检查服务商账单、额度、限速和区域访问限制。</span></div>
+        </div>
+        <div class="note"><p><strong>价格以官网为准：</strong>OpenAI 和第三方兼容服务各自计费，请以你选择的服务商最新价格页为准。</p></div>
+      </section>
+
+      <section id="deepl" class="content-card guide-section">
+        <p class="eyebrow">阅读与基础翻译</p>
+        <h2>DeepL API Key</h2>
+        <p>适用于页面、划词和右键直译。FluentSocial AI 会按 Key 类型选择 DeepL 端点：旧 Free key 走 Free 端点，付费或新版 API key 走正式端点。</p>
+        <div class="hero-actions">
+          <a class="official-link" href="https://www.deepl.com/your-account/keys" target="_blank" rel="noreferrer">打开 DeepL API Keys ↗</a>
+          <a class="official-link secondary" href="https://developers.deepl.com/docs/getting-started/auth" target="_blank" rel="noreferrer">查看官方鉴权说明 ↗</a>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card"><b>需要填写</b><span>DeepL Authentication Key</span></div>
+          <div class="summary-card"><b>Key 格式</b><span>Free 旧账户常见后缀为 <code>:fx</code></span></div>
+          <div class="summary-card"><b>计费</b><span>API Free / Developer / Growth 等套餐以 DeepL 账户页面为准</span></div>
+        </div>
+        <ol class="step-list">
+          <li>登录 DeepL 账户，进入 <strong>Account → API Keys &amp; Limits</strong>。</li>
+          <li>确认账户支持 DeepL API；普通网页翻译或桌面端账号不一定包含 API。</li>
+          <li>创建或复制 Authentication Key，并按需要在 DeepL 账户里设置 Usage limit。</li>
+          <li>回到 FluentSocial AI 设置页，进入 <strong>AI 与 API → 阅读与基础翻译服务</strong>。</li>
+          <li>选择 <strong>DeepL API</strong>，粘贴 Key，点击 <strong>测试阅读翻译</strong>，成功后保存。</li>
+        </ol>
+        <div class="check-grid">
+          <div class="check-card"><b>403 Forbidden</b><span>检查 Key 是否来自 DeepL API 账户，以及是否复制完整。</span></div>
+          <div class="check-card"><b>456 Quota exceeded</b><span>本月额度或账户限额已用完，需要等重置或升级套餐。</span></div>
+          <div class="check-card"><b>Key 无法新建</b><span>确认当前套餐是否支持创建新的 API Key。</span></div>
+          <div class="check-card"><b>翻译和网页不一致</b><span>API 套餐与网页版 DeepL Pro 是不同产品，能力和额度不完全相同。</span></div>
+        </div>
+        <div class="note"><p><strong>价格以官网为准：</strong>DeepL 帮助中心当前说明，API Free 已无法新购；存量 Free 额度、可用地区和套餐命名请以 DeepL 账户页面为准。</p></div>
+      </section>
+
+      <section id="microsoft" class="content-card guide-section">
+        <p class="eyebrow">阅读与基础翻译</p>
+        <h2>Microsoft Translator API Key</h2>
+        <p>先在 Azure 创建 Translator 资源，再把该资源的 Key 和 Region 填入 FluentSocial AI。</p>
+        <div class="hero-actions">
+          <a class="official-link" href="https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation" target="_blank" rel="noreferrer">创建 Translator 资源 ↗</a>
+          <a class="official-link secondary" href="https://learn.microsoft.com/azure/ai-services/translator/how-to/create-translator-resource" target="_blank" rel="noreferrer">查看官方教程 ↗</a>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card"><b>需要填写</b><span>Azure Key、Region</span></div>
+          <div class="summary-card"><b>免费层</b><span>F0 通常包含每月免费标准翻译额度</span></div>
+          <div class="summary-card"><b>Region</b><span><code>eastus</code>、<code>westeurope</code>、<code>global</code> 等，以资源页面为准</span></div>
+        </div>
+        <ol class="step-list">
+          <li>登录 Azure Portal，搜索并创建 <strong>Translator</strong> 资源。</li>
+          <li>选择订阅、资源组、区域和定价层；个人低频使用可先看是否可选 F0 Free。</li>
+          <li>部署后进入资源的 <strong>Keys and Endpoint</strong>，复制 Key 1 或 Key 2，并记录同页 Region。</li>
+          <li>回到 FluentSocial AI 设置页，选择 <strong>Microsoft Translator</strong>。</li>
+          <li>填写 Key 和 Region，点击 <strong>测试阅读翻译</strong>，成功后保存。</li>
+        </ol>
+        <div class="check-grid">
+          <div class="check-card"><b>401/403</b><span>Key、Region 必须来自同一个 Translator 资源。</span></div>
+          <div class="check-card"><b>资源类型不对</b><span>确认创建的是 Translator 或兼容的 Azure AI services 资源。</span></div>
+          <div class="check-card"><b>Region 填错</b><span>不要填完整 Endpoint；只填资源页面上的区域值。</span></div>
+          <div class="check-card"><b>免费层不可选</b><span>免费层、区域和订阅资格受 Azure 账户限制，以 Azure Portal 显示为准。</span></div>
+        </div>
+        <div class="note"><p><strong>价格以官网为准：</strong>Azure Translator 的免费层、区域、币种和承诺用量价格会变化，请以 Azure 官方价格页为准。</p></div>
+      </section>
+
+      <section id="tencent" class="content-card guide-section">
+        <p class="eyebrow">阅读与基础翻译</p>
+        <h2>腾讯云机器翻译 API Key</h2>
+        <p>腾讯云机器翻译使用 SecretId、SecretKey 和 Region 三项信息。建议创建子用户并只授予机器翻译权限。</p>
+        <div class="hero-actions">
+          <a class="official-link" href="https://console.cloud.tencent.com/tmt" target="_blank" rel="noreferrer">打开机器翻译控制台 ↗</a>
+          <a class="official-link secondary" href="https://console.cloud.tencent.com/cam/capi" target="_blank" rel="noreferrer">打开 API 密钥管理 ↗</a>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card"><b>需要填写</b><span>SecretId、SecretKey、Region</span></div>
+          <div class="summary-card"><b>免费额度</b><span>文本翻译免费额度以腾讯云最新计费说明为准</span></div>
+          <div class="summary-card"><b>费用控制</b><span>可用腾讯云控制台管理后付费、资源包和账单提醒</span></div>
+        </div>
+        <ol class="step-list">
+          <li>登录腾讯云，完成实名认证，并在机器翻译控制台开通文本翻译服务。</li>
+          <li>推荐在 <strong>访问管理 → 用户</strong> 创建子用户，访问方式选择“编程访问”。</li>
+          <li>给子用户授予机器翻译相关权限，例如 <strong>QcloudTMTFullAccess</strong>。</li>
+          <li>在该用户的 API 密钥页创建密钥，复制 SecretId 和 SecretKey。</li>
+          <li>回到 FluentSocial AI 设置页，选择 <strong>腾讯云机器翻译</strong>，填写 SecretId、SecretKey 和 Region，测试成功后保存。</li>
+        </ol>
+        <div class="check-grid">
+          <div class="check-card"><b>AuthFailure.SignatureFailure</b><span>通常是 SecretKey 填错，或复制时多了空格。</span></div>
+          <div class="check-card"><b>UnauthorizedOperation</b><span>检查子用户是否有机器翻译权限。</span></div>
+          <div class="check-card"><b>Region 错误</b><span>确认 Region 形如 <code>ap-guangzhou</code>，不是城市中文名。</span></div>
+          <div class="check-card"><b>额度耗尽</b><span>查看机器翻译控制台的资源包、后付费和账单状态。</span></div>
+        </div>
+        <div class="note"><p><strong>价格以官网为准：</strong>腾讯云免费额度、后付费单价和停服规则可能调整，最终以腾讯云控制台与官方计费概述为准。</p></div>
+      </section>
+    </main>
+  </body>
+</html>

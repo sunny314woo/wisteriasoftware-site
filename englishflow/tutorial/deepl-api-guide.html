@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeepL API Key 申请教程 - EnglishFlow</title>
+    <link rel="stylesheet" href="api-guide.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="eyebrow">EnglishFlow · 阅读翻译</p>
+        <h1>DeepL API Key 申请教程</h1>
+        <p class="lead">DeepL 适合网页、划词和右键直译。EnglishFlow 会按 Key 类型选择 DeepL API 端点：旧 Free key 走 Free 端点，付费或新版 API key 走正式端点。</p>
+        <div class="hero-actions">
+          <a class="official-link" href="https://www.deepl.com/your-account/keys" target="_blank" rel="noreferrer">打开 DeepL API Keys ↗</a>
+          <a class="official-link secondary" href="https://developers.deepl.com/docs/getting-started/auth" target="_blank" rel="noreferrer">查看官方鉴权说明 ↗</a>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-card"><b>EnglishFlow 需要</b><span>DeepL Authentication Key</span></div>
+          <div class="summary-card"><b>Key 格式</b><span>Free 旧账户常见后缀为 <code>:fx</code></span></div>
+          <div class="summary-card"><b>当前计费口径</b><span>API Free 已无法新购；存量 Free 每月 500,000 字符</span></div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h2>1. 确认你有 DeepL API 账户</h2>
+        <ol class="step-list">
+          <li>登录 DeepL 账户，进入 <strong>Account → API Keys &amp; Limits</strong>。</li>
+          <li>如果页面能看到 API Key，说明这是 DeepL API 账户；普通网页翻译/桌面端账号不一定包含 API。</li>
+          <li>如果是新用户，DeepL 官方现在主推 Developer / Growth / Enterprise API，Free 和 Pro API 是否可用以账户页面为准。</li>
+        </ol>
+      </section>
+
+      <section class="content-card">
+        <h2>2. 创建或复制 Key</h2>
+        <ol class="step-list">
+          <li>在 <strong>API Keys &amp; Limits</strong> 中点击 <strong>Create key</strong>。</li>
+          <li>给 Key 起一个容易识别的名字，例如 <code>EnglishFlow Chrome</code>。</li>
+          <li>创建后复制完整 Key。DeepL 官方建议密钥保密；不要把它放进截图、聊天记录或代码仓库。</li>
+          <li>需要控制花费时，可以在 DeepL 账户里设置 Usage limit。</li>
+        </ol>
+      </section>
+
+      <section class="content-card">
+        <h2>3. 填写 EnglishFlow</h2>
+        <ol class="step-list">
+          <li>打开 EnglishFlow 设置页，进入 <strong>AI 与 API → 阅读与基础翻译服务</strong>。</li>
+          <li>选择 <strong>DeepL API</strong>。</li>
+          <li>把 Key 粘贴到 <strong>DeepL API Key</strong> 输入框。</li>
+          <li>点击 <strong>测试阅读翻译</strong>。成功后点 <strong>保存阅读翻译设置</strong>。</li>
+        </ol>
+
+        <h2>排错清单</h2>
+        <div class="check-grid">
+          <div class="check-card"><b>403 Forbidden</b><span>检查 Key 是否来自 DeepL API 账户，以及是否复制完整。</span></div>
+          <div class="check-card"><b>456 Quota exceeded</b><span>本月额度或账户限额已用完，需要等重置或升级套餐。</span></div>
+          <div class="check-card"><b>Key 无法新建</b><span>确认当前套餐是否支持创建新的 API Key。</span></div>
+          <div class="check-card"><b>翻译和网页不一致</b><span>API 套餐与网页版 DeepL Pro 是不同产品，能力和额度不完全相同。</span></div>
+        </div>
+
+        <div class="note"><p><strong>价格以官网为准：</strong>DeepL 帮助中心当前说明，API Free 已无法新购；存量 API Free 每月可免费翻译 500,000 字符。套餐命名、可用地区和额度会变化，请以 <a href="https://support.deepl.com/hc/en-us/articles/360021200939-DeepL-API-plans" target="_blank" rel="noreferrer">DeepL API plans</a> 与账户页面为准。</p></div>
+      </section>
+    </main>
+  </body>
+</html>
