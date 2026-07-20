@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;750&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="englishflow.css?v=20260718-brand-bridge" />
+  <link rel="stylesheet" href="englishflow.css?v=20260720-direct-checkout" />
   <link rel="icon" href="../favicon.ico" sizes="any" />
   <script type="application/ld+json">
   {
@@ -175,7 +175,7 @@
             <div><h3>Monthly</h3><p>Flexible month-to-month access</p></div>
             <div class="price"><strong>$6</strong><span>/ month</span></div>
             <ul><li>Built-in AI usage included</li><li>No API key required</li><li>Cancel anytime</li></ul>
-            <a class="button button-secondary" href="purchase.html?plan=MONTHLY">Choose Monthly</a>
+            <a class="button button-secondary" href="purchase.html?plan=MONTHLY" data-paddle-price-id="pri_01kxfqkjc3fa8ckcj0z2bpbbt5">Choose Monthly</a>
           </article>
           <article class="price-card annual-card">
             <span class="plan-badge">Most convenient</span>
@@ -183,7 +183,7 @@
             <div class="price"><strong>$49</strong><span>/ year</span></div>
             <p class="price-detail">$4.08/month, billed annually</p>
             <ul><li>Built-in AI usage included</li><li>No API key required</li><li>Save $23 compared with monthly</li></ul>
-            <a class="button button-secondary purple-outline" href="purchase.html?plan=ANNUAL">Choose Annual</a>
+            <a class="button button-secondary purple-outline" href="purchase.html?plan=ANNUAL" data-paddle-price-id="pri_01kxdy8k28zdsq3p3j4gabfspg">Choose Annual</a>
           </article>
         </div>
       </div>
@@ -195,10 +195,11 @@
           <div class="lifetime-main"><h3>Lifetime BYOK</h3><p>One-time purchase for users with their own DeepSeek API key.</p><div class="price"><strong>$59</strong><span>one-time</span></div></div>
           <ul><li>Lifetime access to FluentSocial AI</li><li>Use your own DeepSeek API key</li><li>API key remains in your browser</li></ul>
           <ul class="limit-list"><li>Built-in AI usage is not included</li><li>DeepSeek API charges are paid separately</li></ul>
-          <a class="button button-primary lifetime-button" href="purchase.html?plan=LIFETIME">Choose Lifetime BYOK</a>
+          <a class="button button-primary lifetime-button" href="purchase.html?plan=LIFETIME" data-paddle-price-id="pri_01kxdy52y2yna3mqh6jrv25rzd">Choose Lifetime BYOK</a>
         </article>
       </div>
       <p class="tax-note">Prices are in USD. Applicable taxes may be added by Paddle at checkout.</p>
+      <p id="checkoutStatus" class="purchase-status pricing-checkout-status" role="status"></p>
     </section>
 
     <section class="section faq-section page-shell">
@@ -229,7 +230,7 @@
   </footer>
 
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
-  <script src="product.js?v=20260718-fluentsocial-redesign"></script>
+  <script src="product.js?v=20260720-direct-checkout"></script>
   <script src="../analytics.js" defer></script>
 </body>
 </html>

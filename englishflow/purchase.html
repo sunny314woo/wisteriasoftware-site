@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;750&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="englishflow.css?v=20260718-fluentsocial-redesign" />
+  <link rel="stylesheet" href="englishflow.css?v=20260720-direct-checkout" />
   <link rel="icon" href="../favicon.ico" sizes="any" />
 </head>
 <body class="purchase-page">
@@ -19,27 +19,25 @@
   <main class="purchase-shell">
     <section class="purchase-copy">
       <p class="section-kicker">Confirm your plan</p>
-      <h1>Almost there.<br /><em>One email, then payment.</em></h1>
-      <p>Use the email you want connected to FluentSocial AI. Paddle will use the same address for checkout and your purchase receipt.</p>
+      <h1>Almost there.<br /><em>Continue securely with Paddle.</em></h1>
+      <p>Paddle collects your purchase email and payment details in one secure checkout. No FluentSocial AI account is required before payment.</p>
       <div class="purchase-plan-note" aria-live="polite">
         <span id="purchasePlanKicker">Selected plan</span>
         <strong id="purchasePlanName">Annual</strong>
         <p id="purchasePlanDetail">US$49 per year · hosted AI included · no API key required.</p>
       </div>
-      <ul><li>No verification code before payment</li><li>Monthly and Annual can be cancelled in FluentSocial AI settings</li><li>Lifetime BYOK requires your own DeepSeek API key</li></ul>
+      <ul><li>No account or verification code before payment</li><li>Monthly and Annual can be cancelled in FluentSocial AI settings</li><li>Lifetime BYOK requires your own DeepSeek API key</li></ul>
       <a href="./">← Back to pricing</a>
     </section>
 
     <section class="purchase-card" aria-live="polite">
-      <div class="purchase-step"><span>1</span><div><strong>Continue with your account email</strong><p>Already signed in to the extension? Use that same email here.</p></div></div>
-      <form id="emailForm" class="purchase-form">
-        <label for="purchaseEmail">Email address</label>
-        <div class="purchase-input-row"><input id="purchaseEmail" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required /><button id="continueCheckoutButton" class="button button-primary" type="submit">Continue to payment</button></div>
-      </form>
+      <div class="purchase-step"><span>1</span><div><strong>Complete checkout with Paddle</strong><p>Your Paddle receipt email becomes the email for your FluentSocial AI purchase.</p></div></div>
+      <button id="openCheckoutButton" class="button button-primary purchase-open-button" type="button">Open secure checkout</button>
       <p id="purchaseStatus" class="purchase-status" role="status"></p>
       <p class="purchase-fineprint">Paddle is Merchant of Record. Your card details never pass through Wisteria Software servers.</p>
     </section>
   </main>
-  <script src="purchase.js?v=20260718-fluentsocial-redesign"></script>
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+  <script src="purchase.js?v=20260720-direct-checkout"></script>
 </body>
 </html>

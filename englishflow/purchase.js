@@ -1,17 +1,28 @@
 (function () {
-  var API_BASE = "https://account.wisteriasoftware.uk/api/account/v1";
+  var CLIENT_TOKEN = "live_3d23a490eb6f34c96ae919a7b4c";
   var plans = {
-    MONTHLY: { name: "Monthly", detail: "US$6 per month · hosted AI included · no API key required." },
-    ANNUAL: { name: "Annual", detail: "US$49 per year · hosted AI included · save US$23 compared with monthly." },
-    LIFETIME: { name: "Lifetime BYOK", detail: "US$59 one-time · requires your own DeepSeek API key · hosted AI not included." }
+    MONTHLY: {
+      name: "Monthly",
+      detail: "US$6 per month · hosted AI included · no API key required.",
+      priceId: "pri_01kxfqkjc3fa8ckcj0z2bpbbt5"
+    },
+    ANNUAL: {
+      name: "Annual",
+      detail: "US$49 per year · hosted AI included · save US$23 compared with monthly.",
+      priceId: "pri_01kxdy8k28zdsq3p3j4gabfspg"
+    },
+    LIFETIME: {
+      name: "Lifetime BYOK",
+      detail: "US$59 one-time · requires your own DeepSeek API key · hosted AI not included.",
+      priceId: "pri_01kxdy52y2yna3mqh6jrv25rzd"
+    }
   };
   var selectedPlan = new URLSearchParams(window.location.search).get("plan") || "ANNUAL";
   if (!plans[selectedPlan]) selectedPlan = "ANNUAL";
 
-  var emailForm = document.querySelector("#emailForm");
-  var emailInput = document.querySelector("#purchaseEmail");
-  var checkoutButton = document.querySelector("#continueCheckoutButton");
+  var openButton = document.querySelector("#openCheckoutButton");
   var status = document.querySelector("#purchaseStatus");
+  var checkoutOpened = false;
 
   document.querySelector("#purchasePlanName").textContent = plans[selectedPlan].name;
   document.querySelector("#purchasePlanDetail").textContent = plans[selectedPlan].detail;
@@ -21,67 +32,78 @@
     status.classList.toggle("is-error", Boolean(error));
   }
 
-  function setBusy(busy) {
-    checkoutButton.disabled = busy;
-    checkoutButton.textContent = busy ? "Opening checkout…" : "Continue to payment";
-  }
-
-  function message(error) {
-    return error && error.message ? error.message : "Something went wrong. Please try again.";
-  }
-
-  async function request(path, options) {
-    var response;
-    try {
-      response = await window.fetch(API_BASE + path, Object.assign({
-        headers: { "Accept": "application/json" },
-        cache: "no-store"
-      }, options || {}));
-    } catch (_) {
-      throw new Error("Could not reach the FluentSocial AI account service. Check your connection and try again.");
-    }
-    var text = await response.text();
-    var body = {};
-    try { body = text ? JSON.parse(text) : {}; } catch (_) {}
-    if (!response.ok) {
-      var detail = body && body.detail;
-      throw new Error(typeof detail === "string" ? detail : "Checkout could not be prepared. Please try again.");
-    }
-    return body;
-  }
-
-  function approvedCheckout(checkout) {
-    if (!checkout || checkout.plan !== selectedPlan) return null;
-    var destination = new URL(checkout.checkout_url, window.location.origin);
-    var validPath = destination.pathname === "/englishflow/checkout.html" ||
-      destination.pathname === "/englishflow/checkout";
-    if (destination.origin !== window.location.origin || !validPath ||
-        !/^txn_[a-z0-9]+$/.test(destination.searchParams.get("_ptxn") || "")) {
-      return null;
-    }
-    return destination;
-  }
-
-  emailForm.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    var email = emailInput.value.trim().toLowerCase();
-    if (!email) return;
-    setBusy(true);
-    setStatus("Preparing your secure Paddle checkout…");
-    try {
-      var checkout = await request("/payments/guest-checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email: email, plan: selectedPlan })
-      });
-      var destination = approvedCheckout(checkout);
-      if (!destination) {
-        throw new Error("Checkout is not configured for the approved Wisteria domain. Please contact support.");
+  function transactionFromEvent(event) {
+    var data = event && event.data ? event.data : {};
+    var candidates = [
+      data.transaction_id,
+      data.transactionId,
+      data.transaction && data.transaction.id,
+      data.checkout && data.checkout.transaction_id,
+      data.id
+    ];
+    for (var i = 0; i < candidates.length; i += 1) {
+      if (typeof candidates[i] === "string" && candidates[i].indexOf("txn_") === 0) {
+        return candidates[i];
       }
-      window.location.assign(destination.toString());
-    } catch (error) {
-      setStatus(message(error), true);
-      setBusy(false);
     }
-  });
+    return "";
+  }
+
+  function complete(event) {
+    var transactionId = transactionFromEvent(event);
+    var destination = "/englishflow/payment-complete.html";
+    if (transactionId) destination += "?transaction_id=" + encodeURIComponent(transactionId);
+    window.location.href = destination;
+  }
+
+  function openCheckout() {
+    if (!window.Paddle) {
+      setStatus("Paddle is temporarily unavailable. Check your connection and try again.", true);
+      return;
+    }
+    setStatus("Opening secure Paddle checkout…");
+    try {
+      window.Paddle.Checkout.open({
+        items: [{ priceId: plans[selectedPlan].priceId, quantity: 1 }],
+        customData: {
+          checkout_mode: "guest",
+          product_id: "com.wisteria.englishflow"
+        },
+        settings: {
+          displayMode: "overlay",
+          variant: "one-page",
+          allowLogout: true,
+          theme: "light",
+          successUrl: "https://wisteriasoftware.uk/englishflow/payment-complete.html"
+        }
+      });
+      checkoutOpened = true;
+      openButton.textContent = "Reopen secure checkout";
+      setStatus("Enter your email and payment details in Paddle.");
+    } catch (error) {
+      setStatus("Checkout could not be opened. Please try again.", true);
+    }
+  }
+
+  if (!window.Paddle) {
+    setStatus("Paddle is temporarily unavailable. Check your connection and reload this page.", true);
+    return;
+  }
+
+  try {
+    window.Paddle.Initialize({
+      token: CLIENT_TOKEN,
+      eventCallback: function (event) {
+        if (!event) return;
+        if (event.name === "checkout.completed") complete(event);
+        if (event.name === "checkout.closed" && checkoutOpened) {
+          setStatus("Nothing was charged. Reopen checkout when you are ready.");
+        }
+      }
+    });
+    openButton.addEventListener("click", openCheckout);
+    window.setTimeout(openCheckout, 0);
+  } catch (error) {
+    setStatus("Checkout could not be initialized. Reload this page and try again.", true);
+  }
 })();
