@@ -203,6 +203,16 @@ const PADDLE_TXN_STORAGE_KEY = "paddle_checkout_txn";
 const PADDLE_TXN_STORAGE_TS_KEY = "paddle_checkout_txn_ts";
 const PADDLE_TXN_STORAGE_MAX_AGE_MS = 4 * 60 * 60 * 1000;
 
+function paymentText(key,fallback,replacements){
+let value=window.WisteriaI18n
+?window.WisteriaI18n.t(`runtime.paymentSuccess.${key}`,fallback)
+:fallback;
+Object.entries(replacements||{}).forEach(([name,replacement])=>{
+value=value.split(`{${name}}`).join(String(replacement));
+});
+return value;
+}
+
 const params=new URLSearchParams(window.location.search);
 const urlToken=params.get("token");
 const urlTransactionId=
@@ -239,7 +249,7 @@ return v;
 return null;
 }
 
-(async function init(){
+async function init(){
 var txnId=urlTransactionId||takeStoredTransactionId();
 if(urlToken){
 currentToken=urlToken;
@@ -249,7 +259,14 @@ await exchangeToken(txnId);
 }else{
 showSimpleSuccess();
 }
-})();
+}
+
+// Deferred i18n scripts run before DOMContentLoaded, so dynamic status text can use the active locale.
+if(document.readyState==="loading"){
+document.addEventListener("DOMContentLoaded",init,{once:true});
+}else{
+init();
+}
 
 async function exchangeToken(transactionId){
 exchangeAttempts++;
@@ -289,7 +306,7 @@ showLicense(data.short_code||data.license_string, data.resend_count);
 }else if(data.status==="expired"){
 showExpired();
 }else if(data.status==="not_found"){
-showError("⚠️ Invalid session.");
+showError(paymentText("invalidSession","⚠️ Invalid session."));
 }else if(attempts<MAX_ATTEMPTS){
 setTimeout(pollLicense,POLL_INTERVAL);
 }else{
@@ -318,7 +335,7 @@ const status=document.getElementById("resend-status");
 resendCount=serverResendCount||0;
 if(resendCount>=MAX_RESEND){
 btn.disabled=true;
-status.innerHTML='<span style="color:#b45309;">⚠️ Maximum resend limit reached. Please check your inbox or spam folder.</span>';
+status.innerHTML=`<span style="color:#b45309;">${paymentText("maximumResendReached","⚠️ Maximum resend limit reached. Please check your inbox or spam folder.")}</span>`;
 }else{
 btn.disabled=false;
 }
@@ -326,12 +343,12 @@ btn.disabled=false;
 
 function showTimeout(){
 document.getElementById("license-status").innerHTML=
-'<p style="color:#888;">⏳ Still generating. Please check email soon.</p>';
+`<p style="color:#888;">${paymentText("stillGenerating","⏳ Still generating. Please check email soon.")}</p>`;
 }
 
 function showExpired(){
 document.getElementById("license-status").innerHTML=
-'<div class="expired-box"><p><strong>⏰ Session Expired</strong></p></div>';
+`<div class="expired-box"><p><strong>${paymentText("sessionExpiredTitle","⏰ Session Expired")}</strong></p></div>`;
 document.getElementById("resend-btn").disabled=true;
 }
 
@@ -343,8 +360,8 @@ document.getElementById("license-status").innerHTML=
 function showSimpleSuccess(){
 const statusEl=document.getElementById("license-status");
 statusEl.innerHTML=
-`<p style="color:#555;">Your payment is complete. Please check your email for your activation code and receipt from Paddle.</p>
-<p style="color:#888;font-size:13px;margin-top:8px;">If the activation code does not arrive within 20 minutes, contact support@wisteriasoftware.uk.</p>`;
+`<p style="color:#555;">${paymentText("paymentComplete","Your payment is complete. Please check your email for your activation code and receipt from Paddle.")}</p>
+<p style="color:#888;font-size:13px;margin-top:8px;">${paymentText("activationCodeDelay","If the activation code does not arrive within 20 minutes, contact support@wisteriasoftware.uk.")}</p>`;
 document.getElementById("resend-btn").disabled=true;
 }
 
@@ -362,7 +379,7 @@ function resendEmail(){
 if(!currentToken||!licenseReady||resendCooldown)return;
 if(resendCount>=MAX_RESEND){
 document.getElementById("resend-status").innerHTML=
-'<span style="color:#b45309;">⚠️ Maximum resend limit reached. Please check your inbox or spam folder.</span>';
+`<span style="color:#b45309;">${paymentText("maximumResendReached","⚠️ Maximum resend limit reached. Please check your inbox or spam folder.")}</span>`;
 document.getElementById("resend-btn").disabled=true;
 return;
 }
@@ -372,7 +389,7 @@ const status=document.getElementById("resend-status");
 
 btn.disabled=true;
 resendCooldown=true;
-status.innerHTML='<span style="color:#888;">Sending...</span>';
+status.innerHTML=`<span style="color:#888;">${paymentText("sending","Sending...")}</span>`;
 
 const url=`${API_BASE}/api/public/resend-email?token=${encodeURIComponent(currentToken)}`;
 
@@ -382,30 +399,30 @@ fetch(url,{method:"POST",headers:{"Content-Type":"application/json","ngrok-skip-
 if(data.status==="ok"){
 resendCount++;
 if(resendCount>=MAX_RESEND){
-status.innerHTML='<span style="color:green;">✅ Email sent! (No more resends available)</span>';
-btn.textContent="📧 Resend License Email";
+status.innerHTML=`<span style="color:green;">${paymentText("emailSentNoMore","✅ Email sent! (No more resends available)")}</span>`;
+btn.textContent=paymentText("resendButton","📧 Resend License Email");
 btn.disabled=true;
 resendCooldown=false;
 }else{
-status.innerHTML=`<span style="color:green;">✅ Email sent! (${MAX_RESEND-resendCount} resend remaining)</span>`;
+status.innerHTML=`<span style="color:green;">${paymentText("emailSentRemaining","✅ Email sent! ({count} resend remaining)",{count:MAX_RESEND-resendCount})}</span>`;
 startCooldown(btn,60);
 }
 }else if(data.status==="limit_reached"){
-status.innerHTML='<span style="color:#b45309;">⚠️ Maximum resend limit reached. Please check your inbox or spam folder.</span>';
+status.innerHTML=`<span style="color:#b45309;">${paymentText("maximumResendReached","⚠️ Maximum resend limit reached. Please check your inbox or spam folder.")}</span>`;
 btn.disabled=true;
 resendCooldown=false;
 }else if(data.status==="expired"){
-status.innerHTML='<span style="color:#b45309;">⏰ Session expired. Please check your email inbox.</span>';
+status.innerHTML=`<span style="color:#b45309;">${paymentText("sessionExpiredInbox","⏰ Session expired. Please check your email inbox.")}</span>`;
 btn.disabled=true;
 resendCooldown=false;
 }else{
-status.innerHTML='<span style="color:red;">❌ Failed.</span>';
+status.innerHTML=`<span style="color:red;">${paymentText("failed","❌ Failed.")}</span>`;
 btn.disabled=false;
 resendCooldown=false;
 }
 })
 .catch(()=>{
-status.innerHTML='<span style="color:red;">❌ Network error.</span>';
+status.innerHTML=`<span style="color:red;">${paymentText("networkError","❌ Network error.")}</span>`;
 btn.disabled=false;
 resendCooldown=false;
 });
@@ -413,16 +430,16 @@ resendCooldown=false;
 
 function startCooldown(btn,sec){
 let r=sec;
-btn.textContent=`📧 Resend (${r}s)`;
+btn.textContent=paymentText("resendCountdown","📧 Resend ({seconds}s)",{seconds:r});
 const timer=setInterval(()=>{
 r--;
 if(r<=0){
 clearInterval(timer);
-btn.textContent="📧 Resend License Email";
+btn.textContent=paymentText("resendButton","📧 Resend License Email");
 btn.disabled=false;
 resendCooldown=false;
 }else{
-btn.textContent=`📧 Resend (${r}s)`;
+btn.textContent=paymentText("resendCountdown","📧 Resend ({seconds}s)",{seconds:r});
 }
 },1000);
 }

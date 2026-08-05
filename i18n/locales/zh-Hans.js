@@ -37,6 +37,25 @@
       company:
         "© 2026 Wisteria Software Ltd.<br />在英格兰和威尔士注册。<br />公司编号：16965144<br />邮箱：",
     },
+    runtime: {
+      paymentSuccess: {
+        invalidSession: "⚠️ 无效的会话。",
+        maximumResendReached: "⚠️ 已达到重新发送次数上限。请检查收件箱或垃圾邮件文件夹。",
+        stillGenerating: "⏳ 仍在生成中，请稍后查看邮箱。",
+        sessionExpiredTitle: "⏰ 会话已过期",
+        paymentComplete: "支付已完成。请查看邮箱中的激活码和 Paddle 收据。",
+        activationCodeDelay:
+          "如果 20 分钟内仍未收到激活码，请联系 support@wisteriasoftware.uk。",
+        sending: "正在发送...",
+        emailSentNoMore: "✅ 邮件已发送！（已无可用重发次数）",
+        emailSentRemaining: "✅ 邮件已发送！（还可重新发送 {count} 次）",
+        sessionExpiredInbox: "⏰ 会话已过期。请检查邮箱收件箱。",
+        failed: "❌ 发送失败。",
+        networkError: "❌ 网络错误。",
+        resendButton: "📧 重新发送许可邮件",
+        resendCountdown: "📧 重新发送（{seconds} 秒）",
+      },
+    },
     pages: {
       "index.html": {
         title: "Wisteria Software - Wisteria Suite",
