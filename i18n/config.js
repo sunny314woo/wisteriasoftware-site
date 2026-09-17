@@ -121,4 +121,19 @@
     semanticScript.dataset.wisteriaSemanticI18n = "1";
     document.head.appendChild(semanticScript);
   }
+
+  // Keep the public brand name, but make the product submenu visibly localized.
+  // This changes display text only; the href remains outline-pro.html.
+  function syncOutlineSaveMenuLabel() {
+    const item = document.querySelector('header nav .nav-submenu-link[data-i18n-key="outline-pro.html"]');
+    if (!item) return;
+    const language = (document.documentElement.lang || "").toLowerCase();
+    item.textContent = language === "zh-hans" || language.startsWith("zh-")
+      ? "OutlineSave 目录与导出"
+      : "OutlineSave";
+  }
+
+  document.addEventListener("DOMContentLoaded", syncOutlineSaveMenuLabel, { once: true });
+  const menuLanguageObserver = new MutationObserver(() => window.setTimeout(syncOutlineSaveMenuLabel, 0));
+  menuLanguageObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
 })();
