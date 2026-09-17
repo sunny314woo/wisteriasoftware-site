@@ -191,18 +191,6 @@
     return value;
   }
 
-  function setHtml(selector, html, language) {
-    const matches = document.querySelectorAll(selector);
-    if (!matches.length) {
-      recordMissing("selector", selector, language, pageKey());
-      return;
-    }
-    matches.forEach((element) => {
-      rememberOriginalHtml(element);
-      element.innerHTML = language === defaultLocale ? element.dataset.i18nOriginalHtml : html;
-    });
-  }
-
   function hrefFile(anchor) {
     const href = anchor.getAttribute("href") || "";
     return href.split("#")[0].split("?")[0].replace(/^\//, "");
@@ -395,24 +383,12 @@
     );
   }
 
-  /**
-   * 【MODIFIED】Applies page-level selector translations and records pages/selectors that fall back to English.
-   * @param {string} language - Locale currently being applied.
-   * Output: none.
-   * Side effects: mutates page DOM and metadata.
-   */
+  /** Applies page metadata only. Body translation is exclusively data-i18n key based. */
   function translatePage(language) {
     const dictionary = currentDictionary(language);
     const pageConfig = dictionary.pages && dictionary.pages[pageKey()];
-    if (!pageConfig) {
-      recordMissing("page", pageKey(), language, pageKey());
-      return;
-    }
-
+    if (!pageConfig) return;
     translatePageMetadata(pageConfig, language);
-    Object.entries(pageConfig.selectors || {}).forEach(([selector, html]) => {
-      setHtml(selector, html, language);
-    });
   }
 
   /**

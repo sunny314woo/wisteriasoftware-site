@@ -108,32 +108,4 @@
     legacyPathPrefixes: ["/zh-Hans"],
   };
 
-  // Load the semantic compatibility layer from a central place so existing pages
-  // do not need individual script-tag changes. Resolve from this config file's URL
-  // so root pages, legacy /zh-Hans/ pages and nested product pages all load it safely.
-  if (!document.querySelector('script[data-wisteria-semantic-i18n]')) {
-    const semanticScript = document.createElement("script");
-    const configUrl = document.currentScript && document.currentScript.src
-      ? new URL(document.currentScript.src, window.location.href)
-      : new URL("i18n/config.js", window.location.href);
-    semanticScript.src = new URL("../i18n-semantic.js", configUrl).href;
-    semanticScript.defer = true;
-    semanticScript.dataset.wisteriaSemanticI18n = "1";
-    document.head.appendChild(semanticScript);
-  }
-
-  // Keep the public brand name, but make the product submenu visibly localized.
-  // This changes display text only; the href remains outline-pro.html.
-  function syncOutlineSaveMenuLabel() {
-    const item = document.querySelector('header nav .nav-submenu-link[data-i18n-key="outline-pro.html"]');
-    if (!item) return;
-    const language = (document.documentElement.lang || "").toLowerCase();
-    item.textContent = language === "zh-hans" || language.startsWith("zh-")
-      ? "OutlineSave 目录与导出"
-      : "OutlineSave";
-  }
-
-  document.addEventListener("DOMContentLoaded", syncOutlineSaveMenuLabel, { once: true });
-  const menuLanguageObserver = new MutationObserver(() => window.setTimeout(syncOutlineSaveMenuLabel, 0));
-  menuLanguageObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
 })();

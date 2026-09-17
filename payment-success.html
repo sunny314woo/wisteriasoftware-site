@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Payment Successful</title>
-<meta name="description" content="Payment successful. Activate your Outline license." />
-<meta name="robots" content="noindex, nofollow" />
-  <link rel="stylesheet" href="style.css?v=20260718-layout-polish" />
-<link rel="icon" href="favicon.ico" sizes="any" />
-<link rel="icon" href="favicon.svg" type="image/svg+xml" />
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png" />
-<link rel="manifest" href="site.webmanifest" />
-<meta name="theme-color" content="#6d3fcb" />
+<meta name="description" content="Payment successful. Activate your Outline license.">
+<meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="style.css?v=20260718-layout-polish">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#6d3fcb">
 
 <style>
 #license-box { display:none;margin:16px 0;}
@@ -100,8 +98,8 @@ animation:spin 1s linear infinite;
 
 <div class="hero" style="text-align:center;">
 <div style="font-size:40px;margin-bottom:8px;">✅</div>
-<h1 style="font-size:22px;margin:0 0 8px;">🎉 Payment Successful!</h1>
-<p class="subtitle" style="font-size:14px;line-height:1.6;color:#555;margin:0 auto;max-width:480px;">
+<h1 style="font-size:22px;margin:0 0 8px;" data-i18n="content.payment_success.m001">🎉 Payment Successful!</h1>
+<p class="subtitle" style="font-size:14px;line-height:1.6;color:#555;margin:0 auto;max-width:480px;" data-i18n="content.payment_success.m002">
 Your payment has been completed successfully.<br>
 You now have a <strong>1-year subscription</strong>
 to <strong>Outline</strong>.
@@ -109,8 +107,8 @@ to <strong>Outline</strong>.
 </div>
 
 <section>
-<h2>Your Activation Code</h2>
-<p style="color:#888;font-size:14px;">
+<h2 data-i18n="content.payment_success.m003">Your Activation Code</h2>
+<p style="color:#888;font-size:14px;" data-i18n="content.payment_success.m004">
 Enter this code in the extension to activate your license.
 </p>
 
@@ -118,10 +116,10 @@ Enter this code in the extension to activate your license.
 <div class="waiting-card">
 <div class="waiting-icon">🔐</div>
 <div class="spinner"></div>
-<p class="waiting-text">
+<p class="waiting-text" data-i18n="content.payment_success.m005">
 Your license is being securely generated.
 </p>
-<p class="waiting-warning">
+<p class="waiting-warning" data-i18n="content.payment_success.m006">
 ⚠️ Please do not close this page.
 </p>
 </div>
@@ -134,33 +132,33 @@ Your license is being securely generated.
   </div>
 </div>
 <div style="margin-top:10px;text-align:center;">
-<button class="btn btn-primary" onclick="copyLicense()">📋 Copy Code</button>
-<span id="copy-tip" class="action-tip" style="color:green;display:none;">✓ Copied!</span>
+<button class="btn btn-primary" onclick="copyLicense()" data-i18n="content.payment_success.m017">📋 Copy Code</button>
+<span id="copy-tip" class="action-tip" style="color:green;display:none;" data-i18n="content.payment_success.m018">✓ Copied!</span>
 </div>
 </div>
 </section>
 
 <section>
-<h2>How to Activate</h2>
+<h2 data-i18n="content.payment_success.m007">How to Activate</h2>
 <ol>
-<li>Copy the activation code shown above.</li>
-<li>Open the extension and click <strong>Get Pro</strong>.</li>
-<li>Click <strong>Already have a license?</strong></li>
-<li>Enter your activation code and click <strong>Activate</strong>.</li>
+<li data-i18n="content.payment_success.m008">Copy the activation code shown above.</li>
+<li data-i18n="content.payment_success.m009">Open the extension and click <strong>Get Pro</strong>.</li>
+<li data-i18n="content.payment_success.m010">Click <strong>Already have a license?</strong></li>
+<li data-i18n="content.payment_success.m011">Enter your activation code and click <strong>Activate</strong>.</li>
 </ol>
 </section>
 
 <section>
-<h2>Important</h2>
+<h2 data-i18n="content.payment_success.m012">Important</h2>
 <div class="important-box">
-<p>🔐 Please keep your activation code safe.</p>
+<p data-i18n="content.payment_success.m013">🔐 Please keep your activation code safe.</p>
 </div>
 
 <div class="email-notice">
-<p>📧 A copy of your activation code has been sent to your email.</p>
-<p>If not received, click resend.</p>
+<p data-i18n="content.payment_success.m014">📧 A copy of your activation code has been sent to your email.</p>
+<p data-i18n="content.payment_success.m015">If not received, click resend.</p>
 <div class="resend-area">
-<button id="resend-btn" class="btn btn-secondary" onclick="resendEmail()" disabled>
+<button id="resend-btn" class="btn btn-secondary" onclick="resendEmail()" disabled="" data-i18n="content.payment_success.m016">
 📧 Resend License Email
 </button>
 <div id="resend-status"></div>
@@ -169,8 +167,8 @@ Your license is being securely generated.
 </section>
 
 <section>
-<h2>Need Help?</h2>
-<p>📧 support@wisteriasoftware.uk</p>
+<h2 data-i18n="content.payment_success.m019">Need Help?</h2>
+<p data-i18n="content.payment_success.m020">📧 support@wisteriasoftware.uk</p>
 </section>
 
 </main>
@@ -445,9 +443,10 @@ btn.textContent=paymentText("resendCountdown","📧 Resend ({seconds}s)",{second
 }
 </script>
 
-<script src="i18n/config.js" defer></script>
-<script src="i18n/locales/zh-Hans.js" defer></script>
-<script src="i18n.js" defer></script>
-<script src="analytics.js" defer></script>
-</body>
-</html>
+<script src="i18n/config.js" defer=""></script>
+<script src="i18n/locales/zh-Hans.js" defer=""></script>
+<script src="i18n.js" defer=""></script>
+<script src="analytics.js" defer=""></script>
+
+
+</body></html>
