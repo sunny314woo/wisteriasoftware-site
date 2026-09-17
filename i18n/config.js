@@ -107,4 +107,18 @@
     // 【MODIFIED】Legacy path pages are compatibility-only; the official first-stage language model is query/runtime.
     legacyPathPrefixes: ["/zh-Hans"],
   };
+
+  // Load the semantic compatibility layer from a central place so existing pages
+  // do not need individual script-tag changes. Resolve from this config file's URL
+  // so root pages, legacy /zh-Hans/ pages and nested product pages all load it safely.
+  if (!document.querySelector('script[data-wisteria-semantic-i18n]')) {
+    const semanticScript = document.createElement("script");
+    const configUrl = document.currentScript && document.currentScript.src
+      ? new URL(document.currentScript.src, window.location.href)
+      : new URL("i18n/config.js", window.location.href);
+    semanticScript.src = new URL("../i18n-semantic.js", configUrl).href;
+    semanticScript.defer = true;
+    semanticScript.dataset.wisteriaSemanticI18n = "1";
+    document.head.appendChild(semanticScript);
+  }
 })();
