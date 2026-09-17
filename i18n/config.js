@@ -1,7 +1,7 @@
 /*
  * 【MODIFIED】File purpose: central i18n configuration for the static Wisteria landing site.
  * Main functions: declares supported locales, aliases, shared navigation/footer structure, and compatibility routes.
- * Latest modification purpose: support the first-stage runtime/localStorage/query language strategy without changing English default URLs.
+ * Latest modification purpose: expose Help & Guides and Contact Support from the shared navigation without changing existing routes.
  */
 (function () {
   window.WISTERIA_I18N_CONFIG = {
@@ -70,7 +70,14 @@
             { href: "inbox.html", label: "Inbox" },
           ],
         },
-        { href: "support.html", label: "Support" },
+        {
+          href: "support.html",
+          label: "Support",
+          children: [
+            { href: "support.html#help-guides", label: "Help & Guides", i18nKey: "support-help-guides" },
+            { href: "support.html#contact", label: "Contact Support", i18nKey: "support-contact" },
+          ],
+        },
         {
           href: "privacy.html",
           label: "Privacy",
@@ -87,6 +94,7 @@
         { href: "outline-pro.html", label: "OutlineSave" },
         { href: "englishflow/", label: "FluentSocial AI" },
         { href: "inbox.html", label: "Inbox" },
+        { href: "support.html#help-guides", label: "Help & Guides" },
         { href: "support.html", label: "Support" },
         { href: "privacy.html", label: "Privacy Policy" },
         { href: "englishflow-privacy.html", label: "FluentSocial AI Privacy" },
