@@ -62,7 +62,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
     },
     "product.html": {
       "title": "产品 – Wisteria Software",
-      "description": "了解 Wisteria Suite 产品：面向 macOS 与浏览器的 OutlineSave、Inbox Capture、Inbox Local 与 EnglishFlow。"
+      "description": "了解 Wisteria Suite 产品：OutlineSave、EnglishFlow、Inbox、Inbox Capture，以及面向 Apple TV 的开源 Baby Player。"
     },
     "englishflow-privacy.html": {
       "title": "EnglishFlow 隐私政策 - Wisteria Software",
@@ -126,7 +126,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m013": "<strong>保留重点</strong>在信息消失前捕捉重要答案、研究片段、截图和笔记。",
       "m014": "<strong>建立第二大脑</strong>把有用的 AI 输出变成可复用的知识，并整理在你自己的设备上。",
       "m015": "Wisteria Suite",
-      "m016": "我们的产品套组遵循一个简单工作流：导航对话、捕捉重点，并把它们保存在本地优先的系统中，用于回顾和复用。",
+      "m016": "我们的产品聚焦实用、低打扰的工具：整理 AI 工作、跨语言交流、沉淀本地知识，以及更可控的家庭媒体播放。",
       "m017": "现已可用",
       "m018": "OutlineSave",
       "m019": "面向长 ChatGPT 和 Gemini 对话的智能侧边栏大纲。跳转消息、收藏重要问答，导出为 Markdown 或 HTML，并备份到你自己的 Google Drive。",
@@ -136,7 +136,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m023": "浏览器伴侣工具，用于把有价值的网页文本、截图、图片和笔记保存到你的知识工作流。",
       "m024": "查看 Inbox",
       "m025": "可下载",
-      "m026": "Inbox Local",
+      "m026": "Inbox",
       "m027": "本地优先的 macOS 应用，用于整理和回顾 AI 对话、捕捉材料与工作笔记。",
       "m028": "查看 Inbox",
       "m029": "现已可用",
@@ -147,7 +147,11 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m034": "为依赖 AI 的人服务",
       "m035": "Wisteria Software 面向那些希望 AI 工作更快、更安全、更可沉淀的人：在长线程中调试的开发者、保留推理和资料的科研人员、收集灵感的写作者，以及希望把每日 AI 输出变成长期知识的知识工作者。",
       "m036": "观看 OutlineSave 演示",
-      "m037": "探索产品套组"
+      "m037": "探索产品套组",
+      "m038": "开源",
+      "m039": "Baby Player",
+      "m040": "面向儿童与家庭本地媒体的开源 Apple TV 播放器。可浏览 Jellyfin 或 Samba 媒体源，使用双语歌词与字幕，并让家庭对播放内容保持更直接的控制。",
+      "m041": "GitHub（复制地址）："
     },
     "privacy": {
       "m001": "隐私政策",
@@ -203,7 +207,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
     },
     "product": {
       "m001": "产品",
-      "m002": "<strong>Wisteria Suite</strong> 包含面向 AI 原生工作流的工具：<strong>OutlineSave</strong>、<strong>Inbox Capture</strong>、<strong>适用于 macOS 的 Inbox Local</strong> 与 <strong>EnglishFlow</strong>。",
+      "m002": "<strong>Wisteria Suite</strong> 包含面向 AI 工作、跨语言交流、本地知识与家庭媒体的工具：<strong>OutlineSave</strong>、<strong>EnglishFlow</strong>、<strong>Inbox</strong>、<strong>Inbox Capture</strong> 与 <strong>Baby Player</strong>。",
       "m003": "当前付费产品",
       "m004": "OutlineSave",
       "m005": "用于导航长篇 ChatGPT 与 Gemini 对话、收藏重要问答，以及导出或备份聊天记录的 Chrome 扩展。",
@@ -243,7 +247,14 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m039": "查看隐私政策",
       "m040": "当前付费方案",
       "m041": "OutlineSave 在本站提供付费 Pro 方案。结账前请查看价格、激活与退款说明。",
-      "m042": "查看 OutlineSave 价格"
+      "m042": "查看 OutlineSave 价格",
+      "m043": "开源",
+      "m044": "Baby Player",
+      "m045": "面向儿童与家庭本地媒体的开源 Apple TV 播放器，强调家庭可控的本地播放体验。",
+      "m046": "在局域网内浏览并播放 Jellyfin 或 Samba 媒体源中的音乐视频",
+      "m047": "支持同步歌词、ASR 歌词与简体中文双语字幕工作流",
+      "m048": "识别到可信人声边界后，可为歌曲保存智能跳过片头与片尾的设置",
+      "m049": "GitHub（复制地址）："
     },
     "englishflow_privacy": {
       "m001": "EnglishFlow 隐私政策",

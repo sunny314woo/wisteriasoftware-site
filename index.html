@@ -2,19 +2,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Wisteria Software – Wisteria Suite</title>
-  <meta name="description" content="Wisteria Software builds Wisteria Suite: OutlineSave, Inbox Capture, Inbox Local for macOS, and EnglishFlow.">
+  <meta name="description" content="Wisteria Software builds Wisteria Suite: OutlineSave, EnglishFlow, Inbox, Inbox Capture, and the open-source Baby Player for Apple TV.">
   <link rel="canonical" href="https://wisteriasoftware.uk/">
   <link rel="alternate" hreflang="en" href="https://wisteriasoftware.uk/">
   <link rel="alternate" hreflang="zh-Hans" href="https://wisteriasoftware.uk/zh-Hans/">
   <link rel="alternate" hreflang="x-default" href="https://wisteriasoftware.uk/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Wisteria Software - Wisteria Suite">
-  <meta property="og:description" content="Practical tools for navigating, capturing, and revisiting AI work.">
+  <meta property="og:description" content="Practical tools for AI work, multilingual communication, local knowledge, and home media.">
   <meta property="og:url" content="https://wisteriasoftware.uk/">
   <meta property="og:site_name" content="Wisteria Software">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Wisteria Software - Wisteria Suite">
-  <meta name="twitter:description" content="Practical tools for navigating, capturing, and revisiting AI work.">
+  <meta name="twitter:description" content="Practical tools for AI work, multilingual communication, local knowledge, and home media.">
   <link rel="stylesheet" href="style.css?v=20260718-layout-polish">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -70,6 +70,14 @@
           "publisher": {
             "@id": "https://wisteriasoftware.uk/#organization"
           }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Baby Player",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "tvOS",
+          "description": "An open-source Apple TV player for children's and family media from Jellyfin or Samba sources, with bilingual lyrics and subtitle workflows.",
+          "url": "https://github.com/sunny314woo/babyplayer"
         }
       ]
     }
@@ -139,8 +147,8 @@
     <section>
       <h2 data-i18n="content.index.m015">Wisteria Suite</h2>
       <p data-i18n="content.index.m016">
-        Our product suite follows a simple workflow: navigate the conversation, capture the useful parts,
-        and keep them in a local-first system for review and reuse.
+        Our products focus on practical, low-friction tools for organizing AI work, communicating across languages,
+        building local knowledge, and controlling family media at home.
       </p>
       <div class="product-grid">
         <article class="product-card">
@@ -156,6 +164,31 @@
         </article>
 
         <article class="product-card">
+          <span class="status-pill available" data-i18n="content.index.m029">Available now</span>
+          <h3 data-i18n="content.index.m030">EnglishFlow</h3>
+          <p class="subtitle" data-i18n="content.index.m031">
+            A context-aware language assistant for Reddit and X. Read conversations bilingually and draft natural
+            replies you can review before sending.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-link primary" href="englishflow/" data-i18n="content.index.m032">View EnglishFlow</a>
+            <a class="btn-link secondary" href="englishflow-privacy.html" data-i18n="content.index.m033">View Privacy</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <span class="status-pill download" data-i18n="content.index.m025">Download available</span>
+          <h3 data-i18n="content.index.m026">Inbox</h3>
+          <p class="subtitle" data-i18n="content.index.m027">
+            A local-first knowledge workspace for organizing and revisiting AI conversations, captured material, and
+            working notes. Currently available as Inbox Local for macOS.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-link primary" href="inbox.html" data-i18n="content.index.m028">View Inbox</a>
+          </div>
+        </article>
+
+        <article class="product-card">
           <span class="status-pill available" data-i18n="content.index.m021">Available now</span>
           <h3 data-i18n="content.index.m022">Inbox Capture</h3>
           <p class="subtitle" data-i18n="content.index.m023">
@@ -167,27 +200,16 @@
         </article>
 
         <article class="product-card">
-          <span class="status-pill download" data-i18n="content.index.m025">Download available</span>
-          <h3 data-i18n="content.index.m026">Inbox Local</h3>
-          <p class="subtitle" data-i18n="content.index.m027">
-            A local-first macOS app for organizing and revisiting AI conversations, captured material, and working notes.
+          <span class="status-pill available" data-i18n="content.index.m038">Open source</span>
+          <h3 data-i18n="content.index.m039">Baby Player</h3>
+          <p class="subtitle" data-i18n="content.index.m040">
+            An open-source Apple TV player for children's and family local media. Browse Jellyfin or Samba sources,
+            use bilingual lyrics and subtitles, and keep playback under family control.
           </p>
-          <div class="hero-actions">
-            <a class="btn-link primary" href="inbox.html" data-i18n="content.index.m028">View Inbox</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <span class="status-pill available" data-i18n="content.index.m029">Available now</span>
-          <h3 data-i18n="content.index.m030">EnglishFlow</h3>
-          <p class="subtitle" data-i18n="content.index.m031">
-            A context-aware language assistant for Reddit and X. Read conversations bilingually and draft natural
-            replies you can review before sending.
+          <p class="small-note">
+            <span data-i18n="content.index.m041">GitHub (copy address):</span>
+            <code style="user-select:all;overflow-wrap:anywhere;word-break:break-word;">https://github.com/sunny314woo/babyplayer</code>
           </p>
-          <div class="hero-actions">
-            <a class="btn-link primary" href="englishflow/" data-i18n="content.index.m032">View EnglishFlow</a>
-            <a class="btn-link secondary" href="englishflow-privacy.html" data-i18n="content.index.m033">View Privacy</a>
-          </div>
         </article>
       </div>
     </section>
