@@ -66,7 +66,7 @@
           label: "Products",
           children: [
             { href: "outline-pro.html", label: "OutlineSave" },
-            { href: "englishflow/", label: "FluentSocial AI" },
+            { href: "englishflow/", label: "EnglishFlow" },
             { href: "inbox.html", label: "Inbox" },
           ],
         },
@@ -83,7 +83,7 @@
           label: "Privacy",
           children: [
             { href: "privacy.html", label: "General Privacy", i18nKey: "privacy-general" },
-            { href: "englishflow-privacy.html", label: "FluentSocial AI" },
+            { href: "englishflow-privacy.html", label: "EnglishFlow" },
           ],
         },
         { href: "terms.html", label: "Terms" },
@@ -92,12 +92,12 @@
       footer: [
         { href: "product.html", label: "Products" },
         { href: "outline-pro.html", label: "OutlineSave" },
-        { href: "englishflow/", label: "FluentSocial AI" },
+        { href: "englishflow/", label: "EnglishFlow" },
         { href: "inbox.html", label: "Inbox" },
         { href: "support.html#help-guides", label: "Help & Guides" },
         { href: "support.html", label: "Support" },
         { href: "privacy.html", label: "Privacy Policy" },
-        { href: "englishflow-privacy.html", label: "FluentSocial AI Privacy" },
+        { href: "englishflow-privacy.html", label: "EnglishFlow Privacy" },
         { href: "terms.html", label: "Terms of Service" },
         { href: "refund.html", label: "Refund Policy" },
       ],

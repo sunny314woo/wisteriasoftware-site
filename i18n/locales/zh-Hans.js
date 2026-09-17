@@ -8,12 +8,12 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "product.html": "产品",
       "pricing.html": "价格",
       "outline-pro.html": "OutlineSave 目录与导出",
-      "englishflow/": "FluentSocial AI",
+      "englishflow/": "EnglishFlow",
       "inbox.html": "Inbox",
       "support.html": "支持",
       "privacy.html": "隐私",
       "privacy-general": "通用隐私",
-      "englishflow-privacy.html": "FluentSocial AI",
+      "englishflow-privacy.html": "EnglishFlow",
       "terms.html": "条款",
       "refund.html": "退款",
       "support-help-guides": "帮助与指南",
@@ -23,11 +23,11 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "product.html": "产品",
       "pricing.html": "价格",
       "outline-pro.html": "OutlineSave 目录与导出",
-      "englishflow/": "FluentSocial AI",
+      "englishflow/": "EnglishFlow",
       "inbox.html": "Inbox",
       "support.html": "支持",
       "privacy.html": "隐私政策",
-      "englishflow-privacy.html": "FluentSocial AI 隐私政策",
+      "englishflow-privacy.html": "EnglishFlow 隐私政策",
       "terms.html": "服务条款",
       "refund.html": "退款政策"
     },
@@ -58,19 +58,19 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
     },
     "privacy.html": {
       "title": "隐私政策 - Wisteria Software",
-      "description": "Wisteria Software 产品的隐私政策，包括 Outline、Inbox Capture 和 Inbox Local / Wisteria Inbox。"
+      "description": "Wisteria Software 产品的隐私政策，包括 OutlineSave、Inbox Capture 和 Inbox Local / Wisteria Inbox。"
     },
     "product.html": {
       "title": "产品 – Wisteria Software",
-      "description": "了解 Wisteria Suite 产品：面向 macOS 与浏览器的 Outline、Inbox Capture、Inbox Local 与 FluentSocial AI。"
+      "description": "了解 Wisteria Suite 产品：面向 macOS 与浏览器的 OutlineSave、Inbox Capture、Inbox Local 与 EnglishFlow。"
     },
     "englishflow-privacy.html": {
-      "title": "FluentSocial AI 隐私政策 - Wisteria Software",
-      "description": "FluentSocial AI Chrome 扩展的隐私政策，说明翻译、改写、上下文回复辅助、API Key、本地存储和 Wisteria Software API 的数据处理方式。"
+      "title": "EnglishFlow 隐私政策 - Wisteria Software",
+      "description": "EnglishFlow Chrome 扩展的隐私政策，说明翻译、改写、上下文回复辅助、API Key、本地存储和 Wisteria Software API 的数据处理方式。"
     },
     "pricing.html": {
-      "title": "价格 – Outline",
-      "description": "Outline 价格：免费开始，升级 1 年 Pro 使用搜索与筛选，或选择终身授权，一次付费、无订阅。"
+      "title": "价格 – OutlineSave",
+      "description": "OutlineSave 价格：免费开始，升级 1 年 Pro 使用搜索与筛选，或选择终身授权，一次付费、无订阅。"
     },
     "inbox.html": {
       "title": "Inbox – Wisteria Software",
@@ -78,27 +78,27 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
     },
     "support.html": {
       "title": "支持 – Wisteria Suite",
-      "description": "Outline、Inbox Capture 与适用于 macOS 的 Inbox Local 的支持页面。"
+      "description": "OutlineSave、Inbox Capture 与适用于 macOS 的 Inbox Local 的支持页面。"
     },
     "terms.html": {
-      "title": "服务条款 – Outline",
-      "description": "适用于本站 Outline 付费购买与使用的服务条款。"
+      "title": "服务条款 – OutlineSave",
+      "description": "适用于本站 OutlineSave 付费购买与使用的服务条款。"
     },
     "refund.html": {
-      "title": "退款政策 – Outline",
-      "description": "通过 Paddle 在本站完成的符合条件的 Outline 数字购买之退款政策。"
+      "title": "退款政策 – OutlineSave",
+      "description": "通过 Paddle 在本站完成的符合条件的 OutlineSave 数字购买之退款政策。"
     },
     "outline-pro.html": {
-      "title": "Outline - ChatGPT 与 Gemini 可搜索离线知识",
-      "description": "Outline 将 ChatGPT 与 Gemini 对话变成可搜索的离线知识，支持大纲、书签、高亮、笔记、筛选、Markdown 导出、HTML 页面和 Google Drive 备份。"
+      "title": "OutlineSave - ChatGPT 与 Gemini 可搜索离线知识",
+      "description": "OutlineSave 将 ChatGPT 与 Gemini 对话变成可搜索的离线知识，支持大纲、书签、高亮、笔记、筛选、Markdown 导出、HTML 页面和 Google Drive 备份。"
     },
     "payment-success": {
       "title": "支付成功",
-      "description": "支付成功。请激活你的 Outline 许可。"
+      "description": "支付成功。请激活你的 OutlineSave 许可。"
     },
     "payment-success.html": {
       "title": "支付成功",
-      "description": "支付成功。请激活你的 Outline 许可。"
+      "description": "支付成功。请激活你的 OutlineSave 许可。"
     },
     "payment-cancel": {
       "title": "支付已取消",
@@ -114,7 +114,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m001": "英国独立软件公司",
       "m002": "为认真使用 AI 的人构建软件。",
       "m003": "<strong>Wisteria Software</strong> 是一家英国注册的独立软件公司，面向 AI 时代构建本地优先的效率工具。我们帮助开发者、科研人员、创作者和重度 AI 用户导航长对话、保留重要上下文，并把有价值的输出沉淀成真正属于自己的第二大脑。",
-      "m004": "了解 Outline",
+      "m004": "了解 OutlineSave",
       "m005": "查看产品套组",
       "m006": "我们重视什么",
       "m007": "<strong>数据归属：</strong>本地优先的工作流，让重要材料留在你的掌控之中。",
@@ -128,9 +128,9 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m015": "Wisteria Suite",
       "m016": "我们的产品套组遵循一个简单工作流：导航对话、捕捉重点，并把它们保存在本地优先的系统中，用于回顾和复用。",
       "m017": "现已可用",
-      "m018": "Outline",
+      "m018": "OutlineSave",
       "m019": "面向长 ChatGPT 和 Gemini 对话的智能侧边栏大纲。跳转消息、收藏重要问答，导出为 Markdown 或 HTML，并备份到你自己的 Google Drive。",
-      "m020": "查看 Outline",
+      "m020": "查看 OutlineSave",
       "m021": "现已可用",
       "m022": "Inbox Capture",
       "m023": "浏览器伴侣工具，用于把有价值的网页文本、截图、图片和笔记保存到你的知识工作流。",
@@ -140,18 +140,18 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m027": "本地优先的 macOS 应用，用于整理和回顾 AI 对话、捕捉材料与工作笔记。",
       "m028": "查看 Inbox",
       "m029": "现已可用",
-      "m030": "FluentSocial AI",
+      "m030": "EnglishFlow",
       "m031": "面向 Reddit 与 X 的上下文语言助手。双语阅读对话，并起草自然回复；发送前始终由你审核。",
-      "m032": "查看 FluentSocial AI",
+      "m032": "查看 EnglishFlow",
       "m033": "查看隐私政策",
       "m034": "为依赖 AI 的人服务",
       "m035": "Wisteria Software 面向那些希望 AI 工作更快、更安全、更可沉淀的人：在长线程中调试的开发者、保留推理和资料的科研人员、收集灵感的写作者，以及希望把每日 AI 输出变成长期知识的知识工作者。",
-      "m036": "观看 Outline 演示",
+      "m036": "观看 OutlineSave 演示",
       "m037": "探索产品套组"
     },
     "privacy": {
       "m001": "隐私政策",
-      "m002": "适用于 <strong>Wisteria Software</strong> 产品，包括 <strong>Outline</strong>、<strong>Inbox Capture</strong> 和 <strong>Inbox Local / Wisteria Inbox</strong><br /><strong>最后更新：</strong>2026 年 6 月 7 日",
+      "m002": "适用于 <strong>Wisteria Software</strong> 产品，包括 <strong>OutlineSave</strong>、<strong>Inbox Capture</strong> 和 <strong>Inbox Local / Wisteria Inbox</strong><br /><strong>最后更新：</strong>2026 年 6 月 7 日",
       "m003": "<strong>隐私摘要：</strong>",
       "m004": "<strong>本地处理</strong>：ChatGPT 和 Gemini 对话内容在你的浏览器本地处理。",
       "m005": "<strong>不上传我们的服务器</strong>：我们不会将聊天内容上传到 Wisteria Software 的服务器。只有当你主动使用 Google Drive 备份时，所选导出文件才会直接发送到你自己的 Google Drive。",
@@ -160,7 +160,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m008": "<strong>支付安全</strong>：所有支付均由我们的 Merchant of Record <strong>Paddle</strong> 安全处理。",
       "m009": "1. 一般信息",
       "m010": "本隐私政策说明 <strong>Wisteria Software Ltd.</strong> 如何处理与本网站、产品页面、结账相关流程、客户支持以及本站列出的产品有关的数据。",
-      "m011": "2. Outline",
+      "m011": "2. OutlineSave",
       "m012": "本部分适用于面向 <strong>ChatGPT</strong> 和 <strong>Gemini</strong> 的浏览器扩展功能。",
       "m013": "<strong>对话内容处理</strong>：扩展读取的对话内容会在浏览器本地处理，不会上传到我们的服务器。",
       "m014": "<strong>导出功能</strong>：导出 Markdown 或 HTML 时，文件会在本地生成并由你保存。HTML 导出可包含目录。",
@@ -203,9 +203,9 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
     },
     "product": {
       "m001": "产品",
-      "m002": "<strong>Wisteria Suite</strong> 包含面向 AI 原生工作流的工具：<strong>Outline</strong>、<strong>Inbox Capture</strong>、<strong>适用于 macOS 的 Inbox Local</strong> 与 <strong>FluentSocial AI</strong>。",
+      "m002": "<strong>Wisteria Suite</strong> 包含面向 AI 原生工作流的工具：<strong>OutlineSave</strong>、<strong>Inbox Capture</strong>、<strong>适用于 macOS 的 Inbox Local</strong> 与 <strong>EnglishFlow</strong>。",
       "m003": "当前付费产品",
-      "m004": "Outline",
+      "m004": "OutlineSave",
       "m005": "用于导航长篇 ChatGPT 与 Gemini 对话、收藏重要问答，以及导出或备份聊天记录的 Chrome 扩展。",
       "m006": "面向长 ChatGPT 与 Gemini 对话的可点击大纲导航",
       "m007": "直接跳转到你需要的位置",
@@ -229,27 +229,27 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m025": "将 Markdown 文件导入本地优先的回顾工作流",
       "m026": "预览导入的 ChatGPT 对话时保留对话导航",
       "m027": "支持 AI 摘要；免费用户可使用自己的 API Key",
-      "m028": "在当前试用期内，Outline 用户也可免费试用 Inbox Pro 的 AI 摘要功能。",
+      "m028": "在当前试用期内，OutlineSave 用户也可免费试用 Inbox Pro 的 AI 摘要功能。",
       "m029": "查看 Inbox",
       "m030": "下载 macOS 版",
       "m031": "现已可用",
-      "m032": "FluentSocial AI",
+      "m032": "EnglishFlow",
       "m033": "面向 Reddit 与 X 的上下文语言助手，用于双语阅读和自然回复，无需离开当前对话。",
       "m034": "同时查看原帖、评论与对应翻译",
       "m035": "根据当前讨论上下文起草回复",
       "m036": "使用你习惯的语言写作，并在原位置转换文本",
-      "m037": "FluentSocial AI 绝不会自动发布内容。每一条回复都由你审核并亲自发送。",
-      "m038": "查看 FluentSocial AI",
+      "m037": "EnglishFlow 绝不会自动发布内容。每一条回复都由你审核并亲自发送。",
+      "m038": "查看 EnglishFlow",
       "m039": "查看隐私政策",
       "m040": "当前付费方案",
-      "m041": "Outline 在本站提供付费 Pro 方案。结账前请查看价格、激活与退款说明。",
-      "m042": "查看 Outline 价格"
+      "m041": "OutlineSave 在本站提供付费 Pro 方案。结账前请查看价格、激活与退款说明。",
+      "m042": "查看 OutlineSave 价格"
     },
     "englishflow_privacy": {
-      "m001": "FluentSocial AI 隐私政策",
-      "m002": "适用于 <strong>FluentSocial AI: Read in your language. Reply naturally in theirs.</strong>，由 <strong>Wisteria Software Ltd.</strong> 提供的 Chrome 扩展。<br /><strong>最后更新：</strong>2026 年 7 月 18 日",
+      "m001": "EnglishFlow 隐私政策",
+      "m002": "适用于 <strong>EnglishFlow: Read in your language. Reply naturally in theirs.</strong>，由 <strong>Wisteria Software Ltd.</strong> 提供的 Chrome 扩展。<br /><strong>最后更新：</strong>2026 年 7 月 18 日",
       "m003": "<strong>隐私摘要：</strong>",
-      "m004": "<strong>单一用途：</strong>FluentSocial AI 帮助用户在支持的网站上进行多语言阅读、翻译、改写和回复。",
+      "m004": "<strong>单一用途：</strong>EnglishFlow 帮助用户在支持的网站上进行多语言阅读、翻译、改写和回复。",
       "m005": "<strong>用户触发处理：</strong>只有当你请求翻译、改写或回复辅助时，相关文本才会发送给 AI 服务处理。",
       "m006": "<strong>本地设置：</strong>语言偏好、模型设置、API Endpoint 和 API Key 保存在浏览器扩展存储中。",
       "m007": "<strong>API 服务：</strong>请求可能发送到你配置的 AI API Endpoint，包括 DeepSeek 或 Wisteria Software API Endpoint。",
@@ -296,7 +296,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m038": "Get Lifetime Access",
       "m039": "<strong>交付方式：</strong>购买后以激活码形式数字交付。激活后可离线使用；有效的 Pro 试用拥有与 Pro 相同的搜索、筛选、书签与导出权限。",
       "m040": "技术与隐私说明",
-      "m041": "Inbox 是可选的本地 macOS 应用（Apple Silicon）。可单独从 wisteriasoftware.uk 下载，基础 Outline 导航不依赖 Inbox。",
+      "m041": "Inbox 是可选的本地 macOS 应用（Apple Silicon）。可单独从 wisteriasoftware.uk 下载，基础 OutlineSave 导航不依赖 Inbox。",
       "m042": "Inbox 数据默认保存在你的设备上",
       "m043": "AI 摘要由你手动触发，不会自动运行",
       "m044": "使用摘要时在 Inbox 内自行提供 API Key",
@@ -369,12 +369,12 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
     },
     "terms": {
       "m001": "服务条款",
-      "m002": "Outline",
+      "m002": "OutlineSave",
       "m003": "1. 引言",
-      "m004": "本服务条款目前适用于在本站购买与使用 Outline 付费方案。",
-      "m005": "本服务条款规范你对 Wisteria Software Ltd. 提供的 Outline Chrome 扩展（「产品」）的使用。购买、安装或使用产品即表示你同意本条款。",
+      "m004": "本服务条款目前适用于在本站购买与使用 OutlineSave 付费方案。",
+      "m005": "本服务条款规范你对 Wisteria Software Ltd. 提供的 OutlineSave Chrome 扩展（「产品」）的使用。购买、安装或使用产品即表示你同意本条款。",
       "m006": "2. 产品说明",
-      "m007": "Outline 是一款为 ChatGPT 与 Gemini 对话生成可导航目录结构的浏览器扩展。扩展在用户浏览器内本地运行。",
+      "m007": "OutlineSave 是一款为 ChatGPT 与 Gemini 对话生成可导航目录结构的浏览器扩展。扩展在用户浏览器内本地运行。",
       "m008": "3. 许可",
       "m009": "购买后，你获得非独占、不可转让、有限范围的许可，可将产品用于个人或商业用途。",
       "m010": "许可有效期：自购买日起 1 年（另有说明除外）。",
@@ -396,10 +396,10 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
     },
     "refund": {
       "m001": "退款政策",
-      "m002": "Outline",
+      "m002": "OutlineSave",
       "m003": "1. 数字产品",
       "m004": "本退款政策适用于通过 Paddle 在本站完成的符合条件的数字购买。",
-      "m005": "Outline 为以电子方式交付的数字软件产品，不寄送实体商品。",
+      "m005": "OutlineSave 为以电子方式交付的数字软件产品，不寄送实体商品。",
       "m006": "2. 14 天退款政策",
       "m007": "根据 Paddle 的买家保护标准与适用的消费者法规，客户有权在购买后 14 天内获得全额退款。",
       "m008": "退款由我们的 Merchant of Record——Paddle 处理。",
@@ -411,7 +411,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
     },
     "payment_success": {
       "m001": "🎉 支付成功！",
-      "m002": "你的支付已成功完成。<br>你现在拥有 <strong>Outline</strong> 的 <strong>一年订阅</strong>。",
+      "m002": "你的支付已成功完成。<br>你现在拥有 <strong>OutlineSave</strong> 的 <strong>一年订阅</strong>。",
       "m003": "你的激活码",
       "m004": "在扩展中输入此码以激活许可。",
       "m005": "正在安全生成你的许可。",

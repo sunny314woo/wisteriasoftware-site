@@ -1,6 +1,6 @@
-# FluentSocial AI website redesign
+# EnglishFlow website redesign
 
-This folder contains the redesigned FluentSocial AI landing page and its existing purchase flow pages.
+This folder contains the redesigned EnglishFlow landing page and its existing purchase flow pages.
 
 ## Release process
 
@@ -22,7 +22,7 @@ When payment behavior or production payment configuration changes, use the risk-
 1. A signed-in extension purchase opens `checkout.html?_ptxn=...`.
 2. A website purchase opens Paddle directly for Monthly, Annual, or Lifetime; Paddle collects the receipt email.
 3. Paddle completion reaches `payment-complete.html`.
-4. The signed webhook resolves the Paddle Customer email and updates or creates the same FluentSocial AI account.
+4. The signed webhook resolves the Paddle Customer email and updates or creates the same EnglishFlow account.
 5. Refreshing account status in the extension shows the new entitlement.
 
 `design-reference.png`, `pricing-reference.png`, `screenshots/`, `capture-site.js`, and `design-qa.md` are review materials and do not need to be deployed.

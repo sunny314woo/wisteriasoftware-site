@@ -68,7 +68,7 @@ Those selectors are tightly coupled to layout and are the main cause of translat
 Product and platform names remain stable across languages unless the product explicitly has a localized brand name. In particular:
 
 - `OutlineSave` stays `OutlineSave` in English and Chinese.
-- `ChatGPT`, `Gemini`, `Chrome`, `Inbox`, and `FluentSocial AI` are not translated as brand names.
+- `ChatGPT`, `Gemini`, `Chrome`, `Inbox`, and `EnglishFlow` are not translated as brand names.
 
 Translate surrounding UI labels such as `Products`, `Support`, `Help & Guides`, buttons, descriptions, FAQs, and instructions.
 
