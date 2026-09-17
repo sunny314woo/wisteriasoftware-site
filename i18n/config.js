@@ -65,7 +65,7 @@
           href: "product.html",
           label: "Products",
           children: [
-            { href: "outline-pro.html", label: "Outline" },
+            { href: "outline-pro.html", label: "OutlineSave" },
             { href: "englishflow/", label: "FluentSocial AI" },
             { href: "inbox.html", label: "Inbox" },
           ],
@@ -84,7 +84,7 @@
       ],
       footer: [
         { href: "product.html", label: "Products" },
-        { href: "outline-pro.html", label: "Outline" },
+        { href: "outline-pro.html", label: "OutlineSave" },
         { href: "englishflow/", label: "FluentSocial AI" },
         { href: "inbox.html", label: "Inbox" },
         { href: "support.html", label: "Support" },
