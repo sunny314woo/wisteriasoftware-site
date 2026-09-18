@@ -94,7 +94,7 @@
         { href: "outline-pro.html", label: "OutlineSave" },
         { href: "englishflow/", label: "EnglishFlow" },
         { href: "inbox.html", label: "Inbox" },
-        { href: "support.html#help-guides", label: "Help & Guides" },
+        { href: "support.html#help-guides", label: "Help & Guides", i18nKey: "support-help-guides" },
         { href: "support.html", label: "Support" },
         { href: "privacy.html", label: "Privacy Policy" },
         { href: "englishflow-privacy.html", label: "EnglishFlow Privacy" },

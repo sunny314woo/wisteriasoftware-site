@@ -1006,7 +1006,7 @@ footer p {
 
 .pricing-redesign-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 430px));
+  grid-template-columns: repeat(2, minmax(300px, 430px));
   justify-content: center;
   gap: clamp(24px, 3vw, 32px);
 }
@@ -1031,6 +1031,7 @@ footer p {
 }
 
 .pricing-card-header {
+  min-width: 0;
   padding-bottom: 22px;
   border-bottom: 1px solid #e2e8f0;
 }
@@ -1049,6 +1050,7 @@ footer p {
   color: #64748b;
   font-size: 14px;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .pricing-redesign-price {
@@ -1058,7 +1060,7 @@ footer p {
   font-size: 46px;
   font-weight: 800;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .pricing-lifetime-price {
@@ -1067,6 +1069,7 @@ footer p {
   flex-wrap: wrap;
   gap: 10px;
   margin: 28px 0 14px;
+  min-width: 0;
 }
 
 .pricing-lifetime-price .pricing-redesign-price {
@@ -1099,8 +1102,10 @@ footer p {
   position: absolute;
   top: 22px;
   right: 24px;
+  max-width: calc(100% - 48px);
   padding: 7px 12px;
   font-size: 13px;
+  white-space: nowrap;
 }
 
 .pricing-value-note {
@@ -1113,6 +1118,7 @@ footer p {
   color: #4c2bd9;
   font-size: 14px;
   font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .pricing-redesign-list {
@@ -1124,15 +1130,16 @@ footer p {
 }
 
 .pricing-redesign-list li {
-  display: grid;
-  grid-template-columns: 22px minmax(0, 1fr);
-  gap: 10px;
+  position: relative;
   margin: 0;
+  padding-left: 32px;
   color: #0f172a;
   font-size: 15px;
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
+.pricing-redesign-list li::before,
 .pricing-redesign-list span {
   display: inline-flex;
   align-items: center;
@@ -1144,6 +1151,17 @@ footer p {
   color: #4c2bd9;
   font-size: 13px;
   font-weight: 800;
+}
+
+.pricing-redesign-list li::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "✓";
+}
+
+.pricing-redesign-list span {
+  display: none;
 }
 
 .pricing-validity {
@@ -1161,6 +1179,8 @@ footer p {
   border-radius: 12px;
   font-size: 16px;
   font-weight: 800;
+  white-space: normal;
+  text-align: center;
 }
 
 .pricing-secondary {
@@ -1668,6 +1688,32 @@ footer p {
   .trust-grid,
   .concise-faq {
     grid-template-columns: 1fr;
+  }
+
+  .pricing-redesign-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pricing-redesign-card {
+    padding: 30px 22px;
+  }
+
+  .pricing-card-header {
+    padding-right: 0;
+  }
+
+  .pricing-badge {
+    position: static;
+    align-self: flex-start;
+    margin-bottom: 18px;
+  }
+
+  .pricing-redesign-price {
+    font-size: 40px;
+  }
+
+  .pricing-lifetime-price {
+    align-items: center;
   }
 
   .promo-carousel-tabs {

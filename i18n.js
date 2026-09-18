@@ -278,7 +278,10 @@
     const footer = document.querySelector("footer");
     if (footer && layout.footer) {
       const links = layout.footer
-        .map((item) => `<a data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`)
+        .map((item) => {
+          const keyAttr = item.i18nKey ? ` data-i18n-key="${item.i18nKey}"` : "";
+          return `<a${keyAttr} data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`;
+        })
         .join(" | ");
       footer.innerHTML = [
         '<!-- 【MODIFIED】Shared footer is rendered here from i18n/config.js to keep every page consistent. -->',
