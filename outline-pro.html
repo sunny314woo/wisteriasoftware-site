@@ -570,7 +570,6 @@
           successUrl: "https://wisteriasoftware.uk/payment-success"
         }
       };
-      var checkoutOpened = false;
       var shouldScrollToPricing = false;
 
       try {
@@ -596,7 +595,6 @@
       }
 
       function openCheckout(priceId) {
-        if (checkoutOpened) return;
         if (!priceId) {
           showCheckoutError();
           return;
@@ -609,7 +607,6 @@
             items: [{ priceId: priceId, quantity: 1 }],
             settings: checkoutSettings.settings
           });
-          checkoutOpened = true;
         } catch (error) {
           showCheckoutError();
         }
