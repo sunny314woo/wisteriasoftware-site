@@ -28,7 +28,7 @@
         "url": "https://wisteriasoftware.uk/",
         "email": "support@wisteriasoftware.uk"
       },
-      "dateModified": "2026-06-07"
+      "dateModified": "2026-09-21"
     }
   </script>
 </head>
@@ -45,7 +45,7 @@
       <p class="subtitle" data-i18n="content.privacy.m002">
         For <strong>Wisteria Software</strong> products, including <strong>ChatGPT Gemini OutlineSave &amp; Export</strong>,
         <strong>Inbox Capture</strong>, and <strong>Inbox Local / Wisteria Inbox</strong><br>
-        <strong>Last updated:</strong> June 7, 2026
+        <strong>Last updated:</strong> September 21, 2026
       </p>
     </div>
 
@@ -60,7 +60,7 @@
           When you explicitly use Google Drive backup, the selected export is sent directly to your own Google Drive.</li>
         <li data-i18n="content.privacy.m006"><strong>No Advertising Trackers</strong>: We do not use advertising trackers or sell personal data.</li>
         <li data-i18n="content.privacy.m007"><strong>Minimal Data Collection</strong>: We only collect limited information such as email address, license
-          status, and payment information for activation, billing, and support.</li>
+          status, and payment information for activation, billing, and support, plus minimal anonymous growth counters.</li>
         <li data-i18n="content.privacy.m008"><strong>Secure Payments</strong>: All payments are processed securely by <strong>Paddle</strong>, our
           Merchant of Record.</li>
       </ul>
@@ -123,6 +123,10 @@
         This data is used solely for license verification, billing management, and providing customer support. We do not
         use this data or your exports for advertising or profiling.
       </p>
+    </section>
+
+    <section>
+      <p data-i18n="content.privacy.analyticsV1"><strong>Minimal growth statistics</strong>: OutlineSave sends only event names, random event identifiers, a random local installation identifier for install and HTML export counts, and timestamps to our own API. A separate random token deduplicates uninstall-page visits; payment popup loads use event identifiers without an installation identifier. HTML counts mean a file was generated and a download triggered, not that saving completed. Purchases are counted from existing verified payment records, without linking them to installation identifiers. We do not send conversation content, questions, answers, titles, page URLs, search terms, highlights, notes, bookmarks, exported content or filenames, browsing history, or Google/Chrome account information as analytics. We do not build profiles or use third-party analytics services for these counters. Usage event records are retained for up to 90 days and then removed by daily maintenance; minimal install/uninstall deduplication records and aggregate daily totals are retained to prevent repeat counting. Analytics failure does not interrupt product functions. Network infrastructure necessarily processes connection information; analytics records do not store IP addresses, User-Agent, or Referer headers.</p>
     </section>
 
     <section>
@@ -249,7 +253,7 @@
   <footer data-shared-footer=""></footer>
 
   <script src="i18n/config.js" defer=""></script>
-  <script src="i18n/locales/zh-Hans.js" defer=""></script>
+  <script src="i18n/locales/zh-Hans.js?v=20260922-v1" defer=""></script>
   <script src="i18n.js" defer=""></script>
   <script src="analytics.js" defer=""></script>
 

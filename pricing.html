@@ -151,6 +151,7 @@
   <!-- Footer -->
   <!-- 【MODIFIED】Shared footer mount: i18n.js renders the homepage-standard footer here. -->
   <footer data-shared-footer=""></footer>
+  <script src="outlinesave-analytics.js?v=20260922-v1"></script>
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <script type="text/javascript">
     var PADDLE_TXN_STORAGE_KEY = "paddle_checkout_txn";
@@ -214,6 +215,9 @@
       token: "live_3d23a490eb6f34c96ae919a7b4c",
       eventCallback: function (event) {
         try {
+          if (window.OutlineSaveAnalytics) window.OutlineSaveAnalytics.checkoutEvent(event && event.name);
+        } catch (_) {}
+        try {
           var tid = extractPaddleTransactionId(event);
           if (tid) {
             storePaddleTransactionId(tid);
@@ -271,7 +275,7 @@
     })();
   </script>
   <script src="i18n/config.js" defer=""></script>
-  <script src="i18n/locales/zh-Hans.js" defer=""></script>
+  <script src="i18n/locales/zh-Hans.js?v=20260922-v1" defer=""></script>
   <script src="i18n.js" defer=""></script>
   <script src="analytics.js" defer=""></script>
 
