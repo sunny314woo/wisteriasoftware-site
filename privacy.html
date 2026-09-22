@@ -28,7 +28,7 @@
         "url": "https://wisteriasoftware.uk/",
         "email": "support@wisteriasoftware.uk"
       },
-      "dateModified": "2026-09-21"
+      "dateModified": "2026-09-22"
     }
   </script>
 </head>
@@ -45,7 +45,7 @@
       <p class="subtitle" data-i18n="content.privacy.m002">
         For <strong>Wisteria Software</strong> products, including <strong>ChatGPT Gemini OutlineSave &amp; Export</strong>,
         <strong>Inbox Capture</strong>, and <strong>Inbox Local / Wisteria Inbox</strong><br>
-        <strong>Last updated:</strong> September 21, 2026
+        <strong>Last updated:</strong> September 22, 2026
       </p>
     </div>
 
@@ -54,7 +54,7 @@
         <strong>Privacy Summary:</strong>
       </p>
       <ul>
-        <li data-i18n="content.privacy.m004"><strong>Local Processing</strong>: ChatGPT and Gemini conversation content is processed locally in your
+        <li data-i18n="content.privacy.m004"><strong>Local Processing</strong>: ChatGPT, Gemini, Claude, and DeepSeek conversation content is processed locally in your
           browser.</li>
         <li data-i18n="content.privacy.m005"><strong>Not Uploaded to Our Servers</strong>: We do not upload your chats to Wisteria Software servers.
           When you explicitly use Google Drive backup, the selected export is sent directly to your own Google Drive.</li>
@@ -85,7 +85,7 @@
     <section>
       <h2 data-i18n="content.privacy.m011">2. ChatGPT Gemini OutlineSave &amp; Export</h2>
       <p data-i18n="content.privacy.m012">
-        This section applies to our browser extensions for <strong>ChatGPT</strong> and <strong>Gemini</strong>:
+        This section applies to Outlinesave on <strong>ChatGPT</strong>, <strong>Gemini</strong>, <strong>Claude</strong>, and <strong>DeepSeek</strong>:
       </p>
       <p data-i18n="content.privacy.m013">
         <strong>Conversation Processing</strong>: Content read by the extension (to generate directories, outlines, or
@@ -96,18 +96,21 @@
         HTML exports may include a table of contents.
       </p>
       <p data-i18n="content.privacy.m015">
-        <strong>Google Account Authorization and Google Drive Backup</strong>: The extension uses Chrome's
-        <code>identity</code> permission only when you choose to authorize with your own Google account.
+        <strong>Google Account Authorization and Google Drive Backup</strong>: Google Drive backup is optional. The extension uses Chrome's
+        <code>identity</code> permission only after you explicitly choose to connect your Google account and authorize access.
         Authentication is handled by Chrome and Google OAuth.
       </p>
       <p data-i18n="content.privacy.m016">
-        The extension uses the resulting authorization token only to upload conversation exports to the Google Drive
-        location you select. Files are uploaded directly to your own Google Drive at your request and are not routed
-        through or stored on Wisteria Software servers.
+        The extension uses the resulting authorization token only for the user-requested Google Drive feature. When you choose
+        to back up an export, the selected Markdown content is uploaded directly from your browser to your own Google Drive
+        and is not routed through or stored on Wisteria Software servers.
       </p>
       <p data-i18n="content.privacy.m017">
-        The extension does not collect, store, sell, or share your Google identity information. Google may process
-        account and uploaded file data according to Google's own privacy policy and terms.
+        After authorization, the extension may retrieve your Google account email address and display name to identify the
+        connected account. This account information, Drive connection state, and related folder identifiers are stored
+        locally in Chrome storage and are not sent to Wisteria Software servers. Google OAuth authorization tokens are
+        used only to communicate directly with Google services and are not sent to Wisteria Software servers. Google may
+        process account and uploaded file data according to Google's own privacy policy and terms.
       </p>
       <p data-i18n="content.privacy.m018">
         <strong>Data We Collect</strong>: To manage your subscription and license, we may collect the following when
@@ -183,7 +186,11 @@
       </p>
       <p data-i18n="content.privacy.m036">
         If you contact support, we may process the information you provide to respond to your request,
-        diagnose issues, and maintain customer support records where reasonably necessary.
+        diagnose issues, and maintain customer support records where reasonably necessary. For Outlinesave bug reports,
+        the feedback page accepts a required problem description and optional contact email and screenshot, and may attach
+        limited diagnostic information such as the extension version, browser/system information, and browser language.
+        It does not automatically submit your AI conversation content, current conversation URL, or a screenshot; screenshots
+        are sent only when you choose to attach them.
       </p>
     </section>
 
