@@ -1,0 +1,158 @@
+<!doctype html>
+<!-- 用途：BabyPlayer 每台电视独立的百度网盘手机配置页。 -->
+<!-- 主要功能：短时设备绑定、百度 OAuth 跳转和 Root Folder 逐层选择。 -->
+<!-- 最近修改：【MODIFIED】Phase 5 新增不在官网导航展示的私有配对页。 -->
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>连接百度网盘 · BabyPlayer</title>
+  <style>
+    :root { color-scheme: dark; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #10141d; color: #f7f8fc; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; }
+    main { width: min(100%, 580px); background: #1a2230; border: 1px solid #344052; border-radius: 24px; padding: 28px; }
+    h1 { font-size: 30px; margin: 0 0 8px; }
+    p { line-height: 1.55; color: #b8c2d0; }
+    .brand { color: #77b2ff; font-weight: 700; margin-bottom: 12px; }
+    button { width: 100%; min-height: 52px; margin-top: 12px; border: 0; border-radius: 12px; background: #6faeff; color: #08121f; font: inherit; font-weight: 700; cursor: pointer; }
+    button:disabled { opacity: .5; cursor: wait; }
+    .quiet { background: #2d394b; color: #f7f8fc; }
+    .folder { text-align: left; padding: 0 16px; background: #273449; color: #f7f8fc; }
+    #breadcrumb { overflow-wrap: anywhere; color: #d4e5ff; margin-top: 22px; }
+    #message { min-height: 24px; }
+    #folder-list { margin-top: 12px; }
+    [hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">BabyPlayer</div>
+    <h1>连接百度网盘</h1>
+    <p>此链接只用于当前电视，15 分钟后失效。授权后请选择儿童可以浏览的根目录。</p>
+    <p id="message" role="status">正在检查连接…</p>
+    <button id="authorize" hidden>使用百度账号授权</button>
+    <section id="chooser" hidden>
+      <div id="breadcrumb"></div>
+      <button id="back" class="quiet" hidden>返回上一级</button>
+      <div id="folder-list"></div>
+      <button id="choose">将当前文件夹设为儿童根目录</button>
+    </section>
+  </main>
+  <script>
+    // 【MODIFIED】职责：固定指向 BabyPlayer 独立服务；输入电视专属短时令牌，输出授权后的目录选择状态。
+    const API_BASE = "https://babyplayer-api.wisteriasoftware.uk";
+    const pairingCode = new URLSearchParams(location.hash.slice(1)).get("pair");
+    const message = document.getElementById("message");
+    const authorizeButton = document.getElementById("authorize");
+    const chooser = document.getElementById("chooser");
+    const folderList = document.getElementById("folder-list");
+    const breadcrumb = document.getElementById("breadcrumb");
+    const backButton = document.getElementById("back");
+    const chooseButton = document.getElementById("choose");
+    let currentPath = "/";
+    let currentID = 0;
+    const folderIDs = new Map([["/", 0]]);
+
+    // 【MODIFIED】职责：向独立后端发送短时配对认证请求；输入路径及选项，输出 JSON 或可读错误。
+    async function api(path, options = {}) {
+      const response = await fetch(API_BASE + path, {
+        ...options,
+        cache: "no-store",
+        headers: { "Authorization": "Pairing " + pairingCode, "Content-Type": "application/json" }
+      });
+      if (!response.ok) {
+        const body = await response.json().catch(() => ({}));
+        throw new Error(body.detail || "服务器暂时不可用");
+      }
+      return response.json();
+    }
+
+    // 【MODIFIED】职责：将网盘绝对目录的上级路径算出；输入当前目录，输出上级目录。
+    function parentPath(path) {
+      return path === "/" ? "/" : (path.slice(0, path.lastIndexOf("/")) || "/");
+    }
+
+    // 【MODIFIED】职责：按当前目录调用后端并只绘制文件夹；输出可选择的根目录 UI。
+    async function showFolder(path, selectedID = null) {
+      const data = await api("/v1/pairings/folders?path=" + encodeURIComponent(path));
+      currentPath = data.path;
+      if (selectedID !== null) folderIDs.set(currentPath, selectedID);
+      currentID = folderIDs.get(currentPath) ?? 0;
+      breadcrumb.textContent = "当前目录：" + currentPath;
+      backButton.hidden = currentPath === "/";
+      folderList.replaceChildren();
+      for (const item of data.items.filter(item => item.kind === "folder")) {
+        const button = document.createElement("button");
+        button.className = "folder";
+        button.textContent = "📁 " + item.name;
+        button.addEventListener("click", () => showFolder(item.path, Number(item.id)).catch(showError));
+        folderList.appendChild(button);
+      }
+      if (!folderList.childElementCount) {
+        const empty = document.createElement("p");
+        empty.textContent = "这个目录中没有子文件夹。";
+        folderList.appendChild(empty);
+      }
+      chooser.hidden = false;
+      message.textContent = "请选择儿童可见内容的根目录。";
+    }
+
+    // 【MODIFIED】职责：把错误显示在当前页面；输入异常，输出用户可见消息。
+    function showError(error) {
+      message.textContent = "操作失败：" + error.message;
+    }
+
+    // 【MODIFIED】职责：恢复当前短时绑定状态；输入页面片段令牌，输出授权或目录选择入口。
+    async function initialize() {
+      if (!pairingCode || pairingCode.length < 32) {
+        message.textContent = "配对链接无效，请在电视上重新生成二维码。";
+        return;
+      }
+      try {
+        const pair = await api("/v1/pairings/me");
+        if (pair.status === "choose_root") {
+          await showFolder("/");
+        } else {
+          message.textContent = "请先使用百度账号授权。";
+          authorizeButton.hidden = false;
+        }
+      } catch (error) {
+        message.textContent = "链接已失效或服务暂时不可用，请在电视上重试。";
+      }
+    }
+
+    // 【MODIFIED】职责：启动本次设备专属百度 OAuth；副作用为跳转到百度授权页面。
+    authorizeButton.addEventListener("click", async () => {
+      authorizeButton.disabled = true;
+      try {
+        const result = await api("/v1/oauth/start", { method: "POST" });
+        location.assign(result.authorization_url);
+      } catch (error) {
+        authorizeButton.disabled = false;
+        showError(error);
+      }
+    });
+
+    // 【MODIFIED】职责：按目录层级返回；副作用为更新手机目录视图。
+    backButton.addEventListener("click", () => showFolder(parentPath(currentPath)).catch(showError));
+
+    // 【MODIFIED】职责：保存经后端校验的 Root Folder；输出配对完成状态。
+    chooseButton.addEventListener("click", async () => {
+      chooseButton.disabled = true;
+      try {
+        await api("/v1/pairings/root", { method: "POST", body: JSON.stringify({ path: currentPath, fs_id: currentID }) });
+        chooser.hidden = true;
+        message.textContent = "连接完成。可以返回电视，BabyPlayer 会自动更新。";
+      } catch (error) {
+        chooseButton.disabled = false;
+        showError(error);
+      }
+    });
+
+    initialize();
+  </script>
+</body>
+</html>
