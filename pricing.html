@@ -152,6 +152,7 @@
   <!-- 【MODIFIED】Shared footer mount: i18n.js renders the homepage-standard footer here. -->
   <footer data-shared-footer=""></footer>
   <script src="outlinesave-analytics.js?v=20260922-v1"></script>
+  <script src="checkout-return.js?v=20261002"></script>
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <script type="text/javascript">
     var PADDLE_TXN_STORAGE_KEY = "paddle_checkout_txn";
@@ -207,8 +208,8 @@
       return "";
     }
 
-    function redirectToPaymentSuccess(tid) {
-      window.location.href = "/payment-success?transaction_id=" + encodeURIComponent(tid);
+    function redirectToPaymentSuccess(tid, event) {
+      window.OutlineSaveCheckoutReturn.redirect(tid, event);
     }
 
     Paddle.Initialize({
@@ -226,9 +227,9 @@
             tid = tid || readStoredPaddleTransactionId();
             if (tid) {
               storePaddleTransactionId(tid);
-              redirectToPaymentSuccess(tid);
+              redirectToPaymentSuccess(tid, event);
             } else {
-              window.location.href = "/payment-success";
+              redirectToPaymentSuccess("", event);
             }
           }
         } catch (e) {
@@ -239,13 +240,7 @@
   </script>
   <script>
     (function () {
-      var checkoutSettings = {
-        settings: {
-          theme: "light",
-          locale: "en",
-          successUrl: "https://wisteriasoftware.uk/payment-success"
-        }
-      };
+
 
       document.querySelectorAll("[data-paddle-price-id]").forEach(function (button) {
         button.addEventListener("click", function (event) {
@@ -262,7 +257,7 @@
             if (!priceId) throw new Error("Missing price id");
             Paddle.Checkout.open({
               items: [{ priceId: priceId, quantity: 1 }],
-              settings: checkoutSettings.settings
+              settings: window.OutlineSaveCheckoutReturn.settings()
             });
           } catch (error) {
             if (errorTarget) {
