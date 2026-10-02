@@ -39,7 +39,7 @@
   "networkError": "Network error. Please try again later."
 };
   const API_BASE = 'https://api.wisteriasoftware.uk';
-  const MAX_RESEND = 3;
+  const MAX_RESEND = 2;
   const params = new URLSearchParams(window.location.search);
   const token = params.get('token');
   const transactionId = params.get('transaction_id') || params.get('txn') || params.get('_ptxn');
