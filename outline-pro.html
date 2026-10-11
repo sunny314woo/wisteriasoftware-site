@@ -13,6 +13,7 @@
   <meta name="twitter:title" content="OutlineSave - Searchable HTML Knowledge Pages for ChatGPT &amp; Gemini">
   <meta name="twitter:description" content="Upgrade OutlineSave to create private searchable HTML pages from long ChatGPT and Gemini conversations.">
   <link rel="stylesheet" href="style.css?v=20260718-layout-polish">
+  <link rel="stylesheet" href="outline-pro.css?v=20261011-faq">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -22,219 +23,265 @@
   <meta name="theme-color" content="#6d3fcb">
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://wisteriasoftware.uk/#organization",
-        "name": "Wisteria Software Ltd",
-        "url": "https://wisteriasoftware.uk/",
-        "email": "support@wisteriasoftware.uk"
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://wisteriasoftware.uk/#website",
-        "name": "Wisteria Software",
-        "url": "https://wisteriasoftware.uk/",
-        "publisher": {
-          "@id": "https://wisteriasoftware.uk/#organization"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://wisteriasoftware.uk/outline-pro.html#breadcrumb",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://wisteriasoftware.uk/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "OutlineSave",
-            "item": "https://wisteriasoftware.uk/outline-pro.html"
-          }
-        ]
-      },
-      {
-        "@type": "SoftwareApplication",
-        "@id": "https://wisteriasoftware.uk/outline-pro.html#software",
-        "name": "OutlineSave",
-        "alternateName": "OutlineSave",
-        "url": "https://wisteriasoftware.uk/outline-pro.html",
-        "description": "OutlineSave is a Chrome extension upgrade for ChatGPT and Gemini that turns long AI conversations into private searchable HTML knowledge pages with outlines, bookmarks, highlights, notes, filters, and offline review.",
-        "applicationCategory": "BrowserApplication",
-        "operatingSystem": "Chrome, Chromium",
-        "browserRequirements": "Chrome or a Chromium-based browser",
-        "softwareHelp": "https://wisteriasoftware.uk/support.html",
-        "publisher": {
-          "@id": "https://wisteriasoftware.uk/#organization"
-        },
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "OutlineSave 1-Year License",
-            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
-            "price": "24.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "One-time payment for 1 year of Pro access. No auto-renewal."
-          },
-          {
-            "@type": "Offer",
-            "name": "OutlineSave Lifetime",
-            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
-            "price": "39.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "One-time payment for lifetime Pro access. Original price is USD 49.99."
-          }
-        ]
-      },
-      {
-        "@type": "Product",
-        "@id": "https://wisteriasoftware.uk/outline-pro.html#product",
-        "name": "OutlineSave",
-        "alternateName": "OutlineSave",
-        "description": "A Chrome extension upgrade for saving long ChatGPT and Gemini conversations as private searchable HTML knowledge pages.",
-        "image": [
-          "https://wisteriasoftware.uk/asset/1.PNG",
-          "https://wisteriasoftware.uk/asset/2.PNG",
-          "https://wisteriasoftware.uk/asset/3.PNG",
-          "https://wisteriasoftware.uk/asset/4.PNG"
-        ],
-        "brand": {
-          "@type": "Brand",
-          "name": "Wisteria Software"
-        },
-        "category": "Browser extension",
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "OutlineSave 1-Year License",
-            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
-            "price": "24.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "One-time payment for 1 year of Pro access. No auto-renewal."
-          },
-          {
-            "@type": "Offer",
-            "name": "OutlineSave Lifetime",
-            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
-            "price": "39.99",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock",
-            "description": "One-time payment for lifetime Pro access. Original price is USD 49.99."
-          }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://wisteriasoftware.uk/outline-pro.html#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What does “Lifetime License” mean?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A Lifetime License is a one-time purchase with no subscription or automatic renewal. Your license remains valid for future compatible versions of OutlineSave for as long as the product continues to be maintained and offered. You won’t need to purchase another license for compatibility updates."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What if a ChatGPT update temporarily breaks OutlineSave?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Because OutlineSave works with the ChatGPT web interface, major interface changes may occasionally cause temporary compatibility issues. OutlineSave is actively maintained, and I usually address compatibility issues within about two business days. More complex changes may take longer, and the release of an update may also depend on Chrome Web Store review times."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is OutlineSave?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "OutlineSave is a Chrome extension that converts long ChatGPT and Gemini conversations into a clickable sidebar outline. OutlineSave adds unlimited searchable HTML exports, filters, highlights, notes, and offline review."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does OutlineSave support Gemini?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. OutlineSave supports Gemini conversations in Chrome and Chromium-based browser extension environments."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Is outline navigation limited?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Unlimited. OutlineSave navigation has no usage limit for ChatGPT or Gemini."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What is the difference between Free, Pro, and Lifetime?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Free lets you try the core workflow with outline navigation, basic bookmarks, highlights, notes, and limited HTML export. Pro 1-Year adds unlimited searchable HTML exports, filters, offline review, and priority support. Lifetime includes Pro access with one-time payment, no subscription, no renewal reminders, all future Pro updates, and support for independent development."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does OutlineSave upload my ChatGPT or Gemini content?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. ChatGPT and Gemini page content is processed locally in your browser and is not uploaded to Wisteria Software servers."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I export only bookmarked Q&As?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. You can bookmark important Q&As and export only those bookmarked sections to Markdown, HTML, or Inbox."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I need a ChatGPT login or a separate user account to use this extension?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "No. This extension does not require any separate user account system. It works locally in your browser based on the content of the current ChatGPT or Gemini page. Your chats are processed on your device, and the extension does not require a separate login to function."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does the extension work in Incognito mode?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, it can work in Incognito mode. However, Chrome disables extensions in Incognito mode by default. You need to manually allow the extension to run in Incognito mode from Chrome's extension settings: chrome://extensions, Details, Allow in Incognito. This is a Chrome browser setting, not an issue with the extension itself."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Why do some features not work when I am not logged in to ChatGPT?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "If you are not logged in to ChatGPT, some features may be limited because of ChatGPT's own web restrictions. Since the extension works based on the current page content, any limitation in how ChatGPT displays or loads the page may also affect how the extension behaves in certain cases. This is not caused by the extension itself."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What should I do if I still have problems?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "If you still have any questions or run into issues, feel free to contact me at info@wisteriasoftware.uk. I'll be happy to help."
-            }
-          }
-        ]
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://wisteriasoftware.uk/#organization",
+      "name": "Wisteria Software Ltd",
+      "url": "https://wisteriasoftware.uk/",
+      "email": "support@wisteriasoftware.uk"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://wisteriasoftware.uk/#website",
+      "name": "Wisteria Software",
+      "url": "https://wisteriasoftware.uk/",
+      "publisher": {
+        "@id": "https://wisteriasoftware.uk/#organization"
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://wisteriasoftware.uk/outline-pro.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://wisteriasoftware.uk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "OutlineSave",
+          "item": "https://wisteriasoftware.uk/outline-pro.html"
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://wisteriasoftware.uk/outline-pro.html#software",
+      "name": "OutlineSave",
+      "alternateName": "OutlineSave",
+      "url": "https://wisteriasoftware.uk/outline-pro.html",
+      "description": "OutlineSave is a Chrome extension upgrade for ChatGPT and Gemini that turns long AI conversations into private searchable HTML knowledge pages with outlines, bookmarks, highlights, notes, filters, and offline review.",
+      "applicationCategory": "BrowserApplication",
+      "operatingSystem": "Chrome, Chromium",
+      "browserRequirements": "Chrome or a Chromium-based browser",
+      "softwareHelp": "https://wisteriasoftware.uk/support.html",
+      "publisher": {
+        "@id": "https://wisteriasoftware.uk/#organization"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "OutlineSave 1-Year License",
+          "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
+          "price": "24.99",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "One-time payment for 1 year of Pro access. No auto-renewal."
+        },
+        {
+          "@type": "Offer",
+          "name": "OutlineSave Lifetime",
+          "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
+          "price": "39.99",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "One-time payment for lifetime Pro access. Early-bird price USD 39.99; regular price USD 59.99. Save USD 20."
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://wisteriasoftware.uk/outline-pro.html#product",
+      "name": "OutlineSave",
+      "alternateName": "OutlineSave",
+      "description": "A Chrome extension upgrade for saving long ChatGPT and Gemini conversations as private searchable HTML knowledge pages.",
+      "image": [
+        "https://wisteriasoftware.uk/asset/outline-pro/outline-search.png",
+        "https://wisteriasoftware.uk/asset/outline-pro/html-export.png"
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "Wisteria Software"
+      },
+      "category": "Browser extension",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "OutlineSave 1-Year License",
+          "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
+          "price": "24.99",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "One-time payment for 1 year of Pro access. No auto-renewal."
+        },
+        {
+          "@type": "Offer",
+          "name": "OutlineSave Lifetime",
+          "url": "https://wisteriasoftware.uk/outline-pro.html#pricing",
+          "price": "39.99",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "description": "One-time payment for lifetime Pro access. Early-bird price USD 39.99; regular price USD 59.99. Save USD 20."
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://wisteriasoftware.uk/outline-pro.html#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between Free and Pro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free includes unlimited outline navigation, basic bookmarks, highlights, and notes, with limited outline search and one advanced HTML export per week. Pro unlocks unlimited outline search and searchable HTML exports, export filters, offline review, and priority support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does the 7-day trial start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free users start a 7-day Pro trial automatically the first time they click Advanced HTML export in the extension. No card is required, and the trial does not automatically become a paid plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much free outline search is included?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free users get a limited allowance. The exact cap has not been finalized; we will announce it in the extension and on this page. Pro outline search is unlimited."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is outline navigation limited too?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Browsing and clicking the outline has no usage limit. The Free allowance applies to outline search, not ordinary outline navigation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do 1-Year and Lifetime have different features?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They include the same Pro features. A 1-Year license is valid for one year with manual renewal; Lifetime requires no renewal. Both include unlimited outline search and HTML exports, search and filters in exported pages, preserved highlights, notes, and bookmarks, and priority email support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does “Lifetime License” mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Lifetime License is a one-time purchase with no subscription or automatic renewal. Your license remains valid for future compatible versions of OutlineSave for as long as the product continues to be maintained and offered. You won’t need to purchase another license for compatibility updates. Lifetime includes everything in 1-Year Pro and all future Pro updates, without renewal reminders. Unlimited searchable HTML exports remain available throughout the lifetime license term."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this a subscription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Both Pro plans are one-time payments. The 1-Year plan expires after a year; Lifetime does not require renewal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I activate after purchase?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You receive an activation code by email. Enter it in the extension to activate Pro access. The payment success page also shows your short activation code when payment is confirmed. Copy it into the extension’s activation field and follow the validation result shown there."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the activation email has not arrived?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check the email address used at checkout and your spam folder. Once your code is ready, you can copy it or resend the email from the payment success page. That page shows the resend availability and cooldown. If it is still missing, contact support@wisteriasoftware.uk ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I get a refund?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Purchases are covered by a 14-day refund policy. See the refund policy for details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if WeChat Pay looks stuck?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "WeChat Pay can complete asynchronously. Please allow about 15 minutes for payment sync and about 20 minutes for the activation email before contacting support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which platforms and browsers are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OutlineSave supports ChatGPT, Claude, DeepSeek, and Gemini, with ChatGPT prioritized for compatibility updates. It works in Chrome and Chromium-based browsers that support Chrome extensions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does OutlineSave upload my chats?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Content from supported AI chat pages is processed locally in your browser and is not uploaded to Wisteria servers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I export only bookmarked Q&As?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Bookmark important Q&As and export only those bookmarked sections to Markdown, HTML, or Inbox."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a separate account?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No separate OutlineSave account is required. The extension works locally with the content of the current supported AI chat page. If you are not logged in to ChatGPT, its own page display or loading restrictions may affect some extension features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work in Incognito mode?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, if you allow it in Chrome. Open chrome://extensions , select OutlineSave’s Details, and enable “Allow in Incognito”. Chrome disables extensions in Incognito by default."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if a ChatGPT update temporarily breaks OutlineSave?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because OutlineSave works with the ChatGPT web interface, major interface changes may occasionally cause temporary compatibility issues. OutlineSave is actively maintained, and I usually address compatibility issues within about two business days. More complex changes may take longer, and the release of an update may also depend on Chrome Web Store review times."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I get help?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Visit Help & Guides or email support@wisteriasoftware.uk . You can also contact us at info@wisteriasoftware.uk ."
+          }
+        }
+      ]
+    }
+  ]
+}
   </script>
 </head>
 
@@ -243,262 +290,143 @@
   <!-- 【MODIFIED】Shared navigation mount: i18n.js renders the homepage-standard navbar here. -->
   <header data-shared-header=""></header>
 
-  <main class="outline-pro-page">
-    <section class="pro-hero">
-      <div class="pro-hero-copy">
-        <span class="eyebrow" data-i18n="content.outline_pro.hero_eyebrow">For existing OutlineSave users</span>
-        <h1 data-i18n="content.outline_pro.hero_title">Save long ChatGPT &amp; Gemini chats as searchable HTML knowledge pages</h1>
-        <p class="subtitle" data-i18n="content.outline_pro.hero_subtitle">
-          OutlineSave helps you jump through long AI conversations, mark important answers, and export private offline HTML pages with search, filters, highlights, and notes.
-        </p>
-        <div class="hero-actions">
-          <a class="btn-link primary" href="#" data-paddle-price-id="pri_01kvqqrhj7g45v2w1fhnjw7ypw" data-i18n="content.outline_pro.cta_lifetime">
-            Get Lifetime Access
-          </a>
-          <a class="btn-link secondary" href="#pricing" data-i18n="content.outline_pro.cta_compare">Compare Plans</a>
+  <main class="outline-pro-page op-page">
+    <section class="op-hero">
+      <p class="op-product-name">OutlineSave Pro</p>
+      <h1 data-i18n="content.outline_pro.hero_title">Stop scrolling.<br><em>Find what matters.</em></h1>
+      <p class="op-subtitle" data-i18n="content.outline_pro.hero_subtitle">Search your AI chat outline. Jump to answers. Save as searchable HTML.</p>
+      <div class="op-actions">
+        <a class="op-button op-button-primary" href="#" data-paddle-price-id="pri_01kvqqrhj7g45v2w1fhnjw7ypw" data-i18n="content.outline_pro.cta_lifetime">Get Lifetime Access</a>
+        <a class="op-button op-button-secondary" href="#pricing" data-i18n="content.outline_pro.cta_compare">Compare Plans</a>
+        <a class="op-button op-button-secondary" href="https://chromewebstore.google.com/detail/chatgpt-outline/opbngifmlnoahbhjhgmngkggedlofddj" target="_blank" rel="noopener noreferrer" data-i18n="content.outline_pro.hero_download">Download on Chrome Web Store ↗</a>
+      </div>
+      <p class="op-hero-note"><strong data-i18n="content.outline_pro.trial_short">Free users get a 7-day Pro trial.</strong> <span data-i18n="content.outline_pro.trial_no_card">No card required.</span></p>
+      <p class="op-error" data-checkout-error="" role="alert" style="display:none;"></p>
+    </section>
+
+    <section class="op-features" id="features" aria-label="OutlineSave features" data-i18n-attrs="aria-label" data-i18n-aria-label="content.outline_pro.features_label">
+      <div class="op-feature-grid">
+        <article class="op-feature-card">
+          <div class="op-feature-copy">
+            <h2 data-i18n="content.outline_pro.search_title">Search the outline</h2>
+            <p data-i18n="content.outline_pro.search_body">Search main questions and nested headings. Click a match to jump back.</p>
+          </div>
+          <figure class="op-image op-image-search">
+            <img src="asset/outline-pro/outline-search.png" width="1086" height="1448" fetchpriority="high" alt="OutlineSave search in ChatGPT, with a highlighted match and outline entries from 1 to 400." data-i18n-attrs="alt" data-i18n-alt="content.outline_pro.search_alt">
+          </figure>
+        </article>
+        <article class="op-feature-card">
+          <div class="op-feature-copy">
+            <h2 data-i18n="content.outline_pro.export_title">Export as searchable HTML</h2>
+            <p data-i18n="content.outline_pro.export_body">Keep your outline and highlights in a private HTML file. Read it offline.</p>
+          </div>
+          <figure class="op-image">
+            <img src="asset/outline-pro/html-export.png" width="1235" height="830" loading="lazy" alt="Exported HTML conversation with its outline and colored highlights preserved." data-i18n-attrs="alt" data-i18n-alt="content.outline_pro.export_alt">
+          </figure>
+        </article>
+      </div>
+      <details class="op-tool-details">
+        <summary data-i18n="content.outline_pro.tools_summary">Explore the included tools</summary>
+        <div class="op-tool-body">
+          <p><span data-i18n="content.outline_pro.problem_long">AI conversations get long.</span> <span data-i18n="content.outline_pro.problem_hidden">Useful answers disappear in the middle.</span> <span data-i18n="content.outline_pro.problem_history">Browser history is not a knowledge system.</span></p>
+          <h2 data-i18n="content.outline_pro.features_title">Turn saved chats into reusable knowledge</h2>
+          <p data-i18n="content.outline_pro.features_subtitle">Pro focuses on one result: searchable, filterable, long-lived HTML pages for the AI work you want to keep.</p>
+          <div class="op-tool-grid">
+            <article><h3 data-i18n="content.outline_pro.features_find_title">Find faster</h3><p data-i18n="content.outline_pro.features_find_body">Use the automatic outline and local search to jump to the answer you need without rescrolling the whole conversation.</p></article>
+            <article><h3 data-i18n="content.outline_pro.features_mark_title">Mark what matters</h3><p data-i18n="content.outline_pro.features_mark_body">Keep highlights, notes, bookmarks, and starred items attached to the parts of the chat that deserve review.</p></article>
+            <article><h3 data-i18n="content.outline_pro.features_export_title">Export as knowledge</h3><p data-i18n="content.outline_pro.features_export_body">Create private offline HTML pages with preserved structure, search, filters, and readable formatting.</p></article>
+          </div>
         </div>
-        <p class="small-note" data-i18n="content.outline_pro.hero_note">7-day Pro trial · 14-day refund · One-time payment · No subscription</p>
-        <p class="small-note" data-checkout-error="" style="display:none;color:#b91c1c;"></p>
-        <div class="kicker-list">
-          <span class="kicker" data-i18n="content.outline_pro.kicker_local">Local-first</span>
-          <span class="kicker" data-i18n="content.outline_pro.kicker_upload">No chat upload</span>
-          <span class="kicker" data-i18n="content.outline_pro.kicker_activation">Works after activation</span>
-          <span class="kicker">Chrome &amp; Chromium</span>
+      </details>
+    </section>
+
+    <section class="op-pricing" id="pricing">
+      <div class="op-section-title">
+        <h2 data-i18n="content.outline_pro.pricing_title">Choose your Pro access</h2>
+        <p data-i18n="content.outline_pro.pricing_subtitle">Same Pro features. Choose one year or lifetime access.</p>
+      </div>
+      <div class="op-table-wrap" role="region" aria-labelledby="comparison-caption" tabindex="0">
+        <table class="op-table">
+          <caption id="comparison-caption" class="op-sr-only" data-i18n="content.outline_pro.comparison_caption">Free and Pro feature comparison</caption>
+          <thead><tr><th scope="col" data-i18n="content.outline_pro.comparison_benefit">Included</th><th scope="col" data-i18n="content.outline_pro.comparison_free">Free</th><th scope="col" class="op-pro-col">Pro</th></tr></thead>
+          <tbody>
+            <tr><th scope="row" data-i18n="content.outline_pro.comparison_search">Directory search</th><td data-i18n="content.outline_pro.comparison_limited">Limited allowance</td><td class="op-pro-col" data-i18n="content.outline_pro.comparison_unlimited">Unlimited</td></tr>
+            <tr><th scope="row" data-i18n="content.outline_pro.comparison_export">HTML export</th><td data-i18n="content.outline_pro.comparison_weekly">1 / week</td><td class="op-pro-col" data-i18n="content.outline_pro.comparison_unlimited">Unlimited</td></tr>
+            <tr><th scope="row" data-i18n="content.outline_pro.comparison_support">Updates &amp; support</th><td data-i18n="content.outline_pro.comparison_free_support">Core fixes and compatibility updates</td><td class="op-pro-col" data-i18n="content.outline_pro.comparison_pro_support">Ongoing Pro feature improvements; priority technical support</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="op-price-grid">
+        <article class="op-price-card">
+          <h3 data-i18n="content.outline_pro.pricing_year_name">Pro · 1 Year</h3>
+          <p class="op-price-for" data-i18n="content.outline_pro.pricing_year_for">For regular AI work review</p>
+          <div class="op-price-line"><span class="op-price">$24.99</span></div>
+          <p class="op-price-terms" data-i18n="content.outline_pro.pricing_validity">Valid for 1 year · Manual renewal · No auto-renewal</p>
+          <a class="op-button op-button-secondary" href="#" data-paddle-price-id="pri_01kqsj92jxydy135ep6cdex06f" data-i18n="content.outline_pro.pricing_getYear">Get 1-Year Pro</a>
+        </article>
+        <article class="op-price-card">
+          <h3 data-i18n="content.outline_pro.pricing_lifetime_name">Pro · Lifetime</h3>
+          <p class="op-price-for" data-i18n="content.outline_pro.pricing_lifetime_for">Best for long-term AI knowledge building</p>
+          <div class="op-price-line"><del class="op-old-price" aria-label="Regular price $59.99" data-i18n-attrs="aria-label" data-i18n-aria-label="content.outline_pro.pricing_regular_label">$59.99</del><span class="op-price">$39.99</span><span class="op-sale-note" data-i18n="content.outline_pro.pricing_sale">Early Bird · Save $20</span></div>
+          <p class="op-price-terms" data-i18n="content.outline_pro.pricing_lifetime_terms">One-time payment · No subscription · No renewal</p>
+          <a class="op-button op-button-primary" href="#" data-paddle-price-id="pri_01kvqqrhj7g45v2w1fhnjw7ypw" data-i18n="content.outline_pro.cta_lifetime">Get Lifetime Access</a>
+          <p class="op-price-value" data-i18n="content.outline_pro.pricing_value">Only $15 more than 1-Year</p>
+        </article>
+      </div>
+      <p class="op-payment-note" data-i18n="content.outline_pro.payment_note">Secure checkout by Paddle · <a href="refund.html">14-day refund</a> · No subscription</p>
+      <p class="op-trial-note"><strong data-i18n="content.outline_pro.trial_short">Free users get a 7-day Pro trial.</strong> <span data-i18n="content.outline_pro.trial_start">It starts on the first click of Advanced HTML export in the extension. No card required.</span></p>
+    </section>
+
+    <section class="op-faq" id="faq">
+      <div class="op-section-title"><h2 data-i18n="content.outline_pro.faq_title">Frequently asked questions</h2></div>
+      <div class="op-faq-group">
+        <h3 data-i18n="content.outline_pro.faq_group_features">Features &amp; trial</h3>
+        <div class="op-faq-list">
+          <details><summary data-i18n="content.outline_pro.faq_free_q">What is the difference between Free and Pro?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_free_a">Free includes unlimited outline navigation, basic bookmarks, highlights, and notes, with limited outline search and one advanced HTML export per week. Pro unlocks unlimited outline search and searchable HTML exports, export filters, offline review, and priority support.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_trial_q">How does the 7-day trial start?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_trial_a">Free users start a 7-day Pro trial automatically the first time they click Advanced HTML export in the extension. No card is required, and the trial does not automatically become a paid plan.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_search_q">How much free outline search is included?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_search_a">Free users get a limited allowance. The exact cap has not been finalized; we will announce it in the extension and on this page. Pro outline search is unlimited.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_navigation_q">Is outline navigation limited too?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_navigation_a">No. Browsing and clicking the outline has no usage limit. The Free allowance applies to outline search, not ordinary outline navigation.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_bookmarks_q">Can I export only bookmarked Q&amp;As?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_bookmarks_a">Yes. Bookmark important Q&amp;As and export only those bookmarked sections to Markdown, HTML, or Inbox.</p></div></details>
         </div>
       </div>
-
-      <div class="pro-hero-visual" aria-label="OutlineSave product preview">
-        <div class="pro-browser">
-          <div class="pro-browser-bar">
-            <span class="window-dot red"></span>
-            <span class="window-dot yellow"></span>
-            <span class="window-dot green"></span>
-            <span class="blurred-url">chat.example.com/conversation/knowledge-page</span>
-          </div>
-          <div class="pro-preview-grid">
-            <aside class="preview-outline">
-              <strong>OutlineSave</strong>
-              <ol>
-                <li><span>1.1</span> Goals</li>
-                <li><span>1.2</span> Scope</li>
-                <li><span>2.1</span> Research</li>
-                <li><span>3.1</span> Next steps</li>
-              </ol>
-            </aside>
-            <article class="preview-document">
-              <p class="preview-label">Project Overview</p>
-              <h2>Build a local-first workflow</h2>
-              <p>The goal is to save important AI answers outside chat history.</p>
-              <mark>Keeping everything on your device maintains privacy while ideas stay searchable.</mark>
-              <ul>
-                <li>Private and secure</li>
-                <li>Fast local search</li>
-                <li>Export anytime</li>
-              </ul>
-            </article>
-          </div>
+      <div class="op-faq-group">
+        <h3 data-i18n="content.outline_pro.faq_group_license">Purchase &amp; license</h3>
+        <div class="op-faq-list">
+          <details><summary data-i18n="content.outline_pro.faq_term_q">Do 1-Year and Lifetime have different features?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_term_a">They include the same Pro features. A 1-Year license is valid for one year with manual renewal; Lifetime requires no renewal. Both include unlimited outline search and HTML exports, search and filters in exported pages, preserved highlights, notes, and bookmarks, and priority email support.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_lifetime_q">What does “Lifetime License” mean?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_lifetime_a">A Lifetime License is a one-time purchase with no subscription or automatic renewal. Your license remains valid for future compatible versions of OutlineSave for as long as the product continues to be maintained and offered. You won’t need to purchase another license for compatibility updates.</p><p data-i18n="content.outline_pro.faq_lifetime_updates">Lifetime includes everything in 1-Year Pro and all future Pro updates, without renewal reminders. Unlimited searchable HTML exports remain available throughout the lifetime license term.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_subscription_q">Is this a subscription?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_subscription_a">No. Both Pro plans are one-time payments. The 1-Year plan expires after a year; Lifetime does not require renewal.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_refund_q">Can I get a refund?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_refund_a">Yes. Purchases are covered by a 14-day refund policy. See the <a href="refund.html">refund policy</a> for details.</p></div></details>
         </div>
-        <div class="floating-note">
-          <strong>Note</strong>
-          <p>Great summary of the core value proposition.</p>
+      </div>
+      <div class="op-faq-group">
+        <h3 data-i18n="content.outline_pro.faq_group_payment">Payment &amp; activation</h3>
+        <div class="op-faq-list">
+          <details><summary data-i18n="content.outline_pro.faq_activate_q">How do I activate after purchase?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_activate_a">You receive an activation code by email. Enter it in the extension to activate Pro access.</p><p data-i18n="content.outline_pro.faq_activate_short">The payment success page also shows your short activation code when payment is confirmed. Copy it into the extension’s activation field and follow the validation result shown there.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_email_q">What if the activation email has not arrived?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_email_a">Check the email address used at checkout and your spam folder. Once your code is ready, you can copy it or resend the email from the payment success page. That page shows the resend availability and cooldown. If it is still missing, contact <a href="mailto:support@wisteriasoftware.uk">support@wisteriasoftware.uk</a>.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_wechat_q">What if WeChat Pay looks stuck?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_wechat_a">WeChat Pay can complete asynchronously. Please allow about 15 minutes for payment sync and about 20 minutes for the activation email before contacting support.</p></div></details>
         </div>
-        <div class="floating-export">
-          <strong>Exported HTML Preview</strong>
-          <span>Search this page...</span>
-          <p>Project Overview</p>
+      </div>
+      <div class="op-faq-group">
+        <h3 data-i18n="content.outline_pro.faq_group_usage">Usage &amp; support</h3>
+        <div class="op-faq-list">
+          <details><summary data-i18n="content.outline_pro.faq_platform_q">Which platforms and browsers are supported?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_platform_a">OutlineSave supports ChatGPT, Claude, DeepSeek, and Gemini, with ChatGPT prioritized for compatibility updates. It works in Chrome and Chromium-based browsers that support Chrome extensions.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_account_q">Do I need a separate account?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_account_a">No separate OutlineSave account is required. The extension works locally with the content of the current supported AI chat page. If you are not logged in to ChatGPT, its own page display or loading restrictions may affect some extension features.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_incognito_q">Does it work in Incognito mode?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_incognito_a">Yes, if you allow it in Chrome. Open <code>chrome://extensions</code>, select OutlineSave’s Details, and enable “Allow in Incognito”. Chrome disables extensions in Incognito by default.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_upload_q">Does OutlineSave upload my chats?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_upload_a">No. Content from supported AI chat pages is processed locally in your browser and is not uploaded to Wisteria servers.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_compatibility_q">What if a ChatGPT update temporarily breaks OutlineSave?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_compatibility_context">Because OutlineSave works with the ChatGPT web interface, major interface changes may occasionally cause temporary compatibility issues.</p><p data-i18n="content.outline_pro.faq_compatibility_timing">OutlineSave is actively maintained, and I usually address compatibility issues within about two business days. More complex changes may take longer, and the release of an update may also depend on Chrome Web Store review times.</p></div></details>
+          <details><summary data-i18n="content.outline_pro.faq_contact_q">How can I get help?</summary><div class="op-faq-answer"><p data-i18n="content.outline_pro.faq_contact_a">Visit <a href="support.html#help-guides">Help &amp; Guides</a> or email <a href="mailto:support@wisteriasoftware.uk">support@wisteriasoftware.uk</a>. You can also contact us at <a href="mailto:info@wisteriasoftware.uk">info@wisteriasoftware.uk</a>.</p></div></details>
         </div>
       </div>
     </section>
 
-    <section class="problem-strip" aria-label="Why Pro matters">
-      <p data-i18n="content.outline_pro.problem_long">AI conversations get long.</p>
-      <p data-i18n="content.outline_pro.problem_hidden">Useful answers disappear in the middle.</p>
-      <p data-i18n="content.outline_pro.problem_history">Browser history is not a knowledge system.</p>
+    <section class="op-trust" aria-label="Privacy and purchase details" data-i18n-attrs="aria-label" data-i18n-aria-label="content.outline_pro.trust_label">
+      <article><h3 data-i18n="content.outline_pro.trust_private_title">Private by default</h3><p data-i18n="content.outline_pro.trust_private_body">Chat content is processed in your browser. Wisteria does not upload or analyze your conversations.</p></article>
+      <article><h3 data-i18n="content.outline_pro.trust_activation_title">Simple activation</h3><p data-i18n="content.outline_pro.trust_activation_body">You receive an activation code by email after purchase. Enter it in the extension to unlock Pro.</p></article>
+      <article><h3 data-i18n="content.outline_pro.trust_refund_title">Refund friendly</h3><p data-i18n="content.outline_pro.trust_refund_body">All purchases are covered by a 14-day refund policy, with support available by email.</p></article>
     </section>
-
-    <section id="features" class="outcome-section">
-      <div class="section-intro centered">
-        <span class="eyebrow" data-i18n="content.outline_pro.features_eyebrow">What Pro unlocks</span>
-        <h2 data-i18n="content.outline_pro.features_title">Turn saved chats into reusable knowledge</h2>
-        <p class="subtitle" data-i18n="content.outline_pro.features_subtitle">
-          Pro focuses on one result: searchable, filterable, long-lived HTML pages for the AI work you want to keep.
-        </p>
-      </div>
-      <div class="outcome-grid">
-        <article class="outcome-card">
-          <span class="outcome-icon">⌕</span>
-          <h3 data-i18n="content.outline_pro.features_find_title">Find faster</h3>
-          <p data-i18n="content.outline_pro.features_find_body">Use the automatic outline and local search to jump to the answer you need without rescrolling the whole conversation.</p>
-        </article>
-        <article class="outcome-card">
-          <span class="outcome-icon">✎</span>
-          <h3 data-i18n="content.outline_pro.features_mark_title">Mark what matters</h3>
-          <p data-i18n="content.outline_pro.features_mark_body">Keep highlights, notes, bookmarks, and starred items attached to the parts of the chat that deserve review.</p>
-        </article>
-        <article class="outcome-card">
-          <span class="outcome-icon">▣</span>
-          <h3 data-i18n="content.outline_pro.features_export_title">Export as knowledge</h3>
-          <p data-i18n="content.outline_pro.features_export_body">Create private offline HTML pages with preserved structure, search, filters, and readable formatting.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- 【MODIFIED】pricing section redesign -->
-    <section id="pricing" class="pro-pricing pricing-redesign">
-      <div class="section-intro centered">
-        <h2 data-i18n="content.outline_pro.pricing_title">Need more HTML exports?</h2>
-        <p class="subtitle" data-i18n="content.outline_pro.pricing_subtitle">
-          Upgrade to Pro to save long ChatGPT and Gemini conversations as searchable offline HTML knowledge pages.
-        </p>
-      </div>
-      <div class="pricing-redesign-grid">
-        <article class="pricing-redesign-card">
-          <div class="pricing-card-header">
-            <h3 data-i18n="content.outline_pro.pricing_year_name">Pro 1-Year</h3>
-            <p data-i18n="content.outline_pro.pricing_year_for">For regular AI work review</p>
-          </div>
-          <p class="pricing-redesign-price">$24.99</p>
-          <ul class="pricing-redesign-list">
-            <li data-i18n="content.outline_pro.pricing_unlimited"><span>✓</span>Unlimited searchable HTML exports</li>
-            <li data-i18n="content.outline_pro.pricing_search"><span>✓</span>Search and filter exported pages</li>
-            <li data-i18n="content.outline_pro.pricing_annotations"><span>✓</span>Highlights, notes, and bookmarks in exported pages</li>
-            <li data-i18n="content.outline_pro.pricing_priority"><span>✓</span>Priority email support</li>
-          </ul>
-          <p class="pricing-validity" data-i18n="content.outline_pro.pricing_validity">Valid for 1 year · Manual renewal · No auto-renewal</p>
-          <div class="hero-actions">
-            <a class="btn-link pricing-secondary" href="#" data-paddle-price-id="pri_01kqsj92jxydy135ep6cdex06f" data-i18n="content.outline_pro.pricing_getYear">
-              Get 1-Year Pro
-            </a>
-          </div>
-        </article>
-
-        <article class="pricing-redesign-card lifetime">
-          <span class="pricing-badge" data-i18n="content.outline_pro.pricing_badge">Best Value</span>
-          <div class="pricing-card-header">
-            <h3 data-i18n="content.outline_pro.pricing_lifetime_name">Lifetime</h3>
-            <p data-i18n="content.outline_pro.pricing_lifetime_for">Best for long-term AI knowledge building</p>
-          </div>
-          <div class="pricing-lifetime-price">
-            <span class="pricing-redesign-price">$39.99</span>
-            <span class="pricing-old-price">$49.99</span>
-            <span class="pricing-early-bird" data-i18n="content.outline_pro.pricing_early">Early Bird</span>
-          </div>
-          <p class="pricing-value-note" data-i18n="content.outline_pro.pricing_value">Only $15 more than 1-Year</p>
-          <ul class="pricing-redesign-list">
-            <li data-i18n="content.outline_pro.pricing_forever"><span>✓</span>Unlimited searchable HTML exports forever</li>
-            <li data-i18n="content.outline_pro.pricing_everything"><span>✓</span>Everything in 1-Year Pro</li>
-            <li data-i18n="content.outline_pro.pricing_noReminder"><span>✓</span>No renewal reminders</li>
-            <li data-i18n="content.outline_pro.pricing_future"><span>✓</span>All future Pro updates</li>
-            <li data-i18n="content.outline_pro.pricing_oneTime"><span>✓</span>One-time payment</li>
-          </ul>
-          <div class="hero-actions">
-            <a class="btn-link pricing-primary" href="#" data-paddle-price-id="pri_01kvqqrhj7g45v2w1fhnjw7ypw" data-i18n="content.outline_pro.cta_lifetime">
-              Get Lifetime Access
-            </a>
-          </div>
-          <p class="pricing-support-note" data-i18n="content.outline_pro.pricing_support">Support a local-first independent product.</p>
-        </article>
-      </div>
-      <div class="payment-note">
-        Secure checkout by Paddle · <a href="refund.html">14-day refund</a> · No subscription
-      </div>
-    </section>
-
-    <section id="faq" class="faq-section">
-      <div class="section-intro centered">
-        <span class="eyebrow">FAQ</span>
-        <h2 data-i18n="content.outline_pro.faq_title">Questions before upgrading</h2>
-      </div>
-      <div class="faq-grid concise-faq">
-        <article class="faq-item">
-          <h3 data-i18n="content.outline_pro.faq_lifetime_q">What does “Lifetime License” mean?</h3>
-          <p data-i18n="content.outline_pro.faq_lifetime_a">A Lifetime License is a one-time purchase with no subscription or automatic renewal. Your license remains valid for future compatible versions of OutlineSave for as long as the product continues to be maintained and offered. You won’t need to purchase another license for compatibility updates.</p>
-        </article>
-        <article class="faq-item">
-          <h3 data-i18n="content.outline_pro.faq_compatibility_q">What if a ChatGPT update temporarily breaks OutlineSave?</h3>
-          <p data-i18n="content.outline_pro.faq_compatibility_context">Because OutlineSave works with the ChatGPT web interface, major interface changes may occasionally cause temporary compatibility issues.</p>
-          <p data-i18n="content.outline_pro.faq_compatibility_timing">OutlineSave is actively maintained, and I usually address compatibility issues within about two business days. More complex changes may take longer, and the release of an update may also depend on Chrome Web Store review times.</p>
-        </article>
-        <article class="faq-item">
-          <h3 data-i18n="content.outline_pro.faq_upload_q">Does OutlineSave upload my chats?</h3>
-          <p data-i18n="content.outline_pro.faq_upload_a">No. ChatGPT and Gemini page content is processed locally in your browser and is not uploaded to Wisteria servers.</p>
-        </article>
-        <article class="faq-item">
-          <h3 data-i18n="content.outline_pro.faq_subscription_q">Is this a subscription?</h3>
-          <p data-i18n="content.outline_pro.faq_subscription_a">No. Both Pro plans are one-time payments. The 1-Year plan expires after a year; Lifetime does not require renewal.</p>
-        </article>
-        <article class="faq-item">
-          <h3 data-i18n="content.outline_pro.faq_activate_q">How do I activate after purchase?</h3>
-          <p data-i18n="content.outline_pro.faq_activate_a">You receive an activation code by email. Enter it in the extension to activate Pro access.</p>
-        </article>
-        <article class="faq-item">
-          <h3 data-i18n="content.outline_pro.faq_free_q">What is the difference between Free and Pro?</h3>
-          <p data-i18n="content.outline_pro.faq_free_a">Free lets you try the core workflow. Pro unlocks unlimited searchable HTML exports, filters, offline review, and priority support.</p>
-        </article>
-        <article class="faq-item">
-          <h3 data-i18n="content.outline_pro.faq_refund_q">Can I get a refund?</h3>
-          <p>Yes. Purchases are covered by a 14-day refund policy. See the <a href="refund.html">refund policy</a> for details.</p>
-        </article>
-        <article class="faq-item">
-          <h3 data-i18n="content.outline_pro.faq_wechat_q">What if WeChat Pay looks stuck?</h3>
-          <p data-i18n="content.outline_pro.faq_wechat_a">WeChat Pay can complete asynchronously. Please allow about 15 minutes for payment sync and about 20 minutes for the activation email before contacting support.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="demo-section" id="demo">
-      <div class="section-intro centered">
-        <span class="eyebrow" data-i18n="content.outline_pro.demo_eyebrow">Product proof</span>
-        <h2 data-i18n="content.outline_pro.demo_title">See what Pro unlocks</h2>
-        <p class="subtitle" data-i18n="content.outline_pro.demo_subtitle">
-          The screenshots below use English UI examples and focus on the four Pro outcomes.
-        </p>
-      </div>
-      <div class="promo-carousel" data-promo-carousel="">
-        <div class="promo-carousel-viewport">
-          <div class="promo-carousel-track">
-            <figure class="promo-slide is-active">
-              <img src="asset/1.PNG" alt="OutlineSave navigation screenshot in English.">
-              <figcaption data-i18n="content.outline_pro.demo_fig1">OutlineSave navigation keeps long conversations scannable.</figcaption>
-            </figure>
-            <figure class="promo-slide">
-              <img src="asset/2.PNG" loading="lazy" alt="HTML export screenshot in English.">
-              <figcaption data-i18n="content.outline_pro.demo_fig2">HTML export creates private, searchable offline pages.</figcaption>
-            </figure>
-            <figure class="promo-slide">
-              <img src="asset/3.PNG" loading="lazy" alt="Search and filters screenshot in English.">
-              <figcaption data-i18n="content.outline_pro.demo_fig3">Search and filters narrow down the parts worth reviewing.</figcaption>
-            </figure>
-            <figure class="promo-slide">
-              <img src="asset/4.PNG" loading="lazy" alt="Notes and highlights screenshot in English.">
-              <figcaption data-i18n="content.outline_pro.demo_fig4">Notes and highlights keep your reasoning attached to the source chat.</figcaption>
-            </figure>
-          </div>
-        </div>
-        <button class="promo-carousel-btn prev" type="button" aria-label="Previous promotional image">‹</button>
-        <button class="promo-carousel-btn next" type="button" aria-label="Next promotional image">›</button>
-        <div class="promo-carousel-dots promo-carousel-tabs" aria-label="Promotional image carousel controls">
-          <button class="is-active" type="button" aria-label="Show OutlineSave navigation image">OutlineSave navigation</button>
-          <button type="button" aria-label="Show HTML export image">HTML export</button>
-          <button type="button" aria-label="Show Search and filters image">Search &amp; filters</button>
-          <button type="button" aria-label="Show Notes and highlights image">Notes &amp; highlights</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="trust-grid" aria-label="Privacy and purchase details">
-      <article class="trust-card">
-        <h3 data-i18n="content.outline_pro.trust_private_title">Private by default</h3>
-        <p data-i18n="content.outline_pro.trust_private_body">Chat content is processed in your browser. Wisteria does not upload or analyze your conversations.</p>
-      </article>
-      <article class="trust-card">
-        <h3 data-i18n="content.outline_pro.trust_activation_title">Simple activation</h3>
-        <p data-i18n="content.outline_pro.trust_activation_body">You receive an activation code by email after purchase. Enter it in the extension to unlock Pro.</p>
-      </article>
-      <article class="trust-card">
-        <h3 data-i18n="content.outline_pro.trust_refund_title">Refund friendly</h3>
-        <p data-i18n="content.outline_pro.trust_refund_body">All purchases are covered by a 14-day refund policy, with support available by email.</p>
-      </article>
+    <section class="op-closing">
+      <div><h2 data-i18n="content.outline_pro.closing_title">Keep your best AI work.</h2><p data-i18n="content.outline_pro.closing_body">Choose the Pro term that fits you.</p><p data-i18n="content.outline_pro.pricing_support">Support a local-first independent product.</p></div>
+      <div class="op-closing-links"><a class="op-button op-button-primary" href="#pricing" data-i18n="content.outline_pro.closing_cta">See Pro pricing</a><a class="op-store-link" href="https://chromewebstore.google.com/detail/chatgpt-outline/opbngifmlnoahbhjhgmngkggedlofddj" target="_blank" rel="noopener noreferrer" data-i18n="content.outline_pro.store_link">OutlineSave on the Chrome Web Store ↗</a></div>
     </section>
   </main>
   <!-- Footer -->
@@ -651,58 +579,8 @@
       }
     })();
   </script>
-  <script>
-    (function () {
-      var carousel = document.querySelector("[data-promo-carousel]");
-      if (!carousel) return;
-
-      var track = carousel.querySelector(".promo-carousel-track");
-      var slides = Array.prototype.slice.call(carousel.querySelectorAll(".promo-slide"));
-      var dots = Array.prototype.slice.call(carousel.querySelectorAll(".promo-carousel-dots button"));
-      var prev = carousel.querySelector(".promo-carousel-btn.prev");
-      var next = carousel.querySelector(".promo-carousel-btn.next");
-      var activeIndex = 0;
-
-      if (!track || slides.length === 0) return;
-
-      function showSlide(index) {
-        activeIndex = (index + slides.length) % slides.length;
-        track.style.transform = "translateX(-" + (activeIndex * 100) + "%)";
-        slides.forEach(function (slide, slideIndex) {
-          var isActive = slideIndex === activeIndex;
-          slide.classList.toggle("is-active", isActive);
-          slide.setAttribute("aria-hidden", isActive ? "false" : "true");
-        });
-        dots.forEach(function (dot, dotIndex) {
-          var isActive = dotIndex === activeIndex;
-          dot.classList.toggle("is-active", isActive);
-          dot.setAttribute("aria-current", isActive ? "true" : "false");
-        });
-      }
-
-      if (prev) {
-        prev.addEventListener("click", function () {
-          showSlide(activeIndex - 1);
-        });
-      }
-
-      if (next) {
-        next.addEventListener("click", function () {
-          showSlide(activeIndex + 1);
-        });
-      }
-
-      dots.forEach(function (dot, dotIndex) {
-        dot.addEventListener("click", function () {
-          showSlide(dotIndex);
-        });
-      });
-
-      showSlide(0);
-    })();
-  </script>
   <script src="i18n/config.js" defer=""></script>
-  <script src="i18n/locales/zh-Hans.js?v=20261003-faq" defer=""></script>
+  <script src="i18n/locales/zh-Hans.js?v=20261011-outline-pro-faq" defer=""></script>
   <script src="i18n.js" defer=""></script>
   <script src="analytics.js" defer=""></script>
 
