@@ -528,6 +528,8 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "purchase_support": "优先技术支持",
       "purchase_annual_foot": "手动续期 · 不自动扣费",
       "purchase_lifetime_foot": "一次付款 · 无需续费",
+      "purchase_checkout_secure": "通过 Paddle 安全付款 · 美元计价",
+      "purchase_checkout_details": "邮箱用于接收激活码，国家/地区用于计算税费，最终金额以结账页为准。",
       "purchase_early": "早鸟优惠",
       "purchase_offer_ends": "早鸟优惠剩余",
       "purchase_days": "天",
