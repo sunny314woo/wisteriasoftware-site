@@ -65,7 +65,8 @@
           href: "product.html",
           label: "Products",
           children: [
-            { href: "outline-pro.html", label: "OutlineSave" },
+            { href: "outlinesave.html", label: "OutlineSave" },
+            { href: "outline-pro.html", label: "OutlineSave Pro" },
             { href: "englishflow/", label: "EnglishFlow" },
             { href: "inbox.html", label: "Inbox" },
           ],
@@ -91,7 +92,7 @@
       ],
       footer: [
         { href: "product.html", label: "Products" },
-        { href: "outline-pro.html", label: "OutlineSave" },
+        { href: "outlinesave.html", label: "OutlineSave" },
         { href: "englishflow/", label: "EnglishFlow" },
         { href: "inbox.html", label: "Inbox" },
         { href: "support.html#help-guides", label: "Help & Guides", i18nKey: "support-help-guides" },
