@@ -46,6 +46,8 @@
 
   function pageKey() {
     const file = window.location.pathname.split("/").pop();
+    // The public host serves both /support and /support.html without changing URLs.
+    if (file && !file.includes(".") && dictionaries["zh-Hans"]?.pages?.[`${file}.html`]) return `${file}.html`;
     return file || "index.html";
   }
 
@@ -248,47 +250,106 @@
     const header = document.querySelector("header");
     if (header && layout.nav) {
       const current = pageKey();
-      const navLinks = layout.nav.map((item) => {
+      const itemPage = (href) => href.split("#")[0].split("?")[0].replace(/^\//, "");
+      const isCurrent = (item) => itemPage(item.href) === current || (item.activePages || []).includes(current);
+      const navLinks = layout.nav.map((item, index) => {
         const children = Array.isArray(item.children) ? item.children : [];
-        const itemFile = item.href.split("#")[0].split("?")[0].replace(/^\//, "");
-        const childActive = children.some((child) => (
-          child.href.split("#")[0].split("?")[0].replace(/^\//, "") === current
-        ));
-        const active = itemFile === current || childActive ? " active" : "";
-        const parentKey = item.i18nKey || itemFile;
-        const parentLink = `<a class="nav-link${active}" data-i18n-key="${parentKey}" data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`;
-        if (!children.length) return parentLink;
+        const active = isCurrent(item) || children.some(isCurrent) ? " active" : "";
+        const parentKey = item.i18nKey || itemPage(item.href);
+        if (!children.length) {
+          return `<a class="nav-link${active}" data-i18n-key="${parentKey}" data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`;
+        }
+        const id = `shared-nav-submenu-${index}`;
         const submenu = children.map((child) => {
-          const childFile = child.href.split("#")[0].split("?")[0].replace(/^\//, "");
+          const childFile = itemPage(child.href);
           const childKey = child.i18nKey || childFile;
-          const childActiveClass = childFile === current ? " active" : "";
-          return `<a class="nav-link nav-submenu-link${childActiveClass}" data-i18n-key="${childKey}" data-i18n-base-href="${child.href}" href="${child.href}">${child.label}</a>`;
+          const activeClass = isCurrent(child) ? " active" : "";
+          const currentAttribute = childFile === current ? ' aria-current="page"' : "";
+          return `<a class="nav-link nav-submenu-link${activeClass}" data-i18n-key="${childKey}" data-i18n-base-href="${child.href}" href="${child.href}"${currentAttribute}>${child.label}</a>`;
         }).join("");
-        return `<div class="nav-menu">${parentLink}<div class="nav-submenu">${submenu}</div></div>`;
+        return `<div class="nav-menu"><button type="button" class="nav-link nav-disclosure${active}" data-i18n-key="${parentKey}" aria-expanded="false" aria-controls="${id}">${item.label}</button><div id="${id}" class="nav-submenu" hidden>${submenu}</div></div>`;
       }).join("");
       header.innerHTML = [
-        '<!-- 【MODIFIED】Shared navigation is rendered here from i18n/config.js to keep every page consistent. -->',
         '<div class="nav-wrap">',
-        `<div class="brand">${layout.brand || "Wisteria Software"}</div>`,
-        `<nav>${navLinks}</nav>`,
+        `<a class="brand" data-i18n-base-href="index.html" href="index.html">${layout.brand || "Wisteria Software"}</a>`,
+        '<nav aria-label="Primary">',
+        '<button type="button" class="nav-link nav-mobile-toggle" data-i18n-key="menu" aria-controls="shared-nav-items" aria-expanded="false">Menu</button>',
+        `<div class="nav-items" id="shared-nav-items">${navLinks}</div>`,
+        '</nav>',
         '</div>',
       ].join("");
     }
 
     const footer = document.querySelector("footer");
     if (footer && layout.footer) {
-      const links = layout.footer
-        .map((item) => {
+      const groups = layout.footerGroups || [{ id: "products", label: "Products" }];
+      const links = groups.map((group) => {
+        const items = layout.footer.filter((item) => (item.group || "products") === group.id).map((item) => {
           const keyAttr = item.i18nKey ? ` data-i18n-key="${item.i18nKey}"` : "";
-          return `<a${keyAttr} data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a>`;
-        })
-        .join(" | ");
+          return `<li><a${keyAttr} data-i18n-base-href="${item.href}" href="${item.href}">${item.label}</a></li>`;
+        }).join("");
+        return `<div class="footer-group"><h2 data-footer-group="${group.id}">${group.label}</h2><ul role="list">${items}</ul></div>`;
+      }).join("");
       footer.innerHTML = [
-        '<!-- 【MODIFIED】Shared footer is rendered here from i18n/config.js to keep every page consistent. -->',
         `<div class="footer-links">${links}</div>`,
         `<p>${layout.companyHtml || ""}</p>`,
       ].join("");
     }
+  }
+
+  // Link lists use disclosure buttons, with the same destinations on touch and desktop.
+  function ensureNavigation() {
+    const nav = document.querySelector("header nav");
+    if (!nav) return;
+    const mobileButton = nav.querySelector(".nav-mobile-toggle");
+    const groups = [...nav.querySelectorAll(".nav-menu")];
+    const mobile = window.matchMedia ? window.matchMedia("(max-width: 760px)") : null;
+    function closeGroup(group) {
+      group.querySelector(".nav-disclosure").setAttribute("aria-expanded", "false");
+      group.querySelector(".nav-submenu").hidden = true;
+    }
+    function closeAll() {
+      groups.forEach(closeGroup);
+      nav.classList.remove("is-mobile-open");
+      mobileButton.setAttribute("aria-expanded", "false");
+    }
+    mobileButton.addEventListener("click", () => {
+      const open = mobileButton.getAttribute("aria-expanded") !== "true";
+      closeAll();
+      mobileButton.setAttribute("aria-expanded", String(open));
+      nav.classList.toggle("is-mobile-open", open);
+    });
+    groups.forEach((group) => {
+      const button = group.querySelector(".nav-disclosure");
+      button.addEventListener("click", () => {
+        const open = button.getAttribute("aria-expanded") !== "true";
+        groups.forEach(closeGroup);
+        button.setAttribute("aria-expanded", String(open));
+        group.querySelector(".nav-submenu").hidden = !open;
+      });
+    });
+    nav.addEventListener("click", (event) => {
+      if (event.target.closest("a, .language-toggle")) closeAll();
+    });
+    document.addEventListener("click", (event) => { if (!nav.contains(event.target)) closeAll(); });
+    document.addEventListener("focusin", (event) => {
+      if (!nav.contains(event.target)) closeAll();
+    });
+    nav.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      const group = event.target.closest(".nav-menu");
+      const wasMobileOpen = nav.classList.contains("is-mobile-open");
+      closeAll();
+      if (wasMobileOpen && mobile?.matches) mobileButton.focus();
+      else if (group) group.querySelector(".nav-disclosure").focus();
+    });
+    if (mobile) mobile.addEventListener("change", () => {
+      const focusWasInside = nav.contains(document.activeElement);
+      const focusWasToggle = document.activeElement === mobileButton;
+      closeAll();
+      if (mobile.matches && focusWasInside) mobileButton.focus();
+      else if (!mobile.matches && focusWasToggle) groups[0]?.querySelector(".nav-disclosure").focus();
+    });
   }
 
   /**
@@ -307,7 +368,22 @@
       const translated = shared.nav && shared.nav[key];
       if (!translated) recordMissing("shared.nav", key, language, pageKey());
       anchor.textContent = language !== defaultLocale && translated ? translated : anchor.dataset.i18nOriginalText;
-      anchor.setAttribute("href", localizedHref(anchor.dataset.i18nBaseHref || anchor.getAttribute("href") || "", language));
+      if (anchor.tagName === "A") anchor.setAttribute("href", localizedHref(anchor.dataset.i18nBaseHref || anchor.getAttribute("href") || "", language));
+    });
+
+    const brand = document.querySelector("header .brand");
+    if (brand) {
+      brand.href = localizedHref("index.html", language);
+      brand.setAttribute("aria-label", language === "zh-Hans" ? "Wisteria Software 首页" : "Wisteria Software home");
+    }
+    const nav = document.querySelector("header nav");
+    if (nav) nav.setAttribute("aria-label", language === "zh-Hans" ? "主导航" : "Primary");
+    document.querySelectorAll("[data-footer-group]").forEach((heading) => {
+      rememberOriginalText(heading);
+      const key = `group-${heading.dataset.footerGroup}`;
+      const translated = shared.footer && shared.footer[key];
+      if (!translated) recordMissing("shared.footer", key, language, pageKey());
+      heading.textContent = language !== defaultLocale && translated ? translated : heading.dataset.i18nOriginalText;
     });
 
     document.querySelectorAll(".footer-links a").forEach((anchor) => {
@@ -522,6 +598,7 @@
   const initialLanguage = preferredLanguage();
   renderSharedLayout();
   ensureLanguageControl(initialLanguage);
+  ensureNavigation();
   applyLanguage(initialLanguage);
 
   window.WisteriaI18n = {

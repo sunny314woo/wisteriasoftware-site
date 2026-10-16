@@ -4,6 +4,8 @@ window.WISTERIA_I18N_DICTIONARIES=window.WISTERIA_I18N_DICTIONARIES||{};
 window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
   "shared": {
     "nav": {
+      "menu": "菜单",
+      "help-support": "帮助与支持",
       "index.html": "首页",
       "product.html": "产品",
       "pricing.html": "价格",
@@ -21,6 +23,10 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "support-contact": "联系支持"
     },
     "footer": {
+      "group-products": "产品",
+      "group-support": "帮助与支持",
+      "group-legal": "法律与政策",
+      "support-contact": "联系支持",
       "product.html": "产品",
       "pricing.html": "价格",
       "outlinesave.html": "OutlineSave",

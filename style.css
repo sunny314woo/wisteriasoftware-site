@@ -66,7 +66,8 @@ header {
   color: #1e1b4b;
 }
 
-nav {
+nav,
+.nav-items {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
@@ -78,17 +79,6 @@ nav {
   display: inline-flex;
 }
 
-/* The submenu touches its trigger and this transparent bridge remains part of
-   the same hover target. Moving from Products or Privacy into its panel can
-   never cross an un-hovered gap. */
-.nav-menu::after {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  left: 0;
-  height: 8px;
-  content: "";
-}
 
 .nav-link {
   padding: 8px 12px;
@@ -126,15 +116,22 @@ nav {
   gap: 2px;
 }
 
-.nav-menu:hover .nav-submenu,
-.nav-menu:focus-within .nav-submenu {
-  display: flex;
-}
+.nav-submenu:not([hidden]) { display: flex; }
+.nav-submenu[hidden] { display: none; }
+.nav-disclosure, .nav-mobile-toggle { min-height: 44px; border: 0; background: none; font-family: inherit; line-height: 1.4; cursor: pointer; }
+.nav-disclosure::after { display: inline-block; width: 6px; height: 6px; margin-left: 10px; margin-bottom: 2px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; content: ""; transform: rotate(45deg); }
+.nav-disclosure[aria-expanded="true"]::after { margin-bottom: -1px; transform: rotate(225deg); }
+.nav-mobile-toggle { display: none; }
+:is(.brand, .nav-link):focus-visible { outline: 2px solid #7540bd; outline-offset: 3px; }
+.brand:hover { color: #1e1b4b; text-decoration: none; }
 
 .nav-submenu-link {
   width: 100%;
   white-space: nowrap;
   font-size: 13px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .language-control {
@@ -403,9 +400,18 @@ footer {
 /* Footer links container */
 .footer-links {
   margin-bottom: 14px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 16px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.footer-group h2 { margin: 0 0 10px; color: #393043; font-size: 14px; font-weight: 600; }
+.footer-group ul { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.footer-group a { display: inline-block; padding-block: 5px; }
+@media (max-width: 480px) {
+  .footer-links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+  .footer-group:last-child { grid-column: 1 / -1; }
+  .footer-group:last-child ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 16px; }
 }
 
 /* Footer links */
@@ -1614,26 +1620,23 @@ footer p {
     gap: 2px;
   }
 
-  nav > .nav-link:not([data-i18n-base-href="index.html"]),
-  nav > .nav-menu:not(:first-of-type) {
-    display: none;
-  }
-
-  .nav-menu:first-of-type {
-    display: inline-flex;
-  }
-
-  .nav-submenu {
-    display: none !important;
-  }
+  .nav-wrap { position: relative; gap: 6px; }
+  .brand { font-size: 15px; }
+  .nav-mobile-toggle { display: inline-flex; align-items: center; justify-content: center; padding-inline: 10px; }
+  .nav-items { position: absolute; inset: 100% 0 auto; display: none; align-items: stretch; padding: 10px 16px 16px; border-bottom: 1px solid var(--line); background: #fff; box-shadow: 0 12px 20px #1e1b4b0a; }
+  nav.is-mobile-open .nav-items { display: flex; flex-direction: column; gap: 4px; }
+  .nav-menu { display: flex; flex-direction: column; }
+  .nav-disclosure { display: flex; align-items: center; justify-content: space-between; width: 100%; text-align: left; }
+  .nav-submenu { position: static; min-width: 0; margin: 2px 0 6px; padding: 0 8px; border: 0; border-left: 1px solid #e8def5; border-radius: 0; box-shadow: none; }
+  .nav-submenu-link { white-space: normal; }
 
   .language-control {
     margin-left: 2px;
   }
 
   .language-toggle {
-    width: 34px;
-    min-height: 34px;
+    width: 44px;
+    min-height: 44px;
     padding: 0;
     justify-content: center;
   }

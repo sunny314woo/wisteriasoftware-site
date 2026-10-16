@@ -1,7 +1,7 @@
 /*
  * 【MODIFIED】File purpose: central i18n configuration for the static Wisteria landing site.
  * Main functions: declares supported locales, aliases, shared navigation/footer structure, and compatibility routes.
- * Latest modification purpose: expose Help & Guides and Contact Support from the shared navigation without changing existing routes.
+ * Latest modification purpose: group all three products, help and policy links without changing existing routes.
  */
 (function () {
   window.WISTERIA_I18N_CONFIG = {
@@ -60,47 +60,40 @@
     sharedLayout: {
       brand: "Wisteria Software",
       nav: [
-        { href: "index.html", label: "Home" },
         {
           href: "product.html",
           label: "Products",
           children: [
-            { href: "outlinesave.html", label: "OutlineSave" },
-            { href: "outline-pro.html", label: "OutlineSave Pro" },
+            { href: "outlinesave.html", label: "OutlineSave", activePages: ["outline-pro.html"] },
             { href: "englishflow/", label: "EnglishFlow" },
             { href: "inbox.html", label: "Inbox" },
           ],
         },
         {
           href: "support.html",
-          label: "Support",
+          label: "Help & Support",
+          i18nKey: "help-support",
           children: [
             { href: "support.html#help-guides", label: "Help & Guides", i18nKey: "support-help-guides" },
             { href: "support.html#contact", label: "Contact Support", i18nKey: "support-contact" },
           ],
         },
-        {
-          href: "privacy.html",
-          label: "Privacy",
-          children: [
-            { href: "privacy.html", label: "General Privacy", i18nKey: "privacy-general" },
-            { href: "englishflow-privacy.html", label: "EnglishFlow" },
-          ],
-        },
-        { href: "terms.html", label: "Terms" },
-        { href: "refund.html", label: "Refund" },
+      ],
+      footerGroups: [
+        { id: "products", label: "Products" },
+        { id: "support", label: "Help & Support" },
+        { id: "legal", label: "Legal & Policies" },
       ],
       footer: [
-        { href: "product.html", label: "Products" },
-        { href: "outlinesave.html", label: "OutlineSave" },
-        { href: "englishflow/", label: "EnglishFlow" },
-        { href: "inbox.html", label: "Inbox" },
-        { href: "support.html#help-guides", label: "Help & Guides", i18nKey: "support-help-guides" },
-        { href: "support.html", label: "Support" },
-        { href: "privacy.html", label: "Privacy Policy" },
-        { href: "englishflow-privacy.html", label: "EnglishFlow Privacy" },
-        { href: "terms.html", label: "Terms of Service" },
-        { href: "refund.html", label: "Refund Policy" },
+        { group: "products", href: "outlinesave.html", label: "OutlineSave" },
+        { group: "products", href: "englishflow/", label: "EnglishFlow" },
+        { group: "products", href: "inbox.html", label: "Inbox" },
+        { group: "support", href: "support.html#help-guides", label: "Help & Guides", i18nKey: "support-help-guides" },
+        { group: "support", href: "support.html#contact", label: "Contact Support", i18nKey: "support-contact" },
+        { group: "legal", href: "privacy.html", label: "Privacy Policy" },
+        { group: "legal", href: "englishflow-privacy.html", label: "EnglishFlow Privacy" },
+        { group: "legal", href: "terms.html", label: "Terms of Service" },
+        { group: "legal", href: "refund.html", label: "Refund Policy" },
       ],
       companyHtml:
         "© 2026 Wisteria Software Ltd.<br />Registered in England and Wales.<br />Company No. 16965144<br />Email: <a href=\"mailto:support@wisteriasoftware.uk\">support@wisteriasoftware.uk</a>",
