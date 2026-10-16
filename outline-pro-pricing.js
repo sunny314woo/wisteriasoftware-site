@@ -8,7 +8,7 @@
   const error = document.querySelector('[data-checkout-error]');
   const mode = model.mode(config, location.hostname);
   const paddlePrices = window.OutlineSavePaddlePrices;
-  let priceReady = mode !== 'live', priceRequest, priceKey, priceGeneration = 0;
+  let priceReady = mode !== 'live', hasPrices = mode !== 'live', priceRequest, priceKey, priceGeneration = 0;
   let loading = false, sdkPromise, mockPlan, mockTotal;
   const local = model.isLocal(location.hostname);
   const schema = document.querySelector('script[type="application/ld+json"]');
@@ -68,7 +68,9 @@
         refreshPrices();
       }
       document.querySelector('.op-price-grid').setAttribute('aria-busy', String(!priceReady));
-      if (!priceReady) {
+      // Only the first fetch uses placeholders. Revalidation keeps the last
+      // confirmed prices and offer in place while checkout stays disabled.
+      if (!priceReady && !hasPrices) {
         buttons.forEach(button => { button.disabled = true; });
         document.querySelectorAll('[data-promo]').forEach(node => { node.hidden = true; });
         put('[data-price="annual"]', '…');
@@ -102,14 +104,14 @@
           year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(state.end);
         put('[data-offer-date]', replace(t('ends'), 'date', date + ' (UTC+8)'));
       }
-      buttons.forEach(button => { button.disabled = loading || mode === 'disabled'; });
+      buttons.forEach(button => { button.disabled = loading || !priceReady || mode === 'disabled'; });
       updateSchema(state);
       if (dialog.open) {
         const total = mockPlan === 'annual' ? state.annual : state.lifetime;
         if (total !== mockTotal) dialog.querySelector('[data-mock-changed]').hidden = false;
         renderMock(state);
       }
-      return state;
+      return priceReady ? state : null;
     } catch (_) {
       buttons.forEach(button => { button.disabled = true; });
       showError('configured');
@@ -155,6 +157,7 @@
       config.lifetime.amount = prices.regular;
       config.campaign.discountAmount = prices.discount;
       priceReady = true;
+      hasPrices = true;
       error.hidden = true;
     })().catch(() => {
       priceReady = false;
