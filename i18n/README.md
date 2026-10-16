@@ -1,17 +1,17 @@
-# Wisteria landing i18n
+# Wisteria 官网语言维护
 
-This directory holds the maintainable multilingual layer for the static landing site.
+更新时间：2026-10-16。发布步骤见源码仓库的 [统一维护手册](https://github.com/sunny314woo/wisteria-suite/blob/main/apps/website/WEBSITE_RELEASE_RUNBOOK.md)，需要对应仓库权限。
 
-## Files
+## 当前结构
 
-- `config.js`: supported locales, language aliases, localStorage key, and shared navigation/footer structure. It also loads the semantic compatibility layer from the config file location so nested pages resolve it correctly.
-- `locales/<locale>.js`: translation dictionaries. Each file registers itself on `window.WISTERIA_I18N_DICTIONARIES`.
-- `../i18n.js`: legacy-compatible runtime. It reads config and dictionaries, injects the language selector, applies `data-i18n`, and keeps old selector mappings working.
-- `../i18n-semantic.js`: semantic compatibility layer for redesigned legacy pages. It binds translations to message keys / source copy instead of section order or CSS layout, and repairs shared labels that should remain stable across languages.
+- `config.js`：语言、别名、存储键、共享主导航和分组页脚。
+- `locales/zh-Hans.js`：中文字典，注册到 `window.WISTERIA_I18N_DICTIONARIES`；英文原文直接保留在 HTML。
+- `../i18n.js`：语言选择、共享布局、键值翻译、页面 title / description 和缺失键记录。
+- `../outline-pro-pricing-i18n.js`：购买区倒计时、模拟支付等动态消息，单独维护中英文。
 
-## Loading order
+当前正文翻译只按 `data-i18n` 键执行，旧 `selectors` 字典和 `i18n-semantic.js` 自动绑定层已经移除。不要依据旧文档重新引入它们；CI 会检查。
 
-Pages that use the language selector keep the existing script order:
+加载顺序保持：
 
 ```html
 <script src="i18n/config.js" defer></script>
@@ -19,71 +19,49 @@ Pages that use the language selector keep the existing script order:
 <script src="i18n.js" defer></script>
 ```
 
-`config.js` loads `i18n-semantic.js` centrally, so existing pages do not need another script tag. For localized static pages under `/zh-Hans/`, the current pages use `<base href="../" />`, and the semantic script URL is resolved relative to `config.js` itself.
+生产 HTML 使用资源版本参数，更新脚本后也要更新相应引用。`zh-Hans/` 旧页面保留 `<base href="../" />`，属于兼容入口，不是新的主维护路径。
 
-## Adding a language
-
-1. Add the locale to `config.js`.
-2. Add any browser aliases to `config.js`.
-3. Create `locales/<locale>.js`.
-4. Add a `<script>` tag for the locale file before `i18n.js`.
-5. Add SEO routes, static localized pages, `hreflang`, and sitemap entries for pages that should be indexed in that language.
-
-## Translating page content
-
-### Preferred pattern: semantic `data-i18n`
-
-New pages and newly edited sections should use stable semantic keys in the HTML:
+## 内容和属性翻译
 
 ```html
-<h1 data-i18n="pages.index.hero.title">English fallback</h1>
-<img
-  src="example.png"
-  alt="English fallback"
-  data-i18n-attrs="alt"
-  data-i18n-alt="pages.index.hero.imageAlt"
-/>
+<h1 data-i18n="content.example.heroTitle">English fallback</h1>
+<img src="example.png" alt="English fallback"
+  data-i18n-attrs="alt" data-i18n-alt="content.example.imageAlt" />
 ```
 
-These keys must describe meaning, not layout. Do not encode section numbers, `nth-child`, or visual position in a new translation key.
+在中文词典中加入对应键。新键描述语义，不包含 `nth-child` 或布局位置；旧键不为改版随意重命名。页面元数据放在词典 `pages[页面文件名]`。不要把动态价格或活动日期写成普通翻译常量。
 
-### Redesigned legacy pages: semantic compatibility layer
+## 语言优先级和 URL
 
-If an old page has already been heavily redesigned and its historical selector dictionary no longer matches the DOM, add its critical copy to `i18n-semantic.js` instead of creating another large set of positional selectors. The semantic layer scans message text and records a semantic key at runtime, so moving a block or changing CSS classes does not break the translation.
+1. URL 中明确的 `?lang=`。
+2. 已保存的语言选择。
+3. 旧本地化路径，如 `/zh-Hans/`。
+4. 浏览器语言。
+5. 默认英文。
 
-This layer is a migration bridge, not a reason to avoid `data-i18n` on future edits. When a migrated section is edited again, prefer placing the semantic key directly in the HTML and then remove the corresponding fallback message when safe.
+中文内部代码 `zh-Hans`，公开 query 为 `zh-CN`。语言按钮通过 history 替换 query，保留当前路径、其他参数及 hash；不因切换语言重命名产品页和回调 URL。只标为可选择的语言才开放切换，pending 语言不能仅凭列表存在就宣称已支持。
 
-### Legacy selector bridge
+OutlineSave、EnglishFlow、Inbox 和平台品牌名保留原名。EnglishFlow 独立页面不自动套用共享语言组件；技术文档 / 博客的 UI 翻译也属于另一个仓库，不能混改。
 
-The runtime still supports the `selectors` map in locale files for older pages. Treat it as compatibility-only. Avoid adding new selectors such as:
+## 共享菜单和页脚
 
-```text
-main > section:nth-of-type(3) .card:nth-child(2) p
+入口统一在 `config.js` 的 `sharedLayout`。共享头部由运行时渲染，不能只改某个 HTML 中的旧头部而期望全站生效。主导航分组使用展开按钮，子项保留现有 href；中文标签在词典的 `shared.nav` / `shared.footer` 中维护。
+
+产品为 OutlineSave、EnglishFlow、Inbox；页脚政策、支持和公司信息保留。菜单改动须同时检查手机触摸、电脑键盘、Escape、外部点击及语言切换。
+
+## 检查
+
+从 monorepo 根目录执行（运行时测试需 `jsdom@26`，安装方式见统一手册）：
+
+```bash
+node scripts/check-wisteria-i18n.js
+node scripts/check-wisteria-branding.js
+node scripts/test-wisteria-i18n-runtime.js
+node scripts/test-wisteria-navigation.js
 ```
 
-Those selectors are tightly coupled to layout and are the main cause of translation regressions after page redesigns.
+浏览器检查 EN → 中文 → EN、标题、正文、图片 alt、菜单、页脚及动态消息。`window.WisteriaI18n.missingKeys` 应为空；没有缺失键不代表文案语义正确，仍需查看页面。
 
-## Brand names
+## 支付保护边界
 
-Product and platform names remain stable across languages unless the product explicitly has a localized brand name. In particular:
-
-- `OutlineSave` stays `OutlineSave` in English and Chinese.
-- `ChatGPT`, `Gemini`, `Chrome`, `Inbox`, and `EnglishFlow` are not translated as brand names.
-
-Translate surrounding UI labels such as `Products`, `Support`, `Help & Guides`, buttons, descriptions, FAQs, and instructions.
-
-## Language priority
-
-The current runtime resolves language in this order:
-
-1. Explicit `?lang=` selection / saved manual choice.
-2. Saved language in `localStorage`.
-3. Compatible localized path such as `/zh-Hans/`.
-4. Browser language.
-5. Default locale from `config.js`.
-
-Existing public URLs remain unchanged. Runtime language switching should not rename product routes, checkout routes, payment-success routes, or extension website targets.
-
-## Safety rule for commerce pages
-
-Internationalization changes must not modify Paddle price IDs, checkout callbacks, transaction storage keys, `successUrl`, `/payment-success`, activation-code polling/resend logic, or API endpoints. Translate visible copy only. Run the payment flow separately after deployment when a commerce page has changed.
+翻译任务只改可见文案。不要顺带修改 Price ID、折扣、`checkout.completed` 回调、交易存储键、成功地址、API 路径或激活 / 重发逻辑。涉及购买页时按范围运行支付回归，纯翻译不主动发起真实付款或邮件。
