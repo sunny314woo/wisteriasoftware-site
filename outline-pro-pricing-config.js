@@ -1,6 +1,7 @@
 /* Release configuration. Live mode applies only on the official website; local hosts always simulate.
    An integrator can set window.OutlineSavePricingInput BEFORE this script.
-   Amounts below are local mock fixtures; live display is refreshed from Paddle.
+   Amounts below are the verified release snapshot for immediate display and local
+   simulation. Live display syncs from Paddle in the background; checkout uses IDs.
    All amounts are integer USD cents; ISO timestamps must include a timezone. */
 (() => {
   const input = window.OutlineSavePricingInput || {};

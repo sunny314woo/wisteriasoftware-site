@@ -31,13 +31,12 @@
     if (!['annual', 'lifetime'].includes(plan)) throw new Error('Unknown plan');
     const state = snapshot(config, now);
     const options = { items: [{ priceId: config[plan].priceId, quantity: 1 }],
-      settings: { ...settings, showAddDiscounts: false } };
+      settings: { ...settings, showAddDiscounts: true, allowDiscountRemoval: true } };
     if (plan === 'lifetime' && state.active) {
       const id = config.campaign.discountId;
       if (id && !id.startsWith('REPLACE_WITH_')) options.discountId = id;
       else if (config.campaign.discountCode) options.discountCode = config.campaign.discountCode;
       else options.discountId = id;
-      options.settings.allowDiscountRemoval = false;
     }
     return options;
   }

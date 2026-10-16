@@ -202,6 +202,10 @@
   .op-page .op-price-card { translate: 0 0; }
 }
 .op-page .op-button:disabled { opacity: .55; cursor: not-allowed; }
+.op-page .op-button[aria-busy="true"] { position: relative; cursor: progress; }
+.op-page .op-button[aria-busy="true"]::after { content: ""; position: absolute; right: 12px; width: 14px; height: 14px; border: 2px solid currentColor; border-right-color: transparent; border-radius: 50%; animation: op-checkout-spin 700ms linear infinite; }
+@keyframes op-checkout-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .op-page .op-button[aria-busy="true"]::after { animation: none; } }
 .op-card-footnote { margin: 10px 0 0; color: #7d728b; font-size: 13px; line-height: 1.7; text-align: center; }
 .op-comparison { width: min(100%, 640px); margin: 24px auto 0; padding: 0; border: 0; }
 .op-comparison > summary { display: flex; width: fit-content; max-width: 100%; align-items: center; justify-content: center; gap: 10px; min-height: 44px; margin-inline: auto; padding: 9px 17px; border: 1px solid #e6dcf5; border-radius: 22px; color: #736280; font-size: 14px; font-weight: 500; line-height: 1.5; list-style: none; cursor: pointer; text-align: center; }

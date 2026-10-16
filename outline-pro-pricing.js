@@ -8,8 +8,8 @@
   const error = document.querySelector('[data-checkout-error]');
   const mode = model.mode(config, location.hostname);
   const paddlePrices = window.OutlineSavePaddlePrices;
-  let priceReady = mode !== 'live', hasPrices = mode !== 'live', priceRequest, priceKey, priceGeneration = 0;
-  let loading = false, sdkPromise, mockPlan, mockTotal;
+  let priceRequest, priceKey, priceGeneration = 0;
+  let loading = false, pendingPlan, sdkPromise, mockPlan, mockTotal;
   const local = model.isLocal(location.hostname);
   const schema = document.querySelector('script[type="application/ld+json"]');
   const graph = JSON.parse(schema.textContent);
@@ -64,19 +64,11 @@
     try {
       // An ended or newly started campaign needs a fresh Paddle calculation.
       if (mode === 'live' && priceKey !== undefined && priceKey !== paddlePrices.campaignActive(config)) {
-        priceReady = false;
         refreshPrices();
       }
-      document.querySelector('.op-price-grid').setAttribute('aria-busy', String(!priceReady));
-      // Only the first fetch uses placeholders. Revalidation keeps the last
-      // confirmed prices and offer in place while checkout stays disabled.
-      if (!priceReady && !hasPrices) {
-        buttons.forEach(button => { button.disabled = true; });
-        document.querySelectorAll('[data-promo]').forEach(node => { node.hidden = true; });
-        put('[data-price="annual"]', '…');
-        put('[data-price="lifetime"]', '…');
-        return null;
-      }
+      document.querySelector('.op-price-grid').setAttribute('aria-busy', String(loading));
+      // Display the release's verified USD prices immediately, then synchronize
+      // in the background. Checkout charges by Paddle IDs, never these amounts.
       const state = model.snapshot(config);
       put('[data-price="annual"]', model.money(state.annual));
       put('[data-price="lifetime"]', model.money(state.lifetime));
@@ -104,14 +96,17 @@
           year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(state.end);
         put('[data-offer-date]', replace(t('ends'), 'date', date + ' (UTC+8)'));
       }
-      buttons.forEach(button => { button.disabled = loading || !priceReady || mode === 'disabled'; });
+      buttons.forEach(button => {
+        button.disabled = loading || mode === 'disabled';
+        button.setAttribute('aria-busy', String(loading && button.dataset.purchasePlan === pendingPlan));
+      });
       updateSchema(state);
       if (dialog.open) {
         const total = mockPlan === 'annual' ? state.annual : state.lifetime;
         if (total !== mockTotal) dialog.querySelector('[data-mock-changed]').hidden = false;
         renderMock(state);
       }
-      return priceReady ? state : null;
+      return state;
     } catch (_) {
       buttons.forEach(button => { button.disabled = true; });
       showError('configured');
@@ -125,8 +120,9 @@
   }
   function loadPaddle() {
     if (sdkPromise) return sdkPromise;
+    let script;
     sdkPromise = bounded(new Promise((resolve, reject) => {
-      const script = document.createElement('script');
+      script = document.createElement('script');
       script.src = 'https://cdn.paddle.com/paddle/v2/paddle.js';
       script.onload = () => {
         try { window.Paddle.Initialize({ token: config.paddleClientToken, eventCallback: window.OutlineSaveCheckoutEvent }); resolve(); }
@@ -134,14 +130,18 @@
       };
       script.onerror = reject;
       document.head.append(script);
-    })).catch(err => { sdkPromise = null; throw err; });
+    })).catch(err => {
+      script.onload = script.onerror = null;
+      script.remove();
+      sdkPromise = null;
+      throw err;
+    });
     return sdkPromise;
   }
   function refreshPrices() {
     if (mode !== 'live' || priceRequest) return priceRequest;
     const active = paddlePrices.campaignActive(config);
     priceKey = active;
-    priceReady = false;
     const generation = ++priceGeneration;
     priceRequest = (async () => {
       await loadPaddle();
@@ -155,13 +155,10 @@
       const prices = paddlePrices.normalize(config, regular, discounted, active);
       config.annual.amount = prices.annual;
       config.lifetime.amount = prices.regular;
-      config.campaign.discountAmount = prices.discount;
-      priceReady = true;
-      hasPrices = true;
-      error.hidden = true;
+      if (active) config.campaign.discountAmount = prices.discount;
     })().catch(() => {
-      priceReady = false;
-      showError('priceError');
+      // A read-only preview outage must not prevent Paddle Checkout, which
+      // independently resolves prices and validates discounts before payment.
     }).finally(() => {
       priceRequest = null;
       // render() starts a new request if the time window changed in flight.
@@ -187,9 +184,8 @@
     if (mode !== 'live') { showError('configured'); return; }
     try {
       loading = true;
+      pendingPlan = plan;
       render();
-      await refreshPrices();
-      if (!priceReady) return;
       model.validateLive(config, model.checkout(config, plan, Date.now(), {}));
       await loadPaddle();
       // Recompute AFTER SDK loading: a promotion may have expired while loading.
@@ -198,7 +194,7 @@
       render();
       window.Paddle.Checkout.open(options);
     } catch (_) { showError(); }
-    finally { loading = false; render(); }
+    finally { loading = false; pendingPlan = null; render(); }
   }
   buttons.forEach(button => button.addEventListener('click', () => purchase(button.dataset.purchasePlan)));
   dialog.querySelector('[data-mock-cancel]').addEventListener('click', () => dialog.close());
