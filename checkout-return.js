@@ -26,6 +26,8 @@
     settings() {
       checkoutLanguage = language();
       return {
+        displayMode: 'overlay',
+        variant: 'one-page',
         theme: 'light',
         locale: checkoutLanguage === 'zh-CN' ? 'zh-Hans' : 'en',
         successUrl: successUrl(),
