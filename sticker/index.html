@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#f8f3ea"><title>自助表情包生成器</title><meta name="description" content="把喜欢的模样，变成聊天里的九种小心情。先看效果，挑两张喜欢的，再决定是否解锁。"><link rel="stylesheet" href="/sticker/styles.css?v=20261018-wechat-format"><script defer src="/sticker/config.js?v=20261012-account-recovery"></script><script defer src="/sticker/app.js?v=20261018-wechat-format"></script></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#f8f3ea"><title>自助表情包生成器</title><meta name="description" content="把喜欢的模样，变成聊天里的九种小心情。先看效果，挑两张喜欢的，再决定是否解锁。"><link rel="stylesheet" href="/sticker/styles.css?v=20261019-matting-quality"><script defer src="/sticker/config.js?v=20261019-matting-quality"></script><script defer src="/sticker/app.js?v=20261019-matting-quality"></script></head>
 <body>
 <header class="topbar"><button class="icon-button" id="mobile-back" aria-label="返回首页">‹</button><span id="mobile-title">自助表情包生成器</span><button class="quiet" id="account-button">⚙ 设置</button></header>
 <main>
@@ -32,6 +32,7 @@
 <p class="small muted" id="wechat-format-hint">微信发送建议选择透明 GIF。PNG 原文件含透明通道，但作为普通图片发送时可能出现白底。GIF 是静态贴纸，不是动画。</p>
 <div class="share-preview" id="share-preview" data-background="mint" hidden><img id="share-image" alt="这张贴纸的原文件"></div>
 <div class="share-backgrounds" role="group" aria-label="预览底色"><label title="绿色底"><input type="radio" name="share-background" value="mint" aria-label="绿色底" checked><span class="background-swatch mint"></span></label><label title="深色底"><input type="radio" name="share-background" value="dark" aria-label="深色底"><span class="background-swatch dark"></span></label></div>
+<p class="small muted" id="share-background-hint">切换预览底色，检查衣服、头发和手部是否完整。底色不会写入下载图片；含透明通道不代表抠图完整。</p>
 <p class="small" id="share-file-info" role="status"></p>
 <div class="share-actions"><button class="button primary full" id="save-archive" disabled>下载单张原文件 · ZIP</button><button class="button secondary" id="save-share" disabled>下载图片原文件</button><button class="button secondary" id="native-share" disabled>系统分享文件</button><button class="button secondary full" id="whatsapp-share" disabled>WhatsApp · 发送链接</button><button class="button secondary full" id="copy-share" disabled>复制分享链接</button></div>
 <input id="share-url" readonly aria-label="此贴纸的分享链接"><p class="small" id="share-status" role="status"></p></dialog>
