@@ -188,11 +188,14 @@
       render();
       model.validateLive(config, model.checkout(config, plan, Date.now(), {}));
       await loadPaddle();
-      // Recompute AFTER SDK loading: a promotion may have expired while loading.
-      const options = model.checkout(config, plan, Date.now(), window.OutlineSaveCheckoutReturn.settings());
-      model.validateLive(config, options);
-      render();
-      window.Paddle.Checkout.open(options);
+      window.OutlineSaveCheckout.open(() => {
+        // Recompute after email confirmation: the promotion may have expired
+        // while the SDK loaded or while the customer entered their email.
+        const options = model.checkout(config, plan, Date.now(), window.OutlineSaveCheckoutReturn.settings());
+        model.validateLive(config, options);
+        render();
+        return options;
+      });
     } catch (_) { showError(); }
     finally { loading = false; pendingPlan = null; render(); }
   }

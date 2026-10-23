@@ -1,0 +1,106 @@
+.checkout-email {
+  width: min(440px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  padding: 0;
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: 20px;
+  background: #fff;
+  color: var(--text, #0f172a);
+  box-shadow: 0 24px 80px rgb(15 23 42 / 20%);
+  overflow: auto;
+}
+
+.checkout-email::backdrop {
+  background: rgb(15 23 42 / 45%);
+}
+
+.checkout-email-form {
+  padding: clamp(24px, 5vw, 32px);
+}
+
+.checkout-email .checkout-email-brand {
+  margin: 0 0 12px;
+  color: var(--primary, #5b4acb);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.checkout-email h2 {
+  margin: 0 0 12px;
+  font-size: 23px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.checkout-email #checkout-email-description {
+  margin: 0 0 24px;
+  color: var(--muted, #64748b);
+  font-size: 14px;
+}
+
+.checkout-email label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.checkout-email input {
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 13px;
+  border: 1px solid #94a3b8;
+  border-radius: 10px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  font-size: 16px;
+}
+
+.checkout-email :is(input, button):focus-visible {
+  outline: 3px solid var(--primary, #5b4acb);
+  outline-offset: 3px;
+}
+
+.checkout-email .checkout-email-hint {
+  margin: 10px 0 0;
+  color: var(--muted, #64748b);
+  font-size: 12px;
+}
+
+.checkout-email .checkout-email-error {
+  margin: 16px 0 0;
+  color: #b91c1c;
+  font-size: 14px;
+}
+
+.checkout-email-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.checkout-email button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: 10px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.checkout-email .checkout-email-continue {
+  border-color: transparent;
+  background: var(--primary, #5b4acb);
+  color: #fff;
+}
+
+.checkout-email button:hover {
+  filter: brightness(0.95);
+}

@@ -13,6 +13,7 @@
   <meta name="twitter:title" content="Pricing - OutlineSave">
   <meta name="twitter:description" content="Free, 1-Year Pro, and Lifetime pricing for OutlineSave.">
   <link rel="stylesheet" href="style.css?v=20261016-navigation">
+  <link rel="stylesheet" href="checkout-email.css?v=20261023">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -153,6 +154,7 @@
   <footer data-shared-footer=""></footer>
   <script src="outlinesave-analytics.js?v=20260922-v1"></script>
   <script src="checkout-return.js?v=20261018-one-page"></script>
+  <script src="checkout-email.js?v=20261023"></script>
   <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
   <script type="text/javascript">
     var PADDLE_TXN_STORAGE_KEY = "paddle_checkout_txn";
@@ -255,10 +257,7 @@
           try {
             var priceId = button.getAttribute("data-paddle-price-id");
             if (!priceId) throw new Error("Missing price id");
-            Paddle.Checkout.open({
-              items: [{ priceId: priceId, quantity: 1 }],
-              settings: window.OutlineSaveCheckoutReturn.settings()
-            });
+            window.OutlineSaveCheckout.open(priceId);
           } catch (error) {
             if (errorTarget) {
               errorTarget.textContent = "Checkout is temporarily unavailable. Please try again.";
