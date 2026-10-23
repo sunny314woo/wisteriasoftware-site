@@ -9,7 +9,6 @@
       title: 'Where should we send your activation code?',
       description: 'Your activation code and receipt will be sent to this email after payment.',
       label: 'Email address',
-      hint: 'You can review your email and billing country in the next step.',
       wechatNote: 'With WeChat Pay, payment confirmation and activation code delivery may take around 15 minutes. Please check your email. If you have already paid, do not pay again.',
       cancel: 'Cancel',
       continue: 'Continue to payment',
@@ -19,8 +18,7 @@
       title: '接收激活码的邮箱',
       description: '付款后，激活码与收据将发送到此邮箱，请确认填写正确。',
       label: '邮箱地址',
-      hint: '下一步将预选账单国家/地区，你仍可核对和修改。',
-      wechatNote: '使用微信支付时，付款确认及激活码发送可能需要约15分钟。请留意邮箱，已付款请勿重复支付。',
+      wechatNote: '温馨提示：使用微信支付时，付款确认及激活码发送可能需要约15分钟。请留意邮箱，已付款请勿重复支付。',
       cancel: '取消',
       continue: '继续付款',
       error: '暂时无法打开支付窗口，请重试。',
@@ -29,8 +27,7 @@
       title: '接收啟用碼的電子郵件',
       description: '付款後，啟用碼與收據將寄至此信箱，請確認填寫正確。',
       label: '電子郵件地址',
-      hint: '下一步將預選帳單國家/地區，你仍可確認和修改。',
-      wechatNote: '使用微信支付時，付款確認及啟用碼寄送可能需要約15分鐘。請留意信箱，已付款請勿重複支付。',
+      wechatNote: '溫馨提示：使用微信支付時，付款確認及啟用碼寄送可能需要約15分鐘。請留意信箱，已付款請勿重複支付。',
       cancel: '取消',
       continue: '繼續付款',
       error: '暫時無法開啟付款視窗，請重試。',
@@ -72,9 +69,8 @@
         <label for="checkout-email-input"></label>
         <input id="checkout-email-input" name="email" type="email" autocomplete="email"
           inputmode="email" enterkeyhint="go" autocapitalize="none" spellcheck="false"
-          aria-describedby="checkout-email-hint" required autofocus>
-        <p id="checkout-email-hint" class="checkout-email-hint"></p>
-        <p class="checkout-email-hint" data-wechat-note></p>
+          aria-describedby="checkout-wechat-note" required autofocus>
+        <p id="checkout-wechat-note" class="checkout-email-hint" data-wechat-note></p>
         <p class="checkout-email-error" role="alert" hidden></p>
         <div class="checkout-email-actions">
           <button type="button" class="checkout-email-cancel"></button>
@@ -126,7 +122,6 @@
       dialog.querySelector('h2').textContent = text.title;
       dialog.querySelector('#checkout-email-description').textContent = text.description;
       dialog.querySelector('label').textContent = text.label;
-      dialog.querySelector('#checkout-email-hint').textContent = text.hint;
       dialog.querySelector('[data-wechat-note]').textContent = text.wechatNote;
       dialog.querySelector('.checkout-email-cancel').textContent = text.cancel;
       dialog.querySelector('.checkout-email-continue').textContent = text.continue;
