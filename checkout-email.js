@@ -9,7 +9,7 @@
       title: 'Where should we send your activation code?',
       description: 'Your activation code and receipt will be sent to this email after payment.',
       label: 'Email address',
-      wechatNote: 'With WeChat Pay, payment confirmation and activation code delivery may take around 15 minutes. Please check your email. If you have already paid, do not pay again.',
+      wechatNote: '',
       cancel: 'Cancel',
       continue: 'Continue to payment',
       error: 'Checkout is temporarily unavailable. Please try again.',
@@ -122,7 +122,9 @@
       dialog.querySelector('h2').textContent = text.title;
       dialog.querySelector('#checkout-email-description').textContent = text.description;
       dialog.querySelector('label').textContent = text.label;
-      dialog.querySelector('[data-wechat-note]').textContent = text.wechatNote;
+      const wechatNote = dialog.querySelector('[data-wechat-note]');
+      wechatNote.textContent = text.wechatNote;
+      wechatNote.hidden = !text.wechatNote;
       dialog.querySelector('.checkout-email-cancel').textContent = text.cancel;
       dialog.querySelector('.checkout-email-continue').textContent = text.continue;
       dialog.querySelector('.checkout-email-error').hidden = true;
