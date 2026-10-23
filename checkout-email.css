@@ -104,3 +104,9 @@
 .checkout-email button:hover {
   filter: brightness(0.95);
 }
+
+.checkout-recovery { position: fixed; right: 20px; bottom: 20px; z-index: 40; max-width: min(420px, calc(100vw - 40px)); padding: 18px 22px; border: 1px solid #d8d2ed; border-radius: 14px; background: #fff; color: #332d45; box-shadow: 0 8px 32px rgb(35 25 65 / 12%); font-size: 14px; line-height: 1.6; }
+.checkout-recovery p { margin: 0 0 8px; }
+.checkout-recovery a { color: #5740af; text-decoration: underline; font-weight: 600; }
+.checkout-recovery a:focus-visible { outline: 3px solid #5740af; outline-offset: 4px; }
+.checkout-recovery[hidden] { display: none; }
