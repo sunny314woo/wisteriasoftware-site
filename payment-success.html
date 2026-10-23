@@ -4,6 +4,7 @@
 <title>Payment Successful</title>
 <meta name="description" content="Payment successful. Activate your OutlineSave license.">
 <meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
   <link rel="stylesheet" href="style.css?v=20261016-navigation">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -13,7 +14,7 @@
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#6d3fcb">
 
-<link rel="stylesheet" href="payment-success.css?v=20261002">
+<link rel="stylesheet" href="payment-success.css?v=20261024-email">
 </head>
 <body data-state="waiting">
 <main class="payment-main">
@@ -33,6 +34,12 @@
   <p class="code-caption" data-i18n="content.payment_success.keepCode">Keep your activation code safe. A copy will also be sent to the email address used at checkout.</p>
  </div>
  <div class="waiting" id="license-status"><strong id="waiting-title"></strong><p id="waiting-detail"></p></div>
+ <form id="order-email-form" hidden>
+  <label for="order-email" id="order-email-label">Email used at checkout</label>
+  <input id="order-email" type="email" autocomplete="email" maxlength="254" required aria-describedby="order-email-help">
+  <p id="order-email-help" role="status"></p>
+  <button type="submit" class="secondary" id="order-email-submit">Check this order</button>
+ </form>
  <div class="refresh-row" id="refresh-row"><button type="button" class="secondary" id="refresh-btn" data-i18n="content.payment_success.refresh">Refresh this page</button></div>
  <p class="notice" id="copy-tip" role="status"></p>
  <noscript><p data-i18n="content.payment_success.noScript">Enable JavaScript to retrieve your activation code, or check your license email.</p></noscript>
@@ -56,6 +63,7 @@
 <script src="i18n/config.js?v=20261016-navigation" defer></script>
 <script src="i18n/locales/zh-Hans.js?v=20261016-navigation" defer></script>
 <script src="i18n.js?v=20261016-navigation" defer></script>
-<script src="payment-success.js?v=20261002" defer></script>
+<script src="checkout-recovery.js?v=20261024-email" defer></script>
+<script src="payment-success.js?v=20261024-email" defer></script>
 <script src="analytics.js" defer></script>
 </body></html>

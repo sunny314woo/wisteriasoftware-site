@@ -47,3 +47,5 @@ h2{margin:0;font-size:17px;letter-spacing:-.2px}
 @media(max-width:450px){main{padding:20px 16px 26px}.payment-hero{padding:23px 16px}h1{font-size:21px}.payment-card,.email{padding:19px 17px}.code-row{padding:13px 12px;gap:8px}.code{font-size:17px;letter-spacing:.5px}.primary{padding:8px 11px;font-size:12px}.review{gap:7px;padding:9px 12px}.payment-brand small{margin-left:5px}}
 #license-string{overflow-wrap:anywhere;min-width:0}.code-row{flex-wrap:wrap}.code-row .code{flex:1 1 200px;max-height:220px;overflow:auto}.refresh-row{margin-top:13px}.support a{text-decoration:underline}.limit,.support{color:#6f687e}.payment-main section{margin-top:17px}.payment-main li{margin-bottom:0}.payment-main ol{margin-left:0}.payment-main .payment-hero{margin-bottom:0}.notice{color:#615a70}
 body[data-long-code="true"] .code{font-size:12px;letter-spacing:0;white-space:pre-wrap}
+
+#order-email-form { margin-top:16px; } #order-email-form label { display:block; margin-bottom:8px; } #order-email { width:100%; padding:12px; border:1px solid #aaa0bc; border-radius:8px; font:inherit; } #order-email-help { font-size:13px; line-height:1.6; }

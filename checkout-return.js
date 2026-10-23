@@ -34,9 +34,12 @@
       };
     },
     redirect(transactionId, event) {
+      const saved = window.OutlineSaveCheckoutRecovery?.details(transactionId);
+      const email = event?.data?.customer?.email || saved?.email || '';
       try {
         sessionStorage.setItem(contextKey, JSON.stringify({
-          transactionId, wechat: isWeChat(event), createdAt: Date.now(),
+          transactionId, wechat: isWeChat(event) || saved?.wechat === true, createdAt: Date.now(),
+          email, startedAt: saved?.startedAt || Date.now(),
         }));
       } catch (_) { /* URL parameters also work when storage is unavailable. */ }
       window.location.href = successUrl(transactionId, event);
