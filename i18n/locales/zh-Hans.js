@@ -457,6 +457,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m013": "获批的退款由 Paddle 处理，到账原支付方式可能需要 5–10 个工作日。"
     },
     "payment_success": {
+      "languageLabel": "语言",
       "codeTitle": "你的激活码",
       "codeSubtitle": "复制下方激活码，在 OutlineSave 中完成激活。",
       "copy": "复制激活码",

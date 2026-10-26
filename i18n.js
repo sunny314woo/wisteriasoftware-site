@@ -8,7 +8,9 @@
   const dictionaries = window.WISTERIA_I18N_DICTIONARIES || {};
   const defaultLocale = config.defaultLocale || "en";
   const locales = config.locales || [{ code: defaultLocale, label: "English", htmlLang: "en" }];
-  const selectableLocales = locales.filter((locale) => !locale.pending);
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  const pageLocales = new Set((config.pageLocales && config.pageLocales[currentPage]) || []);
+  const selectableLocales = locales.filter((locale) => !locale.pending || pageLocales.has(locale.code));
   const supported = new Set(locales.map((locale) => locale.code));
   const selectable = new Set(selectableLocales.map((locale) => locale.code));
   const localeByCode = locales.reduce((all, locale) => {
@@ -216,6 +218,17 @@
       url.searchParams.set("lang", publicLanguageCode(language));
     }
     return `${url.pathname}${url.search}${url.hash}`;
+  }
+
+  function selectLanguage(language) {
+    const normalized = normalizeLanguage(language);
+    if (!selectable.has(normalized)) return;
+    saveLanguage(normalized, true);
+    const target = languageUrl(normalized);
+    if (target !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
+      window.history.replaceState(null, "", target);
+    }
+    applyLanguage(normalized);
   }
 
   /**
@@ -526,13 +539,8 @@
       option.setAttribute("data-language", locale.code);
       option.textContent = locale.label;
       option.addEventListener("click", () => {
-        saveLanguage(locale.code, true);
-        const target = languageUrl(locale.code);
         closeMenu();
-        if (target !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
-          window.history.replaceState(null, "", target);
-        }
-        applyLanguage(locale.code);
+        selectLanguage(locale.code);
       });
 
       item.append(option);
@@ -606,6 +614,7 @@
     currentLanguage: () => document.documentElement.lang,
     localizedPath,
     missingKeys,
+    selectLanguage,
     t: translateString,
   };
 })();

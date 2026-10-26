@@ -8,6 +8,11 @@
     storageKey: "wisteria-language",
     manualStorageKey: "wisteria-language-manual",
     defaultLocale: "en",
+    // Enable these otherwise-pending locales only on the payment return page.
+    pageLocales: {
+      "payment-success": ["ja", "es"],
+      "payment-success.html": ["ja", "es"],
+    },
     locales: [
       {
         code: "en",

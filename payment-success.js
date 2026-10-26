@@ -71,6 +71,13 @@
       : 'Automatically checking payment confirmation and your activation code. If you have paid, please do not pay again.';
   }
   const el = id => document.getElementById(id);
+  const languageSelect = el('payment-language');
+  if (languageSelect && window.WisteriaI18n) {
+    languageSelect.value = document.documentElement.dataset.currentLanguage || 'en';
+    languageSelect.addEventListener('change', () => {
+      window.WisteriaI18n.selectLanguage(languageSelect.value);
+    });
+  }
   function put(id, value) { if (el(id).textContent !== value) el(id).textContent = value; }
   function text(key, values = {}) {
     let value = window.WisteriaI18n
@@ -289,7 +296,8 @@
     if (!token && id) {
       const url = new URL(window.location.href);
       url.searchParams.set('transaction_id', id);
-      url.searchParams.set('lang', /^zh/i.test(document.documentElement.lang) ? 'zh-CN' : 'en');
+      const language = document.documentElement.dataset.currentLanguage || document.documentElement.lang || 'en';
+      url.searchParams.set('lang', language === 'zh-Hans' ? 'zh-CN' : language);
       if (state.wechat) url.searchParams.set('payment_method', 'wechat');
       window.history.replaceState(null, '', url.pathname + url.search + url.hash);
     }
