@@ -190,7 +190,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
     },
     "privacy": {
       "m001": "隐私政策",
-      "m002": "适用于 <strong>Wisteria Software</strong> 产品，包括 <strong>OutlineSave</strong>、<strong>Inbox Capture</strong> 和 <strong>Inbox Local / Wisteria Inbox</strong><br /><strong>最后更新：</strong>2026 年 10 月 30 日",
+      "m002": "适用于 <strong>Wisteria Software</strong> 产品，包括 <strong>ChatGPT 对话目录、搜索与导出｜OutlineSave</strong>、<strong>Inbox Capture</strong> 和 <strong>Inbox Local / Wisteria Inbox</strong><br /><strong>最后更新：</strong>2026 年 10 月 30 日",
       "m003": "<strong>隐私摘要：</strong>",
       "m004": "<strong>本地处理</strong>：ChatGPT、Gemini、Claude 和 DeepSeek 对话内容在你的浏览器本地处理。",
       "m005": "<strong>不上传我们的服务器</strong>：我们不会将聊天内容上传到 Wisteria Software 的服务器。只有当你主动使用 Google Drive 备份时，所选导出文件才会直接发送到你自己的 Google Drive。",
@@ -199,7 +199,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "m008": "<strong>支付安全</strong>：所有支付均由我们的 Merchant of Record <strong>Paddle</strong> 安全处理。",
       "m009": "1. 一般信息",
       "m010": "本隐私政策说明 <strong>Wisteria Software Ltd.</strong> 如何处理与本网站、产品页面、结账相关流程、客户支持以及本站列出的产品有关的数据。",
-      "m011": "2. OutlineSave",
+      "m011": "2. ChatGPT 对话目录、搜索与导出｜OutlineSave",
       "m012": "本部分适用于 Outlinesave 在 <strong>ChatGPT</strong>、<strong>Gemini</strong>、<strong>Claude</strong> 和 <strong>DeepSeek</strong> 上提供的浏览器扩展功能。",
       "m013": "<strong>对话内容处理</strong>：扩展读取的对话内容会在浏览器本地处理，不会上传到我们的服务器。",
       "m014": "<strong>导出功能</strong>：导出 Markdown 或 HTML 时，文件会在本地生成并由你保存。HTML 导出可包含目录。",
