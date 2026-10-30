@@ -28,7 +28,7 @@
         "url": "https://wisteriasoftware.uk/",
         "email": "support@wisteriasoftware.uk"
       },
-      "dateModified": "2026-09-22"
+      "dateModified": "2026-10-30"
     }
   </script>
 </head>
@@ -126,11 +126,11 @@
         This data is used solely for license verification, billing management, and providing customer support. We do not
         use this data or your exports for advertising or profiling.
       </p>
-      <p data-i18n="content.privacy.licenseActivityV1"><strong>License device activity</strong>: For activated PRO installations, OutlineSave records at most one effective daily activity observation when you use the directory, in either fixed or flexible mode. It sends the license binding, broad browser and operating-system types, extension version, and the event and receipt times to our licensing service. Initial enrollment verifies the signed license and installation identity; subsequent reports use a dedicated credential, whose hash is stored by the service. These records can be associated with the purchase license and purchase email and are separate from anonymous growth counters. They support activation-slot management and license troubleshooting, not advertising or profiling. No conversation content, titles, search terms, highlights, notes, bookmarks, URLs, or hardware fingerprints are sent. Reporting is asynchronous, and network failure never removes a valid offline PRO license. License activity and audit records follow licensing-record retention and are not covered by the 90-day anonymous-event cleanup; contact support to request access or removal.</p>
+      <p data-i18n="content.privacy.licenseActivityV1"><strong>License management</strong>: We record the installation ID and last-use time to manage the licensed device count and support activation and use on those devices at the same time. At the limit, a new activation can replace an older activation slot under the applicable rules. This applies to annual and lifetime PRO licenses.</p>
     </section>
 
     <section>
-      <p data-i18n="content.privacy.analyticsV1"><strong>Minimal growth statistics</strong>: OutlineSave sends only event names, random event identifiers, a random local installation identifier for install, HTML export and directory-open counts, and timestamps to our own API. The legacy directory-open counter records explicit opens. The new directory-activation and size counters are currently enabled for ChatGPT only. A separate directory-activation counter includes hover/flexible mode when the user actually expands a complete existing outline, at most once per installation, supported platform and Beijing calendar day. It sends the platform name without a URL. We also summarize the maximum number of top-level question entries observed in complete outlines locally each day and send one finalized numeric summary per platform on a later active day. These samples support aggregate maxima and medians; later chat additions do not repeatedly sample the same open conversation. Individual outline-row clicks, page loads and background loading alone are not counted. Shortcut actions such as J/K are not tracked. Directory opens are recorded at most once per local reporting segment (00:00–06:00, 06:00–20:00, 20:00–24:00 Beijing time); the server counts unique installation identifiers for each day or report window. These counts represent browser installations, not identified people. Search usage counts one session after a non-empty search is explicitly closed and cleared; it does not imply a successful result or navigation. Each completed search also includes only its supported platform name (ChatGPT, Gemini, Claude or DeepSeek); no page URL or search text is sent. Platform counts represent usage sources, not installation or acquisition sources. A separate random token deduplicates uninstall-page visits; payment popup loads use event identifiers without an installation identifier, plus the purchase page language and a coarse operating system category (no OS version or raw User-Agent). HTML counts mean a file was generated and a download triggered, not that saving completed. Purchases are counted from existing verified payment records, without linking them to installation identifiers. We do not send conversation content, questions, answers, titles, page URLs, search terms, highlights, notes, bookmarks, exported content or filenames, browsing history, or Google/Chrome account information as analytics. We do not build profiles or use third-party analytics services for these counters. Usage event records are retained for up to 90 days and then removed by daily maintenance; minimal install/uninstall deduplication records and aggregate daily totals are retained to prevent repeat counting. Analytics failure does not interrupt product functions. Network infrastructure necessarily processes connection information; analytics records do not store IP addresses, User-Agent, or Referer headers.</p>
+      <p data-i18n="content.privacy.analyticsV1"><strong>Usage statistics</strong>: We collect installation, uninstallation and feature-use counts, outline entry counts, random identifiers, basic environment details and timestamps to understand usage and improve the product. Usage event records are kept for up to 90 days.</p>
     </section>
 
     <section>
@@ -261,7 +261,7 @@
   <footer data-shared-footer=""></footer>
 
   <script src="i18n/config.js?v=20261016-navigation" defer=""></script>
-  <script src="i18n/locales/zh-Hans.js?v=20261016-navigation" defer=""></script>
+  <script src="i18n/locales/zh-Hans.js?v=20261030-privacy-concise" defer=""></script>
   <script src="i18n.js?v=20261016-navigation" defer=""></script>
   <script src="analytics.js" defer=""></script>
 
