@@ -95,23 +95,9 @@
         <strong>Exporting</strong>: When you export to Markdown or HTML, files are generated locally and saved by you.
         HTML exports may include a table of contents.
       </p>
-      <p data-i18n="content.privacy.m015">
-        <strong>Google Account Authorization and Google Drive Backup</strong>: Google Drive backup is optional. The extension uses Chrome's
-        <code>identity</code> permission only after you explicitly choose to connect your Google account and authorize access.
-        Authentication is handled by Chrome and Google OAuth.
-      </p>
-      <p data-i18n="content.privacy.m016">
-        The extension uses the resulting authorization token only for the user-requested Google Drive feature. When you choose
-        to back up an export, the selected Markdown content is uploaded directly from your browser to your own Google Drive
-        and is not routed through or stored on Wisteria Software servers.
-      </p>
-      <p data-i18n="content.privacy.m017">
-        After authorization, the extension may retrieve your Google account email address and display name to identify the
-        connected account. This account information, Drive connection state, and related folder identifiers are stored
-        locally in Chrome storage and are not sent to Wisteria Software servers. Google OAuth authorization tokens are
-        used only to communicate directly with Google services and are not sent to Wisteria Software servers. Google may
-        process account and uploaded file data according to Google's own privacy policy and terms.
-      </p>
+      <p data-i18n="content.privacy.m015"><strong>Google Drive backup</strong>: You can choose to connect and authorize your Google account to back up selected exports to your own Google Drive.</p>
+      <p data-i18n="content.privacy.m016">The extension uses your account email, display name and authorization token for the connection and backup. Connection details are stored locally in your browser.</p>
+      <p data-i18n="content.privacy.m017">Google handles account information and backup files under its privacy policy.</p>
       <p data-i18n="content.privacy.m018">
         <strong>Data We Collect</strong>: To manage your subscription and license, we may collect the following when
         paid features are enabled:
@@ -185,14 +171,7 @@
         Hosting providers, CDN services, and related infrastructure vendors may process standard technical request
         data as needed to serve this website securely and reliably.
       </p>
-      <p data-i18n="content.privacy.m036">
-        If you contact support, we may process the information you provide to respond to your request,
-        diagnose issues, and maintain customer support records where reasonably necessary. For Outlinesave bug reports,
-        the feedback page accepts a required problem description and optional contact email and screenshot, and may attach
-        limited diagnostic information such as the extension version, browser/system information, and browser language.
-        It does not automatically submit your AI conversation content, current conversation URL, or a screenshot; screenshots
-        are sent only when you choose to attach them.
-      </p>
+      <p data-i18n="content.privacy.m036"><strong>Bug reports</strong>: You choose to submit a problem description, with an optional contact email and screenshots, along with basic diagnostics such as the extension version. Reports are used to investigate and respond to issues and will not be made public without your permission.</p>
     </section>
 
     <section>
@@ -261,7 +240,7 @@
   <footer data-shared-footer=""></footer>
 
   <script src="i18n/config.js?v=20261016-navigation" defer=""></script>
-  <script src="i18n/locales/zh-Hans.js?v=20261030-privacy-concise" defer=""></script>
+  <script src="i18n/locales/zh-Hans.js?v=20261030-privacy-drive-feedback" defer=""></script>
   <script src="i18n.js?v=20261016-navigation" defer=""></script>
   <script src="analytics.js" defer=""></script>
 
