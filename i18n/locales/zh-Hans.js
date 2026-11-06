@@ -545,7 +545,6 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "purchase_annual_terms": "有效期一年",
       "purchase_lifetime_terms": "终身使用",
       "purchase_unlimited": "无限次高级 HTML 导出",
-      "purchase_pdf_unlimited": "无限次 PDF 导出",
       "purchase_search": "目录检索",
       "purchase_search_long_chats": "400+ 轮长对话的二级目录检索",
       "purchase_support": "优先技术支持",
