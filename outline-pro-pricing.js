@@ -17,23 +17,24 @@
   const dialog = document.createElement('dialog');
   dialog.className = 'op-mock-dialog';
   dialog.setAttribute('aria-labelledby', 'mock-title');
-  dialog.innerHTML = '<h2 id="mock-title"></h2><p data-mock-note></p><dl><dt data-mock-plan></dt><dd data-mock-total></dd><dt data-mock-discount-label></dt><dd data-mock-discount></dd></dl><p data-mock-changed role="status" hidden></p><div class="op-mock-actions"><button type="button" class="op-button op-button-primary" data-mock-complete></button><button type="button" class="op-button op-button-secondary" data-mock-cancel></button></div>';
+  dialog.innerHTML = '<button type="button" class="op-mock-close" data-mock-close>×</button><h2 id="mock-title"></h2><p data-mock-note></p><dl><dt data-mock-plan></dt><dd data-mock-total></dd></dl><p data-mock-billing></p><p data-mock-changed role="status" hidden></p><div class="op-mock-actions"><button type="button" class="op-button op-button-primary" data-mock-complete></button><button type="button" class="op-button op-button-secondary" data-mock-cancel></button></div>';
   document.body.append(dialog);
   const language = () => /^zh/i.test(document.documentElement.lang) ? 'zh-Hans' : 'en';
   const t = key => window.OutlineSavePricingMessages[language()][key];
   const replace = (value, key, text) => value.replace('{' + key + '}', text);
   const put = (selector, value) => {
-    const node = document.querySelector(selector);
-    if (node && node.textContent !== value) node.textContent = value;
+    for (const node of document.querySelectorAll(selector)) {
+      if (node.textContent !== value) node.textContent = value;
+    }
   };
   function showError(key = 'error') { error.textContent = t(key); error.hidden = false; }
   function updateSchema(state) {
-    const key = JSON.stringify([state.annual, state.lifetime, state.active, state.end]);
+    const key = JSON.stringify([state.quarterly, state.annual, state.annualOneTime, state.lifetime, state.active, state.end]);
     if (key === schemaKey) return;
     for (const item of graph['@graph']) {
       for (const offer of item.offers || []) {
         const lifetime = /Lifetime/.test(offer.name);
-        offer.price = ((lifetime ? state.lifetime : state.annual) / 100).toFixed(2);
+        offer.price = ((lifetime ? state.lifetime : /Quarterly/.test(offer.name) ? state.quarterly : /1-Year/.test(offer.name) ? state.annualOneTime : state.annual) / 100).toFixed(2);
         if (lifetime) {
           offer.description = 'One-time payment for lifetime Pro access. No subscription or renewal.';
           delete offer.priceValidUntil;
@@ -49,13 +50,13 @@
     schemaKey = key;
   }
   function renderMock(state) {
-    const total = mockPlan === 'annual' ? state.annual : state.lifetime;
+    const total = state[mockPlan];
     put('#mock-title', t('mockTitle'));
     put('[data-mock-note]', t('mockNote'));
     put('[data-mock-plan]', t(mockPlan) + ' · ' + t('total'));
     put('[data-mock-total]', model.money(total) + ' USD');
-    put('[data-mock-discount-label]', t('discount'));
-    put('[data-mock-discount]', model.money(mockPlan === 'lifetime' ? state.discount : 0));
+    put('[data-mock-billing]', t(mockPlan + 'Rule'));
+    dialog.querySelector('[data-mock-close]').setAttribute('aria-label', t('close'));
     put('[data-mock-complete]', t('complete'));
     put('[data-mock-cancel]', t('cancel'));
     put('[data-mock-changed]', t('changed'));
@@ -70,39 +71,22 @@
       // Display the release's verified USD prices immediately, then synchronize
       // in the background. Checkout charges by Paddle IDs, never these amounts.
       const state = model.snapshot(config);
+      put('[data-price="quarterly"]', model.money(state.quarterly));
       put('[data-price="annual"]', model.money(state.annual));
+      put('[data-price="annualOneTime"]', model.money(state.annualOneTime));
+      put('[data-price-monthly-value="annual"]', model.money(Math.round(state.annual / 12)));
+      put('[data-price-monthly-value="quarterly"]', model.money(Math.round(state.quarterly / 3)));
       put('[data-price="lifetime"]', model.money(state.lifetime));
       put('[data-regular-price]', model.money(state.regular));
       document.querySelectorAll('[data-promo]').forEach(node => { node.hidden = !state.active; });
       put('[data-saving]', replace(t('save'), 'amount', model.money(state.discount)));
-      // The value hint and campaign duration follow the supplied configuration.
-      // Hide the price-difference hint if a custom lifetime price is cheaper.
-      const difference = document.querySelector('[data-plan-difference]');
-      const showDifference = state.active && state.lifetime > state.annual;
-      difference.hidden = !showDifference;
-      document.querySelector('[data-regular-note]').hidden = showDifference;
-      put('[data-plan-difference]', replace(t('difference'), 'amount', model.money(state.lifetime - state.annual)));
-      const seconds = state.remaining;
-      for (const [unit, value] of Object.entries({ days: Math.floor(seconds / 86400),
-        hours: Math.floor(seconds / 3600) % 24, minutes: Math.floor(seconds / 60) % 60, seconds: seconds % 60 })) {
-        put('[data-time="' + unit + '"]', String(value).padStart(2, '0'));
-      }
-      document.querySelector('[data-countdown]').setAttribute('aria-label', t('timer'));
-      if (state.active) {
-        const days = new Intl.NumberFormat(language(), { maximumFractionDigits: 2 }).format((state.end - state.start) / 86400000);
-        put('[data-campaign-title]', replace(t('campaign'), 'days', days));
-        // All visitors see the same explicit campaign timezone and deadline.
-        const date = new Intl.DateTimeFormat(language(), { timeZone: 'Asia/Shanghai',
-          year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(state.end);
-        put('[data-offer-date]', replace(t('ends'), 'date', date + ' (UTC+8)'));
-      }
       buttons.forEach(button => {
         button.disabled = loading || mode === 'disabled';
         button.setAttribute('aria-busy', String(loading && button.dataset.purchasePlan === pendingPlan));
       });
       updateSchema(state);
       if (dialog.open) {
-        const total = mockPlan === 'annual' ? state.annual : state.lifetime;
+        const total = state[mockPlan];
         if (total !== mockTotal) dialog.querySelector('[data-mock-changed]').hidden = false;
         renderMock(state);
       }
@@ -153,7 +137,9 @@
       // Discard results that crossed the deadline while the requests were pending.
       if (generation !== priceGeneration || active !== paddlePrices.campaignActive(config)) return;
       const prices = paddlePrices.normalize(config, regular, discounted, active);
+      config.quarterly.amount = prices.quarterly;
       config.annual.amount = prices.annual;
+      config.annualOneTime.amount = prices.annualOneTime;
       config.lifetime.amount = prices.regular;
       if (active) config.campaign.discountAmount = prices.discount;
     })().catch(() => {
@@ -167,13 +153,13 @@
     return priceRequest;
   }
   async function purchase(plan) {
-    if (loading) return;
+    if (loading || !['quarterly', 'annual', 'lifetime'].includes(plan)) return;
     error.hidden = true;
     const state = render();
     if (!state) return;
     if (mode === 'mock' && local) {
       mockPlan = plan;
-      mockTotal = plan === 'annual' ? state.annual : state.lifetime;
+      mockTotal = state[plan];
       dialog.querySelector('[data-mock-changed]').hidden = true;
       // Exercise the exact same payload builder as a future live checkout.
       window.OutlineSaveMockCheckout = model.checkout(config, plan, Date.now(), window.OutlineSaveCheckoutReturn.settings());
@@ -195,16 +181,17 @@
         model.validateLive(config, options);
         render();
         return options;
-      });
+      }, () => model.billingSummary(config, plan));
     } catch (_) { showError(); }
     finally { loading = false; pendingPlan = null; render(); }
   }
   buttons.forEach(button => button.addEventListener('click', () => purchase(button.dataset.purchasePlan)));
+  dialog.querySelector('[data-mock-close]').addEventListener('click', () => dialog.close());
   dialog.querySelector('[data-mock-cancel]').addEventListener('click', () => dialog.close());
   dialog.querySelector('[data-mock-complete]').addEventListener('click', () => {
     const state = render();
     if (!state) return;
-    const total = mockPlan === 'annual' ? state.annual : state.lifetime;
+    const total = state[mockPlan];
     if (total !== mockTotal) {
       mockTotal = total;
       dialog.querySelector('[data-mock-changed]').hidden = false;
@@ -219,7 +206,6 @@
   new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   document.addEventListener('visibilitychange', () => { if (!document.hidden) { if (mode === 'live') refreshPrices(); render(); } });
   window.addEventListener('pageshow', render);
-  window.setInterval(render, 1000);
   if (mode === 'live') refreshPrices();
   render();
   if (new URLSearchParams(location.search).get('autoCheckout') === '1') {

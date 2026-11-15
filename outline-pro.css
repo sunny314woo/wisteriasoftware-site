@@ -70,7 +70,7 @@
 .op-table .op-pro-col { background: #f8f6ff; }
 .op-table thead .op-pro-col { background: #f0ecff; color: #4320ac; }
 .op-table tr:last-child :is(th,td) { border-bottom: 0; }
-.op-price-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 15px; max-width: 760px; margin: 25px auto 0; }
+.op-price-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; max-width: 1000px; margin: 25px auto 0; }
 .op-price-card { min-width: 0; padding: 24px 22px; border: 1px solid var(--line); border-radius: 12px; background: #fff; text-align: center; }
 .op-price-card h3 { margin: 0; color: #334155; font-size: 20px; }
 .op-price-for { margin: 4px 0 13px; color: var(--muted); font-size: 15px; }
@@ -188,11 +188,11 @@
 .op-page .op-button-secondary { border-color: #d9d3df; background: #fff; color: #39313f; }
 .op-page .op-button-secondary:hover { background: #faf8fc; }
 .op-page .op-price-card :is(.op-button-primary, .op-button-secondary) { border-color: var(--op-cta-border, #bda0f0); background: var(--op-cta-bg, #fff); color: var(--op-cta-ink, #7540bd); box-shadow: none; transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease; }
-/* Lifetime leads by default; hover or keyboard focus temporarily moves emphasis. */
-.op-page .op-price-card-lifetime,
+/* Annual leads by default; hover or keyboard focus temporarily moves emphasis. */
+.op-page .op-price-card-recommended,
 .op-page .op-price-card:has(.op-button:focus-visible) { --op-card-border: #a479df; --op-card-shadow: 0 9px 24px #7140a812, inset 0 0 0 1px #a479df; --op-cta-border: #8859dc; --op-cta-bg: #8859dc; --op-cta-ink: #fff; }
 .op-page .op-price-card:has(.op-button:focus-visible) { --op-card-lift: -3px; }
-.op-page .op-price-grid:has(.op-price-card:not(.op-price-card-lifetime) .op-button:focus-visible) .op-price-card-lifetime:not(:hover) { --op-card-border: #e5ddf1; --op-card-shadow: none; --op-cta-border: #bda0f0; --op-cta-bg: #fff; --op-cta-ink: #7540bd; }
+.op-page .op-price-grid:has(.op-price-card:not(.op-price-card-recommended) .op-button:focus-visible) .op-price-card-recommended:not(:hover) { --op-card-border: #e5ddf1; --op-card-shadow: none; --op-cta-border: #bda0f0; --op-cta-bg: #fff; --op-cta-ink: #7540bd; }
 @media (hover: hover) and (pointer: fine) {
   .op-page .op-price-card:hover { --op-card-border: #a479df; --op-card-shadow: 0 9px 24px #7140a812, inset 0 0 0 1px #a479df; --op-card-lift: -3px; --op-cta-border: #8859dc; --op-cta-bg: #8859dc; --op-cta-ink: #fff; }
   .op-page .op-price-grid:has(.op-price-card:hover) .op-price-card:not(:hover) { --op-card-border: #e5ddf1; --op-card-shadow: none; --op-card-lift: 0px; --op-cta-border: #bda0f0; --op-cta-bg: #fff; --op-cta-ink: #7540bd; }
@@ -288,9 +288,19 @@
 @media (max-width: 380px) {
   .outline-pro-storefront .nav-wrap { flex-wrap: wrap; gap: 4px; }
   .outline-pro-storefront header nav { margin-left: auto; }
-  .op-page .op-price-card, .op-page .op-price-card-lifetime { padding-inline: 15px; }
+  .op-page .op-price-card, .op-page .op-price-card-recommended { padding-inline: 15px; }
 }
 
 .op-product-intro-link { margin: 15px 0 3px; font-size: 13px; line-height: 1.6; text-align: center; }
 .op-product-intro-link a { color: #796589; }
 .op-product-intro-link a:hover { color: #7540bd; }
+
+.op-page .op-plan-features { font-size: 16px; gap: 12px; }
+.op-page .op-price-terms { min-height: 52px; font-size: 14px; }
+.op-page .op-plan-heading { display: block; min-height: 95px; }
+.op-page .op-price-card h3 { display: grid; gap: 8px; }
+.op-page .op-card-duration { width: fit-content; }
+.op-page .op-plan-heading .op-sale-note { display: block; margin-top: 8px; }
+.op-comparison .op-table { min-width: 620px; }
+.op-subscription-note { margin: 16px 0 0; color: #64596f; text-align: center; font-size: 14px; line-height: 1.6; }
+@media (min-width: 601px) and (max-width: 900px) { .op-page .op-price-grid { grid-template-columns: minmax(0,1fr); } }

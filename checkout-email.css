@@ -38,6 +38,12 @@
   font-size: 14px;
 }
 
+.checkout-email .checkout-billing { margin:0 0 22px; padding:14px 16px; border:1px solid #e8e1ef; border-radius:10px; background:#faf8fc; }
+.checkout-email .checkout-billing[hidden] { display:none; }
+.checkout-email .checkout-billing-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:14px; }
+.checkout-email .checkout-billing-heading span { color:#715b86; font-size:12px; }
+.checkout-email .checkout-billing p { margin:7px 0 0; color:#75677e; font-size:12px; line-height:1.7; }
+
 .checkout-email label {
   display: block;
   margin-bottom: 8px;

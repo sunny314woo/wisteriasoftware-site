@@ -8,12 +8,25 @@
   window.OutlineSavePricingConfig = {
     mode: 'live',
     enableLiveCheckout: true,
+    freeDirectoryLimit: 100,
+    freeExportWeeklyLimit: 3,
+    salePlans: ['quarterly', 'annual', 'lifetime'],
     paddleClientToken: 'live_3d23a490eb6f34c96ae919a7b4c',
     ...input,
+    quarterly: {
+      amount: 1000,
+      priceId: 'pri_01m74vhtdxefs3w61p1nzvpcd4',
+      ...input.quarterly,
+    },
     annual: {
       amount: 2499,
-      priceId: 'pri_01kqsj92jxydy135ep6cdex06f',
+      priceId: 'pri_01m74vq83rxs0zkpvsnksmtz0s',
       ...input.annual,
+    },
+    annualOneTime: {
+      amount: 2499,
+      priceId: 'pri_01kqsj92jxydy135ep6cdex06f',
+      ...input.annualOneTime,
     },
     lifetime: {
       amount: 4999,
@@ -22,6 +35,7 @@
       ...input.lifetime,
     },
     campaign: {
+      enabled: false,
       startsAt: '2026-10-16T00:00:00+08:00',
       endsAt: '2026-11-15T00:00:00+08:00',
       discountAmount: 1000,

@@ -3,6 +3,7 @@
   let dialog;
   let checkoutOptions;
   let preferences;
+  let billing;
 
   const copy = {
     en: {
@@ -12,6 +13,14 @@
       wechatNote: '',
       cancel: 'Cancel',
       continue: 'Continue to payment',
+      subscribe: 'Continue to subscription',
+      subscription: 'Subscription', oneTime: 'No auto-renewal',
+      quarterly: 'Quarterly subscription', annual: 'Annual subscription',
+      annualOneTime: '1-year license', lifetime: 'Lifetime license',
+      quarterlyRule: 'Auto-renews every 3 months. Cancel renewal anytime; Pro stays active until your paid period ends.',
+      annualRule: 'Auto-renews yearly. Cancel renewal anytime; Pro stays active until your paid period ends.',
+      annualOneTimeRule: 'One payment. Valid for one year, with no auto-renewal.',
+      lifetimeRule: 'One payment. Lifetime access, with no auto-renewal.',
       error: 'Checkout is temporarily unavailable. Please try again.',
     },
     'zh-Hans': {
@@ -21,6 +30,13 @@
       wechatNote: '温馨提示：使用微信支付时，付款确认及激活码发送可能需要约15分钟。请留意邮箱，已付款请勿重复支付。',
       cancel: '取消',
       continue: '继续付款',
+      subscribe: '继续订阅',
+      subscription: '订阅', oneTime: '不自动续费',
+      quarterly: '季度订阅', annual: '年度订阅', annualOneTime: '一年授权', lifetime: '终身许可证',
+      quarterlyRule: '每 3 个月自动续费。可随时取消续费，当前付费周期内权益保留。',
+      annualRule: '每年自动续费。可随时取消续费，当前付费周期内权益保留。',
+      annualOneTimeRule: '一次付款，一年有效，不自动续费。',
+      lifetimeRule: '一次付款，永久有效，不自动续费。',
       error: '暂时无法打开支付窗口，请重试。',
     },
     'zh-TW': {
@@ -30,6 +46,13 @@
       wechatNote: '溫馨提示：使用微信支付時，付款確認及啟用碼寄送可能需要約15分鐘。請留意信箱，已付款請勿重複支付。',
       cancel: '取消',
       continue: '繼續付款',
+      subscribe: '繼續訂閱',
+      subscription: '訂閱', oneTime: '不自動續費',
+      quarterly: '季度訂閱', annual: '年度訂閱', annualOneTime: '一年授權', lifetime: '終身許可證',
+      quarterlyRule: '每 3 個月自動續費。可隨時取消續費，目前付費週期內權益保留。',
+      annualRule: '每年自動續費。可隨時取消續費，目前付費週期內權益保留。',
+      annualOneTimeRule: '一次付款，一年有效，不自動續費。',
+      lifetimeRule: '一次付款，永久有效，不自動續費。',
       error: '暫時無法開啟付款視窗，請重試。',
     },
   };
@@ -66,6 +89,10 @@
         <p class="checkout-email-brand">OutlineSave Pro</p>
         <h2 id="checkout-email-title"></h2>
         <p id="checkout-email-description"></p>
+        <section class="checkout-billing" hidden aria-live="polite">
+          <div class="checkout-billing-heading"><strong data-checkout-plan></strong><span data-checkout-billing-type></span></div>
+          <p data-checkout-billing-rule></p>
+        </section>
         <label for="checkout-email-input"></label>
         <input id="checkout-email-input" name="email" type="email" autocomplete="email"
           inputmode="email" enterkeyhint="go" autocapitalize="none" spellcheck="false"
@@ -110,12 +137,26 @@
     });
   }
 
+  function renderBilling(text) {
+    const summary = typeof billing === 'function' ? billing() : billing;
+    const known = summary && ['quarterly', 'annual', 'annualOneTime', 'lifetime'].includes(summary.plan)
+      && summary.type === (['quarterly', 'annual'].includes(summary.plan) ? 'subscription' : 'one-time');
+    dialog.querySelector('.checkout-billing').hidden = !known;
+    if (known) {
+      dialog.querySelector('[data-checkout-plan]').textContent = text[summary.plan];
+      dialog.querySelector('[data-checkout-billing-type]').textContent = text[summary.type === 'subscription' ? 'subscription' : 'oneTime'];
+      dialog.querySelector('[data-checkout-billing-rule]').textContent = text[summary.plan + 'Rule'];
+    }
+    dialog.querySelector('.checkout-email-continue').textContent = known && summary.type === 'subscription' ? text.subscribe : text.continue;
+  }
+
   window.OutlineSaveCheckout = {
-    open(options) {
+    open(options, summary) {
       if (!options) throw new Error('Missing checkout options');
       if (!dialog) createDialog();
       if (dialog.open) return;
       checkoutOptions = options;
+      billing = summary;
       preferences = checkoutPreferences();
       const text = copy[preferences.locale];
       dialog.lang = preferences.locale;
@@ -126,7 +167,7 @@
       wechatNote.textContent = text.wechatNote;
       wechatNote.hidden = !text.wechatNote;
       dialog.querySelector('.checkout-email-cancel').textContent = text.cancel;
-      dialog.querySelector('.checkout-email-continue').textContent = text.continue;
+      renderBilling(text);
       dialog.querySelector('.checkout-email-error').hidden = true;
       dialog.showModal();
     },

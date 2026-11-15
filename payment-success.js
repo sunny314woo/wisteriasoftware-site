@@ -8,10 +8,17 @@
   "waitingConfirmation": "Waiting for payment confirmation",
   "processing": "Your activation code will be available once payment is confirmed.",
   "gratitude": "Thank you for purchasing OutlineSave and supporting our work.",
+  "quarterly_subscriptionPlan": "PRO Quarterly Subscription",
+  "annual_subscriptionPlan": "PRO Annual Subscription",
+  "quarterly_subscriptionTerms": "Subscription \u00b7 Auto-renews every 3 months \u00b7 Cancel renewal anytime",
+  "annual_subscriptionTerms": "Subscription \u00b7 Auto-renews yearly \u00b7 Cancel renewal anytime",
+  "subscriptionManageHelp": "To cancel renewal, open your avatar in the extension → PRO status → Manage subscription, then cancel renewal on the Paddle page. You can also use the billing link in your Paddle receipt email. Pro stays active until your paid period ends.",
+  "quarterly_subscriptionActivated": "Activate once. Renewals extend the same code. Canceling renewal keeps Pro until your paid period ends.",
+  "annual_subscriptionActivated": "Activate once. Renewals extend the same code. Canceling renewal keeps Pro until your paid period ends.",
   "genericPlan": "OutlineSave License",
   "annualPlan": "PRO 1-Year License",
   "lifetimePlan": "PRO Lifetime License",
-  "genericTerms": "One-time payment \u00b7 No auto-renewal",
+  "genericTerms": "Your license terms are shown in your order confirmation.",
   "annualTerms": "One-time payment \u00b7 Valid for 1 year \u00b7 No auto-renewal",
   "lifetimeTerms": "One-time payment \u00b7 No expiry \u00b7 No auto-renewal",
   "genericActivated": "After activation, open your membership status to check your license details.",
@@ -98,7 +105,7 @@
     put('order-email-label', emailCopy[0]); put('order-email-help', emailCopy[1]); put('order-email-submit', emailCopy[2]);
     el('order-email-submit').disabled = state.querying;
     const unavailable = ['expired', 'invalid', 'email'].includes(state.status);
-    const plan = ['annual', 'lifetime'].includes(state.plan) ? state.plan : 'generic';
+    const plan = ['annual', 'lifetime', 'quarterly_subscription', 'annual_subscription'].includes(state.plan) ? state.plan : 'generic';
     document.body.dataset.state = ready ? 'ready' : 'waiting';
     document.body.dataset.longCode = String(state.code.length > 40);
     put('mark', ready ? '✓' : unavailable ? '–' : '…');
@@ -107,6 +114,11 @@
     put('plan', text(`${plan}Plan`));
     put('terms', text(`${plan}Terms`));
     put('activated', text(`${plan}Activated`));
+    const manage = el('subscription-management-help');
+    if (manage) {
+      manage.hidden = !ready || !['quarterly_subscription', 'annual_subscription'].includes(plan);
+      if (!manage.hidden) manage.textContent = text('subscriptionManageHelp');
+    }
     document.title = el('heading').textContent + ' · OutlineSave';
     put('code-sub', ready ? text('codeSubtitle') : text('waitingSubtitle'));
     el('license-box').hidden = !ready;

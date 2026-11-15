@@ -24,67 +24,62 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#6d3fcb">
   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://wisteriasoftware.uk/#organization",
-          "name": "Wisteria Software Ltd.",
-          "url": "https://wisteriasoftware.uk/",
-          "email": "support@wisteriasoftware.uk"
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://wisteriasoftware.uk/#website",
-          "name": "Wisteria Software",
-          "url": "https://wisteriasoftware.uk/",
-          "inLanguage": "en",
-          "publisher": {
-            "@id": "https://wisteriasoftware.uk/#organization"
-          }
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "OutlineSave",
-          "applicationCategory": "BrowserApplication",
-          "operatingSystem": "Chrome",
-          "description": "ChatGPT and Gemini outline navigator with unlimited navigation, Q&A bookmarks, Markdown and HTML export, and personal Google Drive backup.",
-          "offers": {
-            "@type": "Offer",
-            "price": "24.99",
-            "priceCurrency": "USD",
-            "url": "https://wisteriasoftware.uk/outline-pro.html#pricing"
-          },
-          "publisher": {
-            "@id": "https://wisteriasoftware.uk/#organization"
-          }
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "EnglishFlow",
-          "applicationCategory": "BrowserApplication",
-          "operatingSystem": "Chrome",
-          "description": "A context-aware language assistant for bilingual reading and natural replies on Reddit and X.",
-          "url": "https://wisteriasoftware.uk/englishflow/",
-          "publisher": {
-            "@id": "https://wisteriasoftware.uk/#organization"
-          }
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Baby Player",
-          "applicationCategory": "MultimediaApplication",
-          "operatingSystem": "tvOS",
-          "description": "An open-source Apple TV player for children's and family media from Jellyfin or Samba sources, with bilingual lyrics and subtitle workflows.",
-          "url": "https://github.com/sunny314woo/babyplayer"
-        }
-      ]
+      "@type": "Organization",
+      "@id": "https://wisteriasoftware.uk/#organization",
+      "name": "Wisteria Software Ltd.",
+      "url": "https://wisteriasoftware.uk/",
+      "email": "support@wisteriasoftware.uk"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://wisteriasoftware.uk/#website",
+      "name": "Wisteria Software",
+      "url": "https://wisteriasoftware.uk/",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://wisteriasoftware.uk/#organization"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "OutlineSave",
+      "applicationCategory": "BrowserApplication",
+      "operatingSystem": "Chrome",
+      "description": "ChatGPT and Gemini outline navigator with unlimited navigation, Q&A bookmarks, Markdown and HTML export, and personal Google Drive backup.",
+      "publisher": {
+        "@id": "https://wisteriasoftware.uk/#organization"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "EnglishFlow",
+      "applicationCategory": "BrowserApplication",
+      "operatingSystem": "Chrome",
+      "description": "A context-aware language assistant for bilingual reading and natural replies on Reddit and X.",
+      "url": "https://wisteriasoftware.uk/englishflow/",
+      "publisher": {
+        "@id": "https://wisteriasoftware.uk/#organization"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Baby Player",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "tvOS",
+      "description": "An open-source Apple TV player for children's and family media from Jellyfin or Samba sources, with bilingual lyrics and subtitle workflows.",
+      "url": "https://github.com/sunny314woo/babyplayer"
     }
+  ]
+}
   </script>
+  <link rel="stylesheet" href="outlinesave-site.css?v=20261111-approved">
 </head>
 
-<body>
+<body class="suite-home">
 
   <!-- Header -->
   <!-- 【MODIFIED】Shared navigation mount: i18n.js renders the homepage-standard navbar here. -->
@@ -95,30 +90,80 @@
 
     <div class="hero split-hero">
       <div>
-        <span class="eyebrow" data-i18n="content.index.m001">UK independent software company</span>
         <h1 class="hero-title" data-i18n="content.index.m002">
           Software for people who work seriously with AI.
         </h1>
-        <p class="subtitle" data-i18n="content.index.m003">
-          <strong>Wisteria Software</strong> is a UK-registered independent software company building local-first
-          tools for the AI era. We help developers, researchers, creators, and daily AI power users navigate long
-          conversations, preserve important context, and turn useful output into a second brain they can actually own.
-        </p>
+        <p class="subtitle" data-i18n="content.index.m003">Find what matters in long conversations, keep useful AI output, and return to it when you need it. Local-first tools for a knowledge workflow you control.</p>
         <div class="hero-actions">
           <a class="btn-link primary" href="outlinesave.html" data-i18n="content.index.m004">Explore OutlineSave</a>
           <a class="btn-link secondary" href="product.html" data-i18n="content.index.m005">See the Product Suite</a>
         </div>
       </div>
 
-      <aside class="hero-card">
-        <h2 data-i18n="content.index.m006">What We Care About</h2>
-        <ul class="hero-points">
-          <li data-i18n="content.index.m007"><strong>Data ownership:</strong> local-first workflows that keep important material under your control.</li>
-          <li data-i18n="content.index.m008"><strong>Flow:</strong> tools that reduce scrolling, searching, copying, and context switching.</li>
-          <li data-i18n="content.index.m009"><strong>Memory:</strong> a practical second-brain layer for the work AI helps you create.</li>
-        </ul>
-      </aside>
+      <aside class="hero-card"><h2 data-i18n="content.index.workflow_title">From a conversation to your knowledge library</h2><ol class="site-workflow"><li><span>01</span><div><strong data-i18n="content.index.workflow_find_title">Find the answer</strong><p data-i18n="content.index.workflow_find_body">OutlineSave gives long conversations an outline.</p></div></li><li><span>02</span><div><strong data-i18n="content.index.workflow_keep_title">Keep what matters</strong><p data-i18n="content.index.workflow_keep_body">Bookmark key ideas, then export the conversation.</p></div></li><li><span>03</span><div><strong data-i18n="content.index.workflow_return_title">Return to your knowledge</strong><p data-i18n="content.index.workflow_return_body">Organize and revisit useful material locally.</p></div></li></ol></aside>
     </div>
+
+    <section>
+      <h2 data-i18n="content.index.m015">Wisteria Suite</h2>
+      <p data-i18n="content.index.m016">
+        Our products focus on practical, low-friction tools for organizing AI work, communicating across languages,
+        building local knowledge, and controlling family media at home.
+      </p>
+      <div class="product-grid">
+        <article class="product-card">
+          <h3 data-i18n="content.index.m018">OutlineSave</h3>
+          <p class="subtitle" data-i18n="content.index.m019">Organize conversations in ChatGPT, Gemini, Claude and DeepSeek. Navigate the outline, mark key ideas, and export HTML, PDF or Markdown.</p>
+          <div class="hero-actions">
+            <a class="btn-link primary" href="outlinesave.html" data-i18n="content.index.m020">View OutlineSave</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <h3 data-i18n="content.index.m030">EnglishFlow</h3>
+          <p class="subtitle" data-i18n="content.index.m031">
+            A context-aware language assistant for Reddit and X. Read conversations bilingually and draft natural
+            replies you can review before sending.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-link primary" href="englishflow/" data-i18n="content.index.m032">View EnglishFlow</a>
+            <a class="btn-link secondary" href="englishflow-privacy.html" data-i18n="content.index.m033">View Privacy</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <h3 data-i18n="content.index.m026">Inbox</h3>
+          <p class="subtitle" data-i18n="content.index.m027">
+            A local-first knowledge workspace for organizing and revisiting AI conversations, captured material, and
+            working notes. Currently available as Inbox Local for macOS.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-link primary" href="inbox.html" data-i18n="content.index.m028">View Inbox</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <h3 data-i18n="content.index.m022">Inbox Capture</h3>
+          <p class="subtitle" data-i18n="content.index.m023">
+            A browser companion for saving useful web text, screenshots, images, and notes into your knowledge workflow.
+          </p>
+          <div class="hero-actions">
+            <a class="btn-link primary" href="inbox.html" data-i18n="content.index.m024">View Inbox</a>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <h3 data-i18n="content.index.m039">Baby Player</h3>
+          <p class="subtitle" data-i18n="content.index.m040">
+            An open-source Apple TV player for children's and family local media. Browse Jellyfin or Samba sources,
+            use bilingual lyrics and subtitles, and keep playback under family control.
+          </p>
+          <p class="small-note">
+            <span data-i18n="content.index.m041">GitHub (copy address):</span>
+            <code style="user-select:all;overflow-wrap:anywhere;word-break:break-word;">https://github.com/sunny314woo/babyplayer</code>
+          </p>
+        </article>
+      </div>
+    </section>
 
     <section>
       <div class="section-intro">
@@ -144,75 +189,7 @@
       </div>
     </section>
 
-    <section>
-      <h2 data-i18n="content.index.m015">Wisteria Suite</h2>
-      <p data-i18n="content.index.m016">
-        Our products focus on practical, low-friction tools for organizing AI work, communicating across languages,
-        building local knowledge, and controlling family media at home.
-      </p>
-      <div class="product-grid">
-        <article class="product-card">
-          <span class="status-pill available" data-i18n="content.index.m017">Available now</span>
-          <h3 data-i18n="content.index.m018">OutlineSave</h3>
-          <p class="subtitle" data-i18n="content.index.m019">
-            A smart sidebar outline for long ChatGPT and Gemini conversations. Jump to messages, bookmark key turns,
-            export to Markdown or HTML, and back up chats to your own Google Drive.
-          </p>
-          <div class="hero-actions">
-            <a class="btn-link primary" href="outlinesave.html" data-i18n="content.index.m020">View OutlineSave</a>
-          </div>
-        </article>
 
-        <article class="product-card">
-          <span class="status-pill available" data-i18n="content.index.m029">Available now</span>
-          <h3 data-i18n="content.index.m030">EnglishFlow</h3>
-          <p class="subtitle" data-i18n="content.index.m031">
-            A context-aware language assistant for Reddit and X. Read conversations bilingually and draft natural
-            replies you can review before sending.
-          </p>
-          <div class="hero-actions">
-            <a class="btn-link primary" href="englishflow/" data-i18n="content.index.m032">View EnglishFlow</a>
-            <a class="btn-link secondary" href="englishflow-privacy.html" data-i18n="content.index.m033">View Privacy</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <span class="status-pill download" data-i18n="content.index.m025">Download available</span>
-          <h3 data-i18n="content.index.m026">Inbox</h3>
-          <p class="subtitle" data-i18n="content.index.m027">
-            A local-first knowledge workspace for organizing and revisiting AI conversations, captured material, and
-            working notes. Currently available as Inbox Local for macOS.
-          </p>
-          <div class="hero-actions">
-            <a class="btn-link primary" href="inbox.html" data-i18n="content.index.m028">View Inbox</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <span class="status-pill available" data-i18n="content.index.m021">Available now</span>
-          <h3 data-i18n="content.index.m022">Inbox Capture</h3>
-          <p class="subtitle" data-i18n="content.index.m023">
-            A browser companion for saving useful web text, screenshots, images, and notes into your knowledge workflow.
-          </p>
-          <div class="hero-actions">
-            <a class="btn-link primary" href="inbox.html" data-i18n="content.index.m024">View Inbox</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <span class="status-pill available" data-i18n="content.index.m038">Open source</span>
-          <h3 data-i18n="content.index.m039">Baby Player</h3>
-          <p class="subtitle" data-i18n="content.index.m040">
-            An open-source Apple TV player for children's and family local media. Browse Jellyfin or Samba sources,
-            use bilingual lyrics and subtitles, and keep playback under family control.
-          </p>
-          <p class="small-note">
-            <span data-i18n="content.index.m041">GitHub (copy address):</span>
-            <code style="user-select:all;overflow-wrap:anywhere;word-break:break-word;">https://github.com/sunny314woo/babyplayer</code>
-          </p>
-        </article>
-      </div>
-    </section>
 
     <section>
       <h2 data-i18n="content.index.m034">For People Who Depend on AI</h2>
@@ -234,10 +211,12 @@
   <footer data-shared-footer=""></footer>
 
   <script src="i18n/config.js?v=20261016-navigation" defer=""></script>
-  <script src="i18n/locales/zh-Hans.js?v=20261016-navigation" defer=""></script>
+  <script src="i18n/locales/zh-Hans.js?v=20261111-approved" defer=""></script>
   <script src="i18n.js?v=20261016-navigation" defer=""></script>
   <script src="analytics.js" defer=""></script>
 
 
 
+<script src="outline-pro-pricing-config.js?v=20261111-approved" defer></script>
+<script src="site-copy-params.js?v=20261111-approved" defer></script>
 </body></html>
