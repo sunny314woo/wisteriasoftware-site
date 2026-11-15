@@ -18,31 +18,27 @@
   padding: clamp(24px, 5vw, 32px);
 }
 
-.checkout-email .checkout-email-brand {
-  margin: 0 0 12px;
-  color: var(--primary, #5b4acb);
-  font-size: 13px;
-  font-weight: 700;
+.checkout-email-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
 }
 
 .checkout-email h2 {
-  margin: 0 0 12px;
+  margin: 0;
   font-size: 23px;
   line-height: 1.4;
   letter-spacing: -0.02em;
 }
 
 .checkout-email #checkout-email-description {
-  margin: 0 0 24px;
+  margin: 0 0 22px;
   color: var(--muted, #64748b);
   font-size: 14px;
+  line-height: 1.6;
 }
-
-.checkout-email .checkout-billing { margin:0 0 22px; padding:14px 16px; border:1px solid #e8e1ef; border-radius:10px; background:#faf8fc; }
-.checkout-email .checkout-billing[hidden] { display:none; }
-.checkout-email .checkout-billing-heading { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; font-size:14px; }
-.checkout-email .checkout-billing-heading span { color:#715b86; font-size:12px; }
-.checkout-email .checkout-billing p { margin:7px 0 0; color:#75677e; font-size:12px; line-height:1.7; }
 
 .checkout-email label {
   display: block;
@@ -63,16 +59,24 @@
   font-size: 16px;
 }
 
-.checkout-email :is(input, button):focus-visible {
-  outline: 3px solid var(--primary, #5b4acb);
-  outline-offset: 3px;
+.checkout-email input:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 1px #94a3b8, 0 0 0 3px rgb(148 163 184 / 14%);
+}
+
+.checkout-email button:focus-visible {
+  outline: 2px solid #667085;
+  outline-offset: 2px;
 }
 
 .checkout-email .checkout-email-hint {
-  margin: 10px 0 0;
+  margin: 14px 0 0;
   color: var(--muted, #64748b);
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 1.6;
 }
+
+.checkout-email .checkout-email-hint strong { color: var(--text, #0f172a); }
 
 .checkout-email .checkout-email-error {
   margin: 16px 0 0;
@@ -85,7 +89,7 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 22px;
 }
 
 .checkout-email button {
@@ -103,8 +107,30 @@
 
 .checkout-email .checkout-email-continue {
   border-color: transparent;
-  background: var(--primary, #5b4acb);
+  background: #2868c7;
   color: #fff;
+  min-width: 88px;
+}
+
+.checkout-email .checkout-email-close {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  min-height: 40px;
+  margin: -8px -8px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #667085;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.checkout-email .checkout-email-close:hover {
+  background: #f3f4f6;
+  filter: none;
 }
 
 .checkout-email button:hover {
