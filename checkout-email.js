@@ -6,21 +6,21 @@
 
   const copy = {
     'zh-Hans': {
-      title: '确认接收邮箱',
-      description: '付款确认后，激活码会显示在成功页，也会发送到此邮箱。',
+      title: '接收激活码的邮箱',
+      description: '激活码是启用插件 PRO 权益的凭证。付款确认后会显示在成功页，并发送到此邮箱，方便长期保存。请确认邮箱地址无误。',
       label: '邮箱地址',
       wechatNote: '如使用微信支付，页面可能稍慢；激活码邮件可能需要约几分钟。',
-      repeatWarning: '请勿重复支付。',
+      repeatWarning: '若已扣款，请勿重复支付。',
       close: '关闭',
       continue: '继续',
       error: '暂时无法打开支付窗口，请重试。',
     },
     'zh-TW': {
-      title: '確認接收信箱',
-      description: '付款確認後，啟用碼會顯示在成功頁，也會寄送至此信箱。',
+      title: '接收啟用碼的信箱',
+      description: '啟用碼是啟用擴充功能 PRO 權益的憑證。付款確認後會顯示在成功頁，並寄送至此信箱，方便長期保存。請確認電子郵件地址無誤。',
       label: '電子郵件地址',
       wechatNote: '如使用微信支付，頁面可能稍慢；啟用碼郵件可能需要約幾分鐘。',
-      repeatWarning: '請勿重複支付。',
+      repeatWarning: '若已扣款，請勿重複支付。',
       close: '關閉',
       continue: '繼續',
       error: '暫時無法開啟付款視窗，請重試。',
@@ -109,7 +109,7 @@
   }
 
   window.OutlineSaveCheckout = {
-    open(options) {
+    open(options, plan) {
       if (!options) throw new Error('Missing checkout options');
       if (dialog?.open) return;
       checkoutOptions = options;
@@ -124,8 +124,11 @@
       dialog.querySelector('h2').textContent = text.title;
       dialog.querySelector('#checkout-email-description').textContent = text.description;
       dialog.querySelector('label').textContent = text.label;
-      dialog.querySelector('[data-wechat-note]').textContent = text.wechatNote;
-      dialog.querySelector('[data-repeat-warning]').textContent = text.repeatWarning;
+      const wechatHint = dialog.querySelector('#checkout-wechat-note');
+      wechatHint.hidden = plan !== 'lifetime' || preferences.country !== 'CN';
+      dialog.querySelector('[data-wechat-note]').textContent = wechatHint.hidden ? '' : text.wechatNote;
+      dialog.querySelector('[data-repeat-warning]').textContent = wechatHint.hidden ? '' : text.repeatWarning;
+      dialog.querySelector('input').setAttribute('aria-describedby', wechatHint.hidden ? 'checkout-email-description' : 'checkout-wechat-note');
       dialog.querySelector('.checkout-email-close').setAttribute('aria-label', text.close);
       dialog.querySelector('.checkout-email-close').textContent = '×';
       dialog.querySelector('.checkout-email-continue').textContent = text.continue;
