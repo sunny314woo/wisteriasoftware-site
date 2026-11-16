@@ -168,6 +168,7 @@
       return;
     }
     if (mode !== 'live') { showError('configured'); return; }
+    try { window.OutlineSaveGrowth?.record('plan_selected', plan); } catch (_) {}
     try {
       loading = true;
       pendingPlan = plan;

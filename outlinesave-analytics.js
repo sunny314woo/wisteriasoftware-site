@@ -24,10 +24,11 @@
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 3000);
       try {
-        const response = await fetch('https://api.wisteriasoftware.uk/api/public/analytics', {
+        const endpoint = event.event === 'payment_popup_open' ? 'analytics' : 'growth';
+        const response = await fetch('https://api.wisteriasoftware.uk/api/public/' + endpoint, {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(event), credentials: 'omit', referrerPolicy: 'no-referrer',
-          keepalive: true, signal: controller.signal,
+          keepalive: true, signal: controller.signal, priority: 'low',
         });
         if (response.status === 400 && 'operating_system' in event) {
           // Older servers still receive the original counter during rollout.
@@ -45,6 +46,8 @@
     checkoutEvent(name) {
       try {
         if (!['wisteriasoftware.uk', 'www.wisteriasoftware.uk'].includes(location.hostname)) return;
+        const action = { 'checkout.loaded': 'loaded', 'checkout.closed': 'closed', 'checkout.error': 'failed' }[name];
+        if (action && (name !== 'checkout.loaded' || !loaded)) window.OutlineSaveGrowth?.record('checkout_result', action);
         if (name === 'checkout.closed' || name === 'checkout.completed') {
           openEvent = null;
           loaded = false;
@@ -57,4 +60,25 @@
       } catch (_) { /* Never touch payment UI or its error handling. */ }
     },
   };
+
+  // This short-lived flow ID connects an upgrade click to checkout. It grants no rights.
+  try {
+    if (!['wisteriasoftware.uk', 'www.wisteriasoftware.uk'].includes(location.hostname)) return;
+    const query = new URLSearchParams(location.search || '');
+    const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+    const incoming = query.get('os_flow');
+    const flowId = uuid.test(incoming || '') ? incoming : crypto.randomUUID();
+    const entry = uuid.test(incoming || '') && ['html', 'pdf', 'directory', 'account'].includes(query.get('os_entry')) ? query.get('os_entry') : 'unknown';
+    function record(event, action) {
+      try {
+        void send({ event, event_id: crypto.randomUUID(), occurred_at: new Date().toISOString(),
+          flow_id: flowId, entry, action }).catch(() => {});
+      } catch (_) { /* Checkout proceeds when observations are unavailable. */ }
+    }
+    window.OutlineSaveGrowth = {
+      record,
+      customData: () => ({ outlinesave_flow: flowId }),
+    };
+    if (/^\/outline-pro(?:\.html)?\/?$/.test(location.pathname || '')) record('pricing_view', 'shown');
+  } catch (_) { /* Older or restricted browsers retain the normal payment flow. */ }
 })();

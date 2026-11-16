@@ -50,10 +50,15 @@
   }
 
   function resolveOptions() {
-    return typeof checkoutOptions === 'function' ? checkoutOptions() : {
+    const options = typeof checkoutOptions === 'function' ? checkoutOptions() : {
       items: [{ priceId: checkoutOptions, quantity: 1 }],
       settings: window.OutlineSaveCheckoutReturn.settings(),
     };
+    try {
+      const attribution = window.OutlineSaveGrowth?.customData();
+      if (attribution) options.customData = { ...options.customData, ...attribution };
+    } catch (_) { /* Attribution is optional for every purchase. */ }
+    return { ...options, customData: { ...options.customData, license_email_locale: preferences.locale === 'en' ? 'en' : 'zh' } };
   }
 
   function createDialog() {
