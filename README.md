@@ -1,6 +1,6 @@
 # Wisteria 官网源码说明
 
-更新时间：2026-10-16。当前为静态 HTML / CSS / 原生 JavaScript 站点，无站点根目录构建依赖。维护原则：限定项目范围、保留已发布 URL、中英文同步、保持支付和授权兼容。
+更新时间：2026-11-17。当前为静态 HTML / CSS / 原生 JavaScript 站点。OutlineSave 的介绍页和价格页在发布时预生成中英文正文、导航与页脚，复用既有 jsdom@26 检查依赖。维护原则：限定项目范围、保留已发布 URL、中英文同步、保持支付和授权兼容。
 
 **先读源码仓库的 [官网与技术文档维护手册](https://github.com/sunny314woo/wisteria-suite/blob/main/apps/website/WEBSITE_RELEASE_RUNBOOK.md)**，其中包含准确目录、分支职责、本地预览、检查命令、Paddle / 服务器边界、发布和回滚。该手册在 monorepo 内，访问需要对应仓库权限；不随公开站点同步。
 
@@ -13,6 +13,8 @@
 - 技术文档 / 博客：独立仓库 `sunny314woo/wisteria-tech-docs`，发布到 <https://blog.wisteriasoftware.uk/>，不由此目录生成。
 
 功能分支用于开发，推送后不会自动更新官网。只有相应官网变更进入 main 才触发同步；GitHub push 不会部署授权服务器。
+
+`Sync website repo` 先运行 `scripts/render-outlinesave-pages.cjs` 和静态回归，再同步生成目录。英文正文维护在根目录两份 HTML，中文维护在 `i18n/locales/zh-Hans.js`。发布产物增加 `zh-Hans/outlinesave.html` 与 `zh-Hans/outline-pro.html`，语言关联和 canonical 随页面提供。原有 `?lang=` 入口继续支持。预览静态产物时，在 monorepo 根目录运行 `NODE_PATH=/tmp/wisteria-website-checks/node_modules node scripts/render-outlinesave-pages.cjs /tmp/wisteria-website-public`，然后在该输出目录启动本地静态服务器。
 
 ## 页面分工
 

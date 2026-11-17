@@ -38,6 +38,7 @@
 .os-export-shot a { border-radius: 15px; }
 .os-assurances { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; padding: 52px 0 34px; border-top: 1px solid #eee8f5; }
 .os-assurances article { min-width: 0; }
+.os-assurances article:first-child { grid-column: 1 / -1; }
 .os-assurances h2 { margin-bottom: 13px; font-size: 22px; font-weight: 675; letter-spacing: -.03em; }
 .os-assurances p, .os-assurances a { margin: 0; color: #7a6f83; font-size: 14px; line-height: 1.9; }
 .os-platform-note { margin: 0 0 40px; color: #958a9f; font-size: 12px; line-height: 1.7; }

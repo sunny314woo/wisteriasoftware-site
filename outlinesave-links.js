@@ -4,7 +4,10 @@
   const source = new URLSearchParams(location.search).get('source');
   function updateLinks() {
     links.forEach(link => {
-      const url = new URL(link.dataset.outlinesaveLink, location.href);
+      const url = new URL(link.dataset.outlinesaveLink, document.baseURI);
+      if (document.documentElement.dataset.staticLanguage === 'zh-Hans' && /^\/(outlinesave|outline-pro)\.html$/.test(url.pathname)) {
+        url.pathname = '/zh-Hans' + url.pathname;
+      }
       url.searchParams.set('lang', document.documentElement.lang === 'zh-Hans' ? 'zh-CN' : 'en');
       if (source) url.searchParams.set('source', source);
       link.href = url.pathname + url.search + url.hash;

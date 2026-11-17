@@ -139,6 +139,8 @@
       saveLanguage(queried, true);
       return queried;
     }
+    const staticLanguage = document.documentElement.dataset.staticLanguage;
+    if (selectable.has(staticLanguage)) return staticLanguage;
     const saved = readSavedLanguage();
     if (supported.has(saved)) return saved;
     const pathLocale = pathLanguage();
@@ -224,6 +226,13 @@
     const normalized = normalizeLanguage(language);
     if (!selectable.has(normalized)) return;
     saveLanguage(normalized, true);
+    if (document.documentElement.dataset.staticLanguage && normalized === defaultLocale) {
+      const url = new URL(window.location.href);
+      url.pathname = `/${pageKey()}`;
+      url.searchParams.set("lang", publicLanguageCode(normalized));
+      window.location.assign(url.href);
+      return;
+    }
     const target = languageUrl(normalized);
     if (target !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
       window.history.replaceState(null, "", target);
@@ -479,8 +488,8 @@
   function translatePage(language) {
     const dictionary = currentDictionary(language);
     const pageConfig = dictionary.pages && dictionary.pages[pageKey()];
-    if (!pageConfig) return;
-    translatePageMetadata(pageConfig, language);
+    if (!pageConfig && language !== defaultLocale) return;
+    translatePageMetadata(pageConfig || {}, language);
   }
 
   /**

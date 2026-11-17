@@ -127,8 +127,8 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "description": "通过 Paddle 在本站完成的符合条件的 OutlineSave 数字购买之退款政策。"
     },
     "outlinesave.html": {
-      "title": "OutlineSave – 400+ 个问题，也能找对那一条",
-      "description": "为 ChatGPT、Gemini、Claude 和 DeepSeek 整理完整目录，定位答案、标记重点，并导出 HTML、PDF 或 Markdown。免费版保留基础功能，Pro 解锁全部目录跳转和无限次 HTML / PDF 导出。"
+      "title": "OutlineSave – AI 对话目录、标记与 HTML/PDF 导出",
+      "description": "为 ChatGPT、Gemini、Claude 和 DeepSeek 整理完整目录、查找答案并标记重点。每个 ChatGPT 聊天前 100 条及已加载条目可免费跳转，HTML/PDF 每周共用 3 次免费导出。"
     },
     "outline-pro.html": {
       "title": "OutlineSave PRO — 订阅与终身授权",
@@ -442,7 +442,7 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
     "outlinesave": {
       "hero_title": "<span class=\"os-hero-emphasis\">400 多条提问，</span>也能生成完整目录。",
       "hero_subtitle": "通过目录检索，快速找到你要的重点。",
-      "free_essentials": "完整目录均可查看和查找。每个 ChatGPT 聊天前 <span data-free-directory-limit>…</span> 条一级目录可通过插件导航免费跳转。",
+      "free_essentials": "完整目录均可查看和查找。每个 ChatGPT 聊天前 <span data-free-directory-limit>100</span> 条一级目录及已加载条目可免费跳转。",
       "install": "免费安装到 Chrome",
       "pricing": "了解 Pro <span aria-hidden=\"true\">→</span>",
       "compatibility": "支持 ChatGPT、Gemini、Claude 和 DeepSeek · 本地优先",
@@ -456,20 +456,23 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
       "feature_math_title": "复制 Markdown 与数学公式",
       "feature_math_body": "选中文字，一键复制为 Markdown，保留行内和独立数学公式的 LaTeX 格式，方便整理笔记和科研写作。",
       "feature_backup_title": "灵活导出与备份",
-      "feature_backup_body": "支持 Markdown、JSON 导出，可保存完整对话或仅保存书签内容，也能手动备份 Markdown 到自己的 Google Drive。",
-      "export_title": "导出可搜索的离线 HTML",
+      "feature_backup_body": "Markdown、JSON 导出不限次数，可保存完整对话或仅保存书签内容，也能手动备份 Markdown 到自己的 Google Drive，以及备份和恢复 ChatGPT 标记。",
+      "export_title": "用 HTML 或 PDF 保存对话",
       "export_p1": "把长对话保存为一个独立 HTML 文件，即使没有网络也能阅读和回顾。",
       "export_p2": "保留目录、全文搜索、高亮、备注、代码与数学公式。导出后仍能快速定位、筛选重点。",
+      "export_pdf": "ChatGPT 支持直接导出带可搜索文字和目录书签的 PDF，方便打印与分享。",
       "export_full": "打开完整 HTML 导出截图",
       "export_caption": "实际产品截图：导出后的离线 HTML 阅读页面。",
       "useful_label": "其他功能",
+      "loaded_title": "免费跳转与已加载内容",
+      "loaded_body": "免费范围按每个 ChatGPT 聊天分别计算。前 <span data-free-directory-limit>100</span> 条一级目录，以及聊天正文已加载过的条目均可免费跳转，二级标题跟随所属一级条目。超过此范围且仍需加载的条目需要 Pro 或有效试用。全部目录始终可查看和查找。",
       "sidebar_title": "灵活侧边栏，减少阅读干扰",
       "sidebar_body": "固定或浮动显示，随时折叠、隐藏或调整位置。需要目录时展开，不需要时保持阅读界面整洁。",
       "privacy_title": "本地优先，内容由你掌控",
       "privacy_body": "无需注册账户，AI 对话主要在浏览器本地处理。Google Drive 备份由你手动选择并触发。",
       "platform_note": "* 不同 AI 平台的具体功能与目录加载方式可能有所不同。",
       "next_title": "免费开始，需要时再升级 Pro",
-      "free_note": "免费版可查找全部目录，使用书签与标记，HTML / PDF 每周共用 1 次导出。“用目录继续定位”与直接点击目录适用同一免费跳转额度。Pro 解锁全部目录跳转和不限次 HTML / PDF 导出。",
+      "free_note": "免费版可查找全部目录，使用书签与标记，HTML / PDF 每周共用 <span data-free-export-weekly-limit>3</span> 次导出，每周一 00:00 UTC（北京时间 08:00）补满，当周剩余额度不累计。Markdown / JSON 导出不限次数。“用目录继续定位”与直接点击目录适用同一免费跳转额度。Pro 解锁全部目录跳转和不限次 HTML / PDF 导出。",
       "trust": "订阅可随时取消续费，当前付费周期内权益保留。也可选择一次性授权。",
       "refund_link": "14 天退款政策 <span aria-hidden=\"true\">→</span>",
       "sales_intro_link": "了解 Outlinesave 的完整功能 <span aria-hidden=\"true\">→</span>"

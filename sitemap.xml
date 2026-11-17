@@ -21,11 +21,31 @@
   </url>
   <url>
     <loc>https://wisteriasoftware.uk/outlinesave.html</loc>
-    <lastmod>2026-10-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wisteriasoftware.uk/outlinesave.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://wisteriasoftware.uk/zh-Hans/outlinesave.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wisteriasoftware.uk/outlinesave.html" />
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://wisteriasoftware.uk/zh-Hans/outlinesave.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wisteriasoftware.uk/outlinesave.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://wisteriasoftware.uk/zh-Hans/outlinesave.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wisteriasoftware.uk/outlinesave.html" />
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://wisteriasoftware.uk/outline-pro.html</loc>
-    <lastmod>2026-04-30</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wisteriasoftware.uk/outline-pro.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://wisteriasoftware.uk/zh-Hans/outline-pro.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wisteriasoftware.uk/outline-pro.html" />
+    <lastmod>2026-11-17</lastmod>
+  </url>
+  <url>
+    <loc>https://wisteriasoftware.uk/zh-Hans/outline-pro.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wisteriasoftware.uk/outline-pro.html" />
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://wisteriasoftware.uk/zh-Hans/outline-pro.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wisteriasoftware.uk/outline-pro.html" />
+    <lastmod>2026-11-17</lastmod>
   </url>
   <url>
     <loc>https://wisteriasoftware.uk/pricing.html</loc>

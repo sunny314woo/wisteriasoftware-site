@@ -21,6 +21,8 @@
 
 生产 HTML 使用资源版本参数，更新脚本后也要更新相应引用。`zh-Hans/` 旧页面保留 `<base href="../" />`，属于兼容入口，不是新的主维护路径。
 
+OutlineSave 介绍页和价格页在发布时另行预生成 `zh-Hans/outlinesave.html` 与 `zh-Hans/outline-pro.html`，源内容仍统一维护在英文 HTML 和本词典中。生成页保存英文原文，支持运行时切换；直接打开中文静态地址时优先使用页面语言，显式 `?lang=` 仍具有最高优先级。相关脚本为仓库根目录 `scripts/render-outlinesave-pages.cjs`。
+
 ## 内容和属性翻译
 
 ```html
