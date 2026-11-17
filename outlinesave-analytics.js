@@ -4,6 +4,7 @@
   if (window.OutlineSaveAnalytics) return;
   let openEvent = null;
   let loaded = false;
+  let legacyGrowthEntries = false;
 
   function checkoutMetadata() {
     const platform = navigator.userAgentData?.platform || navigator.platform || '';
@@ -36,6 +37,11 @@
           event = legacy;
           continue;
         }
+        if (response.status === 400 && event.entry === 'extension') {
+          // During a staggered rollout, preserve the existing flow on older collectors.
+          legacyGrowthEntries = true;
+          return send({ ...event, entry: 'unknown' });
+        }
         if (response.ok || (response.status >= 400 && response.status < 500)) return;
       } catch (_) { /* Best effort, with the same ID on retry. */ }
       finally { clearTimeout(timer); }
@@ -67,12 +73,17 @@
     const query = new URLSearchParams(location.search || '');
     const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
     const incoming = query.get('os_flow');
-    const flowId = uuid.test(incoming || '') ? incoming : crypto.randomUUID();
-    const entry = uuid.test(incoming || '') && ['html', 'pdf', 'directory', 'account'].includes(query.get('os_entry')) ? query.get('os_entry') : 'unknown';
+    const hasIncomingFlow = uuid.test(incoming || '');
+    const flowId = hasIncomingFlow ? incoming : crypto.randomUUID();
+    const incomingEntry = query.get('os_entry');
+    const legacyEntry = query.get('source') === 'chatgpt-outline-extension' ? 'extension' : 'unknown';
+    const entry = hasIncomingFlow && ['html', 'pdf', 'directory', 'account'].includes(incomingEntry)
+      ? incomingEntry : legacyEntry;
     function record(event, action) {
       try {
         void send({ event, event_id: crypto.randomUUID(), occurred_at: new Date().toISOString(),
-          flow_id: flowId, entry, action }).catch(() => {});
+          flow_id: flowId, entry: entry === 'extension' && legacyGrowthEntries ? 'unknown' : entry,
+          action }).catch(() => {});
       } catch (_) { /* Checkout proceeds when observations are unavailable. */ }
     }
     window.OutlineSaveGrowth = {
