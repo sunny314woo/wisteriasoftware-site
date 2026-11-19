@@ -1,8 +1,8 @@
 /* Counts actual Paddle overlay loads; never receives checkout/customer data. */
 (() => {
   'use strict';
-  if (window.OutlineSaveAnalytics) return;
-  let openEvent = null;
+  const queue = window.OutlineSaveAnalyticsQueue;
+  if (window.OutlineSaveAnalytics && !queue) return;
   let loaded = false;
   let legacyGrowthEntries = false;
 
@@ -22,6 +22,7 @@
 
   async function send(event) {
     for (let attempt = 0; attempt < 2; attempt++) {
+      if (queue?.isOpening()) return;
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 3000);
       try {
@@ -48,48 +49,48 @@
     }
   }
 
-  window.OutlineSaveAnalytics = {
-    checkoutEvent(name) {
-      try {
-        if (!['wisteriasoftware.uk', 'www.wisteriasoftware.uk'].includes(location.hostname)) return;
-        const action = { 'checkout.loaded': 'loaded', 'checkout.closed': 'closed', 'checkout.error': 'failed' }[name];
-        if (action && (name !== 'checkout.loaded' || !loaded)) window.OutlineSaveGrowth?.record('checkout_result', action);
-        if (name === 'checkout.closed' || name === 'checkout.completed') {
-          openEvent = null;
-          loaded = false;
-        } else if (name === 'checkout.loaded' && !loaded) {
-          openEvent = { event: 'payment_popup_open', event_id: crypto.randomUUID(),
-            occurred_at: new Date().toISOString(), ...checkoutMetadata() };
-          loaded = true;
-          void send(openEvent).catch(() => {});
-        }
-      } catch (_) { /* Never touch payment UI or its error handling. */ }
-    },
-  };
+  let record;
+  function checkoutEvent(name, occurredAt) {
+    try {
+      if (!['wisteriasoftware.uk', 'www.wisteriasoftware.uk'].includes(location.hostname)) return;
+      const action = { 'checkout.loaded': 'loaded', 'checkout.closed': 'closed', 'checkout.error': 'failed' }[name];
+      if (action && (name !== 'checkout.loaded' || !loaded)) record?.('checkout_result', action, occurredAt);
+      if (name === 'checkout.closed' || name === 'checkout.completed') {
+        loaded = false;
+      } else if (name === 'checkout.loaded' && !loaded) {
+        const event = { event: 'payment_popup_open', event_id: crypto.randomUUID(),
+          occurred_at: occurredAt || new Date().toISOString(), ...checkoutMetadata() };
+        loaded = true;
+        void send(event).catch(() => {});
+      }
+    } catch (_) { /* Never touch payment UI or its error handling. */ }
+  }
 
   // This short-lived flow ID connects an upgrade click to checkout. It grants no rights.
+  if (!queue) window.OutlineSaveAnalytics = { checkoutEvent };
   try {
     if (!['wisteriasoftware.uk', 'www.wisteriasoftware.uk'].includes(location.hostname)) return;
     const query = new URLSearchParams(location.search || '');
     const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
     const incoming = query.get('os_flow');
     const hasIncomingFlow = uuid.test(incoming || '');
-    const flowId = hasIncomingFlow ? incoming : crypto.randomUUID();
+    const flowId = queue?.flowId || (hasIncomingFlow ? incoming : crypto.randomUUID());
     const incomingEntry = query.get('os_entry');
     const legacyEntry = query.get('source') === 'chatgpt-outline-extension' ? 'extension' : 'unknown';
     const entry = hasIncomingFlow && ['html', 'pdf', 'directory', 'account'].includes(incomingEntry)
       ? incomingEntry : legacyEntry;
-    function record(event, action) {
+    record = function (event, action, occurredAt) {
       try {
-        void send({ event, event_id: crypto.randomUUID(), occurred_at: new Date().toISOString(),
+        void send({ event, event_id: crypto.randomUUID(), occurred_at: occurredAt || new Date().toISOString(),
           flow_id: flowId, entry: entry === 'extension' && legacyGrowthEntries ? 'unknown' : entry,
           action }).catch(() => {});
       } catch (_) { /* Checkout proceeds when observations are unavailable. */ }
-    }
-    window.OutlineSaveGrowth = {
-      record,
-      customData: () => ({ outlinesave_flow: flowId }),
     };
-    if (/^\/outline-pro(?:\.html)?\/?$/.test(location.pathname || '')) record('pricing_view', 'shown');
+    if (queue) {
+      queue.connect({ record, checkoutEvent });
+    } else {
+      window.OutlineSaveGrowth = { record, customData: () => ({ outlinesave_flow: flowId }) };
+      if (/^\/(?:zh-Hans\/)?outline-pro(?:\.html)?\/?$/.test(location.pathname || '')) record('pricing_view', 'shown');
+    }
   } catch (_) { /* Older or restricted browsers retain the normal payment flow. */ }
 })();

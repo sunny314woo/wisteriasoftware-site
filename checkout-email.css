@@ -23,7 +23,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 24px;
 }
 
 .checkout-email h2 {
@@ -31,13 +31,6 @@
   font-size: 23px;
   line-height: 1.4;
   letter-spacing: -0.02em;
-}
-
-.checkout-email #checkout-email-description {
-  margin: 0 0 22px;
-  color: var(--muted, #64748b);
-  font-size: 14px;
-  line-height: 1.6;
 }
 
 .checkout-email label {
@@ -62,6 +55,72 @@
 .checkout-email input:focus-visible {
   outline: none;
   box-shadow: inset 0 0 0 1px #94a3b8, 0 0 0 3px rgb(148 163 184 / 14%);
+}
+
+.checkout-region {
+  min-inline-size: 0;
+  padding: 0;
+  margin: 18px 0 0;
+  border: 0;
+}
+
+.checkout-region legend {
+  padding: 0;
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.checkout-region-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.checkout-email .checkout-region-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 46px;
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  color: #334155;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.checkout-email .checkout-region-option:hover { background: #f8fafc; }
+
+.checkout-email .checkout-region-option:has(:checked) {
+  border-color: #2868c7;
+  background: #f1f7ff;
+  color: #17498e;
+  font-weight: 650;
+}
+
+.checkout-email .checkout-region-option:has(:focus-visible) {
+  outline: 2px solid #2868c7;
+  outline-offset: 2px;
+}
+
+.checkout-email .checkout-region-option input {
+  flex: 0 0 16px;
+  inline-size: 16px;
+  block-size: 16px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  accent-color: #2868c7;
+  cursor: pointer;
+}
+
+.checkout-email .checkout-region-option input:focus-visible { box-shadow: none; }
+
+@media (max-width: 360px) {
+  .checkout-email .checkout-region-option { gap: 8px; padding-inline: 9px; }
 }
 
 .checkout-email button:focus-visible {

@@ -17,7 +17,7 @@
   <meta name="twitter:description" content="Full directory navigation and unlimited HTML/PDF exports. Choose quarterly, annual or lifetime Pro.">
   <link rel="stylesheet" href="style.css?v=20261016-navigation">
   <link rel="stylesheet" href="outline-pro-storefront.css?v=20261115-three-plans">
-  <link rel="stylesheet" href="checkout-email.css?v=20261115-zh-checkout">
+  <link rel="stylesheet" href="checkout-email.css?v=20261119-billing-region">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -266,9 +266,73 @@
  </section>
 </main>
 <footer data-shared-footer=""><div class="footer-links"><div class="footer-group"><h2 data-footer-group="products" data-i18n-original-text="Products">Products</h2><ul role="list"><li><a data-i18n-base-href="outlinesave.html" href="outlinesave.html" data-i18n-original-text="OutlineSave">OutlineSave</a></li><li><a data-i18n-base-href="englishflow/" href="englishflow/" data-i18n-original-text="EnglishFlow">EnglishFlow</a></li><li><a data-i18n-base-href="inbox.html" href="inbox.html" data-i18n-original-text="Inbox">Inbox</a></li></ul></div><div class="footer-group"><h2 data-footer-group="support" data-i18n-original-text="Help &amp; Support">Help &amp; Support</h2><ul role="list"><li><a data-i18n-key="support-help-guides" data-i18n-base-href="support.html#help-guides" href="support.html#help-guides" data-i18n-original-text="Help &amp; Guides">Help &amp; Guides</a></li><li><a data-i18n-key="support-contact" data-i18n-base-href="support.html#contact" href="support.html#contact" data-i18n-original-text="Contact Support">Contact Support</a></li></ul></div><div class="footer-group"><h2 data-footer-group="legal" data-i18n-original-text="Legal &amp; Policies">Legal &amp; Policies</h2><ul role="list"><li><a data-i18n-base-href="privacy.html" href="privacy.html" data-i18n-original-text="Privacy Policy">Privacy Policy</a></li><li><a data-i18n-base-href="englishflow-privacy.html" href="englishflow-privacy.html" data-i18n-original-text="EnglishFlow Privacy">EnglishFlow Privacy</a></li><li><a data-i18n-base-href="terms.html" href="terms.html" data-i18n-original-text="Terms of Service">Terms of Service</a></li><li><a data-i18n-base-href="refund.html" href="refund.html" data-i18n-original-text="Refund Policy">Refund Policy</a></li></ul></div></div><p data-i18n-original-html="© 2026 Wisteria Software Ltd.<br>Registered in England and Wales.<br>Company No. 16965144<br>Email: <a href=&quot;mailto:support@wisteriasoftware.uk&quot;>support@wisteriasoftware.uk</a>">© 2026 Wisteria Software Ltd.<br>Registered in England and Wales.<br>Company No. 16965144<br>Email: <a href="mailto:support@wisteriasoftware.uk">support@wisteriasoftware.uk</a></p></footer>
-  <script src="outlinesave-analytics.js?v=20261118-entry"></script>
+  <script id="pricing-observations" data-src="outlinesave-analytics.js?v=20261119-idle">
+    (() => {
+      try {
+        if (!['wisteriasoftware.uk', 'www.wisteriasoftware.uk'].includes(location.hostname)) return;
+        const src = document.currentScript.dataset.src;
+        const incoming = new URLSearchParams(location.search).get('os_flow');
+        const flowId = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(incoming || '')
+          ? incoming : crypto.randomUUID();
+        const queue = [];
+        const checkoutEvents = ['checkout.loaded', 'checkout.closed', 'checkout.completed', 'checkout.error'];
+        let collector, opening = false, scheduled = false, requested = false;
+
+        function flush() {
+          scheduled = false;
+          if (opening) return;
+          if (collector) {
+            while (queue.length && !opening) {
+              const [method, ...args] = queue.shift();
+              collector[method](...args);
+            }
+          } else if (!requested) {
+            requested = true;
+            const script = document.createElement('script');
+            script.async = true;
+            script.fetchPriority = 'low';
+            script.src = src;
+            document.head.append(script);
+          }
+        }
+
+        function schedule() {
+          if (opening || scheduled || !queue.length || document.readyState !== 'complete') return;
+          scheduled = true;
+          if (window.requestIdleCallback) window.requestIdleCallback(flush);
+          else setTimeout(flush, 0);
+        }
+
+        function enqueue(method, ...args) {
+          if (queue.length < 32) queue.push([method, ...args, new Date().toISOString()]);
+          schedule();
+        }
+
+        window.OutlineSaveAnalyticsQueue = {
+          flowId,
+          isOpening: () => opening,
+          connect(handlers) { collector = handlers; schedule(); },
+        };
+        window.OutlineSaveAnalytics = {
+          checkoutOpening() { opening = true; },
+          checkoutEvent(name) {
+            if (!checkoutEvents.includes(name)) return;
+            opening = false;
+            enqueue('checkoutEvent', name);
+          },
+        };
+        window.OutlineSaveGrowth = {
+          record: (event, action) => enqueue('record', event, action),
+          customData: () => ({ outlinesave_flow: flowId }),
+        };
+        // Both rendered copies of this pricing page carry this bootstrap.
+        enqueue('record', 'pricing_view', 'shown');
+        window.addEventListener('load', schedule, { once: true });
+      } catch (_) { /* Optional page statistics never gate checkout. */ }
+    })();
+  </script>
   <script src="checkout-return.js?v=20261024-email"></script>
-  <script src="checkout-email.js?v=20261116-growth"></script>
+  <script src="checkout-email.js?v=20261119-checkout-idle"></script>
   <script src="i18n/config.js?v=20261016-navigation" defer=""></script>
   <script src="i18n/locales/zh-Hans.js?v=20261117-product-content" defer=""></script>
   <script src="outline-pro-pricing-i18n.js?v=20261115-three-plans" defer=""></script>
