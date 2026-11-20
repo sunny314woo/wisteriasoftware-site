@@ -128,15 +128,6 @@
   outline-offset: 2px;
 }
 
-.checkout-email .checkout-email-hint {
-  margin: 14px 0 0;
-  color: var(--muted, #64748b);
-  font-size: 13px;
-  line-height: 1.6;
-}
-
-.checkout-email .checkout-email-hint strong { color: var(--text, #0f172a); }
-
 .checkout-email .checkout-email-error {
   margin: 16px 0 0;
   color: #b91c1c;

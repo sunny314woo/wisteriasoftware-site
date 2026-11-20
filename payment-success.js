@@ -25,8 +25,6 @@
   "annualActivated": "After activation, your status will show PRO 1-Year. Open it to view the expiry date.",
   "lifetimeActivated": "After activation, your status will show PRO Lifetime with no expiry.",
   "waitingCode": "Your activation code is being prepared.",
-  "wechatDelay": "WeChat Pay confirmation and email delivery may take around 15 minutes.",
-  "possibleWechatDelay": "If you paid with WeChat Pay, confirmation and email delivery may take around 15 minutes.",
   "refreshHelp": "Your code will be emailed to the address used at checkout. Refresh this page later to check again.",
   "checkEmailTitle": "Please check your payment email address",
   "checkEmail": "Open the return link from checkout to retrieve your code here, or use the code in your license email.",
@@ -125,11 +123,11 @@
     put('license-string', state.code);
     el('license-status').hidden = ready;
     el('refresh-row').hidden = ready || ['expired', 'invalid', 'email'].includes(state.status);
-    let title = state.wechat ? 'wechatDelay' : 'waitingCode';
-    let detail = state.wechat ? text('refreshHelp') : `${text('possibleWechatDelay')} ${text('refreshHelp')}`;
+    let title = 'waitingCode';
+    let detail = text('refreshHelp');
     if (state.status === 'expired') { title = 'sessionExpiredTitle'; detail = text('sessionExpiredDetail'); }
     if (state.status === 'invalid') { title = 'invalidSession'; detail = ''; }
-    if (state.status === 'email') { title = 'checkEmailTitle'; detail = `${text('checkEmail')} ${text('possibleWechatDelay')}`; }
+    if (state.status === 'email') { title = 'checkEmailTitle'; detail = text('checkEmail'); }
     put('waiting-title', text(title));
     if (!unavailable && !ready && !state.emailNeeded) detail += ' ' + waitingMessage(state.status === 'timeout');
     put('waiting-detail', detail);

@@ -2,7 +2,6 @@
 (function () {
   let dialog;
   let checkoutOptions;
-  let checkoutPlan;
 
   function browserLanguage() {
     return navigator.languages?.[0] || navigator.language || '';
@@ -56,15 +55,6 @@
     return dialog.querySelector('input[name="billing-region"]:checked')?.value;
   }
 
-  function updateWeChatNote() {
-    const note = dialog.querySelector('#checkout-wechat-note');
-    const show = checkoutPlan === 'lifetime' && selectedRegion() === 'CN';
-    note.hidden = !show;
-    const email = dialog.querySelector('#checkout-email-input');
-    if (show) email.setAttribute('aria-describedby', 'checkout-wechat-note');
-    else email.removeAttribute('aria-describedby');
-  }
-
   function createDialog() {
     dialog = document.createElement('dialog');
     dialog.className = 'checkout-email';
@@ -92,7 +82,6 @@
             </label>
           </div>
         </fieldset>
-        <p id="checkout-wechat-note" class="checkout-email-hint" hidden>如使用微信支付，页面可能稍慢；激活码邮件可能需要约几分钟。 <strong>若已扣款，请勿重复支付。</strong></p>
         <p class="checkout-email-error" role="alert" hidden></p>
         <div class="checkout-email-actions">
           <button type="submit" class="checkout-email-continue">继续</button>
@@ -102,7 +91,6 @@
     dialog.querySelector('input[value="CN"]').checked = /^zh-CN$/i.test(browserLanguage());
     dialog.querySelector('.checkout-email-close').addEventListener('click', () => dialog.close());
     const form = dialog.querySelector('form');
-    form.addEventListener('change', updateWeChatNote);
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       const email = dialog.querySelector('#checkout-email-input');
@@ -128,7 +116,7 @@
   }
 
   window.OutlineSaveCheckout = {
-    open(options, plan) {
+    open(options) {
       if (!options) throw new Error('Missing checkout options');
       if (dialog?.open) return;
       const locale = checkoutLocale();
@@ -137,9 +125,7 @@
         return;
       }
       checkoutOptions = options;
-      checkoutPlan = plan;
       if (!dialog) createDialog();
-      updateWeChatNote();
       dialog.querySelector('.checkout-email-error').hidden = true;
       dialog.showModal();
     },

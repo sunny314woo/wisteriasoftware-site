@@ -60,8 +60,6 @@
         "annualActivated": "Después de activarla, tu estado mostrará PRO de 1 año. Allí puedes consultar la fecha de caducidad.",
         "lifetimeActivated": "Después de activarla, tu estado mostrará PRO de por vida, sin fecha de caducidad.",
         "waitingCode": "Estamos preparando tu código de activación.",
-        "wechatDelay": "La confirmación de WeChat Pay y el envío del correo pueden tardar unos 15 minutos.",
-        "possibleWechatDelay": "Si pagaste con WeChat Pay, la confirmación y el envío del correo pueden tardar unos 15 minutos.",
         "refreshHelp": "Enviaremos el código al correo usado al pagar. Vuelve a cargar esta página más tarde para consultarlo.",
         "checkEmailTitle": "Revisa la dirección de correo usada al pagar",
         "checkEmail": "Abre el enlace de retorno del pago para obtener el código aquí, o usa el código del correo de tu licencia.",

@@ -24,9 +24,9 @@
   }
   function copy() {
     const lang = window.WisteriaI18n?.currentLanguage() || document.documentElement.lang;
-    if (/^zh.*(?:TW|HK|Hant)/i.test(lang)) return ['已經完成微信掃碼付款？支付結果可能需要一些時間同步。已付款請勿重複支付。', '查看支付狀態'];
-    if (/^zh/i.test(lang)) return ['已经完成微信扫码付款？支付结果可能需要一些时间同步。已付款请勿重复支付。', '查看支付状态'];
-    return ['Already paid with WeChat Pay? Confirmation may take some time. If you have paid, please do not pay again.', 'Check payment status'];
+    if (/^zh.*(?:TW|HK|Hant)/i.test(lang)) return ['已經完成付款？支付結果可能需要一些時間同步。已付款請勿重複支付。', '查看支付狀態'];
+    if (/^zh/i.test(lang)) return ['已经完成付款？支付结果可能需要一些时间同步。已付款请勿重复支付。', '查看支付状态'];
+    return ['Already paid? Confirmation may take some time. If you have paid, please do not pay again.', 'Check payment status'];
   }
   function show() {
     const value = current?.initiated ? current : read();
@@ -34,7 +34,6 @@
     if (!banner) {
       banner = document.createElement('aside');
       banner.className = 'checkout-recovery';
-      banner.setAttribute('aria-label', 'WeChat Pay');
       const message = document.createElement('p');
       message.setAttribute('role', 'status');
       const link = document.createElement('a');
@@ -42,6 +41,7 @@
       document.body.append(banner);
     }
     const [message, label] = copy();
+    banner.setAttribute('aria-label', label);
     banner.firstElementChild.textContent = message;
     const link = banner.lastElementChild;
     link.textContent = label;
