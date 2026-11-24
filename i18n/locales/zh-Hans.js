@@ -546,7 +546,6 @@ window.WISTERIA_I18N_DICTIONARIES["zh-Hans"]={
   "redesign_local": "本地优先",
   "redesign_refund": "14 天退款政策",
   "redesign_payment_details": "付款确认后，在成功页或付款邮箱获取激活码。",
-  "redesign_trial_note": "符合条件可在插件内开启 7 天免费试用。无需绑卡，不自动扣费。",
   "redesign_compare": "Free 与 PRO，一眼看懂。",
   "redesign_per_chat": "目录跳转额度按每个聊天计算。",
   "redesign_caption": "免费版与 PRO 功能对比",
