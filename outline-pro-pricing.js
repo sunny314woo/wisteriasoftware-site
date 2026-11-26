@@ -182,7 +182,7 @@
         model.validateLive(config, options);
         render();
         return options;
-      });
+      }, plan);
     } catch (_) { showError(); }
     finally { loading = false; pendingPlan = null; render(); }
   }

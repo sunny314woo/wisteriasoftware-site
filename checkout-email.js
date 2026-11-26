@@ -2,6 +2,9 @@
 (function () {
   let dialog;
   let checkoutOptions;
+  let paymentHint = '';
+  const subscriptionHint = '温馨提示：支付宝支付确认可能需要1–3分钟，个别情况可能更久。请耐心等待，避免重复付款。';
+  const lifetimeHint = '温馨提示：支付宝或微信支付确认通常需要几分钟，个别情况可能需要等待5–10分钟。请耐心等待，避免重复付款。';
 
   function browserLanguage() {
     return navigator.languages?.[0] || navigator.language || '';
@@ -55,6 +58,16 @@
     return dialog.querySelector('input[name="billing-region"]:checked')?.value;
   }
 
+  function updatePaymentHint() {
+    const hint = dialog.querySelector('#checkout-payment-hint');
+    const region = dialog.querySelector('.checkout-region');
+    const message = selectedRegion() === 'CN' ? paymentHint : '';
+    hint.hidden = !message;
+    hint.textContent = message;
+    if (message) region.setAttribute('aria-describedby', hint.id);
+    else region.removeAttribute('aria-describedby');
+  }
+
   function createDialog() {
     dialog = document.createElement('dialog');
     dialog.className = 'checkout-email';
@@ -82,6 +95,7 @@
             </label>
           </div>
         </fieldset>
+        <p id="checkout-payment-hint" class="checkout-email-hint" hidden></p>
         <p class="checkout-email-error" role="alert" hidden></p>
         <div class="checkout-email-actions">
           <button type="submit" class="checkout-email-continue">继续</button>
@@ -90,6 +104,7 @@
     document.body.append(dialog);
     dialog.querySelector('input[value="CN"]').checked = /^zh-CN$/i.test(browserLanguage());
     dialog.querySelector('.checkout-email-close').addEventListener('click', () => dialog.close());
+    dialog.querySelector('.checkout-region').addEventListener('change', updatePaymentHint);
     const form = dialog.querySelector('form');
     form.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -116,7 +131,7 @@
   }
 
   window.OutlineSaveCheckout = {
-    open(options) {
+    open(options, plan) {
       if (!options) throw new Error('Missing checkout options');
       if (dialog?.open) return;
       const locale = checkoutLocale();
@@ -125,7 +140,11 @@
         return;
       }
       checkoutOptions = options;
+      if (plan === 'lifetime') paymentHint = lifetimeHint;
+      else if (plan === 'quarterly' || plan === 'annual') paymentHint = subscriptionHint;
+      else paymentHint = '';
       if (!dialog) createDialog();
+      updatePaymentHint();
       dialog.querySelector('.checkout-email-error').hidden = true;
       dialog.showModal();
     },
