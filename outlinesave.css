@@ -89,3 +89,34 @@
   .outlinesave-intro .nav-wrap { flex-wrap: wrap; gap: 4px; }
   .outlinesave-intro header nav { margin-left: auto; }
 }
+
+/* Browser install choices: separate from purchase controls and shared primary buttons. */
+.os-install-group { display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px; width: 100%; }
+.os-install-button, .os-install-button:visited { display: inline-flex; flex: 1 1 170px; min-width: 0; align-items: center; justify-content: center; gap: 10px; padding: 13px 15px; border: 1px solid; border-radius: 14px; min-height: 64px; text-decoration: none; box-shadow: 0 2px 7px #30243c0b; transition: background-color .16s ease, box-shadow .16s ease, transform .16s ease; }
+.os-install-button img { display: block; flex: 0 0 32px; width: 32px; height: 32px; }
+.os-install-copy { display: flex; flex-direction: column; gap: 3px; min-width: 0; line-height: 1.3; text-align: left; }
+.os-install-title { font-size: 15px; font-weight: 700; }
+.os-install-subtitle { font-size: 12px; font-weight: 500; }
+.os-install-chrome, .os-install-chrome:visited { background: #f4edff; border-color: #d7c3f0; color: #6335a3; }
+.os-install-chrome .os-install-subtitle { color: #73558f; }
+.os-install-edge, .os-install-edge:visited { background: #edf8f8; border-color: #c3e2e5; color: #176c78; }
+.os-install-edge .os-install-subtitle { color: #386f76; }
+.os-install-chrome:hover { background: #eee2fc; color: #6335a3; }
+.os-install-edge:hover { background: #dff2f2; color: #176c78; }
+.os-install-button:hover { transform: translateY(-2px); box-shadow: 0 6px 15px #30243c12; text-decoration: none; }
+.os-pricing-link, .os-pricing-link:visited { display: inline-flex; align-items: center; gap: 5px; min-height: 34px; color: #7955aa; font-size: 15px; font-weight: 650; text-decoration: none; }
+.os-pricing-link:hover { text-decoration: underline; }
+.os-actions:has(.os-install-group) { gap: 8px; }
+.os-next-actions:has(.os-install-group) { flex: 0 1 410px; min-width: 0; flex-direction: column; align-items: flex-start; gap: 8px; }
+@media (max-width: 900px) {
+  .os-next-actions:has(.os-install-group) { flex: initial; width: 100%; max-width: 410px; }
+}
+@media (max-width: 650px) {
+  .os-install-group { gap: 10px; }
+  .os-install-button, .os-install-button:visited { flex-basis: 145px; padding: 12px 10px; gap: 8px; }
+  .os-install-title { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .os-install-button { transition: none; }
+  .os-install-button:hover { transform: none; }
+}

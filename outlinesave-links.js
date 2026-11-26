@@ -15,4 +15,11 @@
   }
   new MutationObserver(updateLinks).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
   updateLinks();
+  // Prefer the current browser without hiding either store or changing any destination.
+  if (/\bEdg\//.test(navigator.userAgent || '')) {
+    document.querySelectorAll('.os-install-group').forEach(group => {
+      const edge = group.querySelector('[data-browser-store="edge"]');
+      if (edge) group.prepend(edge);
+    });
+  }
 })();
